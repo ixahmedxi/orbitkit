@@ -2,6 +2,7 @@ $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell
 version: '0.2'
 ignorePaths:
   - node_modules
+  - pnpm-lock.yaml
 words:
   - astro
   - commitlint
