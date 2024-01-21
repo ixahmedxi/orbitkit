@@ -15,12 +15,15 @@
     "format": "bun format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
+    "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spell": "cspell \"**\""
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@orbitkit/tsconfig": "workspace:*",
     "cspell": "^8.3.2",
+    "markdownlint": "^0.33.0",
+    "markdownlint-cli": "^0.38.0",
     "prettier": "^3.2.4",
     "prettier-plugin-curly": "^0.1.3",
     "prettier-plugin-jsdoc": "^1.3.0",
