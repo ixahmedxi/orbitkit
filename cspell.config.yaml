@@ -1,10 +1,14 @@
 $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
 version: '0.2'
 ignorePaths:
-  - 'node_modules'
-  - 'bun.lockb'
+  - node_modules
+  - bun.lockb
 words:
-  - 'orbitkit'
-  - 'lockb'
-  - 'ianvs'
-  - 'packagejson'
+  - astro
+  - commitlint
+  - ianvs
+  - lockb
+  - orbitkit
+  - packagejson
+  - tailwindcss
+  - turborepo
