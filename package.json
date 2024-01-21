@@ -6,10 +6,6 @@
   "license": "MIT",
   "author": "OrbitKit",
   "type": "module",
-  "volta": {
-    "node": "20.11.0",
-    "pnpm": "8.14.1"
-  },
   "scripts": {
     "clean": "rimraf --glob **/node_modules **/dist **/.next **/.astro **/storybook-static **/.turbo pnpm-lock.yaml",
     "format": "pnpm format:write",
@@ -36,5 +32,9 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "rimraf": "^5.0.5",
     "typescript": "^5.3.3"
+  },
+  "volta": {
+    "node": "20.11.0",
+    "pnpm": "8.14.1"
   }
 }
