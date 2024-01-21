@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "astro-build.astro-vscode",
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "EditorConfig.EditorConfig",
+    "dsznajder.es7-react-js-snippets",
+    "tamasfe.even-better-toml",
+    "github.vscode-github-actions",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "GitHub.vscode-pull-request-github",
+    "DavidAnson.vscode-markdownlint",
+    "unifiedjs.vscode-mdx",
+    "christian-kohler.path-intellisense",
+    "YoavBls.pretty-ts-errors"
+  ]
+}
