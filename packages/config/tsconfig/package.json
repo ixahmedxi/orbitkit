@@ -10,5 +10,8 @@
     "./base.json",
     "./next.json",
     "./react.json"
-  ]
+  ],
+  "volta": {
+    "extends": "../../../package.json"
+  }
 }
