@@ -115,10 +115,10 @@ importers:
         specifier: workspace:^
         version: link:../tsconfig
       '@typescript-eslint/eslint-plugin':
-        specifier: ^6.19.0
+        specifier: ^6.19.1
         version: 6.19.1(@typescript-eslint/parser@6.19.1)(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/parser':
-        specifier: ^6.19.0
+        specifier: ^6.19.1
         version: 6.19.1(eslint@8.56.0)(typescript@5.3.3)
       eslint-config-next:
         specifier: ^14.1.0
