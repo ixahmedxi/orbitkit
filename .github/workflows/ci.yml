@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    name: Build and Test
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup Volta
+        uses: volta-cli/action@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Spell check
+        run: pnpm lint:spell
+
+      - name: Lint Markdown
+        run: pnpm lint:md
+
+      - name: Check Formatting
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm turbo lint
+
+      - name: Typecheck
+        run: pnpm turbo typecheck
+
+      - name: Build
+        run: pnpm turbo build
