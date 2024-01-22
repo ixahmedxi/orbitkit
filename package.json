@@ -7,11 +7,11 @@
   "author": "OrbitKit",
   "type": "module",
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.next **/.astro **/storybook-static **/.turbo pnpm-lock.yaml",
+    "clean": "rimraf --glob **/node_modules **/dist **/.next **/.astro **/storybook-static **/.turbo pnpm-lock.yaml **/.tsbuildinfo",
     "format": "pnpm format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
-    "lint": "eslint . --cache --cache-location ./node_modules/.cache/.eslintcache --max-warnings 0",
+    "lint": "eslint . --cache --max-warnings 0",
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky install",
@@ -37,6 +37,7 @@
     "prettier-plugin-packagejson": "^2.4.9",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "rimraf": "^5.0.5",
+    "turbo": "^1.11.3",
     "typescript": "^5.3.3"
   },
   "packageManager": "pnpm@8.14.1",

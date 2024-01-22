@@ -1,0 +1,35 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": ["dist"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": [".eslintcache"]
+    },
+    "//#lint": {
+      "cache": true,
+      "outputs": [".eslintcache"]
+    },
+    "typecheck": {
+      "cache": true,
+      "outputs": [".tsbuildinfo"]
+    },
+    "//#typecheck": {
+      "cache": true,
+      "outputs": [".tsbuildinfo"]
+    }
+  }
+}
