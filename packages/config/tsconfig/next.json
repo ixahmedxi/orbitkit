@@ -5,7 +5,6 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
-    "incremental": true,
     "plugins": [
       {
         "name": "next"
