@@ -1,0 +1,59 @@
+/** @type {import('eslint').Linter.Config} */
+const config = {
+  env: {
+    es2022: true,
+    node: true,
+  },
+  extends: ['plugin:eslint-comments/recommended', 'prettier'],
+  overrides: [
+    {
+      files: [
+        '**/*.ts',
+        '**/*.tsx',
+        '**/*.js',
+        '**/*.jsx',
+        '**/*.mjs',
+        '**/*.cjs',
+      ],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: true,
+      },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:@typescript-eslint/strict-type-checked',
+        'plugin:@typescript-eslint/stylistic-type-checked',
+      ],
+      rules: {
+        '@typescript-eslint/array-type': [
+          'error',
+          {
+            default: 'array-simple',
+            readonly: 'array-simple',
+          },
+        ],
+        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+        '@typescript-eslint/consistent-type-imports': [
+          'warn',
+          {
+            prefer: 'type-imports',
+            fixStyle: 'inline-type-imports',
+          },
+        ],
+        '@typescript-eslint/no-unused-vars': [
+          'warn',
+          { argsIgnorePattern: '^_' },
+        ],
+        '@typescript-eslint/require-await': 'error',
+        '@typescript-eslint/no-misused-promises': [
+          'error',
+          {
+            checksVoidReturn: { attributes: false },
+          },
+        ],
+      },
+    },
+  ],
+};
+
+module.exports = config;

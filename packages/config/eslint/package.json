@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-orbitkit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A package to share ESLint configurations in workspace",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "files": [
+    "./base.js",
+    "./next.js",
+    "./react.js"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint-config-next": "^14.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
