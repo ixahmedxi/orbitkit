@@ -1,0 +1,32 @@
+{
+  "name": "@orbitkit/tailwind",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tailwindcss preset for OrbitKit workspace",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "type": "module",
+  "exports": {
+    ".": "./src/preset.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.5",
+    "eslint-config-orbitkit": "workspace:^",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

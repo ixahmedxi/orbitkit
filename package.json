@@ -15,14 +15,14 @@
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky install",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.5.0",
     "@commitlint/config-conventional": "^18.5.0",
     "@commitlint/prompt-cli": "^18.5.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
-    "@orbitkit/tsconfig": "workspace:*",
+    "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint": "^8.56.2",
     "cspell": "^8.3.2",
     "eslint": "^8.56.0",

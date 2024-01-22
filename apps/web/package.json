@@ -11,7 +11,7 @@
     "dev": "next dev",
     "lint": "eslint . --cache --max-warnings 0",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
     "next": "14.1.0",
@@ -19,7 +19,8 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@orbitkit/tsconfig": "workspace:*",
+    "@orbitkit/tailwind": "workspace:^",
+    "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.11.5",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",

@@ -1,4 +1,4 @@
 {
   "extends": ["@orbitkit/tsconfig/base.json"],
-  "include": ["*.js", ".eslintrc.cjs"],
+  "include": ["**/*.ts", ".eslintrc.cjs"],
 }

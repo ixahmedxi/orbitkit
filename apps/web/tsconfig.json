@@ -1,7 +1,6 @@
 {
   "extends": ["@orbitkit/tsconfig/next.json"],
   "compilerOptions": {
-    "tsBuildInfoFile": ".tsbuildinfo",
     "paths": {
       "@/*": ["./src/*"],
     },
