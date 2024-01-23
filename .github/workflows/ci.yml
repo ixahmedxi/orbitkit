@@ -47,7 +47,7 @@ jobs:
         run: pnpm install
 
       - name: Spell check
-        run: pnpm lint:spell
+        run: pnpm turbo lint:spell
 
       - name: Lint Markdown
         run: pnpm turbo lint:md
