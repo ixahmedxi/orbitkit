@@ -50,10 +50,10 @@ jobs:
         run: pnpm lint:spell
 
       - name: Lint Markdown
-        run: pnpm lint:md
+        run: pnpm turbo lint:md
 
       - name: Check Formatting
-        run: pnpm format:check
+        run: pnpm turbo format:check
 
       - name: Lint
         run: pnpm turbo lint

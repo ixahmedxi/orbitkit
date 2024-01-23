@@ -19,6 +19,16 @@
       "dependsOn": ["^build"],
       "outputs": [".eslintcache"]
     },
+    "//#format:check": {
+      "cache": true
+    },
+    "//#lint:md": {
+      "cache": true,
+      "inputs": ["**/*.md", ".github/**/*.md"]
+    },
+    "//#lint:spell": {
+      "cache": true
+    },
     "//#lint": {
       "cache": true,
       "outputs": [".eslintcache"]
