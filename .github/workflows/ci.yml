@@ -8,8 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test
-    timeout-minutes: 15
+    name: CI
     runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -21,14 +20,28 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Setup Volta
-        uses: volta-cli/action@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Install node
-        run: volta install node
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          run_install: false
 
-      - name: Install pnpm
-        run: volta install pnpm
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
