@@ -40,6 +40,13 @@
     "//#typecheck": {
       "cache": true,
       "outputs": [".tsbuildinfo"]
-    }
+    },
+    "db:check": {},
+    "db:generate": {},
+    "db:migrate": {},
+    "db:pull": {},
+    "db:push": {},
+    "db:studio": {},
+    "db:up": {}
   }
 }

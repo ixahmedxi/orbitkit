@@ -8,12 +8,14 @@ ignorePaths:
 words:
   - astro
   - commitlint
+  - esbenp
   - ianvs
   - lockb
+  - neondatabase
+  - nextjs
   - orbitkit
   - packagejson
   - tailwindcss
   - tsbuildinfo
   - turborepo
   - typecheck
-  - esbenp
