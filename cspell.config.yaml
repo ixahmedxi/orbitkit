@@ -5,8 +5,10 @@ ignorePaths:
   - pnpm-lock.yaml
   - .tsbuildinfo
   - .gitignore
+  - dist
 words:
   - astro
+  - clsx
   - commitlint
   - esbenp
   - ianvs
@@ -17,5 +19,6 @@ words:
   - packagejson
   - tailwindcss
   - tsbuildinfo
+  - tsup
   - turborepo
   - typecheck

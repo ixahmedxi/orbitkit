@@ -1,0 +1,72 @@
+{
+  "name": "@orbitkit/ui",
+  "version": "0.1.0",
+  "description": "OrbitKit UI Design System Components Library",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
+    },
+    "./avatar": {
+      "import": {
+        "default": "./dist/avatar.js",
+        "types": "./dist/avatar.d.ts"
+      },
+      "require": {
+        "default": "./dist/avatar.cjs",
+        "types": "./dist/avatar.d.cts"
+      }
+    },
+    "./cn": {
+      "import": {
+        "default": "./dist/utils/cn.js",
+        "types": "./dist/utils/cn.d.ts"
+      },
+      "require": {
+        "default": "./dist/utils/cn.cjs",
+        "types": "./dist/utils/cn.d.cts"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.0.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.1"
+  },
+  "devDependencies": {
+    "@orbitkit/tailwind": "workspace:^",
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "eslint-config-orbitkit": "workspace:^",
+    "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
+    "tailwindcss": "^3.4.1",
+    "tsup": "^8.0.1"
+  }
+}

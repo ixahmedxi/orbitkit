@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@orbitkit/db": "workspace:^",
+    "@orbitkit/ui": "workspace:^",
     "geist": "^1.2.1",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
