@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.7",
     "eslint-config-orbitkit": "workspace:^",
     "tailwindcss-animate": "^1.0.7"
   },

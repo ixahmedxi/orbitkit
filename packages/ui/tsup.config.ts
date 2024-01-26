@@ -25,13 +25,13 @@ type PackageJson = {
   types: string;
 };
 
-export default defineConfig({
+export default defineConfig((opts) => ({
   entry: entries.map((entry) => entry.source),
   format: ['esm', 'cjs'],
   splitting: true,
   sourcemap: true,
   minify: true,
-  clean: true,
+  clean: !opts.watch,
   dts: true,
   outDir: 'dist',
   async onSuccess() {
@@ -40,20 +40,20 @@ export default defineConfig({
     pkg.exports = entries.reduce((acc: Record<string, unknown>, entry) => {
       acc[entry.export] = {
         import: {
-          default: entry.source
-            .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.js'),
           types: entry.source
             .replace('src', 'dist')
             .replace(/\.tsx?$/, '.d.ts'),
-        },
-        require: {
           default: entry.source
             .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.cjs'),
+            .replace(/\.tsx?$/, '.js'),
+        },
+        require: {
           types: entry.source
             .replace('src', 'dist')
             .replace(/\.tsx?$/, '.d.cts'),
+          default: entry.source
+            .replace('src', 'dist')
+            .replace(/\.tsx?$/, '.cjs'),
         },
       };
       return acc;
@@ -77,4 +77,4 @@ export default defineConfig({
       fs.writeFileSync('./package.json', formatted);
     }
   },
-});
+}));

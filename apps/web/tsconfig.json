@@ -13,6 +13,7 @@
     "**/*.js",
     "**/*.cjs",
     ".eslintrc.cjs",
+    "**/*.mjs",
   ],
   "exclude": ["node_modules"],
 }

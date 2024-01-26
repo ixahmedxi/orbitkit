@@ -9,32 +9,32 @@
   "exports": {
     ".": {
       "import": {
-        "default": "./dist/index.js",
-        "types": "./dist/index.d.ts"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       },
       "require": {
-        "default": "./dist/index.cjs",
-        "types": "./dist/index.d.cts"
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
       }
     },
     "./avatar": {
       "import": {
-        "default": "./dist/avatar.js",
-        "types": "./dist/avatar.d.ts"
+        "types": "./dist/avatar.d.ts",
+        "default": "./dist/avatar.js"
       },
       "require": {
-        "default": "./dist/avatar.cjs",
-        "types": "./dist/avatar.d.cts"
+        "types": "./dist/avatar.d.cts",
+        "default": "./dist/avatar.cjs"
       }
     },
     "./cn": {
       "import": {
-        "default": "./dist/utils/cn.js",
-        "types": "./dist/utils/cn.d.ts"
+        "types": "./dist/utils/cn.d.ts",
+        "default": "./dist/utils/cn.js"
       },
       "require": {
-        "default": "./dist/utils/cn.cjs",
-        "types": "./dist/utils/cn.d.cts"
+        "types": "./dist/utils/cn.d.cts",
+        "default": "./dist/utils/cn.cjs"
       }
     }
   },
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.7",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
