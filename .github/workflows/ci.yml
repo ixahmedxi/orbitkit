@@ -6,14 +6,32 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-env:
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-
 jobs:
-  code-quality:
-    name: 🖨️ Code Quality
+  create-neon-branch:
+    name: 🚀 Create Neon Branch
     runs-on: ubuntu-latest
+    outputs:
+      database_url: ${{ steps.create-branch.outputs.db_url }}
+    steps:
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v7
+
+      - name: Create neon branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ secrets.NEON_PROJECT_ID }}
+          branch_name: ${{ steps.branch-name.outputs.current_branch }}
+          username: ${ secrets.PG_USERNAME }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+        id: create-branch
+
+  main:
+    name: 🧾 Main CI Checks
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
     steps:
       - name: Check out code
@@ -62,51 +80,7 @@ jobs:
       - name: Typecheck
         run: pnpm turbo typecheck
 
-  build:
-    name: 🏗️ Build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Get branch name
-        id: branch-name
-        uses: tj-actions/branch-names@v7
-
-      - name: Download .env file
-        uses: actions/download-artifact@v2
-        with:
-          name: ${{ steps.branch-name.outputs.current_branch }}-env
-          path: apps/web/.env
-
-      - name: Install dependencies
-        run: pnpm install
-
       - name: Build
+        env:
+          DATABASE_URL: ${{ needs.create-neon-branch.outputs.database_url }}
         run: pnpm turbo build
