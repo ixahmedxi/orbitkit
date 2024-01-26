@@ -20,6 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.5.0",
     "@commitlint/config-conventional": "^18.5.0",
+    "@commitlint/config-pnpm-scopes": "^18.4.4",
     "@commitlint/prompt-cli": "^18.5.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@orbitkit/tsconfig": "workspace:^",
