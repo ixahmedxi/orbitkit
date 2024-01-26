@@ -8,36 +8,23 @@ on:
 
 jobs:
   create-neon-branch:
-    permissions: write-all
+    name: 🚀 Create Neon Branch
     runs-on: ubuntu-latest
     outputs:
-      database_url: ${{ steps.get-database-url.outputs.database_url }}
+      database_url: ${{ steps.create-branch.outputs.db_url }}
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-
       - name: Get branch name
         id: branch-name
         uses: tj-actions/branch-names@v7
 
-      - name: Install neon cli
-        run: npm install -g neonctl
-
-      - name: Create a neon branch
+      - name: Create neon branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ secrets.NEON_PROJECT_ID }}
+          branch_name: ${{ steps.branch-name.outputs.current_branch }}
+          username: ${ secrets.PG_USERNAME }}
+          api_key: ${{ secrets.NEON_API_KEY }}
         id: create-branch
-        run: neonctl branches create --project-id ${{ secrets.NEON_PROJECT_ID }} --name ${{ steps.branch-name.outputs.current_branch }} --api-key ${{ secrets.NEON_API_KEY }} --compute --type read_write
-
-      - name: get Neon branch ID
-        id: get-neon-branch-id
-        run: |
-          echo branch_id=$(neonctl branches get ${{ steps.branch-name.outputs.current_branch }} --project-id ${{ secrets.NEON_PROJECT_ID }} --api-key ${{ secrets.NEON_API_KEY }} --output json | jq -r '.id') >> $GITHUB_OUTPUT
-
-      - name: Output the new database url
-        id: get-database-url
-        run: |
-          echo database_url=$(neonctl cs ${{ steps.branch-name.outputs.current_branch }} --project-id ${{ secrets.NEON_PROJECT_ID }} --role-name ${{ secrets.PG_USERNAME }} --database-name ${{ secrets.PG_DATABASE }} --api-key ${{ secrets.NEON_API_KEY }}) >> $GITHUB_OUTPUT
 
   build:
     name: CI
