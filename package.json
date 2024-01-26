@@ -14,7 +14,7 @@
     "lint": "eslint . --cache --max-warnings 0",
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spell": "cspell \"**\"",
-    "prepare": "husky install",
+    "prepare": "husky",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {

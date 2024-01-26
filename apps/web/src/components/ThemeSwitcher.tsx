@@ -18,7 +18,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <select
-      className="border-zinc-300 dark:border-zinc-700 text-sm bg-zinc-200 dark:bg-zinc-800 rounded-md"
+      className="border-border text-sm bg-muted hover:bg-accent transition-colors rounded-md"
       value={theme}
       onChange={(e) => {
         setTheme(e.target.value);

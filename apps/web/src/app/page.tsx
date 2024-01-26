@@ -14,6 +14,10 @@ export default async function Home() {
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
+      <Avatar>
+        <AvatarImage src="https://github.com/shadcnnnnn.png" alt="@shadcn" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
     </main>
   );
 }
