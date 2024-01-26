@@ -18,6 +18,13 @@ const entries = [
   },
 ];
 
+type PackageJson = {
+  exports: Record<string, unknown>;
+  main: string;
+  module: string;
+  types: string;
+};
+
 export default defineConfig({
   entry: entries.map((entry) => entry.source),
   format: ['esm', 'cjs'],
@@ -29,31 +36,28 @@ export default defineConfig({
   outDir: 'dist',
   async onSuccess() {
     const packageJson = fs.readFileSync('./package.json', 'utf-8');
-    const pkg = JSON.parse(packageJson);
-    pkg.exports = entries.reduce(
-      (acc: { [key: string]: Record<string, unknown> }, entry) => {
-        acc[entry.export] = {
-          import: {
-            default: entry.source
-              .replace('src', 'dist')
-              .replace(/\.tsx?$/, '.js'),
-            types: entry.source
-              .replace('src', 'dist')
-              .replace(/\.tsx?$/, '.d.ts'),
-          },
-          require: {
-            default: entry.source
-              .replace('src', 'dist')
-              .replace(/\.tsx?$/, '.cjs'),
-            types: entry.source
-              .replace('src', 'dist')
-              .replace(/\.tsx?$/, '.d.cts'),
-          },
-        };
-        return acc;
-      },
-      {},
-    );
+    const pkg = JSON.parse(packageJson) as PackageJson;
+    pkg.exports = entries.reduce((acc: Record<string, unknown>, entry) => {
+      acc[entry.export] = {
+        import: {
+          default: entry.source
+            .replace('src', 'dist')
+            .replace(/\.tsx?$/, '.js'),
+          types: entry.source
+            .replace('src', 'dist')
+            .replace(/\.tsx?$/, '.d.ts'),
+        },
+        require: {
+          default: entry.source
+            .replace('src', 'dist')
+            .replace(/\.tsx?$/, '.cjs'),
+          types: entry.source
+            .replace('src', 'dist')
+            .replace(/\.tsx?$/, '.d.cts'),
+        },
+      };
+      return acc;
+    }, {});
 
     pkg.main = './dist/index.cjs';
     pkg.module = './dist/index.js';

@@ -1,5 +1,6 @@
 /** @type {import('eslint').Linter.Config} */
 const config = {
+  ignorePatterns: ['node_modules', 'dist', '.next', '.astro'],
   env: {
     es2022: true,
     node: true,
