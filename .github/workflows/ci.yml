@@ -7,11 +7,42 @@ on:
     types: [opened, synchronize]
 
 jobs:
+  create-neon-branch:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    outputs:
+      database_url: ${{ steps.get-database-url.outputs.database_url }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v7
+
+      - name: Install neon cli
+        run: npm install -g neonctl
+
+      - name: Create a neon branch
+        id: create-branch
+        run: neonctl branches create --project-id ${{ secrets.NEON_PROJECT_ID }} --name ${{ steps.branch-name.outputs.current_branch }} --api-key ${{ secrets.NEON_API_KEY }} --compute --type read_write
+
+      - name: get Neon branch ID
+        id: get-neon-branch-id
+        run: |
+          echo branch_id=$(neonctl branches get ${{ steps.branch-name.outputs.current_branch }} --project-id ${{ secrets.NEON_PROJECT_ID }} --api-key ${{ secrets.NEON_API_KEY }} --output json | jq -r '.id') >> $GITHUB_OUTPUT
+
+      - name: Output the new database url
+        id: get-database-url
+        run: |
+          echo database_url=$(neonctl cs ${{ steps.branch-name.outputs.current_branch }} --project-id ${{ secrets.NEON_PROJECT_ID }} --role-name ${{ secrets.PG_USERNAME }} --database-name ${{ secrets.PG_DATABASE }} --api-key ${{ secrets.NEON_API_KEY }}) >> $GITHUB_OUTPUT
+
   build:
     name: CI
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
@@ -63,4 +94,6 @@ jobs:
         run: pnpm turbo typecheck
 
       - name: Build
+        env:
+          DATABASE_URL: ${{ needs.create-neon-branch.outputs.database_url }}
         run: pnpm turbo build
