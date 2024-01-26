@@ -18,7 +18,7 @@ jobs:
         uses: tj-actions/branch-names@v7
 
       - name: Create neon branch
-        uses: ixahmedxi/orbitkit/.github/workflows/neon-branch.yml@neon
+        uses: neondatabase/create-branch-action@v4.4.0
         with:
           project_id: ${{ secrets.NEON_PROJECT_ID }}
           branch_name: ${{ steps.branch-name.outputs.current_branch }}
