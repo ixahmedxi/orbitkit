@@ -6,6 +6,7 @@ ignorePaths:
   - .tsbuildinfo
   - .gitignore
   - dist
+  - .github
 words:
   - astro
   - neonctl
