@@ -1,8 +1,8 @@
-import './src/env.mjs';
+import './src/env.js';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@orbitkit/db'],
+  transpilePackages: ['@orbitkit/db', '@orbitkit/auth'],
 };
 
 export default nextConfig;

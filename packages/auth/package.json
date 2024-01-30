@@ -1,0 +1,39 @@
+{
+  "name": "@orbitkit/auth",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Auth package for OrbitKit",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./env": "./src/env.js",
+    "./providers/github": "./src/providers/github.ts",
+    "./actions/logout": "./src/actions/logout.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@lucia-auth/adapter-drizzle": "^1.0.0",
+    "@orbitkit/db": "workspace:^",
+    "@t3-oss/env-core": "^0.8.0",
+    "@types/react-dom": "^18.2.18",
+    "arctic": "^1.1.0",
+    "lucia": "^3.0.1",
+    "next": "14.1.0",
+    "oslo": "^1.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.10",
+    "@types/react": "^18.2.48",
+    "eslint-config-orbitkit": "workspace:^"
+  }
+}

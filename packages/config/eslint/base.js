@@ -33,7 +33,6 @@ const config = {
             readonly: 'array-simple',
           },
         ],
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
         '@typescript-eslint/consistent-type-imports': [
           'warn',
           {

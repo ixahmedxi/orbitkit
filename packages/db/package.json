@@ -5,11 +5,12 @@
   "description": "A database package utilizing drizzle orm.",
   "license": "MIT",
   "author": "OrbitKit",
+  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
     "./schema": "./src/schema/index.ts",
-    "./env": "./src/env.mjs"
+    "./env": "./src/env.js"
   },
   "scripts": {
     "db:check": "dotenv -e ../../apps/web/.env.local drizzle-kit check:pg",
