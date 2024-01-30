@@ -28,7 +28,7 @@
     "cspell": "^8.3.2",
     "eslint": "^8.56.0",
     "eslint-config-orbitkit": "workspace:^",
-    "husky": "^9.0.6",
+    "husky": "^9.0.7",
     "lint-staged": "^15.2.0",
     "markdownlint": "^0.33.0",
     "markdownlint-cli": "^0.39.0",
