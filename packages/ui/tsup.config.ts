@@ -18,12 +18,12 @@ const entries = [
   },
 ];
 
-type PackageJson = {
+interface PackageJson {
   exports: Record<string, unknown>;
   main: string;
   module: string;
   types: string;
-};
+}
 
 export default defineConfig((opts) => ({
   entry: entries.map((entry) => entry.source),

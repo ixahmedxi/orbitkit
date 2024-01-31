@@ -26,6 +26,7 @@ const config = {
         'plugin:@typescript-eslint/stylistic-type-checked',
       ],
       rules: {
+        '@typescript-eslint/consistent-type-definitions': 'off',
         '@typescript-eslint/array-type': [
           'error',
           {

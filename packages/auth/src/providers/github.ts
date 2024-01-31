@@ -10,8 +10,8 @@ import { env } from '../env.js';
 import { lucia } from '../lucia';
 
 export const github = new GitHub(
-  env.GITHUB_CLIENT_ID,
-  env.GITHUB_CLIENT_SECRET,
+  env.AUTH_GITHUB_CLIENT_ID,
+  env.AUTH_GITHUB_CLIENT_SECRET,
 );
 
 export async function createGithubAuthorizationURL(): Promise<Response> {
