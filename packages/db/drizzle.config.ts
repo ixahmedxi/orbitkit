@@ -1,6 +1,6 @@
 import type { Config } from 'drizzle-kit';
 
-import { env } from './src/env.mjs';
+import { env } from './src/env.js';
 
 export default {
   schema: './src/schema/index.ts',
