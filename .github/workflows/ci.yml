@@ -22,7 +22,7 @@ jobs:
         with:
           project_id: ${{ secrets.NEON_PROJECT_ID }}
           branch_name: ${{ steps.branch-name.outputs.current_branch }}
-          username: ${ secrets.PG_USERNAME }}
+          username: ${{ secrets.PG_USERNAME }}
           api_key: ${{ secrets.NEON_API_KEY }}
         id: create-branch
 
