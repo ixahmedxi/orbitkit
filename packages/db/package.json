@@ -35,7 +35,7 @@
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.3.0",
-    "drizzle-kit": "^0.20.13",
+    "drizzle-kit": "^0.20.14",
     "eslint-config-orbitkit": "workspace:*",
     "tsx": "^4.7.0"
   }
