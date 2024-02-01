@@ -11,8 +11,8 @@ export const env = createEnv({
   },
   runtimeEnv: {
     NODE_ENV: process.env['NODE_ENV'],
-    AUTH_GITHUB_CLIENT_ID: process.env['GITHUB_CLIENT_ID'],
-    AUTH_GITHUB_CLIENT_SECRET: process.env['GITHUB_CLIENT_SECRET'],
+    AUTH_GITHUB_CLIENT_ID: process.env['AUTH_GITHUB_CLIENT_ID'],
+    AUTH_GITHUB_CLIENT_SECRET: process.env['AUTH_GITHUB_CLIENT_SECRET'],
   },
   emptyStringAsUndefined: true,
 });
