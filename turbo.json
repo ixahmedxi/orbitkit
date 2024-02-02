@@ -41,6 +41,15 @@
       "cache": true,
       "outputs": [".tsbuildinfo"]
     },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "build-storybook": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": ["storybook-static/**"]
+    },
     "db:check": {},
     "db:generate": {},
     "db:migrate": {},

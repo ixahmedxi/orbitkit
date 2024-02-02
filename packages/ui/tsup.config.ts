@@ -9,7 +9,7 @@ const entries = [
     export: '.',
   },
   {
-    source: './src/avatar.tsx',
+    source: './src/primitives/avatar.tsx',
     export: './avatar',
   },
   {

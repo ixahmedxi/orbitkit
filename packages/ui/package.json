@@ -46,8 +46,10 @@
   ],
   "scripts": {
     "build": "tsup",
+    "build-storybook": "storybook build",
     "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
+    "storybook": "storybook dev -p 6006",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
@@ -61,6 +63,14 @@
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
+    "@storybook/addon-essentials": "^7.6.12",
+    "@storybook/addon-interactions": "^7.6.12",
+    "@storybook/addon-links": "^7.6.12",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.12",
+    "@storybook/react": "^7.6.12",
+    "@storybook/react-vite": "^7.6.12",
+    "@storybook/test": "^7.6.12",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
@@ -68,7 +78,10 @@
     "eslint-config-orbitkit": "workspace:^",
     "postcss": "^8.4.33",
     "prettier": "^3.2.4",
+    "storybook": "^7.6.12",
     "tailwindcss": "^3.4.1",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "vite": "^5.0.12",
+    "vite-tsconfig-paths": "^4.3.1"
   }
 }
