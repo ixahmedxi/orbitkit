@@ -1,6 +1,9 @@
 import './globals.css';
 
-import { type Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react';
+
+import { withThemeByClassName } from '@storybook/addon-themes';
+import { ReactRenderer } from '@storybook/react';
 
 const preview = {
   parameters: {
@@ -12,6 +15,15 @@ const preview = {
       },
     },
   },
+  decorators: [
+    withThemeByClassName<ReactRenderer>({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+    }),
+  ],
 } satisfies Preview;
 
 export default preview;

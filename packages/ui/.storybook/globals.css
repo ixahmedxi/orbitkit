@@ -22,3 +22,7 @@
   --font-geist-sans: 'Geist Sans';
   --font-geist-mono: 'Geist Mono';
 }
+
+body {
+  @apply bg-background text-foreground;
+}
