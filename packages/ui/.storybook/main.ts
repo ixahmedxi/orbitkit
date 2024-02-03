@@ -24,6 +24,7 @@ const config = {
     name: getAbsolutePath('@storybook/react-vite') as '@storybook/react-vite',
     options: {},
   },
+  staticDirs: [getAbsolutePath('@orbitkit/assets')],
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()],

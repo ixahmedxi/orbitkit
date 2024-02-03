@@ -139,6 +139,8 @@ importers:
         specifier: ^3.4.1
         version: 3.4.1
 
+  packages/assets: {}
+
   packages/auth:
     dependencies:
       '@lucia-auth/adapter-drizzle':
@@ -299,6 +301,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@orbitkit/assets':
+        specifier: workspace:^
+        version: link:../assets
       '@radix-ui/react-avatar':
         specifier: ^1.0.4
         version: 1.0.4(@types/react-dom@18.2.18)(@types/react@18.2.51)(react-dom@18.2.0)(react@18.2.0)
