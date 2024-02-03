@@ -1,0 +1,31 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as AvatarStories from './avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+An image element with a fallback for representing the user.
+
+## Features
+
+- Automatic and manual control over when the image renders.
+- Fallback part accepts any children.
+- Optionally delay fallback rendering to avoid content flashing.
+
+## Usage
+
+export const importCode = `import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';`;
+
+<Source code={importCode} language="ts" dark />
+
+export const usageCode = `<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>`;
+
+<Source code={usageCode} language="tsx" dark />
+
+<Canvas of={AvatarStories.Default} />
+<Canvas of={AvatarStories.Fallback} />
