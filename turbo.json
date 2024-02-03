@@ -50,6 +50,9 @@
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
     },
+    "test-storybook": {
+      "cache": true
+    },
     "db:check": {},
     "db:generate": {},
     "db:migrate": {},

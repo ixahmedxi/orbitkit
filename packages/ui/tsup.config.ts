@@ -70,7 +70,7 @@ export default defineConfig((opts) => ({
     );
 
     if (prettierConfig) {
-      const formatted = await prettier.format(packageJson, {
+      const formatted = await prettier.format(JSON.stringify(pkg), {
         ...prettierConfig,
         filepath: './package.json',
       });

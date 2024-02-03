@@ -28,9 +28,7 @@ const meta: Meta<typeof DemoComponent> = {
 export default meta;
 type Story = StoryObj<typeof DemoComponent>;
 
-export const Default: Story = {
-  args: {},
-};
+export const Default: Story = {};
 
 export const Fallback: Story = {
   args: {
