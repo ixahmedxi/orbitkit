@@ -8,7 +8,8 @@
   "files": [
     "./base.js",
     "./next.js",
-    "./react.js"
+    "./react.js",
+    "./storybook.js"
   ],
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
@@ -23,7 +24,8 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-storybook": "^0.6.15"
   },
   "volta": {
     "extends": "../../../package.json"

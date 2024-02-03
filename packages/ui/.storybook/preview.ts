@@ -4,7 +4,7 @@ import type { Preview } from '@storybook/react';
 
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { ReactRenderer } from '@storybook/react';
+import { type ReactRenderer } from '@storybook/react';
 
 const customViewports = {
   '720p': {
