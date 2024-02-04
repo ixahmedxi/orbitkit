@@ -1,6 +1,7 @@
 {
   "extends": ["astro/tsconfigs/strictest", "@orbitkit/tsconfig/base.json"],
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],

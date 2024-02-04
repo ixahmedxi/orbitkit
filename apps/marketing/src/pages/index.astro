@@ -1,16 +1,19 @@
 ---
 import BaseHead from '@/components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+
+import { MyAvatar } from './avatar';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<main>
-      <h1>Home page</h1>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <main class="container mx-auto py-6 px-6">
+      <h1>Astro website</h1>
+      <MyAvatar client:load />
     </main>
-	</body>
+  </body>
 </html>
