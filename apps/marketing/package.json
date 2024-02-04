@@ -1,0 +1,44 @@
+{
+  "name": "@orbitkit/marketing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marketing website for OrbitKit",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "type": "module",
+  "scripts": {
+    "build": "astro check && astro build",
+    "dev": "astro dev",
+    "start": "astro preview",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.4",
+    "@orbitkit/assets": "workspace:^",
+    "@orbitkit/ui": "workspace:^",
+    "@t3-oss/env-core": "^0.8.0",
+    "@total-typescript/ts-reset": "^0.5.1",
+    "astro": "^4.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/tailwind": "^5.1.0",
+    "@orbitkit/tailwind": "workspace:^",
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.51",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.17",
+    "eslint-config-orbitkit": "workspace:^",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

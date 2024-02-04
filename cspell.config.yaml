@@ -8,7 +8,9 @@ ignorePaths:
   - dist
 words:
   - astro
+  - astrojs
   - autodocs
+  - datetime
   - clsx
   - commitlint
   - esbenp
@@ -22,7 +24,10 @@ words:
   - shadcn
   - tailwindcss
   - tsbuildinfo
+  - tsconfigs
   - tsup
   - turborepo
   - typecheck
   - viewports
+  - crossorigin
+  - stylesheet
