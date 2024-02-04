@@ -4,15 +4,15 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-    },
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".eslintrc.cjs",
     ".storybook/**/*",
-    "**/*.cjs",
+    "**/*.cjs"
   ],
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules"]
 }

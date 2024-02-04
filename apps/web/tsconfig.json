@@ -2,8 +2,8 @@
   "extends": ["@orbitkit/tsconfig/next.json"],
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
-    },
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -13,7 +13,7 @@
     "**/*.js",
     "**/*.cjs",
     ".eslintrc.cjs",
-    "**/*.mjs",
+    "**/*.mjs"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
