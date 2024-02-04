@@ -35,5 +35,8 @@
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.51",
     "eslint-config-orbitkit": "workspace:^"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

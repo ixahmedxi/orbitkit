@@ -38,5 +38,8 @@
     "drizzle-kit": "^0.20.14",
     "eslint-config-orbitkit": "workspace:*",
     "tsx": "^4.7.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
