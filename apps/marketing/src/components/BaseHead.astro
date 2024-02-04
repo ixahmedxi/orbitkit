@@ -2,15 +2,24 @@
 import '@orbitkit/assets/fonts/stylesheet.css';
 import '@/styles/globals.css';
 
+import GeistMono from '@orbitkit/assets/fonts/GeistMonoVariable.ttf';
+import GeistSans from '@orbitkit/assets/fonts/GeistVariable.ttf';
+
+import { consts } from '@/consts';
+
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const {
+  title = consts.site.title,
+  description = consts.site.description,
+  image = consts.site.previewImage,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -20,8 +29,8 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<!-- <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin /> -->
+<link rel="preload" href={GeistSans} as="font" type="font/ttf" crossorigin />
+<link rel="preload" href={GeistMono} as="font" type="font/ttf" crossorigin />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
