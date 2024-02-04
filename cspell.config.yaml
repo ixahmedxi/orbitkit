@@ -8,19 +8,21 @@ ignorePaths:
   - dist
 words:
   - astro
-  - neonctl
+  - autodocs
   - clsx
   - commitlint
   - esbenp
   - ianvs
   - lockb
+  - neonctl
   - neondatabase
   - nextjs
   - orbitkit
   - packagejson
+  - shadcn
   - tailwindcss
   - tsbuildinfo
   - tsup
   - turborepo
   - typecheck
-  - shadcn
+  - viewports
