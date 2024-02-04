@@ -9,6 +9,7 @@
   "scripts": {
     "build": "astro check && astro build",
     "dev": "astro dev",
+    "lint": "eslint . --cache --max-warnings 0",
     "start": "astro preview",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
