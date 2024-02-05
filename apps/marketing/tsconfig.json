@@ -16,5 +16,6 @@
     "**/*.mjs",
     "**/*.cjs",
     ".eslintrc.cjs"
-  ]
+  ],
+  "exclude": ["node_modules", "dist"]
 }

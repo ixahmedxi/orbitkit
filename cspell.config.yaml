@@ -14,6 +14,7 @@ words:
   - clsx
   - commitlint
   - esbenp
+  - typeof
   - ianvs
   - lockb
   - neonctl

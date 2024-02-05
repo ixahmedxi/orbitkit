@@ -11,7 +11,7 @@
     "dev": "astro dev",
     "lint": "eslint . --cache --max-warnings 0",
     "start": "astro preview",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "astro check"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.4",
