@@ -10,11 +10,12 @@ words:
   - astro
   - astrojs
   - autodocs
-  - datetime
   - clsx
   - commitlint
+  - consts
+  - crossorigin
+  - datetime
   - esbenp
-  - typeof
   - ianvs
   - lockb
   - neonctl
@@ -23,12 +24,12 @@ words:
   - orbitkit
   - packagejson
   - shadcn
+  - stylesheet
   - tailwindcss
   - tsbuildinfo
   - tsconfigs
   - tsup
   - turborepo
   - typecheck
+  - typeof
   - viewports
-  - crossorigin
-  - stylesheet
