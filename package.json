@@ -29,7 +29,7 @@
     "eslint": "^8.56.0",
     "eslint-config-orbitkit": "workspace:^",
     "husky": "^9.0.10",
-    "lint-staged": "^15.2.1",
+    "lint-staged": "^15.2.2",
     "markdownlint": "^0.33.0",
     "markdownlint-cli": "^0.39.0",
     "prettier": "^3.2.5",

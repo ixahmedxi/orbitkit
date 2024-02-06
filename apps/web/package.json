@@ -19,7 +19,7 @@
     "@orbitkit/ui": "workspace:^",
     "@t3-oss/env-nextjs": "^0.8.0",
     "@total-typescript/ts-reset": "^0.5.1",
-    "geist": "^1.2.1",
+    "geist": "^1.2.2",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
@@ -30,11 +30,11 @@
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.11.16",
-    "@types/react": "^18.2.52",
+    "@types/react": "^18.2.54",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
     "eslint-config-orbitkit": "workspace:^",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.34",
     "tailwindcss": "^3.4.1"
   },
   "volta": {

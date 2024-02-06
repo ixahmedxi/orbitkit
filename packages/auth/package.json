@@ -18,7 +18,7 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
-    "@lucia-auth/adapter-drizzle": "^1.0.0",
+    "@lucia-auth/adapter-drizzle": "^1.0.1",
     "@orbitkit/db": "workspace:^",
     "@t3-oss/env-core": "^0.8.0",
     "@types/react-dom": "^18.2.18",
@@ -33,7 +33,7 @@
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.11.16",
-    "@types/react": "^18.2.52",
+    "@types/react": "^18.2.54",
     "eslint-config-orbitkit": "workspace:^"
   },
   "volta": {
