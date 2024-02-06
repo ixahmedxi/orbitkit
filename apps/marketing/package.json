@@ -14,12 +14,12 @@
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.4",
+    "@astrojs/rss": "^4.0.5",
     "@orbitkit/assets": "workspace:^",
     "@orbitkit/ui": "workspace:^",
     "@t3-oss/env-core": "^0.8.0",
     "@total-typescript/ts-reset": "^0.5.1",
-    "astro": "^4.3.2",
+    "astro": "^4.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zod": "^3.22.4"
@@ -33,7 +33,7 @@
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.11.16",
-    "@types/react": "^18.2.54",
+    "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
     "eslint-config-orbitkit": "workspace:^",
