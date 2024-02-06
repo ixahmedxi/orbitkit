@@ -1,0 +1,17 @@
+---
+import { MyAvatar } from '@/components/avatar';
+import BaseHead from '@/components/BaseHead.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+  <body>
+    <main class="container mx-auto py-6 px-6">
+      <h1>Astro website</h1>
+      <MyAvatar client:load />
+    </main>
+  </body>
+</html>

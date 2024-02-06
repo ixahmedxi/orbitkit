@@ -1,0 +1,21 @@
+{
+  "extends": ["astro/tsconfigs/strictest", "@orbitkit/tsconfig/base.json"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "**/*.astro",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.mjs",
+    "**/*.cjs",
+    ".eslintrc.cjs"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

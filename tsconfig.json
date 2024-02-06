@@ -1,5 +1,5 @@
 {
   "extends": ["@orbitkit/tsconfig/base.json"],
   "include": [".eslintrc.cjs", "*.js", "*.ts", "*.cjs", "*.mjs"],
-  "exclude": ["apps", "packages", "node_modules"],
+  "exclude": ["apps", "packages", "node_modules"]
 }

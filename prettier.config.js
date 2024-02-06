@@ -10,6 +10,15 @@ const config = {
     'prettier-plugin-packagejson',
     'prettier-plugin-curly',
     'prettier-plugin-jsdoc',
+    'prettier-plugin-astro',
+  ],
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
   ],
   importOrder: [
     '',

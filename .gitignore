@@ -134,3 +134,6 @@ dist
 
 # Storybook
 storybook-static
+
+# Astro
+.astro

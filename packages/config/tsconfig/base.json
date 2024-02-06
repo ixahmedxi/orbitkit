@@ -27,6 +27,7 @@
     "module": "esnext",
     "target": "es2022",
     "moduleResolution": "bundler",
+    "moduleDetection": "force",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "noEmit": true,
