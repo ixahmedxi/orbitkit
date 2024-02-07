@@ -25,7 +25,10 @@ words:
   - packagejson
   - shadcn
   - stylesheet
+  - superjson
   - tailwindcss
+  - tanstack
+  - trpc
   - tsbuildinfo
   - tsconfigs
   - tsup
