@@ -23,6 +23,7 @@ words:
   - nextjs
   - orbitkit
   - packagejson
+  - Ratelimit
   - shadcn
   - stylesheet
   - superjson
@@ -35,4 +36,5 @@ words:
   - turborepo
   - typecheck
   - typeof
+  - upstash
   - viewports
