@@ -9,12 +9,13 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
   "dependencies": {
     "@orbitkit/auth": "workspace:^",
     "@orbitkit/db": "workspace:^",
-    "@trpc/client": "^10.45.1",
-    "@trpc/next": "^10.45.1",
-    "@trpc/react-query": "^10.45.1",
     "@trpc/server": "^10.45.1",
     "superjson": "^2.2.1",
     "zod": "^3.22.4"
@@ -23,5 +24,8 @@
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.11.16",
     "eslint-config-orbitkit": "workspace:^"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

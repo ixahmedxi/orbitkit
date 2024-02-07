@@ -3,7 +3,7 @@
 import { type FC, type PropsWithChildren } from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
-import { TRPCReactProvider } from '@/lib/trpc/react';
+import { TRPCReactProvider } from '@/lib/trpc/client';
 
 export const Providers: FC<PropsWithChildren> = ({ children }) => {
   return (
