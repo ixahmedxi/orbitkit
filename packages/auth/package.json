@@ -21,7 +21,7 @@
     "@lucia-auth/adapter-drizzle": "^1.0.1",
     "@orbitkit/db": "workspace:^",
     "@t3-oss/env-core": "^0.8.0",
-    "@types/react-dom": "^18.2.18",
+    "@types/react-dom": "^18.2.19",
     "arctic": "^1.1.4",
     "lucia": "^3.0.1",
     "next": "14.1.0",
