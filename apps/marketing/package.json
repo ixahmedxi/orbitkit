@@ -25,14 +25,14 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.5.1",
+    "@astrojs/check": "^0.5.2",
     "@astrojs/mdx": "^2.1.1",
     "@astrojs/react": "^3.0.10",
     "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.16",
+    "@types/node": "^20.11.17",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
