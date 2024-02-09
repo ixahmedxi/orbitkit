@@ -129,9 +129,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Turborepo
-.turbo
-
 # Storybook
 storybook-static
 
