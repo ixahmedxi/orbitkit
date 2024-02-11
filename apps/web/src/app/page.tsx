@@ -16,8 +16,13 @@ export default async function Home() {
       <h1>Next.js app, your user id is {user.id}</h1>
       <ThemeSwitcher />
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
+        <AvatarImage src={user.avatarUrl} alt={user.name} />
+        <AvatarFallback>
+          {user.name
+            ?.split(' ')
+            .map((w) => w[0])
+            .join('')}
+        </AvatarFallback>
       </Avatar>
     </main>
   );

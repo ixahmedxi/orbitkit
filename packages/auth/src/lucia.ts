@@ -27,9 +27,9 @@ declare module 'lucia' {
   interface Register {
     Lucia: typeof lucia;
     DatabaseUserAttributes: {
-      name: string;
+      name?: string;
       email: string;
-      avatarUrl: string;
+      avatarUrl?: string;
     };
   }
 }
