@@ -4,7 +4,7 @@ import { generateState, GitHub, OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
 
 import { db } from '@orbitkit/db';
-import { userTable } from '@orbitkit/db/schema';
+import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
 
 import { env } from '../env.js';
 import { lucia } from '../lucia';
@@ -31,7 +31,9 @@ export async function createGithubAuthorizationURL(): Promise<Response> {
 
 interface GitHubUser {
   id: string;
-  login: string;
+  email: string;
+  avatar_url: string;
+  name: string;
 }
 
 export async function validateGithubCallback(
@@ -55,12 +57,17 @@ export async function validateGithubCallback(
       },
     });
     const githubUser = (await githubUserResponse.json()) as GitHubUser;
-    const existingUser = await db.query.userTable.findFirst({
-      where: (table, { eq }) => eq(table.github_id, githubUser.id),
+
+    const existingUser = await db.query.oauthAccountTable.findFirst({
+      where: (table, { and, eq }) =>
+        and(
+          eq(table.providerId, 'github'),
+          eq(table.providerUserId, githubUser.id),
+        ),
     });
 
     if (existingUser) {
-      const session = await lucia.createSession(existingUser.id, {});
+      const session = await lucia.createSession(existingUser.userId, {});
       const sessionCookie = lucia.createSessionCookie(session.id);
       cookies().set(
         sessionCookie.name,
@@ -78,8 +85,14 @@ export async function validateGithubCallback(
     const userId = generateId(15);
     await db.insert(userTable).values({
       id: userId,
-      github_id: githubUser.id,
-      username: githubUser.login,
+      email: githubUser.email,
+      avatarUrl: githubUser.avatar_url,
+      name: githubUser.name,
+    });
+    await db.insert(oauthAccountTable).values({
+      providerId: 'github',
+      providerUserId: githubUser.id,
+      userId,
     });
     const session = await lucia.createSession(userId, {});
     const sessionCookie = lucia.createSessionCookie(session.id);

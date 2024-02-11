@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto py-6 px-6">
-      <h1>Next.js app</h1>
+      <h1>Next.js app, your user id is {user.id}</h1>
       <ThemeSwitcher />
       <Avatar>
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
