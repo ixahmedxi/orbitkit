@@ -9,10 +9,7 @@ import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
 import { env } from '../env.js';
 import { lucia } from '../lucia';
 
-export const github = new GitHub(
-  env.AUTH_GITHUB_CLIENT_ID,
-  env.AUTH_GITHUB_CLIENT_SECRET,
-);
+export const github = new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET);
 
 export async function createGithubAuthorizationURL(): Promise<Response> {
   const state = generateState();
