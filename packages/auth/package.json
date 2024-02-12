@@ -11,6 +11,7 @@
     ".": "./src/index.ts",
     "./env": "./src/env.js",
     "./providers/github": "./src/providers/github.ts",
+    "./providers/google": "./src/providers/google.ts",
     "./actions/logout": "./src/actions/logout.ts"
   },
   "scripts": {

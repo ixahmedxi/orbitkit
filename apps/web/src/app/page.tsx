@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import { getSession } from '@orbitkit/auth';
+import { logout } from '@orbitkit/auth/actions/logout';
 import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
 
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
@@ -24,6 +25,9 @@ export default async function Home() {
             .join('')}
         </AvatarFallback>
       </Avatar>
+      <form action={logout}>
+        <button type="submit">Logout</button>
+      </form>
     </main>
   );
 }

@@ -1,21 +1,32 @@
 import { cookies } from 'next/headers';
 
-import { generateState, GitHub, OAuth2RequestError } from 'arctic';
+import { generateState, Google, OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
+import { z } from 'zod';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
 
-import { env } from '../env.js';
+import { env } from '../env';
 import { lucia } from '../lucia';
 
-const github = new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET);
+const google = new Google(
+  env.AUTH_GOOGLE_ID,
+  env.AUTH_GOOGLE_SECRET,
+  env.AUTH_GOOGLE_REDIRECT_URI,
+);
 
-export async function createGithubAuthorizationURL(): Promise<Response> {
+export async function createGoogleAuthorizationURL(): Promise<Response> {
   const state = generateState();
-  const url = await github.createAuthorizationURL(state);
+  const url = await google.createAuthorizationURL(
+    state,
+    env.AUTH_GOOGLE_CODE_VERIFIER,
+    {
+      scopes: ['profile', 'email'],
+    },
+  );
 
-  cookies().set('github_oauth_state', state, {
+  cookies().set('google_oauth_state', state, {
     path: '/',
     secure: env.NODE_ENV === 'production',
     httpOnly: true,
@@ -26,20 +37,20 @@ export async function createGithubAuthorizationURL(): Promise<Response> {
   return Response.redirect(url);
 }
 
-interface GitHubUser {
-  id: string;
-  email: string;
-  avatar_url: string;
-  name: string;
-}
+const googleUser = z.object({
+  sub: z.string(),
+  email: z.string(),
+  picture: z.string(),
+  name: z.string(),
+});
 
-export async function validateGithubCallback(
+export async function validateGoogleCallback(
   request: Request,
 ): Promise<Response> {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
-  const storedState = cookies().get('github_oauth_state')?.value ?? null;
+  const storedState = cookies().get('google_oauth_state')?.value ?? null;
   if (!code || !state || !storedState || state !== storedState) {
     return new Response(null, {
       status: 400,
@@ -47,20 +58,31 @@ export async function validateGithubCallback(
   }
 
   try {
-    const tokens = await github.validateAuthorizationCode(code);
-    const githubUserResponse = await fetch('https://api.github.com/user', {
-      headers: {
-        Authorization: `Bearer ${tokens.accessToken}`,
+    const tokens = await google.validateAuthorizationCode(
+      code,
+      env.AUTH_GOOGLE_CODE_VERIFIER,
+    );
+    const googleUserResponse = await fetch(
+      'https://openidconnect.googleapis.com/v1/userinfo',
+      {
+        headers: {
+          Authorization: `Bearer ${tokens.accessToken}`,
+        },
       },
-    });
-    const githubUser = (await githubUserResponse.json()) as GitHubUser;
+    );
+    const parsedRes = googleUser.safeParse(await googleUserResponse.json());
+
+    if (!parsedRes.success) {
+      return new Response(null, {
+        status: 400,
+      });
+    }
+
+    const { sub, email, picture, name } = parsedRes.data;
 
     const existingUser = await db.query.oauthAccountTable.findFirst({
       where: (table, { and, eq }) =>
-        and(
-          eq(table.providerId, 'github'),
-          eq(table.providerUserId, githubUser.id),
-        ),
+        and(eq(table.providerId, 'google'), eq(table.providerUserId, sub)),
     });
 
     if (existingUser) {
@@ -82,22 +104,25 @@ export async function validateGithubCallback(
     const userId = generateId(15);
     await db.insert(userTable).values({
       id: userId,
-      email: githubUser.email,
-      avatarUrl: githubUser.avatar_url,
-      name: githubUser.name,
+      email,
+      avatarUrl: picture,
+      name,
     });
     await db.insert(oauthAccountTable).values({
-      providerId: 'github',
-      providerUserId: githubUser.id,
+      providerId: 'google',
+      providerUserId: sub,
       userId,
     });
+
     const session = await lucia.createSession(userId, {});
     const sessionCookie = lucia.createSessionCookie(session.id);
+
     cookies().set(
       sessionCookie.name,
       sessionCookie.value,
       sessionCookie.attributes,
     );
+
     return new Response(null, {
       status: 302,
       headers: {
@@ -105,13 +130,12 @@ export async function validateGithubCallback(
       },
     });
   } catch (e) {
-    // the specific error message depends on the provider
     if (e instanceof OAuth2RequestError) {
-      // invalid code
       return new Response(null, {
         status: 400,
       });
     }
+
     return new Response(null, {
       status: 500,
     });
