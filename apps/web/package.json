@@ -20,7 +20,7 @@
     "@t3-oss/env-nextjs": "^0.9.2",
     "@total-typescript/ts-reset": "^0.5.1",
     "@upstash/ratelimit": "^1.0.1",
-    "@upstash/redis": "^1.28.3",
+    "@upstash/redis": "^1.28.4",
     "geist": "^1.2.2",
     "next": "14.1.0",
     "next-themes": "^0.2.1",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.17",
+    "@types/node": "^20.11.19",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
