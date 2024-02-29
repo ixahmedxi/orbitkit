@@ -27,6 +27,26 @@
         "default": "./dist/primitives/avatar.cjs"
       }
     },
+    "./typography": {
+      "import": {
+        "types": "./dist/primitives/typography.d.ts",
+        "default": "./dist/primitives/typography.js"
+      },
+      "require": {
+        "types": "./dist/primitives/typography.d.cts",
+        "default": "./dist/primitives/typography.cjs"
+      }
+    },
+    "./accordion": {
+      "import": {
+        "types": "./dist/primitives/accordion.d.ts",
+        "default": "./dist/primitives/accordion.js"
+      },
+      "require": {
+        "types": "./dist/primitives/accordion.d.cts",
+        "default": "./dist/primitives/accordion.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -55,9 +75,11 @@
   },
   "dependencies": {
     "@orbitkit/assets": "workspace:^",
+    "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "lucide-react": "^0.343.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-twc": "^1.4.1",
@@ -85,12 +107,12 @@
     "@storybook/test-runner": "^0.16.0",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.17",
-    "@types/node": "^20.11.20",
+    "@types/node": "^20.11.22",
     "@types/react": "^18.2.60",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
     "eslint-config-orbitkit": "workspace:^",
-    "playwright": "^1.41.2",
+    "playwright": "^1.42.0",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
     "storybook": "^7.6.17",

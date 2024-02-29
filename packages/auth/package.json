@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.20",
+    "@types/node": "^20.11.22",
     "@types/react": "^18.2.60",
     "eslint-config-orbitkit": "workspace:^"
   },

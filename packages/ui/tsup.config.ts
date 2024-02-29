@@ -13,6 +13,14 @@ const entries = [
     export: './avatar',
   },
   {
+    source: './src/primitives/typography.tsx',
+    export: './typography',
+  },
+  {
+    source: './src/primitives/accordion.tsx',
+    export: './accordion',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },
