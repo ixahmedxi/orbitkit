@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as AspectRatioStories from './aspect-ratio.stories';
+
+<Meta of={AspectRatioStories} />
+
+# Aspect ratio
+
+Displays content within a desired ratio.
+
+## Preview
+
+<Canvas of={AspectRatioStories.Default} />
+
+<Controls />
+
+## Usage
+
+export const importCode = `import Image from "next/image";
+
+import { AspectRatio } from "@orbitkit/ui/aspect-ratio";`;
+
+export const exampleCode = `<div className="w-[450px]">
+  <AspectRatio ratio={16 / 9}>
+    <Image src="..." alt="Image" className="rounded-md object-cover" />
+  </AspectRatio>
+</div>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={exampleCode} language="tsx" dark />

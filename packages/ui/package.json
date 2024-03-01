@@ -47,6 +47,16 @@
         "default": "./dist/primitives/accordion.cjs"
       }
     },
+    "./aspect-ratio": {
+      "import": {
+        "types": "./dist/primitives/aspect-ratio.d.ts",
+        "default": "./dist/primitives/aspect-ratio.js"
+      },
+      "require": {
+        "types": "./dist/primitives/aspect-ratio.d.cts",
+        "default": "./dist/primitives/aspect-ratio.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -76,6 +86,7 @@
   "dependencies": {
     "@orbitkit/assets": "workspace:^",
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",

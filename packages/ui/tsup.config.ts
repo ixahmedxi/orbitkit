@@ -21,6 +21,10 @@ const entries = [
     export: './accordion',
   },
   {
+    source: './src/primitives/aspect-ratio.tsx',
+    export: './aspect-ratio',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },
