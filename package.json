@@ -24,7 +24,7 @@
     "@commitlint/prompt-cli": "^19.0.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/eslint": "^8.56.4",
+    "@types/eslint": "^8.56.5",
     "cspell": "^8.4.1",
     "eslint": "^8.57.0",
     "eslint-config-orbitkit": "workspace:^",
