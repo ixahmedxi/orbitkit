@@ -25,6 +25,10 @@ const entries = [
     export: './aspect-ratio',
   },
   {
+    source: './src/primitives/alert.tsx',
+    export: './alert',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

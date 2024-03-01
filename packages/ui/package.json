@@ -57,6 +57,16 @@
         "default": "./dist/primitives/aspect-ratio.cjs"
       }
     },
+    "./alert": {
+      "import": {
+        "types": "./dist/primitives/alert.d.ts",
+        "default": "./dist/primitives/alert.js"
+      },
+      "require": {
+        "types": "./dist/primitives/alert.d.cts",
+        "default": "./dist/primitives/alert.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
