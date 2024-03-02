@@ -29,6 +29,10 @@ const entries = [
     export: './alert',
   },
   {
+    source: './src/primitives/button.tsx',
+    export: './button',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

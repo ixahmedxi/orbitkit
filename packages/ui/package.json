@@ -67,6 +67,16 @@
         "default": "./dist/primitives/alert.cjs"
       }
     },
+    "./button": {
+      "import": {
+        "types": "./dist/primitives/button.d.ts",
+        "default": "./dist/primitives/button.js"
+      },
+      "require": {
+        "types": "./dist/primitives/button.d.cts",
+        "default": "./dist/primitives/button.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -98,6 +108,7 @@
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.343.0",
