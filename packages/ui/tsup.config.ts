@@ -33,6 +33,10 @@ const entries = [
     export: './button',
   },
   {
+    source: './src/primitives/alert-dialog.tsx',
+    export: './alert-dialog',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

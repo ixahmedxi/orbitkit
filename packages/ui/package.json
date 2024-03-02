@@ -77,6 +77,16 @@
         "default": "./dist/primitives/button.cjs"
       }
     },
+    "./alert-dialog": {
+      "import": {
+        "types": "./dist/primitives/alert-dialog.d.ts",
+        "default": "./dist/primitives/alert-dialog.js"
+      },
+      "require": {
+        "types": "./dist/primitives/alert-dialog.d.cts",
+        "default": "./dist/primitives/alert-dialog.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -106,6 +116,7 @@
   "dependencies": {
     "@orbitkit/assets": "workspace:^",
     "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
