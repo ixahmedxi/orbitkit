@@ -21,7 +21,7 @@
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "astro-eslint-parser": "^0.16.3",
-    "eslint-config-next": "^14.1.0",
+    "eslint-config-next": "^14.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.31.4",
     "eslint-plugin-eslint-comments": "^3.2.0",
