@@ -45,6 +45,14 @@ const entries = [
     export: './tooltip',
   },
   {
+    source: './src/primitives/input.tsx',
+    export: './input',
+  },
+  {
+    source: './src/primitives/label.tsx',
+    export: './label',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

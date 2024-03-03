@@ -19,8 +19,12 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
     "twc\\.[^`]+`([^`]*)`",
     "twc\\(.*?\\).*?`([^`]*)",

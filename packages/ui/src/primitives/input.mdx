@@ -1,0 +1,46 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as InputStories from './input.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+Displays a form input field or a component that looks like an input field.
+
+## Preview
+
+<Canvas of={InputStories.Default} />
+
+<Controls />
+
+## Usage
+
+export const importCode = `import { Input } from "@orbitkit/ui/input";`;
+
+export const usageCode = `<Input />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Default
+
+<Canvas of={InputStories.Default} />
+
+### File
+
+<Canvas of={InputStories.File} />
+
+### Disabled
+
+<Canvas of={InputStories.Disabled} />
+
+### With Label
+
+<Canvas of={InputStories.WithLabel} />
+
+### With Button
+
+<Canvas of={InputStories.WithButton} />

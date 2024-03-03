@@ -107,6 +107,26 @@
         "default": "./dist/primitives/tooltip.cjs"
       }
     },
+    "./input": {
+      "import": {
+        "types": "./dist/primitives/input.d.ts",
+        "default": "./dist/primitives/input.js"
+      },
+      "require": {
+        "types": "./dist/primitives/input.d.cts",
+        "default": "./dist/primitives/input.cjs"
+      }
+    },
+    "./label": {
+      "import": {
+        "types": "./dist/primitives/label.d.ts",
+        "default": "./dist/primitives/label.js"
+      },
+      "require": {
+        "types": "./dist/primitives/label.d.cts",
+        "default": "./dist/primitives/label.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -139,6 +159,7 @@
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",

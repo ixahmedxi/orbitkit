@@ -1,0 +1,24 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as LabelStories from './label.stories';
+
+<Meta of={LabelStories} />
+
+# Label
+
+Renders an accessible label associated with controls.
+
+## Preview
+
+<Canvas of={LabelStories.Default} />
+
+<Controls />
+
+## Usage
+
+export const importCode = `import { Label } from "@orbitkit/ui/label";`;
+
+export const usageCode = `<Label htmlFor="email">Your email address</Label>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
