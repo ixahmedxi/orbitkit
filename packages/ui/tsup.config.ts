@@ -41,6 +41,10 @@ const entries = [
     export: './badge',
   },
   {
+    source: './src/primitives/tooltip.tsx',
+    export: './tooltip',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

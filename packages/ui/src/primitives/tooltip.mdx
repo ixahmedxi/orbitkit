@@ -1,0 +1,36 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as TooltipStories from './tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
+
+## Preview
+
+<Canvas of={TooltipStories.Default} />
+
+<Controls />
+
+## Usage
+
+export const importCode = `import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@orbitkit/ui/tooltip";`;
+
+export const usageCode = `<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover</TooltipTrigger>
+    <TooltipContent>
+      <p>Add to library</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />

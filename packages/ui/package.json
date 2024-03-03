@@ -97,6 +97,16 @@
         "default": "./dist/primitives/badge.cjs"
       }
     },
+    "./tooltip": {
+      "import": {
+        "types": "./dist/primitives/tooltip.d.ts",
+        "default": "./dist/primitives/tooltip.js"
+      },
+      "require": {
+        "types": "./dist/primitives/tooltip.d.cts",
+        "default": "./dist/primitives/tooltip.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -130,6 +140,7 @@
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.344.0",
