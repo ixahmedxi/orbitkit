@@ -1,0 +1,53 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import * as BadgeStories from './badge.stories';
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+Displays a badge or a component that looks like a badge.
+
+## Preview
+
+<Canvas of={BadgeStories.Default} />
+
+<Controls />
+
+## Usage
+
+export const importCode = `import { Badge } from "@orbitkit/ui/badge";`;
+
+export const usageCode = `<Badge variant="outline">Badge</Badge>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Helper
+
+You can use the `badgeVariants` helper to create a link that looks like a badge.
+
+export const helperImport = `import { badgeVariants } from "@orbitkit/ui/badge";`;
+
+export const helperUsage = `<Link className={badgeVariants({ variant: "outline" })}>Badge</Link>`;
+
+<Source code={helperImport} language="ts" dark />
+<Source code={helperUsage} language="tsx" dark />
+
+## Examples
+
+### Default
+
+<Canvas of={BadgeStories.Default} />
+
+### Secondary
+
+<Canvas of={BadgeStories.Secondary} />
+
+### Outline
+
+<Canvas of={BadgeStories.Outline} />
+
+### Destructive
+
+<Canvas of={BadgeStories.Destructive} />

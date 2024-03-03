@@ -37,6 +37,10 @@ const entries = [
     export: './alert-dialog',
   },
   {
+    source: './src/primitives/badge.tsx',
+    export: './badge',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },

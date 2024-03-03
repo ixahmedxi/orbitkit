@@ -87,6 +87,16 @@
         "default": "./dist/primitives/alert-dialog.cjs"
       }
     },
+    "./badge": {
+      "import": {
+        "types": "./dist/primitives/badge.d.ts",
+        "default": "./dist/primitives/badge.js"
+      },
+      "require": {
+        "types": "./dist/primitives/badge.d.cts",
+        "default": "./dist/primitives/badge.cjs"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
