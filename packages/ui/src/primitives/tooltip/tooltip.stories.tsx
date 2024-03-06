@@ -2,13 +2,8 @@ import { type FC } from 'react';
 
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Button } from './button';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './tooltip';
+import { Button } from '../button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './';
 
 type ComponentProps = {
   content: string;

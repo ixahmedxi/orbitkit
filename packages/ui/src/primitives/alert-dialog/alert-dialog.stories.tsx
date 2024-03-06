@@ -2,6 +2,7 @@ import { type FC } from 'react';
 
 import { type Meta, type StoryObj } from '@storybook/react';
 
+import { Button } from '../button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -12,8 +13,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from './alert-dialog';
-import { Button } from './button';
+} from './';
 
 type ComponentProps = {
   title: string;

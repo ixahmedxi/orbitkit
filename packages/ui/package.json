@@ -7,140 +7,79 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
-    },
     "./avatar": {
       "import": {
-        "types": "./dist/primitives/avatar.d.ts",
-        "default": "./dist/primitives/avatar.js"
-      },
-      "require": {
-        "types": "./dist/primitives/avatar.d.cts",
-        "default": "./dist/primitives/avatar.cjs"
+        "types": "./dist/primitives/avatar/index.d.ts",
+        "default": "./dist/primitives/avatar/index.js"
       }
     },
     "./typography": {
       "import": {
-        "types": "./dist/primitives/typography.d.ts",
-        "default": "./dist/primitives/typography.js"
-      },
-      "require": {
-        "types": "./dist/primitives/typography.d.cts",
-        "default": "./dist/primitives/typography.cjs"
+        "types": "./dist/primitives/typography/index.d.ts",
+        "default": "./dist/primitives/typography/index.js"
       }
     },
     "./accordion": {
       "import": {
-        "types": "./dist/primitives/accordion.d.ts",
-        "default": "./dist/primitives/accordion.js"
-      },
-      "require": {
-        "types": "./dist/primitives/accordion.d.cts",
-        "default": "./dist/primitives/accordion.cjs"
+        "types": "./dist/primitives/accordion/index.d.ts",
+        "default": "./dist/primitives/accordion/index.js"
       }
     },
     "./aspect-ratio": {
       "import": {
-        "types": "./dist/primitives/aspect-ratio.d.ts",
-        "default": "./dist/primitives/aspect-ratio.js"
-      },
-      "require": {
-        "types": "./dist/primitives/aspect-ratio.d.cts",
-        "default": "./dist/primitives/aspect-ratio.cjs"
+        "types": "./dist/primitives/aspect-ratio/index.d.ts",
+        "default": "./dist/primitives/aspect-ratio/index.js"
       }
     },
     "./alert": {
       "import": {
-        "types": "./dist/primitives/alert.d.ts",
-        "default": "./dist/primitives/alert.js"
-      },
-      "require": {
-        "types": "./dist/primitives/alert.d.cts",
-        "default": "./dist/primitives/alert.cjs"
+        "types": "./dist/primitives/alert/index.d.ts",
+        "default": "./dist/primitives/alert/index.js"
       }
     },
     "./button": {
       "import": {
-        "types": "./dist/primitives/button.d.ts",
-        "default": "./dist/primitives/button.js"
-      },
-      "require": {
-        "types": "./dist/primitives/button.d.cts",
-        "default": "./dist/primitives/button.cjs"
+        "types": "./dist/primitives/button/index.d.ts",
+        "default": "./dist/primitives/button/index.js"
       }
     },
     "./alert-dialog": {
       "import": {
-        "types": "./dist/primitives/alert-dialog.d.ts",
-        "default": "./dist/primitives/alert-dialog.js"
-      },
-      "require": {
-        "types": "./dist/primitives/alert-dialog.d.cts",
-        "default": "./dist/primitives/alert-dialog.cjs"
+        "types": "./dist/primitives/alert-dialog/index.d.ts",
+        "default": "./dist/primitives/alert-dialog/index.js"
       }
     },
     "./badge": {
       "import": {
-        "types": "./dist/primitives/badge.d.ts",
-        "default": "./dist/primitives/badge.js"
-      },
-      "require": {
-        "types": "./dist/primitives/badge.d.cts",
-        "default": "./dist/primitives/badge.cjs"
+        "types": "./dist/primitives/badge/index.d.ts",
+        "default": "./dist/primitives/badge/index.js"
       }
     },
     "./tooltip": {
       "import": {
-        "types": "./dist/primitives/tooltip.d.ts",
-        "default": "./dist/primitives/tooltip.js"
-      },
-      "require": {
-        "types": "./dist/primitives/tooltip.d.cts",
-        "default": "./dist/primitives/tooltip.cjs"
+        "types": "./dist/primitives/tooltip/index.d.ts",
+        "default": "./dist/primitives/tooltip/index.js"
       }
     },
     "./input": {
       "import": {
-        "types": "./dist/primitives/input.d.ts",
-        "default": "./dist/primitives/input.js"
-      },
-      "require": {
-        "types": "./dist/primitives/input.d.cts",
-        "default": "./dist/primitives/input.cjs"
+        "types": "./dist/primitives/input/index.d.ts",
+        "default": "./dist/primitives/input/index.js"
       }
     },
     "./label": {
       "import": {
-        "types": "./dist/primitives/label.d.ts",
-        "default": "./dist/primitives/label.js"
-      },
-      "require": {
-        "types": "./dist/primitives/label.d.cts",
-        "default": "./dist/primitives/label.cjs"
+        "types": "./dist/primitives/label/index.d.ts",
+        "default": "./dist/primitives/label/index.js"
       }
     },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
         "default": "./dist/utils/cn.js"
-      },
-      "require": {
-        "types": "./dist/utils/cn.d.cts",
-        "default": "./dist/utils/cn.cjs"
       }
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],

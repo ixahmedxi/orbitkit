@@ -3,7 +3,7 @@ import { type FC } from 'react';
 import { type Meta, type StoryObj } from '@storybook/react';
 import { Terminal } from 'lucide-react';
 
-import { Alert, AlertDescription, AlertTitle } from './alert';
+import { Alert, AlertDescription, AlertTitle } from './';
 
 type ComponentProps = {
   variant: 'default' | 'destructive';

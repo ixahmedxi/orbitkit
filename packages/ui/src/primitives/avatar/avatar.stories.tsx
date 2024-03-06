@@ -2,7 +2,7 @@ import { type FC } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
+import { Avatar, AvatarFallback, AvatarImage } from './';
 
 const DemoComponent: FC<{ src: string; alt: string; fallback: string }> = ({
   src,

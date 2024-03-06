@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './accordion';
+} from './';
 
 type ComponentProps = {
   type: 'single' | 'multiple';

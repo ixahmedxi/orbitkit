@@ -5,51 +5,47 @@ import { defineConfig } from 'tsup';
 
 const entries = [
   {
-    source: './src/index.ts',
-    export: '.',
-  },
-  {
-    source: './src/primitives/avatar.tsx',
+    source: './src/primitives/avatar/index.tsx',
     export: './avatar',
   },
   {
-    source: './src/primitives/typography.tsx',
+    source: './src/primitives/typography/index.tsx',
     export: './typography',
   },
   {
-    source: './src/primitives/accordion.tsx',
+    source: './src/primitives/accordion/index.tsx',
     export: './accordion',
   },
   {
-    source: './src/primitives/aspect-ratio.tsx',
+    source: './src/primitives/aspect-ratio/index.tsx',
     export: './aspect-ratio',
   },
   {
-    source: './src/primitives/alert.tsx',
+    source: './src/primitives/alert/index.tsx',
     export: './alert',
   },
   {
-    source: './src/primitives/button.tsx',
+    source: './src/primitives/button/index.tsx',
     export: './button',
   },
   {
-    source: './src/primitives/alert-dialog.tsx',
+    source: './src/primitives/alert-dialog/index.tsx',
     export: './alert-dialog',
   },
   {
-    source: './src/primitives/badge.tsx',
+    source: './src/primitives/badge/index.tsx',
     export: './badge',
   },
   {
-    source: './src/primitives/tooltip.tsx',
+    source: './src/primitives/tooltip/index.tsx',
     export: './tooltip',
   },
   {
-    source: './src/primitives/input.tsx',
+    source: './src/primitives/input/index.tsx',
     export: './input',
   },
   {
-    source: './src/primitives/label.tsx',
+    source: './src/primitives/label/index.tsx',
     export: './label',
   },
   {
@@ -67,7 +63,7 @@ interface PackageJson {
 
 export default defineConfig((opts) => ({
   entry: entries.map((entry) => entry.source),
-  format: ['esm', 'cjs'],
+  format: ['esm'],
   splitting: true,
   sourcemap: true,
   minify: true,
@@ -87,21 +83,9 @@ export default defineConfig((opts) => ({
             .replace('src', 'dist')
             .replace(/\.tsx?$/, '.js'),
         },
-        require: {
-          types: entry.source
-            .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.d.cts'),
-          default: entry.source
-            .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.cjs'),
-        },
       };
       return acc;
     }, {});
-
-    pkg.main = './dist/index.cjs';
-    pkg.module = './dist/index.js';
-    pkg.types = './dist/index.d.ts';
 
     fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
 

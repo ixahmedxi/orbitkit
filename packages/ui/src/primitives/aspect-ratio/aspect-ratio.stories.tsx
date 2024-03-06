@@ -2,7 +2,7 @@ import { type FC } from 'react';
 
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { AspectRatio } from './aspect-ratio';
+import { AspectRatio } from './';
 
 type ComponentProps = {
   ratio: number;

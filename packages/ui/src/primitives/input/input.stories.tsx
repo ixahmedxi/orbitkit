@@ -1,8 +1,8 @@
 import { type Meta, type StoryObj } from '@storybook/react';
 
-import { Button } from './button';
-import { Input } from './input';
-import { Label } from './label';
+import { Button } from '../button';
+import { Label } from '../label';
+import { Input } from './';
 
 const meta: Meta<typeof Input> = {
   title: 'Primitives / Input',
