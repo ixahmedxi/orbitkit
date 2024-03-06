@@ -19,19 +19,26 @@ export const orbitKitTailwindPreset: Config = {
         background: colors.alias('gray.1'),
         foreground: colors.alias('gray.12'),
 
-        muted: colors.alias('gray.4'),
-        'muted-foreground': colors.alias('gray.11'),
+        muted: {
+          DEFAULT: colors.alias('gray.4'),
+          foreground: colors.alias('gray.11'),
+        },
 
-        card: colors.alias('gray.1'),
-        'card-foreground': colors.alias('gray.12'),
+        card: {
+          DEFAULT: colors.alias('gray.1'),
+          foreground: colors.alias('gray.12'),
+        },
 
-        popover: colors.alias('gray.1'),
-        'popover-foreground': colors.alias('gray.12'),
+        popover: {
+          DEFAULT: colors.alias('gray.1'),
+          foreground: colors.alias('gray.12'),
+        },
 
         input: colors.alias('gray.3'),
 
         primary: {
           DEFAULT: colors.alias('crimson.10'),
+          foreground: colors.alias('crimson.1'),
           1: colors.alias('crimson.1'),
           2: colors.alias('crimson.2'),
           3: colors.alias('crimson.3'),
@@ -45,10 +52,10 @@ export const orbitKitTailwindPreset: Config = {
           11: colors.alias('crimson.11'),
           12: colors.alias('crimson.12'),
         },
-        'primary-foreground': colors.alias('crimson.1'),
 
         secondary: {
           DEFAULT: colors.alias('blue.10'),
+          foreground: colors.alias('blue.1'),
           1: colors.alias('blue.1'),
           2: colors.alias('blue.2'),
           3: colors.alias('blue.3'),
@@ -62,13 +69,15 @@ export const orbitKitTailwindPreset: Config = {
           11: colors.alias('blue.11'),
           12: colors.alias('blue.12'),
         },
-        'secondary-foreground': colors.alias('blue.1'),
 
-        accent: colors.alias('gray.4'),
-        'accent-foreground': colors.alias('gray.12'),
+        accent: {
+          DEFAULT: colors.alias('gray.4'),
+          foreground: colors.alias('gray.12'),
+        },
 
         destructive: {
           DEFAULT: colors.alias('red.10'),
+          foreground: colors.alias('red.1'),
           1: colors.alias('red.1'),
           2: colors.alias('red.2'),
           3: colors.alias('red.3'),
@@ -82,7 +91,6 @@ export const orbitKitTailwindPreset: Config = {
           11: colors.alias('red.11'),
           12: colors.alias('red.12'),
         },
-        'destructive-foreground': colors.alias('red.1'),
 
         border: colors.alias('gray.6'),
         ring: colors.alias('gray.6'),
