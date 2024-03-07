@@ -85,6 +85,12 @@
         "default": "./dist/primitives/toggle-group/index.js"
       }
     },
+    "./textarea": {
+      "import": {
+        "types": "./dist/primitives/textarea/index.d.ts",
+        "default": "./dist/primitives/textarea/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",

@@ -1,0 +1,44 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as TextAreaStories from './textarea.stories';
+
+<Meta of={TextAreaStories} />
+
+# Textarea
+
+Displays a form textarea or a component that looks like a textarea.
+
+## Preview
+
+<Canvas of={TextAreaStories.Default} />
+
+## Usage
+
+export const importCode = `import { Textarea } from "@orbitkit/ui/textarea";`;
+
+export const usageCode = `<Textarea />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Default
+
+<Canvas of={TextAreaStories.Default} />
+
+### Disabled
+
+<Canvas of={TextAreaStories.Disabled} />
+
+### With Label
+
+<Canvas of={TextAreaStories.WithLabel} />
+
+### With Text
+
+<Canvas of={TextAreaStories.WithText} />
+
+### With Button
+
+<Canvas of={TextAreaStories.WithButton} />

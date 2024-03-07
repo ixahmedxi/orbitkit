@@ -57,6 +57,10 @@ const entries = [
     export: './toggle-group',
   },
   {
+    source: './src/primitives/textarea/index.tsx',
+    export: './textarea',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },
