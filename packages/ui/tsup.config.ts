@@ -53,6 +53,10 @@ const entries = [
     export: './toggle',
   },
   {
+    source: './src/primitives/toggle-group/index.tsx',
+    export: './toggle-group',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },
