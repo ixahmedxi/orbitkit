@@ -49,6 +49,10 @@ const entries = [
     export: './label',
   },
   {
+    source: './src/primitives/toggle/index.tsx',
+    export: './toggle',
+  },
+  {
     source: './src/utils/cn.ts',
     export: './cn',
   },
