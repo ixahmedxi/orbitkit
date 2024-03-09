@@ -31,6 +31,7 @@ const entries = [
     'toggle-group',
     'tooltip',
     'typography',
+    'popover',
   ]),
   {
     source: './src/utils/cn.ts',

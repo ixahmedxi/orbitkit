@@ -1,0 +1,32 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as PopoverStories from './popover.stories';
+
+<Meta of={PopoverStories} />
+
+<PrimitiveDocsButton name="popover" />
+
+# Popover
+
+Displays rich content in a portal, triggered by a button.
+
+## Preview
+
+<Canvas of={PopoverStories.Example} />
+
+## Usage
+
+export const importCode = `import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@orbitkit/ui/popover";`;
+
+export const usageCode = `<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>Place content for the popover here.</PopoverContent>
+</Popover>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
