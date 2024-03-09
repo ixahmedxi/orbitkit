@@ -7,9 +7,13 @@ ignorePaths:
   - .gitignore
   - dist
 words:
+  - acst
+  - aest
+  - akst
   - astro
   - astrojs
   - autodocs
+  - awst
   - Beamer
   - clsx
   - commitlint
@@ -23,6 +27,7 @@ words:
   - neonctl
   - neondatabase
   - nextjs
+  - nzst
   - orbitkit
   - packagejson
   - Ratelimit
@@ -36,3 +41,4 @@ words:
   - typeof
   - upstash
   - viewports
+  - WITA

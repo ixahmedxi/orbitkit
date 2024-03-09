@@ -1,0 +1,52 @@
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+
+import * as SelectStories from './select.stories';
+
+<Meta of={SelectStories} />
+
+<PrimitiveDocsButton name="select" />
+
+# Select
+
+Displays a list of options for the user to pick from—triggered by a button.
+
+## Preview
+
+<Canvas of={SelectStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@orbitkit/ui/select";`;
+
+export const usageCode = `<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="Theme" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">System</SelectItem>
+  </SelectContent>
+</Select>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Default
+
+<Canvas of={SelectStories.Default} />
+
+### Scrollable
+
+<Canvas of={SelectStories.Scrollable} />

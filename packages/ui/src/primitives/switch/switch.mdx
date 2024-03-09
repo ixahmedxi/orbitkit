@@ -1,0 +1,33 @@
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+
+import * as SwitchStories from './switch.stories';
+
+<Meta of={SwitchStories} />
+
+<PrimitiveDocsButton name="switch" />
+
+# Switch
+
+A control that allows the user to toggle between checked and not checked.
+
+## Preview
+
+<Canvas of={SwitchStories.Default} />
+
+## Usage
+
+export const importCode = `import { Switch } from "@orbitkit/ui/switch";`;
+
+export const usageCode = `<Switch />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Default
+
+<Canvas of={SwitchStories.Default} />

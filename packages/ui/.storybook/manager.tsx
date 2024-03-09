@@ -2,6 +2,12 @@ import { useEffect } from 'react';
 
 import { addons, types, useGlobals } from '@storybook/manager-api';
 
+import theme from './theme';
+
+addons.setConfig({
+  theme: theme,
+});
+
 const ExampleToolbar = () => {
   const [globals] = useGlobals();
 

@@ -6,7 +6,8 @@ import type { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { type ReactRenderer } from '@storybook/react';
-import { themes } from '@storybook/theming';
+
+import theme from './theme';
 
 const customViewports = {
   '720p': {
@@ -62,7 +63,7 @@ const preview = {
       },
     },
     docs: {
-      theme: themes.dark,
+      theme,
     },
   },
   decorators: [
