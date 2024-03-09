@@ -1,7 +1,3 @@
-import { type ComponentProps } from 'react';
-
-import type { FC } from 'react';
-
 import {
   FontBoldIcon,
   FontItalicIcon,
@@ -11,27 +7,27 @@ import { type Meta, type StoryObj } from '@storybook/react';
 
 import { ToggleGroup, ToggleGroupItem } from '.';
 
-type Props = ComponentProps<typeof ToggleGroup>;
+const items = [
+  {
+    value: 'bold',
+    'aria-label': 'Toggle bold',
+    children: <FontBoldIcon className="h-4 w-4" />,
+  },
+  {
+    value: 'italic',
+    'aria-label': 'Toggle italic',
+    children: <FontItalicIcon className="h-4 w-4" />,
+  },
+  {
+    value: 'strikethrough',
+    'aria-label': 'Toggle strikethrough',
+    children: <UnderlineIcon className="h-4 w-4" />,
+  },
+];
 
-const Component: FC<Props> = (props) => {
-  return (
-    <ToggleGroup {...props}>
-      <ToggleGroupItem value="bold" aria-label="Toggle bold">
-        <FontBoldIcon className="h-4 w-4" />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="italic" aria-label="Toggle italic">
-        <FontItalicIcon className="h-4 w-4" />
-      </ToggleGroupItem>
-      <ToggleGroupItem value="strikethrough" aria-label="Toggle strikethrough">
-        <UnderlineIcon className="h-4 w-4" />
-      </ToggleGroupItem>
-    </ToggleGroup>
-  );
-};
-
-const meta: Meta<typeof Component> = {
+const meta: Meta<typeof ToggleGroup> = {
   title: 'Primitives / Toggle Group',
-  component: Component,
+  component: ToggleGroup,
   args: {
     type: 'multiple',
     variant: 'default',
@@ -52,11 +48,18 @@ const meta: Meta<typeof Component> = {
       control: { type: 'select' },
     },
   },
+  render: (args) => (
+    <ToggleGroup {...args}>
+      {items.map((item) => (
+        <ToggleGroupItem key={item.value} {...item} />
+      ))}
+    </ToggleGroup>
+  ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof ToggleGroup>;
 
 export const Default: Story = {};
 export const Outline: Story = { args: { variant: 'outline' } };

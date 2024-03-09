@@ -1,5 +1,3 @@
-import { type FC } from 'react';
-
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import {
@@ -9,51 +7,12 @@ import {
   AccordionTrigger,
 } from './';
 
-type ComponentProps = {
-  type: 'single' | 'multiple';
-  collapsible: boolean;
-  itemTrigger: string;
-  itemContent: string;
-};
-
-const Component: FC<ComponentProps> = ({
-  type,
-  collapsible,
-  itemTrigger,
-  itemContent,
-}) => {
-  return (
-    <Accordion type={type} collapsible={collapsible} className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>{itemTrigger}</AccordionTrigger>
-        <AccordionContent>{itemContent}</AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
-  );
-};
-
-const meta: Meta<typeof Component> = {
+const meta: Meta<typeof Accordion> = {
   title: 'Primitives / Accordion',
-  component: Component,
+  component: Accordion,
   args: {
     type: 'single',
     collapsible: true,
-    itemTrigger: 'Is it accessible?',
-    itemContent: 'Yes. It adheres to the WAI-ARIA design pattern',
   },
   argTypes: {
     type: {
@@ -63,11 +22,41 @@ const meta: Meta<typeof Component> = {
       },
     },
   },
+  render: (args) => (
+    <Accordion {...args}>
+      {items.map((item) => (
+        <AccordionItem key={item.value} value={item.value}>
+          <AccordionTrigger>{item.trigger}</AccordionTrigger>
+          <AccordionContent>{item.content}</AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof Accordion>;
+
+const items = [
+  {
+    trigger: 'Is it accessible?',
+    content: 'Yes. It adheres to the WAI-ARIA design pattern.',
+    value: 'item-1',
+  },
+  {
+    trigger: 'Is it styled?',
+    content:
+      "Yes. It comes with default styles that matches the other components' aesthetic.",
+    value: 'item-2',
+  },
+  {
+    trigger: 'Is it animated?',
+    content:
+      "Yes. It's animated by default, but you can disable it if you prefer.",
+    value: 'item-3',
+  },
+];
 
 export const Single: Story = {};
 

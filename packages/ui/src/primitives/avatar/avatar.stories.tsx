@@ -1,32 +1,24 @@
-import { type FC } from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Avatar, AvatarFallback, AvatarImage } from './';
 
-const DemoComponent: FC<{ src: string; alt: string; fallback: string }> = ({
-  src,
-  alt,
-  fallback,
-}) => (
-  <Avatar>
-    <AvatarImage src={src} alt={alt} />
-    <AvatarFallback>{fallback}</AvatarFallback>
-  </Avatar>
-);
-
-const meta: Meta<typeof DemoComponent> = {
+const meta: Meta<typeof AvatarImage> = {
   title: 'Primitives / Avatar',
-  component: DemoComponent,
+  component: AvatarImage,
   args: {
     src: 'https://github.com/shadcn.png',
     alt: '@shadcn',
-    fallback: 'CN',
   },
+  render: (args) => (
+    <Avatar>
+      <AvatarImage {...args} />
+      <AvatarFallback>CN</AvatarFallback>
+    </Avatar>
+  ),
 };
 
 export default meta;
-type Story = StoryObj<typeof DemoComponent>;
+type Story = StoryObj<typeof AvatarImage>;
 
 export const Default: Story = {};
 

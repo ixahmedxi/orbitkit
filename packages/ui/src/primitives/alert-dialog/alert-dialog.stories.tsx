@@ -1,5 +1,3 @@
-import { type FC } from 'react';
-
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Button } from '../button';
@@ -15,21 +13,21 @@ import {
   AlertDialogTrigger,
 } from './';
 
-type ComponentProps = {
-  title: string;
-  description: string;
-};
-
-const Component: FC<ComponentProps> = ({ title, description }) => {
-  return (
-    <AlertDialog>
+const meta: Meta<typeof AlertDialog> = {
+  title: 'Primitives / Alert Dialog',
+  component: AlertDialog,
+  render: (args) => (
+    <AlertDialog {...args}>
       <AlertDialogTrigger asChild>
         <Button variant="outline">Show Dialog</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>{title}</AlertDialogTitle>
-          <AlertDialogDescription>{description}</AlertDialogDescription>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
+          </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
@@ -37,21 +35,11 @@ const Component: FC<ComponentProps> = ({ title, description }) => {
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
-  );
-};
-
-const meta: Meta<typeof Component> = {
-  title: 'Primitives / Alert Dialog',
-  component: Component,
-  args: {
-    title: 'Are you absolutely sure?',
-    description:
-      'This action cannot be undone. This will permanently delete your account and remove your data from our servers.',
-  },
+  ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof AlertDialog>;
 
 export const Default: Story = {};

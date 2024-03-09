@@ -1,45 +1,51 @@
-import { type FC } from 'react';
-
-import { RocketIcon } from '@radix-ui/react-icons';
+import { ExclamationTriangleIcon, RocketIcon } from '@radix-ui/react-icons';
 import { type Meta, type StoryObj } from '@storybook/react';
 
 import { Alert, AlertDescription, AlertTitle } from './';
 
-type ComponentProps = {
-  variant: 'default' | 'destructive';
-  title: string;
-  description: string;
-};
-
-const Component: FC<ComponentProps> = ({ title, description, variant }) => {
-  return (
-    <Alert variant={variant}>
-      <RocketIcon className="h-4 w-4" />
-      <AlertTitle>{title}</AlertTitle>
-      <AlertDescription>{description}</AlertDescription>
-    </Alert>
-  );
-};
-
-const meta: Meta<typeof Component> = {
+const meta: Meta<typeof Alert> = {
   title: 'Primitives / Alert',
-  component: Component,
+  component: Alert,
   args: {
-    title: 'Heads up!',
-    description:
-      'You can add components and dependencies to your app using the cli.',
     variant: 'default',
+  },
+  argTypes: {
+    variant: {
+      options: ['default', 'destructive'],
+      control: {
+        type: 'select',
+      },
+    },
   },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Component>;
+type Story = StoryObj<typeof Alert>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: (args) => (
+    <Alert {...args}>
+      <RocketIcon className="h-4 w-4" />
+      <AlertTitle>Heads up!</AlertTitle>
+      <AlertDescription>
+        You can add components to your app using the cli.
+      </AlertDescription>
+    </Alert>
+  ),
+};
 
 export const Destructive: Story = {
   args: {
     variant: 'destructive',
   },
+  render: (args) => (
+    <Alert {...args}>
+      <ExclamationTriangleIcon className="h-4 w-4" />
+      <AlertTitle>Error</AlertTitle>
+      <AlertDescription>
+        Your session has expired. Please log in again.
+      </AlertDescription>
+    </Alert>
+  ),
 };
