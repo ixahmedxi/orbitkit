@@ -12,8 +12,11 @@ const meta: Meta<typeof Typography> = {
     children: 'The big brown fox jumps over the lazy dog.',
   },
   argTypes: {
-    variant: {
-      control: false,
+    className: {
+      control: { disable: true },
+    },
+    as: {
+      control: { disable: true },
     },
   },
   play: async ({ canvasElement }) => {
