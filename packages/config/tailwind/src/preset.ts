@@ -92,8 +92,8 @@ export const orbitKitTailwindPreset: Config = {
           12: colors.alias('red.12'),
         },
 
-        border: colors.alias('gray.6'),
-        ring: colors.alias('gray.6'),
+        border: colors.alias('gray.4'),
+        ring: colors.alias('gray.4'),
       },
       borderRadius: {
         radius: '0.5rem',

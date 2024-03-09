@@ -1,0 +1,52 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as DropdownMenuStories from './dropdown-menu.stories';
+
+<Meta of={DropdownMenuStories} />
+
+<PrimitiveDocsButton name="dropdown-menu" />
+
+# Dropdown Menu
+
+Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+
+## Preview
+
+<Canvas of={DropdownMenuStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@orbitkit/ui/dropdown-menu";`;
+
+export const usageCode = `<DropdownMenu>
+  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+    <DropdownMenuItem>Team</DropdownMenuItem>
+    <DropdownMenuItem>Subscription</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Checkboxes
+
+<Canvas of={DropdownMenuStories.Checkboxes} />
+
+### Radio Group
+
+<Canvas of={DropdownMenuStories.RadioGroup} />

@@ -3,63 +3,35 @@ import fs from 'node:fs';
 import prettier from 'prettier';
 import { defineConfig } from 'tsup';
 
+const genPrimitiveEntries = (primitives: string[]) => {
+  return primitives.map((primitive) => ({
+    source: `./src/primitives/${primitive}/index.tsx`,
+    export: `./${primitive}`,
+  }));
+};
+
 const entries = [
-  {
-    source: './src/primitives/avatar/index.tsx',
-    export: './avatar',
-  },
-  {
-    source: './src/primitives/typography/index.tsx',
-    export: './typography',
-  },
-  {
-    source: './src/primitives/accordion/index.tsx',
-    export: './accordion',
-  },
-  {
-    source: './src/primitives/aspect-ratio/index.tsx',
-    export: './aspect-ratio',
-  },
-  {
-    source: './src/primitives/alert/index.tsx',
-    export: './alert',
-  },
-  {
-    source: './src/primitives/button/index.tsx',
-    export: './button',
-  },
-  {
-    source: './src/primitives/alert-dialog/index.tsx',
-    export: './alert-dialog',
-  },
-  {
-    source: './src/primitives/badge/index.tsx',
-    export: './badge',
-  },
-  {
-    source: './src/primitives/tooltip/index.tsx',
-    export: './tooltip',
-  },
-  {
-    source: './src/primitives/input/index.tsx',
-    export: './input',
-  },
-  {
-    source: './src/primitives/label/index.tsx',
-    export: './label',
-  },
-  {
-    source: './src/primitives/toggle/index.tsx',
-    export: './toggle',
-  },
-  {
-    source: './src/primitives/toggle-group/index.tsx',
-    export: './toggle-group',
-  },
-  {
-    source: './src/primitives/textarea/index.tsx',
-    export: './textarea',
-  },
+  ...genPrimitiveEntries([
+    'accordion',
+    'alert',
+    'alert-dialog',
+    'aspect-ratio',
+    'avatar',
+    'badge',
+    'breadcrumb',
+    'button',
+    'card',
+    'dropdown-menu',
+    'input',
+    'label',
+    'select',
+    'switch',
+    'textarea',
+    'toggle',
+    'toggle-group',
+    'tooltip',
+    'typography',
+  ]),
   {
     source: './src/utils/cn.ts',
     export: './cn',
