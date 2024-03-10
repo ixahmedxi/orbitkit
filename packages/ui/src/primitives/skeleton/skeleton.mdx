@@ -1,0 +1,28 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as SkeletonStories from './skeleton.stories';
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+Use to show a placeholder while content is loading.
+
+## Preview
+
+<Canvas of={SkeletonStories.Default} />
+
+## Usage
+
+export const importCode = `import { Skeleton } from "@orbitkit/ui/skeleton";`;
+
+export const usageCode = `<Skeleton className="w-[100px] h-[20px] rounded-full" />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Card
+
+<Canvas of={SkeletonStories.Card} />

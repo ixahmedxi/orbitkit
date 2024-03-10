@@ -139,6 +139,12 @@
         "default": "./dist/primitives/checkbox/index.js"
       }
     },
+    "./skeleton": {
+      "import": {
+        "types": "./dist/primitives/skeleton/index.d.ts",
+        "default": "./dist/primitives/skeleton/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",

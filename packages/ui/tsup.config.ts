@@ -34,6 +34,7 @@ const entries = [
     'popover',
     'calendar',
     'checkbox',
+    'skeleton',
   ]),
   {
     source: './src/utils/cn.ts',
