@@ -151,6 +151,12 @@
         "default": "./dist/primitives/dialog/index.js"
       }
     },
+    "./progress": {
+      "import": {
+        "types": "./dist/primitives/progress/index.d.ts",
+        "default": "./dist/primitives/progress/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
