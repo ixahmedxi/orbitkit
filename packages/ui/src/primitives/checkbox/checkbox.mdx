@@ -1,0 +1,35 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as CheckboxStories from './checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+<PrimitiveDocsButton name="checkbox" />
+
+# Checkbox
+
+A control that allows the user to toggle between checked and not checked.
+
+## Preview
+
+<Canvas of={CheckboxStories.Default} />
+
+## Usage
+
+export const importCode = `import { Checkbox } from "@orbitkit/ui/checkbox";`;
+
+export const usageCode = `<Checkbox />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### With Text
+
+<Canvas of={CheckboxStories.WithText} />
+
+### Disabled
+
+<Canvas of={CheckboxStories.Disabled} />

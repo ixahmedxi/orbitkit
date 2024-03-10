@@ -33,6 +33,7 @@ const entries = [
     'typography',
     'popover',
     'calendar',
+    'checkbox',
   ]),
   {
     source: './src/utils/cn.ts',
