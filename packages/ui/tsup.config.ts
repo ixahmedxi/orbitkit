@@ -32,6 +32,7 @@ const entries = [
     'tooltip',
     'typography',
     'popover',
+    'calendar',
   ]),
   {
     source: './src/utils/cn.ts',

@@ -1,0 +1,48 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as CalendarStories from './calendar.stories';
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+A date field component that allows users to enter and edit date.
+
+## Preview
+
+<Canvas of={CalendarStories.Default} />
+
+## Usage
+
+export const importCode = `import { Calendar } from "@orbitkit/ui/calendar";`;
+
+export const usageCode = `const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+<Calendar
+  mode="single"
+  selected={date}
+  onSelect={setDate}
+  className="rounded-md border"
+/>
+`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+See the [React DayPicker](https://react-day-picker.js.org/) documentation for more information.
+
+## Examples
+
+### Date Picker
+
+You can use the `<Calendar>` component inside a `<Popover>` component to build a date picker.
+
+<Canvas of={CalendarStories.DatePicker} />
+
+### Date Picker Range
+
+<Canvas of={CalendarStories.DateRangePicker} />
+
+### With Presets
+
+<Canvas of={CalendarStories.WithPresets} />
