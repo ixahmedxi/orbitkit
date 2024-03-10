@@ -1,0 +1,25 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as SliderStories from './slider.stories';
+
+<Meta of={SliderStories} />
+
+<PrimitiveDocsButton name="slider" />
+
+# Slider
+
+An input where the user selects a value from within a given range.
+
+## Preview
+
+<Canvas of={SliderStories.Default} />
+
+## Usage
+
+export const importCode = `import { Slider } from "@orbitkit/ui/slider";`;
+
+export const usageCode = `<Slider defaultValue={[33]} max={100} step={1} />`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />

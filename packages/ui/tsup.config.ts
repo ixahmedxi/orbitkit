@@ -37,6 +37,7 @@ const entries = [
     'skeleton',
     'dialog',
     'progress',
+    'slider',
   ]),
   {
     source: './src/utils/cn.ts',

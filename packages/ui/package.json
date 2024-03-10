@@ -157,6 +157,12 @@
         "default": "./dist/primitives/progress/index.js"
       }
     },
+    "./slider": {
+      "import": {
+        "types": "./dist/primitives/slider/index.d.ts",
+        "default": "./dist/primitives/slider/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -190,6 +196,7 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-toggle": "^1.0.3",
