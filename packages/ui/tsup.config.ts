@@ -36,6 +36,7 @@ const entries = [
     'checkbox',
     'skeleton',
     'dialog',
+    'progress',
   ]),
   {
     source: './src/utils/cn.ts',
