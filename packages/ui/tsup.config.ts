@@ -38,6 +38,8 @@ const entries = [
     'dialog',
     'progress',
     'slider',
+    'scroll-area',
+    'separator',
   ]),
   {
     source: './src/utils/cn.ts',

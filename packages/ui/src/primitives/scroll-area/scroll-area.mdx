@@ -1,0 +1,38 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as ScrollAreaStories from './scroll-area.stories';
+
+<Meta of={ScrollAreaStories} />
+
+<PrimitiveDocsButton name="scroll-area" />
+
+# Scroll Area
+
+Augments native scroll functionality for custom, cross-browser styling.
+
+## Preview
+
+<Canvas of={ScrollAreaStories.Default} />
+
+## Usage
+
+export const importCode = `import { ScrollArea } from "@orbitkit/ui/scroll-area";`;
+
+export const usageCode = `<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+  Jokester began sneaking into the castle in the middle of the night and leaving
+  jokes all over the place: under the king's pillow, in his soup, even in the
+  royal toilet. The king was furious, but he couldn't seem to stop Jokester. And
+  then, one day, the people of the kingdom discovered that the jokes left by
+  Jokester were so funny that they couldn't help but laugh. And once they
+  started laughing, they couldn't stop.
+</ScrollArea>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Horizontal Scrolling
+
+<Canvas of={ScrollAreaStories.HorizontalScrolling} />
