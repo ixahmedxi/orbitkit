@@ -35,6 +35,7 @@ const entries = [
     'calendar',
     'checkbox',
     'skeleton',
+    'dialog',
   ]),
   {
     source: './src/utils/cn.ts',
