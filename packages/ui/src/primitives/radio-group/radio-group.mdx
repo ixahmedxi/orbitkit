@@ -1,0 +1,35 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as RadioGroupStories from './radio-group.stories';
+
+<Meta of={RadioGroupStories} />
+
+<PrimitiveDocsButton name="radio-group" />
+
+# Radio Group
+
+A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+
+## Preview
+
+<Canvas of={RadioGroupStories.Default} />
+
+## Usage
+
+export const importCode = `import { Label } from "@orbitkit/ui/label";
+import { RadioGroup, RadioGroupItem } from "@orbitkit/ui/radio-group";`;
+
+export const usageCode = `<RadioGroup defaultValue="option-one">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">Option One</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-two" id="option-two" />
+    <Label htmlFor="option-two">Option Two</Label>
+  </div>
+</RadioGroup>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />

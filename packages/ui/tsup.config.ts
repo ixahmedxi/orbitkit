@@ -40,6 +40,7 @@ const entries = [
     'slider',
     'scroll-area',
     'separator',
+    'radio-group',
   ]),
   {
     source: './src/utils/cn.ts',
