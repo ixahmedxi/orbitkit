@@ -43,6 +43,7 @@ const entries = [
     'radio-group',
     'collapsible',
     'sheet',
+    'hover-card',
   ]),
   {
     source: './src/utils/cn.ts',
