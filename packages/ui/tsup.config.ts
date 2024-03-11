@@ -42,6 +42,7 @@ const entries = [
     'separator',
     'radio-group',
     'collapsible',
+    'sheet',
   ]),
   {
     source: './src/utils/cn.ts',

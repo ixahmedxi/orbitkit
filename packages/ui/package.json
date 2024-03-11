@@ -187,6 +187,12 @@
         "default": "./dist/primitives/collapsible/index.js"
       }
     },
+    "./sheet": {
+      "import": {
+        "types": "./dist/primitives/sheet/index.d.ts",
+        "default": "./dist/primitives/sheet/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",

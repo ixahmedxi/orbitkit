@@ -1,0 +1,54 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as SheetStories from './sheet.stories';
+
+<Meta of={SheetStories} />
+
+<PrimitiveDocsButton name="dialog" />
+
+# Sheet
+
+Extends the Dialog component to display content that complements the main content of the screen.
+
+## Preview
+
+<Canvas of={SheetStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@orbitkit/ui/sheet";`;
+
+export const usageCode = `<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Side
+
+Use the `side` property to `<SheetContent />` to indicate the edge of the screen where the component will appear. The values can be `top`, `right`, `bottom` or `left`.
+
+<Canvas of={SheetStories.Default} />
+
+<Controls />
