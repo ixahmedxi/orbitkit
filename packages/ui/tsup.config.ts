@@ -41,6 +41,7 @@ const entries = [
     'scroll-area',
     'separator',
     'radio-group',
+    'collapsible',
   ]),
   {
     source: './src/utils/cn.ts',

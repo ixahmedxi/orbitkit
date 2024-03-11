@@ -1,0 +1,35 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as CollapsibleStories from './collapsible.stories';
+
+<Meta of={CollapsibleStories} />
+
+<PrimitiveDocsButton name="collapsible" />
+
+# Collapsible
+
+An interactive component which expands/collapses a panel.
+
+## Preview
+
+<Canvas of={CollapsibleStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@orbitkit/ui/collapsible";`;
+
+export const usageCode = `<Collapsible>
+  <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
+  <CollapsibleContent>
+    Yes. Free to use for personal and commercial projects. No attribution
+    required.
+  </CollapsibleContent>
+</Collapsible>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
