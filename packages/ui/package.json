@@ -199,6 +199,12 @@
         "default": "./dist/primitives/hover-card/index.js"
       }
     },
+    "./context-menu": {
+      "import": {
+        "types": "./dist/primitives/context-menu/index.d.ts",
+        "default": "./dist/primitives/context-menu/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -226,6 +232,7 @@
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-collapsible": "^1.0.3",
+    "@radix-ui/react-context-menu": "^2.1.5",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-hover-card": "^1.0.7",

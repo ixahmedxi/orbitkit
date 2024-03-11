@@ -1,0 +1,38 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as ContextMenuStories from './context-menu.stories';
+
+<Meta of={ContextMenuStories} />
+
+<PrimitiveDocsButton name="context-menu" />
+
+# Context Menu
+
+Displays a menu to the user — such as a set of actions or functions — triggered by a button.
+
+## Preview
+
+<Canvas of={ContextMenuStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@orbitkit/ui/context-menu";`;
+
+export const usageCode = `<ContextMenu>
+  <ContextMenuTrigger>Right click</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>Profile</ContextMenuItem>
+    <ContextMenuItem>Billing</ContextMenuItem>
+    <ContextMenuItem>Team</ContextMenuItem>
+    <ContextMenuItem>Subscription</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />

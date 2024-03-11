@@ -44,6 +44,7 @@ const entries = [
     'collapsible',
     'sheet',
     'hover-card',
+    'context-menu',
   ]),
   {
     source: './src/utils/cn.ts',
