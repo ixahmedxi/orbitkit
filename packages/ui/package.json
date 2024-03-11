@@ -205,6 +205,12 @@
         "default": "./dist/primitives/context-menu/index.js"
       }
     },
+    "./table": {
+      "import": {
+        "types": "./dist/primitives/table/index.d.ts",
+        "default": "./dist/primitives/table/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",

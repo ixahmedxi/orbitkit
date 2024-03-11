@@ -45,6 +45,7 @@ const entries = [
     'sheet',
     'hover-card',
     'context-menu',
+    'table',
   ]),
   {
     source: './src/utils/cn.ts',
