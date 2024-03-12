@@ -1,6 +1,7 @@
 import { dirname, join } from 'path';
 
 import { type StorybookConfig } from '@storybook/react-vite';
+import remarkGfm from 'remark-gfm';
 
 /**
  * This function is used to resolve the absolute path of a package. It is needed
@@ -18,6 +19,16 @@ const config = {
       name: getAbsolutePath('@storybook/addon-essentials'),
       options: {
         backgrounds: false,
+      },
+    },
+    {
+      name: getAbsolutePath('@storybook/addon-docs'),
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
       },
     },
     getAbsolutePath('@storybook/addon-onboarding'),

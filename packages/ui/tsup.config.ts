@@ -46,6 +46,7 @@ const entries = [
     'hover-card',
     'context-menu',
     'table',
+    'form',
   ]),
   {
     source: './src/utils/cn.ts',

@@ -211,6 +211,12 @@
         "default": "./dist/primitives/table/index.js"
       }
     },
+    "./form": {
+      "import": {
+        "types": "./dist/primitives/form/index.d.ts",
+        "default": "./dist/primitives/form/index.js"
+      }
+    },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
@@ -231,6 +237,7 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@orbitkit/assets": "workspace:^",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
@@ -262,14 +269,18 @@
     "react": "^18.2.0",
     "react-day-picker": "^8.10.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.0",
     "react-twc": "^1.4.1",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@radix-ui/colors": "^3.0.0",
     "@storybook/addon-a11y": "^8.0.0",
+    "@storybook/addon-actions": "^8.0.0",
+    "@storybook/addon-docs": "^8.0.0",
     "@storybook/addon-essentials": "^8.0.0",
     "@storybook/addon-interactions": "^8.0.0",
     "@storybook/addon-links": "^8.0.0",
@@ -296,6 +307,7 @@
     "playwright": "^1.42.1",
     "postcss": "^8.4.35",
     "prettier": "^3.2.5",
+    "remark-gfm": "^4.0.0",
     "storybook": "^8.0.0",
     "tailwindcss": "^3.4.1",
     "tsup": "^8.0.2",
