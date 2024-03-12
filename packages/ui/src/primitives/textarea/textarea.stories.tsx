@@ -6,7 +6,6 @@ import { Label } from '../label';
 import { Typography } from '../typography';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Primitives / Textarea',
   component: Textarea,
   args: {
     placeholder: 'Type your message here.',

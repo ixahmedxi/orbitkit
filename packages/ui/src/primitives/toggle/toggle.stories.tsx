@@ -4,7 +4,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Toggle } from '.';
 
 const meta: Meta<typeof Toggle> = {
-  title: 'Primitives / Toggle',
   component: Toggle,
   args: {
     'aria-label': 'Toggle bold',

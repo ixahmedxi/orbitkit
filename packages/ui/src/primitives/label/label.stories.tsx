@@ -3,7 +3,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Label } from './';
 
 const meta: Meta<typeof Label> = {
-  title: 'Primitives / Label',
   component: Label,
   args: {
     children: 'Label',

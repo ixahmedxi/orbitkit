@@ -5,7 +5,6 @@ import { Label } from '../label';
 import { Input } from './';
 
 const meta: Meta<typeof Input> = {
-  title: 'Primitives / Input',
   component: Input,
   args: {
     type: 'email',

@@ -7,7 +7,6 @@ import { Label } from '@/primitives/label';
 import { Popover, PopoverContent, PopoverTrigger } from '.';
 
 const meta: Meta<typeof PopoverContent> = {
-  title: 'Primitives / Popover',
   component: PopoverContent,
   args: {
     children: 'Place content for the popover here.',

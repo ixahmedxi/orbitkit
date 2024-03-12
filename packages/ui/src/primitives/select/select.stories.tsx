@@ -11,7 +11,6 @@ import {
 } from '.';
 
 const meta: Meta<typeof Select> = {
-  title: 'Primitives / Select',
   component: Select,
 };
 

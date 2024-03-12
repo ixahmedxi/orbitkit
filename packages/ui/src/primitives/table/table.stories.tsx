@@ -57,7 +57,6 @@ const invoices = [
 ];
 
 const meta: Meta<typeof Table> = {
-  title: 'Primitives / Table',
   component: Table,
   render: (args) => (
     <Table {...args}>

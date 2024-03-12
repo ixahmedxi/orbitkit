@@ -1,8 +1,6 @@
 import { dirname, join } from 'path';
 
 import { type StorybookConfig } from '@storybook/react-vite';
-import { mergeConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 /**
  * This function is used to resolve the absolute path of a package. It is needed
@@ -32,11 +30,6 @@ const config = {
     options: {},
   },
   staticDirs: [getAbsolutePath('@orbitkit/assets')],
-  viteFinal(config) {
-    return mergeConfig(config, {
-      plugins: [tsconfigPaths()],
-    });
-  },
   docs: {
     autodocs: 'tag',
   },

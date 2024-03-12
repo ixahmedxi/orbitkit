@@ -19,7 +19,6 @@ import {
 } from '../select';
 
 const meta: Meta<typeof Calendar> = {
-  title: 'Primitives / Calendar',
   component: Calendar,
 };
 

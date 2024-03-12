@@ -5,7 +5,6 @@ import { Label } from '../label';
 import { Typography } from '../typography';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Primitives / Checkbox',
   component: Checkbox,
   args: {
     id: 'checkbox',

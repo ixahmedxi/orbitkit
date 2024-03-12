@@ -5,7 +5,6 @@ import { Label } from '@/primitives/label';
 import { RadioGroup, RadioGroupItem } from '.';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Primitives / Radio Group',
   component: RadioGroup,
 };
 

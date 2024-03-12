@@ -16,7 +16,6 @@ import {
 } from '.';
 
 const meta: Meta<typeof SheetContent> = {
-  title: 'Primitives / Sheet',
   component: SheetContent,
   args: {
     side: 'right',

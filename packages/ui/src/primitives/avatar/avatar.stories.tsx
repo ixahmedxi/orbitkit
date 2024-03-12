@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Avatar, AvatarFallback, AvatarImage } from './';
 
 const meta: Meta<typeof AvatarImage> = {
-  title: 'Primitives / Avatar',
   component: AvatarImage,
   args: {
     src: 'https://github.com/shadcn.png',

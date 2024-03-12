@@ -14,7 +14,6 @@ import { Switch } from '@/primitives/switch';
 import { cn } from '@/utils/cn';
 
 const meta: Meta<typeof Card> = {
-  title: 'Primitives / Card',
   component: Card,
 };
 

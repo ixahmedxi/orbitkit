@@ -3,7 +3,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Skeleton } from '.';
 
 const meta: Meta<typeof Skeleton> = {
-  title: 'Primitives / Skeleton',
   component: Skeleton,
   render: (args) => (
     <div className="flex items-center space-x-4">

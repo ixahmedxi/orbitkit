@@ -5,7 +5,6 @@ import { Label } from '@/primitives/label';
 import { Switch } from '.';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Primitives / Switch',
   component: Switch,
   args: {
     id: 'switch',

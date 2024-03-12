@@ -17,7 +17,6 @@ import {
 } from '.';
 
 const meta: Meta<typeof Dialog> = {
-  title: 'Primitives / Dialog',
   component: Dialog,
   render: (args) => (
     <Dialog {...args}>

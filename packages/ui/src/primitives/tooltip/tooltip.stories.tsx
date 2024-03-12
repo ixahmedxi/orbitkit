@@ -4,7 +4,6 @@ import { Button } from '../button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './';
 
 const meta: Meta<typeof TooltipContent> = {
-  title: 'Primitives / Tooltip',
   component: TooltipContent,
   args: {
     children: 'This is a tooltip.',

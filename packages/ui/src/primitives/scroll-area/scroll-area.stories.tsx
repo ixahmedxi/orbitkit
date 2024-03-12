@@ -5,7 +5,6 @@ import { Separator } from '@/primitives/separator';
 import { ScrollArea, ScrollBar } from '.';
 
 const meta: Meta<typeof ScrollArea> = {
-  title: 'Primitives / Scroll Area',
   component: ScrollArea,
   argTypes: {
     asChild: { control: { disable: true } },

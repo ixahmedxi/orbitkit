@@ -7,7 +7,6 @@ import { Button } from '@/primitives/button';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '.';
 
 const meta: Meta<typeof HoverCard> = {
-  title: 'Primitives / Hover Card',
   component: HoverCard,
 };
 

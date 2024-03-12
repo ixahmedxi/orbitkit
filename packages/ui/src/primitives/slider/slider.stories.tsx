@@ -3,7 +3,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Slider } from '.';
 
 const meta: Meta<typeof Slider> = {
-  title: 'Primitives / Slider',
   component: Slider,
   args: {
     defaultValue: [50],

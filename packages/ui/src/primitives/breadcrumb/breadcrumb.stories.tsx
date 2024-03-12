@@ -30,7 +30,6 @@ const items = [
 ];
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Primitives / Breadcrumb',
   component: Breadcrumb,
   render: (args) => (
     <Breadcrumb {...args}>

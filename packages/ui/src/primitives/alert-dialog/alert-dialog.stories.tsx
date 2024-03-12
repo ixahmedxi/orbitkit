@@ -14,7 +14,6 @@ import {
 } from './';
 
 const meta: Meta<typeof AlertDialog> = {
-  title: 'Primitives / Alert Dialog',
   component: AlertDialog,
   render: (args) => (
     <AlertDialog {...args}>

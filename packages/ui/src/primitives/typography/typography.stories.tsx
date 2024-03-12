@@ -1,11 +1,10 @@
-import { expect } from '@storybook/jest';
 import { type Meta, type StoryObj } from '@storybook/react';
+import { expect } from '@storybook/test';
 import { within } from '@storybook/testing-library';
 
 import { Typography } from './';
 
 const meta: Meta<typeof Typography> = {
-  title: 'Primitives / Typography',
   component: Typography,
   args: {
     variant: 'p',

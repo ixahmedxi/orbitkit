@@ -3,7 +3,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { AspectRatio } from './';
 
 const meta: Meta<typeof AspectRatio> = {
-  title: 'Primitives / Aspect Ratio',
   component: AspectRatio,
   args: {
     ratio: 16 / 9,

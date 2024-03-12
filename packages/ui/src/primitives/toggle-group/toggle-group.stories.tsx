@@ -26,7 +26,6 @@ const items = [
 ];
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: 'Primitives / Toggle Group',
   component: ToggleGroup,
   args: {
     type: 'multiple',

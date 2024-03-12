@@ -6,7 +6,6 @@ import { Button } from '@/primitives/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '.';
 
 const meta: Meta<typeof Collapsible> = {
-  title: 'Primitives / Collapsible',
   component: Collapsible,
 };
 

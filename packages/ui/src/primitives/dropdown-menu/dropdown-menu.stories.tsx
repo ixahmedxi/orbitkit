@@ -23,7 +23,6 @@ import {
 import { Button } from '../button';
 
 const meta: Meta<typeof DropdownMenu> = {
-  title: 'Primitives / Dropdown Menu',
   component: DropdownMenu,
   render: (args) => (
     <DropdownMenu {...args}>

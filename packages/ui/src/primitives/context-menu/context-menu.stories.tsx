@@ -17,7 +17,6 @@ import {
 } from '.';
 
 const meta: Meta<typeof ContextMenu> = {
-  title: 'Primitives / Context Menu',
   component: ContextMenu,
 };
 

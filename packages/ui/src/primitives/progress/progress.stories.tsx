@@ -3,7 +3,6 @@ import { type Meta, type StoryObj } from '@storybook/react';
 import { Progress } from '.';
 
 const meta: Meta<typeof Progress> = {
-  title: 'Primitives / Progress',
   component: Progress,
   args: {
     value: 66,
