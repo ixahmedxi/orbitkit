@@ -1,8 +1,5 @@
 const config = {
-  extends: [
-    '@commitlint/config-conventional',
-    '@commitlint/config-pnpm-scopes',
-  ],
+  extends: ['@commitlint/config-conventional'],
 };
 
 export default config;
