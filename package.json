@@ -18,9 +18,9 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
-    "@commitlint/prompt-cli": "^19.0.3",
+    "@commitlint/cli": "^19.1.0",
+    "@commitlint/config-conventional": "^19.1.0",
+    "@commitlint/prompt-cli": "^19.1.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint": "^8.56.5",

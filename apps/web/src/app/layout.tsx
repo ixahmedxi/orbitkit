@@ -1,11 +1,11 @@
 import './globals.css';
 
+import { ThemeProvider } from 'next-themes';
+
 import type { Metadata } from 'next';
 
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-
-import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -20,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        <Providers>{children}</Providers>
+        <ThemeProvider attribute="class" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
