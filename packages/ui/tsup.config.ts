@@ -47,6 +47,7 @@ const entries = [
     'context-menu',
     'table',
     'form',
+    'command',
   ]),
   {
     source: './src/utils/cn.ts',

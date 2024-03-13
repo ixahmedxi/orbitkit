@@ -231,9 +231,6 @@ importers:
       '@t3-oss/env-core':
         specifier: ^0.9.2
         version: 0.9.2(typescript@5.4.2)(zod@3.22.4)
-      '@types/react-dom':
-        specifier: ^18.2.21
-        version: 18.2.21
       arctic:
         specifier: ^1.2.1
         version: 1.2.1
@@ -265,6 +262,9 @@ importers:
       '@types/react':
         specifier: ^18.2.65
         version: 18.2.65
+      '@types/react-dom':
+        specifier: ^18.2.21
+        version: 18.2.21
       eslint-config-orbitkit:
         specifier: workspace:^
         version: link:../config/eslint
@@ -473,6 +473,9 @@ importers:
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
+      cmdk:
+        specifier: ^1.0.0
+        version: 1.0.0(@types/react-dom@18.2.21)(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
       date-fns:
         specifier: ^3.4.0
         version: 3.4.0
@@ -511,9 +514,6 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0
       '@storybook/addon-actions':
-        specifier: ^8.0.0
-        version: 8.0.0
-      '@storybook/addon-docs':
         specifier: ^8.0.0
         version: 8.0.0
       '@storybook/addon-essentials':
@@ -594,9 +594,6 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.2.5
-      remark-gfm:
-        specifier: ^4.0.0
-        version: 4.0.0
       storybook:
         specifier: ^8.0.0
         version: 8.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -8723,6 +8720,21 @@ packages:
   /clsx@2.1.0:
     resolution: {integrity: sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==}
     engines: {node: '>=6'}
+
+  /cmdk@1.0.0(@types/react-dom@18.2.21)(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-gDzVf0a09TvoJ5jnuPvygTB77+XdOSwEmJ88L6XPFPlv7T3RxbP9jgenfylrAMD0+Le1aO0nVjQUzl2g+vjz5Q==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5(@types/react-dom@18.2.21)(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.21)(@types/react@18.2.65)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
 
   /co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
