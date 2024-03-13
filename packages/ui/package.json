@@ -7,220 +7,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./accordion": {
+    "./primitives": {
       "import": {
-        "types": "./dist/primitives/accordion/index.d.ts",
-        "default": "./dist/primitives/accordion/index.js"
-      }
-    },
-    "./alert": {
-      "import": {
-        "types": "./dist/primitives/alert/index.d.ts",
-        "default": "./dist/primitives/alert/index.js"
-      }
-    },
-    "./alert-dialog": {
-      "import": {
-        "types": "./dist/primitives/alert-dialog/index.d.ts",
-        "default": "./dist/primitives/alert-dialog/index.js"
-      }
-    },
-    "./aspect-ratio": {
-      "import": {
-        "types": "./dist/primitives/aspect-ratio/index.d.ts",
-        "default": "./dist/primitives/aspect-ratio/index.js"
-      }
-    },
-    "./avatar": {
-      "import": {
-        "types": "./dist/primitives/avatar/index.d.ts",
-        "default": "./dist/primitives/avatar/index.js"
-      }
-    },
-    "./badge": {
-      "import": {
-        "types": "./dist/primitives/badge/index.d.ts",
-        "default": "./dist/primitives/badge/index.js"
-      }
-    },
-    "./breadcrumb": {
-      "import": {
-        "types": "./dist/primitives/breadcrumb/index.d.ts",
-        "default": "./dist/primitives/breadcrumb/index.js"
-      }
-    },
-    "./button": {
-      "import": {
-        "types": "./dist/primitives/button/index.d.ts",
-        "default": "./dist/primitives/button/index.js"
-      }
-    },
-    "./card": {
-      "import": {
-        "types": "./dist/primitives/card/index.d.ts",
-        "default": "./dist/primitives/card/index.js"
-      }
-    },
-    "./dropdown-menu": {
-      "import": {
-        "types": "./dist/primitives/dropdown-menu/index.d.ts",
-        "default": "./dist/primitives/dropdown-menu/index.js"
-      }
-    },
-    "./input": {
-      "import": {
-        "types": "./dist/primitives/input/index.d.ts",
-        "default": "./dist/primitives/input/index.js"
-      }
-    },
-    "./label": {
-      "import": {
-        "types": "./dist/primitives/label/index.d.ts",
-        "default": "./dist/primitives/label/index.js"
-      }
-    },
-    "./select": {
-      "import": {
-        "types": "./dist/primitives/select/index.d.ts",
-        "default": "./dist/primitives/select/index.js"
-      }
-    },
-    "./switch": {
-      "import": {
-        "types": "./dist/primitives/switch/index.d.ts",
-        "default": "./dist/primitives/switch/index.js"
-      }
-    },
-    "./textarea": {
-      "import": {
-        "types": "./dist/primitives/textarea/index.d.ts",
-        "default": "./dist/primitives/textarea/index.js"
-      }
-    },
-    "./toggle": {
-      "import": {
-        "types": "./dist/primitives/toggle/index.d.ts",
-        "default": "./dist/primitives/toggle/index.js"
-      }
-    },
-    "./toggle-group": {
-      "import": {
-        "types": "./dist/primitives/toggle-group/index.d.ts",
-        "default": "./dist/primitives/toggle-group/index.js"
-      }
-    },
-    "./tooltip": {
-      "import": {
-        "types": "./dist/primitives/tooltip/index.d.ts",
-        "default": "./dist/primitives/tooltip/index.js"
-      }
-    },
-    "./typography": {
-      "import": {
-        "types": "./dist/primitives/typography/index.d.ts",
-        "default": "./dist/primitives/typography/index.js"
-      }
-    },
-    "./popover": {
-      "import": {
-        "types": "./dist/primitives/popover/index.d.ts",
-        "default": "./dist/primitives/popover/index.js"
-      }
-    },
-    "./calendar": {
-      "import": {
-        "types": "./dist/primitives/calendar/index.d.ts",
-        "default": "./dist/primitives/calendar/index.js"
-      }
-    },
-    "./checkbox": {
-      "import": {
-        "types": "./dist/primitives/checkbox/index.d.ts",
-        "default": "./dist/primitives/checkbox/index.js"
-      }
-    },
-    "./skeleton": {
-      "import": {
-        "types": "./dist/primitives/skeleton/index.d.ts",
-        "default": "./dist/primitives/skeleton/index.js"
-      }
-    },
-    "./dialog": {
-      "import": {
-        "types": "./dist/primitives/dialog/index.d.ts",
-        "default": "./dist/primitives/dialog/index.js"
-      }
-    },
-    "./progress": {
-      "import": {
-        "types": "./dist/primitives/progress/index.d.ts",
-        "default": "./dist/primitives/progress/index.js"
-      }
-    },
-    "./slider": {
-      "import": {
-        "types": "./dist/primitives/slider/index.d.ts",
-        "default": "./dist/primitives/slider/index.js"
-      }
-    },
-    "./scroll-area": {
-      "import": {
-        "types": "./dist/primitives/scroll-area/index.d.ts",
-        "default": "./dist/primitives/scroll-area/index.js"
-      }
-    },
-    "./separator": {
-      "import": {
-        "types": "./dist/primitives/separator/index.d.ts",
-        "default": "./dist/primitives/separator/index.js"
-      }
-    },
-    "./radio-group": {
-      "import": {
-        "types": "./dist/primitives/radio-group/index.d.ts",
-        "default": "./dist/primitives/radio-group/index.js"
-      }
-    },
-    "./collapsible": {
-      "import": {
-        "types": "./dist/primitives/collapsible/index.d.ts",
-        "default": "./dist/primitives/collapsible/index.js"
-      }
-    },
-    "./sheet": {
-      "import": {
-        "types": "./dist/primitives/sheet/index.d.ts",
-        "default": "./dist/primitives/sheet/index.js"
-      }
-    },
-    "./hover-card": {
-      "import": {
-        "types": "./dist/primitives/hover-card/index.d.ts",
-        "default": "./dist/primitives/hover-card/index.js"
-      }
-    },
-    "./context-menu": {
-      "import": {
-        "types": "./dist/primitives/context-menu/index.d.ts",
-        "default": "./dist/primitives/context-menu/index.js"
-      }
-    },
-    "./table": {
-      "import": {
-        "types": "./dist/primitives/table/index.d.ts",
-        "default": "./dist/primitives/table/index.js"
-      }
-    },
-    "./form": {
-      "import": {
-        "types": "./dist/primitives/form/index.d.ts",
-        "default": "./dist/primitives/form/index.js"
-      }
-    },
-    "./command": {
-      "import": {
-        "types": "./dist/primitives/command/index.d.ts",
-        "default": "./dist/primitives/command/index.js"
+        "types": "./dist/primitives/index.d.ts",
+        "default": "./dist/primitives/index.js"
       }
     },
     "./cn": {
@@ -273,6 +63,7 @@
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
     "date-fns": "^3.4.0",
+    "input-otp": "^1.1.0",
     "react": "^18.2.0",
     "react-day-picker": "^8.10.0",
     "react-dom": "^18.2.0",
@@ -312,7 +103,6 @@
     "eslint-config-orbitkit": "workspace:^",
     "playwright": "^1.42.1",
     "postcss": "^8.4.35",
-    "prettier": "^3.2.5",
     "storybook": "^8.0.0",
     "tailwindcss": "^3.4.1",
     "tsup": "^8.0.2",

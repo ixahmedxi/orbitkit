@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 
 import { getSession } from '@orbitkit/auth';
 import { logout } from '@orbitkit/auth/actions/logout';
-import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/primitives';
 
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 

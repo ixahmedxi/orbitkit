@@ -1,0 +1,52 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as InputOTPStories from './input-otp.stories';
+
+<Meta of={InputOTPStories} />
+
+# Input OTP
+
+Accessible one-time password component with copy paste functionality.
+
+## Preview
+
+<Canvas of={InputOTPStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSeparator,
+  InputOTPSlot,
+} from "@orbitkit/ui/input-otp";`;
+
+export const usageCode = `<InputOTP
+  maxLength={6}
+  render={({ slots }) => (
+    <>
+      <InputOTPGroup>
+        {slots.slice(0, 3).map((slot, index) => (
+          <InputOTPSlot key={index} {...slot} />
+        ))}{" "}
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        {slots.slice(3).map((slot, index) => (
+          <InputOTPSlot key={index} {...slot} />
+        ))}
+      </InputOTPGroup>
+    </>
+  )}
+/>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Pattern
+
+Use the `pattern` prop to define a custom pattern for the OTP input. This is used to restrict user input to for example only digits and characters.
+
+<Canvas of={InputOTPStories.Pattern} />
