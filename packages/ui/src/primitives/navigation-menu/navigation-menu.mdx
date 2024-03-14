@@ -1,0 +1,43 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as NavigationMenuStories from './navigation-menu.stories.tsx';
+
+<Meta of={NavigationMenuStories} />
+
+<PrimitiveDocsButton name="navigation-menu" />
+
+# Navigation Menu
+
+A collection of links for navigating websites.
+
+## Preview
+
+<Canvas of={NavigationMenuStories.Default} />
+
+## Usage
+
+export const importCode = `import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@orbitkit/ui/primitives";`;
+
+export const usageCode = `<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink>Link</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />

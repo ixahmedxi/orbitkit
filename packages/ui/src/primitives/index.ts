@@ -38,3 +38,4 @@ export * from './typography';
 export * from './menubar';
 export * from './pagination';
 export * from './drawer';
+export * from './navigation-menu';
