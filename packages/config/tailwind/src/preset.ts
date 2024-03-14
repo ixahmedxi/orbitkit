@@ -34,7 +34,7 @@ export const orbitKitTailwindPreset: Config = {
           foreground: colors.alias('gray.12'),
         },
 
-        input: colors.alias('gray.3'),
+        input: colors.alias('gray.4'),
 
         primary: {
           DEFAULT: colors.alias('crimson.10'),

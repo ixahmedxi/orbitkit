@@ -37,3 +37,4 @@ export * from './tooltip';
 export * from './typography';
 export * from './menubar';
 export * from './pagination';
+export * from './drawer';
