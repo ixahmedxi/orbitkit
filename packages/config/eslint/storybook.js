@@ -8,9 +8,7 @@ const config = {
   overrides: [
     {
       files: ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
-      rules: {
-        'storybook/no-title-property-in-meta': 'off',
-      },
+      rules: {},
     },
   ],
 };
