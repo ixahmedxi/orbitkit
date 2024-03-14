@@ -1,0 +1,85 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as ResizableStories from './resizable.stories';
+
+<Meta of={ResizableStories} />
+
+# Resizable
+
+Accessible resizable panel groups and layouts with keyboard support.
+
+## Preview
+
+<Canvas of={ResizableStories.Default} />
+
+## About
+
+The `Resizable` component is built on top of [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) by [bvaughn](https://github.com/bvaughn).
+
+## Usage
+
+export const importCode = `import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@orbitkit/ui/primitives";`;
+
+export const usageCode = `<ResizablePanelGroup direction="horizontal">
+  <ResizablePanel>One</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel>Two</ResizablePanel>
+</ResizablePanelGroup>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Vertical
+
+Use the `direction` prop to set the direction of the resizable panels.
+
+<Canvas of={ResizableStories.Vertical} />
+
+export const verticalCode = `import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@orbitkit/ui/primitives";
+
+export default function Example() {
+  return (
+    <ResizablePanelGroup direction="vertical">
+      <ResizablePanel>One</ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel>Two</ResizablePanel>
+    </ResizablePanelGroup>
+  );
+}
+`;
+
+<Source code={verticalCode} language="tsx" dark />
+
+### Handle
+
+You can set or hide the handle by using the `withHandle` prop on the `ResizableHandle` component.
+
+<Canvas of={ResizableStories.WithHandle} />
+
+export const withHandleCode = `import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@orbitkit/ui/primitives";
+
+export default function Example() {
+  return (
+    <ResizablePanelGroup direction="horizontal">
+      <ResizablePanel>One</ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel>Two</ResizablePanel>
+    </ResizablePanelGroup>
+  );
+}`
+
+<Source code={withHandleCode} language="tsx" dark />

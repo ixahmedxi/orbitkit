@@ -39,3 +39,4 @@ export * from './menubar';
 export * from './pagination';
 export * from './drawer';
 export * from './navigation-menu';
+export * from './resizable';
