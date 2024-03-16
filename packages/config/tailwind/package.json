@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.11.27",
+    "@types/node": "^20.11.28",
     "eslint-config-orbitkit": "workspace:^"
   },
   "volta": {
