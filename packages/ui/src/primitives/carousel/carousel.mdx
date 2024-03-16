@@ -1,0 +1,243 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as CarouselStories from './carousel.stories';
+
+<Meta of={CarouselStories} />
+
+<PrimitiveDocsButton
+  docsUrl="https://www.embla-carousel.com/get-started/react"
+  apiReferenceUrl="https://www.embla-carousel.com/api"
+/>
+
+# Carousel
+
+A carousel with motion and swipe built using Embla.
+
+## Preview
+
+<Canvas of={CarouselStories.Default} />
+
+## About
+
+The carousel component is built using the [Embla Carousel library](https://www.embla-carousel.com/).
+
+## Usage
+
+export const importCode = `import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@orbitkit/ui/primitives";`;
+
+export const usageCode = `<Carousel>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>`;
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Sizes
+
+To set the size of the items, you can use the `basis` utility class on the `<CarouselItem />`.
+
+<Canvas of={CarouselStories.Sizes} />
+
+#### Example
+
+export const sizesExampleCode = `// 33% of the carousel width.
+<Carousel>
+  <CarouselContent>
+    <CarouselItem className="basis-1/3">...</CarouselItem>
+    <CarouselItem className="basis-1/3">...</CarouselItem>
+    <CarouselItem className="basis-1/3">...</CarouselItem>
+  </CarouselContent>
+</Carousel>`;
+
+<Source code={sizesExampleCode} language="tsx" dark />
+
+#### Responsive
+
+export const sizesResponsiveExampleCode = `// 50% on small screens and 33% on larger screens.
+<Carousel>
+  <CarouselContent>
+    <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+    <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+    <CarouselItem className="md:basis-1/2 lg:basis-1/3">...</CarouselItem>
+  </CarouselContent>
+</Carousel>`;
+
+<Source code={sizesResponsiveExampleCode} language="tsx" dark />
+
+### Spacing
+
+To set the spacing between the items, we use a `pl-[VALUE]` utility on the `<CarouselItem />` and a negative `-ml-[VALUE]` on the `<CarouselContent />`.
+
+<Canvas of={CarouselStories.Spacing} />
+
+#### Example
+
+export const spacingExampleCode = `<Carousel>
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4">...</CarouselItem>
+    <CarouselItem className="pl-4">...</CarouselItem>
+    <CarouselItem className="pl-4">...</CarouselItem>
+  </CarouselContent>
+</Carousel>`;
+
+<Source code={spacingExampleCode} language="tsx" dark />
+
+#### Responsive
+
+export const spacingResponsiveExampleCode = `<Carousel>
+  <CarouselContent className="-ml-2 md:-ml-4">
+    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
+    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
+    <CarouselItem className="pl-2 md:pl-4">...</CarouselItem>
+  </CarouselContent>
+</Carousel>`;
+
+### Orientation
+
+Use the `orientation` prop to set the orientation of the carousel. Possible values are `horizontal` and `vertical`.
+
+<Canvas of={CarouselStories.Orientation} />
+
+export const orientationExampleCode = `<Carousel orientation="vertical | horizontal">
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+</Carousel>`;
+
+<Source code={orientationExampleCode} language="tsx" dark />
+
+## Options
+
+You can pass options to the carousel using the `opts` prop. See the [Embla Carousel docs](https://www.embla-carousel.com/api/options/) for more information.
+
+export const optionsExampleCode = `<Carousel
+  opts={{
+    align: "start",
+    loop: true,
+  }}
+>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+</Carousel>
+`;
+
+<Source code={optionsExampleCode} language="tsx" dark />
+
+## API
+
+Use a state and the `setApi` props to get an instance of the carousel API.
+
+<Canvas of={CarouselStories.WithSlideNumber} />
+
+export const apiExampleCode = `import { type CarouselApi } from "@orbitkit/ui/primitives"
+
+export function Example() {
+  const [api, setApi] = React.useState<CarouselApi>()
+  const [current, setCurrent] = React.useState(0)
+  const [count, setCount] = React.useState(0)
+
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+  }, [api])
+
+  return (
+    <Carousel setApi={setApi}>
+      <CarouselContent>
+        <CarouselItem>...</CarouselItem>
+        <CarouselItem>...</CarouselItem>
+        <CarouselItem>...</CarouselItem>
+      </CarouselContent>
+    </Carousel>
+  )
+}`;
+
+## Events
+
+You can listen to events using the api instance from `setApi`.
+
+export const eventsCode = `
+import { type CarouselApi } from "@orbitkit/ui/primitives";
+
+export function Example() {
+  const [api, setApi] = React.useState<CarouselApi>()
+
+  React.useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    api.on("select", () => {
+      // Do something on select.
+    })
+  }, [api])
+
+  return (
+    <Carousel setApi={setApi}>
+      <CarouselContent>
+        <CarouselItem>...</CarouselItem>
+        <CarouselItem>...</CarouselItem>
+        <CarouselItem>...</CarouselItem>
+      </CarouselContent>
+    </Carousel>
+  )
+};`;
+
+<Source code={eventsCode} language="tsx" dark />
+
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/events/) for more information on using events.
+
+## Plugins
+
+You can use the `plugins` prop to add plugins to the carousel.
+
+export const pluginsExampleCode = `import Autoplay from "embla-carousel-autoplay"
+
+export function Example() {
+  return (
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 2000,
+        }),
+      ]}
+    >
+      // ...
+    </Carousel>
+  )
+}
+`;
+
+<Source code={pluginsExampleCode} language="tsx" dark />
+
+<Canvas of={CarouselStories.Autoplay} />
+
+See the [Embla Carousel docs](https://www.embla-carousel.com/api/plugins/) for more information on using plugins.

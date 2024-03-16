@@ -4,3 +4,4 @@ drizzle/
 .gitignore
 
 packages/ui/src/primitives/form/form.mdx
+packages/ui/src/primitives/carousel/carousel.mdx

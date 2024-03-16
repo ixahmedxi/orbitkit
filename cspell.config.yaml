@@ -16,6 +16,7 @@ words:
   - awst
   - Beamer
   - Binni
+  - bvaughn
   - Byrom
   - clsx
   - cmdk
@@ -25,6 +26,7 @@ words:
   - crossorigin
   - datetime
   - Duarte
+  - Embla
   - esbenp
   - hookform
   - ianvs
@@ -38,6 +40,7 @@ words:
   - orbitkit
   - Ornella
   - packagejson
+  - pacocoursey
   - peduarte
   - Ratelimit
   - shadcn
@@ -50,8 +53,7 @@ words:
   - typecheck
   - typeof
   - upstash
+  - vaul
   - viewports
   - WITA
-  - pacocoursey
-  - vaul
-  - bvaughn
+  - autoplay

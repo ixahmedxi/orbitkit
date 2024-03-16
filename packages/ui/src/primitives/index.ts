@@ -9,6 +9,7 @@ export * from './button';
 export * from './calendar';
 export * from './card';
 export * from './checkbox';
+export * from './carousel';
 export * from './collapsible';
 export * from './command';
 export * from './context-menu';
