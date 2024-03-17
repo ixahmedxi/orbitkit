@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/primitives';
+import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
 
 export const MyAvatar = () => {
   return (

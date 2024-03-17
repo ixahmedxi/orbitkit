@@ -30,7 +30,7 @@ export const importCode = `import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@orbitkit/ui/primitives";`;
+} from "@orbitkit/ui/carousel";`;
 
 export const usageCode = `<Carousel>
   <CarouselContent>
@@ -149,7 +149,7 @@ Use a state and the `setApi` props to get an instance of the carousel API.
 
 <Canvas of={CarouselStories.WithSlideNumber} />
 
-export const apiExampleCode = `import { type CarouselApi } from "@orbitkit/ui/primitives"
+export const apiExampleCode = `import { type CarouselApi } from "@orbitkit/ui/carousel"
 
 export function Example() {
   const [api, setApi] = React.useState<CarouselApi>()
@@ -185,7 +185,7 @@ export function Example() {
 You can listen to events using the api instance from `setApi`.
 
 export const eventsCode = `
-import { type CarouselApi } from "@orbitkit/ui/primitives";
+import { type CarouselApi } from "@orbitkit/ui/carousel";
 
 export function Example() {
   const [api, setApi] = React.useState<CarouselApi>()

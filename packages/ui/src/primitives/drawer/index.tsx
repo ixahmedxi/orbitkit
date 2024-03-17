@@ -4,6 +4,8 @@ import * as React from 'react';
 
 import { Drawer as DrawerPrimitive } from 'vaul';
 
+import type {} from '@radix-ui/react-dialog';
+
 import { cn } from '@/utils/cn';
 
 const Drawer = ({

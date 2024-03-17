@@ -150,9 +150,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-  Button,
-  Input
-} from '@orbitkit/ui/primitives';
+} from '@orbitkit/ui/form';
+import { Button } from '@orbitkit/ui/button';
+import { Input } from '@orbitkit/ui/input';
 
 const formSchema = z.object({
   username: z.string().min(2, {
