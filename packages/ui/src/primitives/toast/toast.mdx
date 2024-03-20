@@ -1,0 +1,83 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
+import * as ToastStories from './toast.stories';
+
+<Meta of={ToastStories} />
+
+<RadixPrimitiveDocsButton name="toast" />
+
+# Toast
+
+A succinct message that is displayed temporarily.
+
+## Preview
+
+<Canvas of={ToastStories.Default} />
+
+## Usage
+
+### Add `Toaster` component to your layout
+
+export const providerCode = `import { Toaster } from "@orbitkit/ui/toast";
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  );
+}`;
+
+<Source code={providerCode} language="tsx" dark />
+
+### Use `toast` function from `useToast` hook
+
+export const importCode = `import { useToast } from "@orbitkit/ui/toast";`;
+
+export const usageCode = `export const ToastDemo = () => {
+  const { toast } = useToast();
+
+  return (
+    <Button
+      onClick={() => {
+        toast({
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
+        })
+      }}
+    >
+      Show Toast
+    </Button>
+  );
+}
+`;
+
+> To display multiple toasts at the same time, you can update the `TOAST_LIMIT` in `use-toast.tsx`.
+
+<Source code={importCode} language="ts" dark />
+<Source code={usageCode} language="tsx" dark />
+
+## Examples
+
+### Simple
+
+<Canvas of={ToastStories.Simple} />
+
+### With Title
+
+<Canvas of={ToastStories.WithTitle} />
+
+### With Action
+
+<Canvas of={ToastStories.WithAction} />
+
+### Destructive
+
+Use `toast({ variant: "destructive" })` to display a destructive toast.
+
+<Canvas of={ToastStories.Destructive} />

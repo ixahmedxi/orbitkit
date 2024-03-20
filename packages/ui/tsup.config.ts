@@ -55,6 +55,7 @@ const entries = [
     'toggle-group',
     'tooltip',
     'typography',
+    'toast',
   ]),
   {
     source: './src/utils/cn.ts',

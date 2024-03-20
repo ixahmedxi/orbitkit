@@ -6,6 +6,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
 
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
+import { ShowToast } from './show-toast';
+
 export default async function Home() {
   const { user } = await getSession();
   if (!user) {
@@ -28,6 +30,7 @@ export default async function Home() {
       <form action={logout}>
         <button type="submit">Logout</button>
       </form>
+      <ShowToast />
     </main>
   );
 }

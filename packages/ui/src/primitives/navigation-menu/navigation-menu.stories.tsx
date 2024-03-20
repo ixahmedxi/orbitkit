@@ -81,14 +81,6 @@ const components: Array<{ title: string; href: string; description: string }> =
 
 const meta: Meta<typeof NavigationMenu> = {
   component: NavigationMenu,
-  parameters: {
-    docs: {
-      story: {
-        inline: false,
-        iframeHeight: 700,
-      },
-    },
-  },
   render: (args) => (
     <div className="container mx-auto flex justify-center">
       <NavigationMenu {...args}>
