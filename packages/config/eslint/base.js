@@ -1,6 +1,13 @@
 /** @type {import('eslint').Linter.Config} */
 const config = {
-  ignorePatterns: ['node_modules', 'dist', '.next', '.astro', '!.storybook'],
+  ignorePatterns: [
+    'node_modules',
+    'dist',
+    '.next',
+    '.astro',
+    '!.storybook',
+    'storybook-static',
+  ],
   env: {
     es2022: true,
     node: true,
