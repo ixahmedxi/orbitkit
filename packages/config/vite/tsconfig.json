@@ -1,5 +1,5 @@
 {
-  "extends": ["@orbitkit/tsconfig/react.json"],
+  "extends": ["@orbitkit/tsconfig/base.json"],
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo",
     "baseUrl": ".",
@@ -7,6 +7,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.cjs", ".eslintrc.cjs"],
+  "include": ["**/*.ts", "**/*.cjs", "**/*.mjs", ".eslintrc.cjs"],
   "exclude": ["dist", "node_modules"]
 }

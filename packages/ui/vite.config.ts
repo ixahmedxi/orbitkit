@@ -1,7 +1,7 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { mergeConfig } from 'vite';
 
-export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+import react from '@orbitkit/vite/react';
+
+export default mergeConfig(react, {
+  // your custom config & overrides on top here
 });

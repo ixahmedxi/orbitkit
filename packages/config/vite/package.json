@@ -1,0 +1,36 @@
+{
+  "name": "@orbitkit/vite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Vite presets for the workspace",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    }
+  },
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.2.4",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.30",
+    "eslint-config-orbitkit": "workspace:^",
+    "tsup": "^8.0.2"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

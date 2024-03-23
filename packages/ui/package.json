@@ -341,6 +341,7 @@
     "@orbitkit/storybook": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
+    "@orbitkit/vite": "workspace:^",
     "@storybook/addon-a11y": "^8.0.4",
     "@storybook/addon-essentials": "^8.0.4",
     "@storybook/addon-interactions": "^8.0.4",
@@ -352,7 +353,6 @@
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
     "eslint-config-orbitkit": "workspace:^",
     "playwright": "^1.42.1",
@@ -360,8 +360,7 @@
     "storybook": "^8.0.4",
     "tailwindcss": "^3.4.1",
     "tsup": "^8.0.2",
-    "vite": "^5.2.4",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite": "^5.2.4"
   },
   "volta": {
     "extends": "../../package.json"
