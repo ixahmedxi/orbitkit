@@ -1,5 +1,3 @@
-import '@orbitkit/assets/fonts/stylesheet.css';
-
 import { blueDark, grayDark } from '@radix-ui/colors';
 import { create } from '@storybook/theming/create';
 

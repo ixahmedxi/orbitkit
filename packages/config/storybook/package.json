@@ -1,0 +1,68 @@
+{
+  "name": "@orbitkit/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A package to share Storybook configuration preset for the workspace",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./configs/react-vite": {
+      "types": "./dist/configs/react-vite.d.ts",
+      "default": "./dist/configs/react-vite.js"
+    },
+    "./manager": {
+      "types": "./dist/manager.d.ts",
+      "default": "./dist/manager.js"
+    },
+    "./theme": {
+      "types": "./dist/theme.d.ts",
+      "default": "./dist/theme.js"
+    },
+    "./preview": {
+      "types": "./dist/preview.d.ts",
+      "default": "./dist/preview.js"
+    },
+    "./utils/getAbsolutePath": {
+      "types": "./dist/utils/getAbsolutePath.d.ts",
+      "default": "./dist/utils/getAbsolutePath.js"
+    }
+  },
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@orbitkit/assets": "workspace:^",
+    "@radix-ui/colors": "^3.0.0",
+    "@storybook/addon-a11y": "^8.0.4",
+    "@storybook/addon-essentials": "^8.0.4",
+    "@storybook/addon-interactions": "^8.0.4",
+    "@storybook/addon-links": "^8.0.4",
+    "@storybook/addon-onboarding": "^8.0.4",
+    "@storybook/addon-themes": "^8.0.4",
+    "@storybook/addon-viewport": "^8.0.4",
+    "@storybook/manager-api": "^8.0.4",
+    "@storybook/react": "^8.0.4",
+    "@storybook/react-vite": "^8.0.4",
+    "@storybook/theming": "^8.0.4",
+    "@storybook/types": "^8.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^8.0.4"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.69",
+    "@types/react-dom": "^18.2.22",
+    "eslint-config-orbitkit": "workspace:^",
+    "tsup": "^8.0.2"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
