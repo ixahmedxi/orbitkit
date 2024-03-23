@@ -42,9 +42,9 @@
     "turbo": "^1.13.0",
     "typescript": "^5.4.3"
   },
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "volta": {
     "node": "20.11.0",
-    "pnpm": "8.15.4"
+    "pnpm": "8.15.5"
   }
 }
