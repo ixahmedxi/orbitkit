@@ -241,6 +241,12 @@
         "default": "./dist/primitives/textarea/index.js"
       }
     },
+    "./toast": {
+      "import": {
+        "types": "./dist/primitives/toast/index.d.ts",
+        "default": "./dist/primitives/toast/index.js"
+      }
+    },
     "./toggle": {
       "import": {
         "types": "./dist/primitives/toggle/index.d.ts",
@@ -263,12 +269,6 @@
       "import": {
         "types": "./dist/primitives/typography/index.d.ts",
         "default": "./dist/primitives/typography/index.js"
-      }
-    },
-    "./toast": {
-      "import": {
-        "types": "./dist/primitives/toast/index.d.ts",
-        "default": "./dist/primitives/toast/index.js"
       }
     },
     "./cn": {
@@ -355,6 +355,7 @@
     "@types/react-dom": "^18.2.22",
     "autoprefixer": "^10.4.19",
     "eslint-config-orbitkit": "workspace:^",
+    "pkg-types": "^1.0.3",
     "playwright": "^1.42.1",
     "postcss": "^8.4.38",
     "storybook": "^8.0.4",

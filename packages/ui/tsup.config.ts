@@ -1,74 +1,28 @@
 import fs from 'node:fs';
 
+import { findFarthestFile, readPackageJSON } from 'pkg-types';
 import prettier from 'prettier';
 import { defineConfig } from 'tsup';
 
-const genPrimitiveEntries = (primitives: string[]) => {
-  return primitives.map((primitive) => ({
+const primitives = () => {
+  const listOfPrimitives = fs
+    .readdirSync('./src/primitives', { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
+
+  return listOfPrimitives.map((primitive) => ({
     source: `./src/primitives/${primitive}/index.tsx`,
     export: `./${primitive}`,
   }));
 };
 
 const entries = [
-  ...genPrimitiveEntries([
-    'accordion',
-    'alert',
-    'alert-dialog',
-    'aspect-ratio',
-    'avatar',
-    'badge',
-    'breadcrumb',
-    'button',
-    'calendar',
-    'card',
-    'carousel',
-    'checkbox',
-    'collapsible',
-    'command',
-    'context-menu',
-    'dialog',
-    'drawer',
-    'dropdown-menu',
-    'form',
-    'hover-card',
-    'input',
-    'input-otp',
-    'label',
-    'menubar',
-    'navigation-menu',
-    'pagination',
-    'popover',
-    'progress',
-    'radio-group',
-    'resizable',
-    'scroll-area',
-    'select',
-    'separator',
-    'sheet',
-    'skeleton',
-    'slider',
-    'switch',
-    'table',
-    'textarea',
-    'toggle',
-    'toggle-group',
-    'tooltip',
-    'typography',
-    'toast',
-  ]),
+  ...primitives(),
   {
     source: './src/utils/cn.ts',
     export: './cn',
   },
 ];
-
-interface PackageJson {
-  exports: Record<string, unknown>;
-  main: string;
-  module: string;
-  types: string;
-}
 
 export default defineConfig((opts) => ({
   entry: entries.map((entry) => entry.source),
@@ -80,26 +34,30 @@ export default defineConfig((opts) => ({
   dts: true,
   outDir: 'dist',
   async onSuccess() {
-    const packageJson = fs.readFileSync('./package.json', 'utf-8');
-    const pkg = JSON.parse(packageJson) as PackageJson;
-    pkg.exports = entries.reduce((acc: Record<string, unknown>, entry) => {
-      acc[entry.export] = {
-        import: {
-          types: entry.source
-            .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.d.ts'),
-          default: entry.source
-            .replace('src', 'dist')
-            .replace(/\.tsx?$/, '.js'),
-        },
-      };
-      return acc;
-    }, {});
+    const pkg = await readPackageJSON();
 
-    fs.writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
+    pkg.exports = {};
+
+    entries.forEach((entry) => {
+      if (typeof pkg.exports === 'object') {
+        pkg.exports = {
+          ...pkg.exports,
+          [entry.export]: {
+            import: {
+              types: entry.source
+                .replace('src', 'dist')
+                .replace(/\.tsx?$/, '.d.ts'),
+              default: entry.source
+                .replace('src', 'dist')
+                .replace(/\.tsx?$/, '.js'),
+            },
+          },
+        } as Record<string, string | Record<string, string>>;
+      }
+    });
 
     const prettierConfig = await prettier.resolveConfig(
-      '../../prettier.config.js',
+      await findFarthestFile('prettier.config.js'),
     );
 
     if (prettierConfig) {
@@ -108,6 +66,8 @@ export default defineConfig((opts) => ({
         filepath: './package.json',
       });
       fs.writeFileSync('./package.json', formatted);
+    } else {
+      throw new Error('Prettier config not found');
     }
   },
 }));
