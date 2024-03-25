@@ -1,0 +1,31 @@
+{
+  "name": "@orbitkit/utils",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Common utilities for OrbitKit",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "pkg-types": "^1.0.3"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.30",
+    "eslint-config-orbitkit": "workspace:^",
+    "tsup": "^8.0.2"
+  }
+}

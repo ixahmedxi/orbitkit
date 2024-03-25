@@ -341,6 +341,7 @@
     "@orbitkit/storybook": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
+    "@orbitkit/utils": "workspace:^",
     "@orbitkit/vite": "workspace:^",
     "@storybook/addon-a11y": "^8.0.4",
     "@storybook/addon-essentials": "^8.0.4",

@@ -1,14 +1,12 @@
-import fs from 'node:fs';
-
-import { findFarthestFile, readPackageJSON } from 'pkg-types';
-import prettier from 'prettier';
+import { readPackageJSON } from 'pkg-types';
 import { defineConfig } from 'tsup';
 
-const primitives = () => {
-  const listOfPrimitives = fs
-    .readdirSync('./src/primitives', { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory())
-    .map((dirent) => dirent.name);
+import { formatAndWriteWithPrettier, listDirectories } from '@orbitkit/utils';
+
+const getPrimitives = async () => {
+  const listOfPrimitives = (await listDirectories('./src/primitives')).map(
+    (d) => d.name,
+  );
 
   return listOfPrimitives.map((primitive) => ({
     source: `./src/primitives/${primitive}/index.tsx`,
@@ -16,16 +14,20 @@ const primitives = () => {
   }));
 };
 
-const entries = [
-  ...primitives(),
-  {
-    source: './src/utils/cn.ts',
-    export: './cn',
-  },
-];
+async function getEntries() {
+  const primitives = await getPrimitives();
 
-export default defineConfig((opts) => ({
-  entry: entries.map((entry) => entry.source),
+  return [
+    ...primitives,
+    {
+      source: './src/utils/cn.ts',
+      export: './cn',
+    },
+  ];
+}
+
+export default defineConfig(async (opts) => ({
+  entry: (await getEntries()).map((entry) => entry.source),
   format: ['esm'],
   splitting: true,
   sourcemap: true,
@@ -37,6 +39,8 @@ export default defineConfig((opts) => ({
     const pkg = await readPackageJSON();
 
     pkg.exports = {};
+
+    const entries = await getEntries();
 
     entries.forEach((entry) => {
       if (typeof pkg.exports === 'object') {
@@ -56,18 +60,9 @@ export default defineConfig((opts) => ({
       }
     });
 
-    const prettierConfig = await prettier.resolveConfig(
-      await findFarthestFile('prettier.config.js'),
-    );
-
-    if (prettierConfig) {
-      const formatted = await prettier.format(JSON.stringify(pkg), {
-        ...prettierConfig,
-        filepath: './package.json',
-      });
-      fs.writeFileSync('./package.json', formatted);
-    } else {
-      throw new Error('Prettier config not found');
-    }
+    await formatAndWriteWithPrettier({
+      content: JSON.stringify(pkg, null, 2),
+      filePath: './package.json',
+    });
   },
 }));

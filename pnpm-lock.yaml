@@ -635,6 +635,9 @@ importers:
       '@orbitkit/tsconfig':
         specifier: workspace:^
         version: link:../config/tsconfig
+      '@orbitkit/utils':
+        specifier: workspace:^
+        version: link:../utils
       '@orbitkit/vite':
         specifier: workspace:^
         version: link:../config/vite
@@ -698,6 +701,25 @@ importers:
       vite:
         specifier: ^5.2.6
         version: 5.2.6(@types/node@20.11.30)
+
+  packages/utils:
+    dependencies:
+      pkg-types:
+        specifier: ^1.0.3
+        version: 1.0.3
+    devDependencies:
+      '@orbitkit/tsconfig':
+        specifier: workspace:^
+        version: link:../config/tsconfig
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      eslint-config-orbitkit:
+        specifier: workspace:^
+        version: link:../config/eslint
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(postcss@8.4.38)(typescript@5.4.3)
 
 packages:
 
@@ -11291,7 +11313,6 @@ packages:
 
   /jsonc-parser@3.2.1:
     resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
-    dev: true
 
   /jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
@@ -12366,7 +12387,6 @@ packages:
       pathe: 1.1.2
       pkg-types: 1.0.3
       ufo: 1.5.3
-    dev: true
 
   /ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -13033,7 +13053,6 @@ packages:
       jsonc-parser: 3.2.1
       mlly: 1.6.1
       pathe: 1.1.2
-    dev: true
 
   /playwright-core@1.42.1:
     resolution: {integrity: sha512-mxz6zclokgrke9p1vtdy/COWBH+eOZgYUVVU34C73M+4j4HLlQJHtfcqiqqxpP0o8HhMkflvfbquLX5dg6wlfA==}
