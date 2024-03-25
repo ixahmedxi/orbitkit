@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+import { withUt } from 'uploadthing/tw';
+
 import { orbitKitTailwindPreset } from '@orbitkit/tailwind';
 
 const config: Config = {
@@ -8,4 +10,4 @@ const config: Config = {
   presets: [orbitKitTailwindPreset],
 };
 
-export default config;
+export default withUt(config);

@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 import { ShowToast } from './show-toast';
+import { UploadExample } from './upload';
 
 export default async function Home() {
   const { user } = await getSession();
@@ -17,8 +18,10 @@ export default async function Home() {
 
   return (
     <main className="container mx-auto py-6 px-6">
-      <h1>Next.js app, your user id is {user.id}</h1>
-      <ThemeSwitcher />
+      <div className="flex items-center justify-between min-h-[37.8px]">
+        <h1>Next.js app, your user id is {user.id}</h1>
+        <ThemeSwitcher />
+      </div>
       <Avatar>
         <AvatarImage src={user.avatarUrl} alt={user.name} />
         <AvatarFallback>
@@ -32,6 +35,7 @@ export default async function Home() {
         <button type="submit">Logout</button>
       </form>
       <ShowToast />
+      <UploadExample />
     </main>
   );
 }
