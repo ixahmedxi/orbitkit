@@ -25,6 +25,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint": "^8.56.6",
+    "concurrently": "^8.2.2",
     "cspell": "^8.6.0",
     "eslint": "^8.57.0",
     "eslint-config-orbitkit": "workspace:^",

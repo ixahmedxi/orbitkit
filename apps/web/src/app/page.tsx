@@ -1,3 +1,4 @@
+import { $path } from 'next-typesafe-url';
 import { redirect } from 'next/navigation';
 
 import { getSession } from '@orbitkit/auth';
@@ -11,7 +12,7 @@ import { ShowToast } from './show-toast';
 export default async function Home() {
   const { user } = await getSession();
   if (!user) {
-    return redirect('/login');
+    return redirect($path({ route: '/login' }));
   }
 
   return (
