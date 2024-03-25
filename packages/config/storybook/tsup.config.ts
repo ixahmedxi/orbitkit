@@ -11,7 +11,7 @@ export default defineConfig((opts) => ({
   format: ['esm'],
   splitting: true,
   sourcemap: true,
-  minify: true,
+  minify: !opts.watch,
   clean: !opts.watch,
   dts: true,
   outDir: 'dist',

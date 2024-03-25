@@ -454,6 +454,21 @@ importers:
         specifier: ^8.0.2
         version: 8.0.2(postcss@8.4.38)(typescript@5.4.3)
 
+  packages/core:
+    devDependencies:
+      '@orbitkit/tsconfig':
+        specifier: workspace:^
+        version: link:../config/tsconfig
+      '@types/node':
+        specifier: ^20.11.30
+        version: 20.11.30
+      eslint-config-orbitkit:
+        specifier: workspace:^
+        version: link:../config/eslint
+      tsup:
+        specifier: ^8.0.2
+        version: 8.0.2(postcss@8.4.38)(typescript@5.4.3)
+
   packages/db:
     dependencies:
       '@neondatabase/serverless':

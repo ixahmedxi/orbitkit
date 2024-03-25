@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig((opts) => ({
-  entry: ['./src/react.ts'],
+  entry: ['./src/index.ts'],
   format: ['esm'],
   splitting: true,
   sourcemap: true,
