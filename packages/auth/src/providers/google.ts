@@ -6,14 +6,17 @@ import { z } from 'zod';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
+import { getBaseUrl } from '@orbitkit/utils';
 
 import { env } from '../env';
 import { lucia } from '../lucia';
 
+const baseUrl = getBaseUrl();
+
 const google = new Google(
   env.AUTH_GOOGLE_ID,
   env.AUTH_GOOGLE_SECRET,
-  env.AUTH_GOOGLE_REDIRECT_URI,
+  `${baseUrl}/login/google/callback`,
 );
 
 export async function createGoogleAuthorizationURL(): Promise<Response> {

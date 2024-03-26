@@ -10,7 +10,6 @@ export const env = createEnv({
     AUTH_GITHUB_SECRET: z.string(),
     AUTH_GOOGLE_ID: z.string(),
     AUTH_GOOGLE_SECRET: z.string(),
-    AUTH_GOOGLE_REDIRECT_URI: z.string(),
     AUTH_GOOGLE_CODE_VERIFIER: z.string(),
   },
   runtimeEnv: {
@@ -19,7 +18,6 @@ export const env = createEnv({
     AUTH_GITHUB_SECRET: process.env['AUTH_GITHUB_SECRET'],
     AUTH_GOOGLE_ID: process.env['AUTH_GOOGLE_ID'],
     AUTH_GOOGLE_SECRET: process.env['AUTH_GOOGLE_SECRET'],
-    AUTH_GOOGLE_REDIRECT_URI: process.env['AUTH_GOOGLE_REDIRECT_URI'],
     AUTH_GOOGLE_CODE_VERIFIER: process.env['AUTH_GOOGLE_CODE_VERIFIER'],
   },
   emptyStringAsUndefined: true,

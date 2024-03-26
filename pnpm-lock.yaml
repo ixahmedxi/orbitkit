@@ -240,6 +240,9 @@ importers:
       '@orbitkit/db':
         specifier: workspace:^
         version: link:../db
+      '@orbitkit/utils':
+        specifier: workspace:^
+        version: link:../utils
       '@t3-oss/env-core':
         specifier: ^0.9.2
         version: 0.9.2(typescript@5.4.3)(zod@3.22.4)
