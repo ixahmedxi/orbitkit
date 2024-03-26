@@ -21,8 +21,8 @@
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.0.7",
     "@orbitkit/db": "workspace:^",
+    "@orbitkit/env": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "@t3-oss/env-core": "^0.9.2",
     "arctic": "^1.2.1",
     "lucia": "^3.1.1",
     "next": "14.1.4",

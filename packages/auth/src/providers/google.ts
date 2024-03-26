@@ -6,16 +6,16 @@ import { z } from 'zod';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
+import { env } from '@orbitkit/env/web/server';
 import { getBaseUrl } from '@orbitkit/utils';
 
-import { env } from '../env';
 import { lucia } from '../lucia';
 
 const baseUrl = getBaseUrl();
 
 const google = new Google(
-  env.AUTH_GOOGLE_ID,
-  env.AUTH_GOOGLE_SECRET,
+  env.GOOGLE_ID,
+  env.GOOGLE_SECRET,
   `${baseUrl}/login/google/callback`,
 );
 
@@ -23,7 +23,7 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
   const state = generateState();
   const url = await google.createAuthorizationURL(
     state,
-    env.AUTH_GOOGLE_CODE_VERIFIER,
+    env.GOOGLE_CODE_VERIFIER,
     {
       scopes: ['profile', 'email'],
     },
@@ -63,7 +63,7 @@ export async function validateGoogleCallback(
   try {
     const tokens = await google.validateAuthorizationCode(
       code,
-      env.AUTH_GOOGLE_CODE_VERIFIER,
+      env.GOOGLE_CODE_VERIFIER,
     );
     const googleUserResponse = await fetch(
       'https://openidconnect.googleapis.com/v1/userinfo',

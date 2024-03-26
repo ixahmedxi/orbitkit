@@ -1,6 +1,6 @@
 import type { Config } from 'drizzle-kit';
 
-import { env } from './src/env.js';
+import { env } from '@orbitkit/env/web/server';
 
 export default {
   schema: './src/schema/index.ts',

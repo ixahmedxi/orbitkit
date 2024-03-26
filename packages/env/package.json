@@ -1,0 +1,27 @@
+{
+  "name": "@orbitkit/env",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A package to define environment variables for apps in the workspace using t3 env",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./web/server": "./src/web/server.ts",
+    "./web/client": "./src/web/client.ts"
+  },
+  "scripts": {
+    "lint": "eslint . --cache --max-warnings 0",
+    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@t3-oss/env-nextjs": "^0.9.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/node": "^20.11.30",
+    "eslint-config-orbitkit": "workspace:^"
+  }
+}

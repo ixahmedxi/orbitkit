@@ -3,8 +3,7 @@ import { Lucia } from 'lucia';
 
 import { db } from '@orbitkit/db';
 import { sessionTable, userTable } from '@orbitkit/db/schema';
-
-import { env } from './env.js';
+import { env } from '@orbitkit/env/web/server';
 
 const adapter = new DrizzlePostgreSQLAdapter(db, sessionTable, userTable);
 
