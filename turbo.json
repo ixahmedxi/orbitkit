@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "experimentalUI": true,
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^db:migrate"],
