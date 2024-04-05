@@ -3,7 +3,7 @@
 ## Note
 
 > [!IMPORTANT]
-> OrbitKit is built on top of a very opinionated tech stack, which might not work for every use case/business idea. I offer monorepo architecture consulting or even building something completely custom for you, if you are interested be sure to [contact me](mailto:ahmedtarek3214@gmail.com).
+> OrbitKit is built on top of a very opinionated tech stack, which might not work for every use case/business idea. I offer monorepo architecture consulting or even building something completely custom for you, if you are interested be sure to [DM me on X/Twitter](https://twitter.com/ixahmedxii).
 
 ## Features
 
