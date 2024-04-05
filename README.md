@@ -1,6 +1,4 @@
-# OrbitKit
-
-> A Comprehensive Monorepo StarterKit for SaaS projects and Startups, giving you a marketing site with Astrojs & Web application with Next.js with all you need to launch your next big idea!
+![OrbitKit](https://github.com/ixahmedxi/orbitkit/blob/main/cover.png?raw=true)
 
 ## Note
 
