@@ -34,9 +34,9 @@
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.12.4",
     "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@types/react-dom": "^18.2.24",
     "autoprefixer": "^10.4.19",
     "eslint-config-orbitkit": "workspace:^",
     "jiti": "^1.21.0",
