@@ -13,6 +13,8 @@ export const env = createEnv({
     UPLOADTHING_SECRET: z.string(),
     UPLOADTHING_APP_ID: z.string(),
 
+    UNKEY_ROOT_KEY: z.string(),
+
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
 
@@ -28,6 +30,8 @@ export const env = createEnv({
 
     UPLOADTHING_SECRET: process.env['UPLOADTHING_SECRET'],
     UPLOADTHING_APP_ID: process.env['UPLOADTHING_APP_ID'],
+
+    UNKEY_ROOT_KEY: process.env['UNKEY_ROOT_KEY'],
 
     GITHUB_ID: process.env['GITHUB_ID'],
     GITHUB_SECRET: process.env['GITHUB_SECRET'],

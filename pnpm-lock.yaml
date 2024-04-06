@@ -174,6 +174,9 @@ importers:
       '@total-typescript/ts-reset':
         specifier: ^0.5.1
         version: 0.5.1
+      '@unkey/ratelimit':
+        specifier: ^0.1.3
+        version: 0.1.3
       '@uploadthing/react':
         specifier: ^6.4.1
         version: 6.4.1(next@14.1.4)(react@18.2.0)(uploadthing@6.7.0)
@@ -7034,6 +7037,25 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  /@unkey/api@0.19.4:
+    resolution: {integrity: sha512-edACid6dwZYGlmoOIP4F6mmS1qDdn1CUfs9EnHu3kChrIoc4RXDrtJCDNPqOn2OrBZbqiFMa1ieOibKr2JMCYw==}
+    dependencies:
+      '@unkey/rbac': 0.1.11
+    dev: false
+
+  /@unkey/ratelimit@0.1.3:
+    resolution: {integrity: sha512-7iKda/OYq4novyMiQyruHVszCN6xG4jlE0tP7PqmDWpOnIKFVpb21NeyMBhXpXwZdveGrhUhFh+6wT7kiNs9Mg==}
+    dependencies:
+      '@unkey/api': 0.19.4
+    dev: false
+
+  /@unkey/rbac@0.1.11:
+    resolution: {integrity: sha512-S1XkX6rrynW6t6qTZpJd5yxpj9FxsSuZzqKDJBMYsJD1AJXOKBEE0dPqlq/g5nmz/fd2q5hjDEBp7m1s3wPFtQ==}
+    dependencies:
+      zod: 3.22.4
+      zod-error: 1.5.0
+    dev: false
 
   /@uploadthing/dropzone@0.2.1(react@18.2.0):
     resolution: {integrity: sha512-OK4rSFnQ2woJ07t78hTfxjMxXedLoj+Jp34kIEtYPYBTPOnNwoKhDXfRojSu8cBilkQROzIe67i0p6F4B6LQhQ==}
@@ -16256,6 +16278,12 @@ packages:
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
+
+  /zod-error@1.5.0:
+    resolution: {integrity: sha512-zzopKZ/skI9iXpqCEPj+iLCKl9b88E43ehcU+sbRoHuwGd9F1IDVGQ70TyO6kmfiRL1g4IXkjsXK+g1gLYl4WQ==}
+    dependencies:
+      zod: 3.22.4
+    dev: false
 
   /zod-to-json-schema@3.22.4(zod@3.22.4):
     resolution: {integrity: sha512-2Ed5dJ+n/O3cU383xSY28cuVi0BCQhF8nYqWU5paEpl7fVdqdAmiLdqLyfblbNdfOFwFfi/mqU4O1pwc60iBhQ==}

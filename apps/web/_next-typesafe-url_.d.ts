@@ -15,6 +15,7 @@ declare module "@@@next-typesafe-url" {
 
   interface StaticRouter {
     "/login": StaticRoute;
+    "/blocked": StaticRoute;
     "/": StaticRoute;
   }
 }

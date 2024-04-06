@@ -48,16 +48,17 @@ words:
   - shadcn
   - stylesheet
   - tailwindcss
+  - todos
   - tsbuildinfo
   - tsconfigs
   - tsup
   - Tuite
+  - turborepo
   - typecheck
   - typeof
   - typesafe
+  - unkey
   - uploadthing
   - vaul
   - viewports
   - WITA
-  - turborepo
-  - todos
