@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: install pnpm
-        ruses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v3
         with:
           run_install: false
 
