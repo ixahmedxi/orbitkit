@@ -19,30 +19,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: setup node.js 20.x
+      - name: setup node.js
         # https://github.com/actions/setup-node
         uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
 
       - name: install pnpm
-        run: npm i pnpm@latest -g
-
-      - name: Save pnpm store path
-        id: get-store-path
-        run: echo STORE_PATH=$(pnpm store path) | tee -a $GITHUB_OUTPUT
-        # run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
-
-      - name: Restore pnpm from cache (using saved path)
-        uses: actions/cache@v4
-        timeout-minutes: 5
-        id: cache-pnpm-store
+        ruses: pnpm/action-setup@v3
         with:
-          path: ${{ steps.get-store-path.outputs.STORE_PATH }}
-          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            pnpm-store-
-            pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+            ${{ runner.os }}-pnpm-store-
 
       - name: install dependencies
         run: pnpm install --frozen-lockfile
