@@ -1,4 +1,4 @@
-![OrbitKit](https://github.com/ixahmedxi/orbitkit/blob/main/cover.png?raw=true)
+![OrbitKit](https://github.com/ixahmedxi/orbitkit/blob/main/apps/marketing/public/blog-placeholder.jpg?raw=true)
 
 ## Note
 
