@@ -17,6 +17,7 @@
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
+    "reset:changelog": "rimraf --glob **/CHANGELOG.md && pnpm recursive exec -- pnpm version 0.1.0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
