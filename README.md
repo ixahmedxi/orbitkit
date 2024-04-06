@@ -47,6 +47,9 @@ OrbitKit is not in final form yet, there are many things in the plans for it but
 # Clone the repository
 git clone --depth 1 https://github.com/ixahmedxi/orbitkit.git <your-project-name>
 
+#or use
+npx degit ixahmedxi/orbitkit
+
 # Install Dependencies
 pnpm install
 ```
