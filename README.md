@@ -104,7 +104,7 @@ This project uses commitlint to enforce a commit message convention. The commit 
 
 To make this easier, you can use the `pnpm commit` command to create a commit message. This will open up a prompt for you to enter the type, scope, and subject of the commit message.
 
-Through husky and the `prepare-commit-msg` hook, any `git commit` commands will automatically be hijacked and processed by commitizen and commitlint. If a commit message does not follow the convention, the commit will be rejected. If not commit message is provided, commitizen will open up a prompt for you to enter the commit message.
+Through husky and the `prepare-commit-msg` hook, any `git commit` commands will automatically be intercepted and processed by commitizen and commitlint. If a commit message does not follow the convention, the commit will be rejected. If no commit message is provided, commitizen will open up a prompt for you to enter the commit message.
 
 ## Issues
 
