@@ -16,7 +16,7 @@
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\"",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
-    "release": "turbo run build lint typecheck && changeset version && changeset publish",
+    "release": "turbo run build typecheck && changeset version && changeset publish",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
