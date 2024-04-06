@@ -32,6 +32,7 @@
 - Husky
 - TS Reset for the applications
 - Packages built using tsup
+- Changesets for versioning
 
 And much more!
 
@@ -56,11 +57,13 @@ pnpm install
 
 ### Reset changelog and versions
 
+When you first clone the repository, you should reset the changelog and versions to start fresh. You can do so by running the following commands:
+
 ```bash
-# Reset changelog
+# Reset changelog - this will remove all the changelog.md files in the packages
 pnpm reset:changelog
 
-# Reset package versions
+# Reset package versions - this will reset the versions of all the packages to 0.1.0
 pnpm reset:versions
 ```
 
