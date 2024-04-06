@@ -13,7 +13,7 @@ export const env = createEnv({
     UPLOADTHING_SECRET: z.string(),
     UPLOADTHING_APP_ID: z.string(),
 
-    UNKEY_ROOT_KEY: z.string(),
+    UNKEY_ROOT_KEY: z.string().optional(),
 
     GITHUB_ID: z.string(),
     GITHUB_SECRET: z.string(),
