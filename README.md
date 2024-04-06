@@ -16,6 +16,7 @@
 - Typesafe Next.js routes
 - Drizzle ORM
 - Neon DB
+- Rate limiting with [Unkey](https://unkey.dev)
 - Dedicated ShadCN UI primitives package
 - Storybook
 - Radix UI Colors for auto light/dark mode
