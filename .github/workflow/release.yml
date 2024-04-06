@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        # https://github.com/actions/checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: setup node.js 20.x
+        # https://github.com/actions/setup-node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: install pnpm
+        run: npm i pnpm@latest -g
+
+      - name: Save pnpm store path
+        id: get-store-path
+        run: echo STORE_PATH=$(pnpm store path) | tee -a $GITHUB_OUTPUT
+        # run: echo STORE_PATH=$(pnpm store path) >> $GITHUB_OUTPUT
+
+      - name: Restore pnpm from cache (using saved path)
+        uses: actions/cache@v4
+        timeout-minutes: 5
+        id: cache-pnpm-store
+        with:
+          path: ${{ steps.get-store-path.outputs.STORE_PATH }}
+          key: pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            pnpm-store-
+            pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: create and publish versions
+        # https://github.com/changesets/action
+        uses: changesets/action@v1
+        with:
+          commit: 'chore: update versions'
+          title: 'chore: update versions'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
