@@ -10,8 +10,8 @@ import { env } from '@orbitkit/env/web/server';
 const unkey = new Ratelimit({
   rootKey: env.UNKEY_ROOT_KEY,
   namespace: 'orbitkit-app',
-  limit: 5,
-  duration: '10s',
+  limit: 10,
+  duration: '20s',
   async: true,
 });
 
