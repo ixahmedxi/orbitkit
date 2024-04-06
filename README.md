@@ -92,6 +92,20 @@ pnpm turbo start
 
 If you're familiar with turborepo / pnpm workspaces, running stuff around this repo will be easy to figure out.
 
+### Commit messages
+
+This project uses commitlint to enforce a commit message convention. The commit message should be structured as follows:
+
+```plaintext
+<type>(<scope>): <subject>
+<body>
+<footer>
+```
+
+To make this easier, you can use the `pnpm commit` command to create a commit message. This will open up a prompt for you to enter the type, scope, and subject of the commit message.
+
+Through husky and the `prepare-commit-msg` hook, any `git commit` commands will automatically be intercepted and processed by commitizen and commitlint. If a commit message does not follow the convention, the commit will be rejected. If no commit message is provided, commitizen will open up a prompt for you to enter the commit message.
+
 ## Issues
 
 If you have any issues / problems with using OrbitKit, be sure to create an issue here on GitHub and I will help you out with it.
