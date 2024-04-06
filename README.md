@@ -54,6 +54,16 @@ npx degit ixahmedxi/orbitkit
 pnpm install
 ```
 
+### Reset changelog and versions
+
+```bash
+# Reset changelog
+pnpm reset:changelog
+
+# Reset package versions
+pnpm reset:versions
+```
+
 ### Setting up environment variables
 
 Checkout the `.env.example` file inside the `apps/web` directory for the environment variables you need to get the project running. You should create an UploadThing and Neon DB accounts and copy the environment variables from their dashboard to a `.env.local` file in `apps/web`.
