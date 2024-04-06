@@ -20,9 +20,6 @@ importers:
       '@commitlint/cz-commitlint':
         specifier: ^19.2.0
         version: 19.2.0(@types/node@20.12.4)(commitizen@4.3.0)(inquirer@9.2.16)(typescript@5.4.4)
-      '@commitlint/prompt-cli':
-        specifier: ^19.2.0
-        version: 19.2.0(@types/node@20.12.4)(typescript@5.4.4)
       '@ianvs/prettier-plugin-sort-imports':
         specifier: ^4.2.1
         version: 4.2.1(prettier@3.2.5)
@@ -2310,33 +2307,6 @@ packages:
       '@commitlint/types': 19.0.3
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
-    dev: true
-
-  /@commitlint/prompt-cli@19.2.0(@types/node@20.12.4)(typescript@5.4.4):
-    resolution: {integrity: sha512-DNiR+U25L7+wA0yollpXaiB7Tu7NPf6WXx5yTxnM2HJew1nw98Zf+7Dt0mfkdb+f/OeAgR3hYGZfsuXbyfjJTg==}
-    engines: {node: '>=v18'}
-    hasBin: true
-    dependencies:
-      '@commitlint/prompt': 19.2.0(@types/node@20.12.4)(typescript@5.4.4)
-      execa: 8.0.1
-      inquirer: 9.2.16
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
-    dev: true
-
-  /@commitlint/prompt@19.2.0(@types/node@20.12.4)(typescript@5.4.4):
-    resolution: {integrity: sha512-bhPftma1IVQP5Y8St0ZssDMi1WJFju6Oz1lKZiQauEbCcHzQjRk3OHygGvNt8EXvvDTETV1jncPOjErgYSQTbQ==}
-    engines: {node: '>=v18'}
-    dependencies:
-      '@commitlint/ensure': 19.0.3
-      '@commitlint/load': 19.2.0(@types/node@20.12.4)(typescript@5.4.4)
-      '@commitlint/types': 19.0.3
-      chalk: 5.3.0
-      inquirer: 9.2.16
-    transitivePeerDependencies:
-      - '@types/node'
-      - typescript
     dev: true
 
   /@commitlint/read@19.2.1:
