@@ -283,9 +283,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "build-storybook": "storybook build",
-    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "postinstall": "pnpm exec playwright install",
     "lint": "eslint . --cache --max-warnings 0",
     "storybook": "storybook dev -p 6006 --no-open",
