@@ -1,22 +1,25 @@
-name: Release
+name: CI
 
 on:
   push:
-    branches:
-      - main
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+    branches: ['main']
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
-  release:
-    name: Release
+  code-quality:
+    name: Code Quality Checks
     timeout-minutes: 15
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
     steps:
-      - name: checkout code repository
+      - name: Check out code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: setup volta
         uses: volta-cli/action@v4
@@ -42,11 +45,17 @@ jobs:
       - name: install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: create and publish versions
-        uses: changesets/action@v1
-        with:
-          commit: 'chore: update versions'
-          title: 'chore: update versions'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: format
+        run: pnpm run format:check
+
+      - name: lint spellcheck
+        run: pnpm run lint:spell
+
+      - name: lint markdown
+        run: pnpm run lint:md
+
+      - name: lint code
+        run: pnpm turbo lint
+
+      - name: typecheck
+        run: pnpm turbo typecheck
