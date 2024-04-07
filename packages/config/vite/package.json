@@ -22,8 +22,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.2.8",
-    "vite-tsconfig-paths": "^4.3.2",
-    "cross-env": "^7.0.3"
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",

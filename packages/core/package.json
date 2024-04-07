@@ -23,7 +23,6 @@
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.4",
     "eslint-config-orbitkit": "workspace:^",
-    "tsup": "^8.0.2",
-    "cross-env": "^7.0.3"
+    "tsup": "^8.0.2"
   }
 }
