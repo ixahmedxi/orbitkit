@@ -20,7 +20,7 @@
       "dependsOn": ["^build"]
     },
     "dev": {
-      "dependsOn": ["^build", "^db:migrate"],
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
