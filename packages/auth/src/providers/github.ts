@@ -9,7 +9,7 @@ import { env } from '@orbitkit/env/web/server';
 
 import { lucia } from '../lucia';
 
-const github = new GitHub(env.GITHUB_ID, env.GITHUB_SECRET);
+const github = new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET);
 
 export async function createGithubAuthorizationURL(): Promise<Response> {
   const state = generateState();

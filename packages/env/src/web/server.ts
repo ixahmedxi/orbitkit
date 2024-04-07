@@ -15,12 +15,12 @@ export const env = createEnv({
 
     UNKEY_ROOT_KEY: z.string().optional(),
 
-    GITHUB_ID: z.string(),
-    GITHUB_SECRET: z.string(),
+    AUTH_GITHUB_ID: z.string(),
+    AUTH_GITHUB_SECRET: z.string(),
 
-    GOOGLE_ID: z.string(),
-    GOOGLE_SECRET: z.string(),
-    GOOGLE_CODE_VERIFIER: z.string(),
+    AUTH_GOOGLE_ID: z.string(),
+    AUTH_GOOGLE_SECRET: z.string(),
+    AUTH_GOOGLE_CODE_VERIFIER: z.string(),
   },
   runtimeEnv: {
     NODE_ENV: process.env['NODE_ENV'],
@@ -33,12 +33,12 @@ export const env = createEnv({
 
     UNKEY_ROOT_KEY: process.env['UNKEY_ROOT_KEY'],
 
-    GITHUB_ID: process.env['GITHUB_ID'],
-    GITHUB_SECRET: process.env['GITHUB_SECRET'],
+    AUTH_GITHUB_ID: process.env['AUTH_GITHUB_ID'],
+    AUTH_GITHUB_SECRET: process.env['AUTH_GITHUB_SECRET'],
 
-    GOOGLE_ID: process.env['GOOGLE_ID'],
-    GOOGLE_SECRET: process.env['GOOGLE_SECRET'],
-    GOOGLE_CODE_VERIFIER: process.env['GOOGLE_CODE_VERIFIER'],
+    AUTH_GOOGLE_ID: process.env['AUTH_GOOGLE_ID'],
+    AUTH_GOOGLE_SECRET: process.env['AUTH_GOOGLE_SECRET'],
+    AUTH_GOOGLE_CODE_VERIFIER: process.env['AUTH_GOOGLE_CODE_VERIFIER'],
   },
   emptyStringAsUndefined: true,
   skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
