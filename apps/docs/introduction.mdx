@@ -1,0 +1,53 @@
+---
+title: Introduction
+description: 'OrbitKit is a monorepo starterkit ready to be the foundation that you build your next startup or great big idea upon.'
+---
+
+## Tech Stack
+
+- [Next.js app directory](https://nextjs.org/docs/app) compatible application for your **product**.
+- [Astro](https://astro.build/) app for your **marketing website**.
+- [Mintlify](https://mintlify.com) website for your **documentation**.
+- [TailwindCSS](https://tailwindcss.com/) styling with [Radix UI Colors](https://www.radix-ui.com/colors) for automatic light/dark mode.
+- [TS Reset](https://github.com/total-typescript/ts-reset) for all applications.
+- [Shadcn UI](https://ui.shadcn.com/) full implementation in a dedicated `ui` package.
+- [Storybook](https://storybook.js.org/) to visualize, develop and test components in isolation.
+- [UploadThing](https://uploadthing.com/) for file uploads.
+- [Lucia auth](https://lucia-auth.com/) for authentication.
+- Type-safe Next.js routes using [next-typesafe-url](https://github.com/ethanniser/next-typesafe-url).
+- [Drizzle ORM](https://orm.drizzle.team/) for a fully typesafe database ORM.
+- [Neon DB](https://neon.tech) postgres database.
+- Rate limiting using [Unkey](https://unkey.dev).
+- Light / Dark mode handling using [next-themes](https://github.com/pacocoursey/next-themes).
+- [Turborepo](https://turbo.build/repo) to cache tasks locally and remotely in the workspace.
+- [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) for linting and formatting.
+- Spell checking with [CSpell](https://cspell.org/).
+- Markdown linting with [markdownlint](https://github.com/DavidAnson/markdownlint).
+- Git hooks, rules and checks using [Commitlint](https://commitlint.js.org/), [Commitizen](https://commitizen-tools.github.io/commitizen/), [Husky](https://github.com/typicode/husky) and [Lint-staged](https://github.com/lint-staged/lint-staged).
+- Versioning and changelog generation with [Changesets](https://github.com/changesets/changesets).
+
+And so much more!
+
+## Motivation
+
+The process of orchestrating a new codebase that will be used for a serious project is almost always very time consuming. **You need to:**
+
+1. Pick a tech stack.
+2. Configure your monorepo with all the tools like linting, formatting, typescript configuration...etc.
+3. Decide your packages and connect them all together with the apps.
+4. Configure task caching with something like [Turborepo](https://turbo.build/repo) or [NX](https://nx.dev)
+5. Configure your Github Actions pipelines.
+6. Figure out deployment.
+7. Start building...
+
+You see, there are so many steps you have to go through with a monorepo architecture before you actually get to building, we get you towards that last step and move it to be your first.
+
+Many people choose to start small and eventually when they need to, move to a monorepo setup in the future, even though they know they will need it soon, this is just delaying the inevitable.
+
+**With OrbitKit, the development phases transform into:**
+
+1. Copy over OrbitKit.
+2. Change OrbitKit references in the codebase to your product name.
+3. Start building...
+
+**And the best part is that these are minute(s) long steps, not potentially hours long!**

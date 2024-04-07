@@ -6,10 +6,16 @@ ignorePaths:
   - .tsbuildinfo
   - .gitignore
   - dist
+  - storybook-static
+  - drizzle
+  - .next
+  - .astro
+  - '**/*.svg'
 words:
   - acst
   - aest
   - akst
+  - starterkit
   - astro
   - astrojs
   - autodocs
@@ -17,24 +23,30 @@ words:
   - awst
   - Beamer
   - Binni
+  - BRANCHNAME
   - bvaughn
   - Byrom
   - clsx
   - cmdk
+  - codespace
+  - Codespaces
   - Colm
   - commitlint
   - consts
   - crossorigin
   - datetime
+  - degit
   - Duarte
   - Embla
   - esbenp
   - hookform
   - ianvs
+  - ixahmedxi
   - jiti
   - lockb
   - lucide
   - Malyavko
+  - Mintlify
   - neonctl
   - neondatabase
   - nextjs
@@ -44,11 +56,14 @@ words:
   - packagejson
   - pacocoursey
   - peduarte
+  - quickstart
   - Ratelimit
   - shadcn
   - stylesheet
+  - tada
   - tailwindcss
   - todos
+  - topbar
   - tsbuildinfo
   - tsconfigs
   - tsup
@@ -62,5 +77,3 @@ words:
   - vaul
   - viewports
   - WITA
-  - ixahmedxi
-  - degit
