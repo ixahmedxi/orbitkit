@@ -382,6 +382,9 @@ importers:
       '@storybook/types':
         specifier: ^8.0.6
         version: 8.0.6
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -458,6 +461,9 @@ importers:
       '@vitejs/plugin-react':
         specifier: ^4.2.1
         version: 4.2.1(vite@5.2.8)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       vite:
         specifier: ^5.2.8
         version: 5.2.8(@types/node@20.12.4)
@@ -486,6 +492,9 @@ importers:
       '@types/node':
         specifier: ^20.12.4
         version: 20.12.4
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint-config-orbitkit:
         specifier: workspace:^
         version: link:../config/eslint
@@ -644,6 +653,9 @@ importers:
       cmdk:
         specifier: ^1.0.0
         version: 1.0.0(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
@@ -762,6 +774,9 @@ importers:
 
   packages/utils:
     dependencies:
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       pkg-types:
         specifier: ^1.0.3
         version: 1.0.3
@@ -8737,6 +8752,13 @@ packages:
       parse-json: 5.2.0
       typescript: 5.4.4
     dev: true
+
+  /cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
 
   /cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}

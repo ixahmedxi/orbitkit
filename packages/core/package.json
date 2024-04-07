@@ -14,8 +14,8 @@
     }
   },
   "scripts": {
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
@@ -23,6 +23,7 @@
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.4",
     "eslint-config-orbitkit": "workspace:^",
-    "tsup": "^8.0.2"
+    "tsup": "^8.0.2",
+    "cross-env": "^7.0.3"
   }
 }
