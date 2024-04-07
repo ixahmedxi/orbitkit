@@ -14,13 +14,14 @@
     }
   },
   "scripts": {
-    "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "dev": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
-    "pkg-types": "^1.0.3"
+    "pkg-types": "^1.0.3",
+    "cross-env": "^7.0.3"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
