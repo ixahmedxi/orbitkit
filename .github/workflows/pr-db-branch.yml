@@ -6,6 +6,14 @@ env:
   NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
   NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
 
+  UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
+  UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
+  AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+  AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+  AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+  AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+  AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
+
 jobs:
   create-db-branch:
     runs-on: ubuntu-latest
@@ -44,7 +52,7 @@ jobs:
 
       - name: Run schema migrations
         run: |
-          touch .env
+          touch apps/web/.env.local
 
           echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> .env
 
