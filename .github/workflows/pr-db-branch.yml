@@ -9,15 +9,7 @@ env:
   NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
   NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
 
-  UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
-  UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
-  AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
-  AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
-  AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
-  AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
-  AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
-
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SKIP_ENV_VALIDATION: true
 
 jobs:
   create-db-branch:
@@ -27,20 +19,34 @@ jobs:
       group: pr-${{ github.event.number }}
 
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: pnpm/action-setup@v2
+      - name: checkout code repository
+        uses: actions/checkout@v4
         with:
-          version: 8
+          fetch-depth: 0
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
+      - name: setup volta
+        uses: volta-cli/action@v4
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v3
         with:
-          node-version: 20
-          cache: 'pnpm'
+          run_install: false
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
 
       - name: Get branch name
         id: branch_name
