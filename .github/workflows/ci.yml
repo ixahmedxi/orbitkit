@@ -1,77 +1,174 @@
-name: CI
+name: Pull Request Database Branch
+on: [pull_request]
 
-on:
-  push:
-    branches: ['main']
-  pull_request:
-    types: [opened, synchronize]
+permissions:
+  pull-requests: write
 
 env:
   # Turborepo
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
-  # Authentication
-  AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
-  AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
-  AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
-  AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
-  AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
-
-  # Uploadthing
-  UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
-  UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
-
-  # Unkey
-  UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
-
 jobs:
-  code-quality:
-    name: Code Quality Checks
-    timeout-minutes: 15
+  create-db-branch:
     runs-on: ubuntu-latest
 
+    concurrency:
+      group: pr-${{ github.event.number }}
+
+    outputs:
+      db_url: ${{ steps.create-branch.outputs.db_url }}
+
+    env:
+      # Neon
+      NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
     steps:
-      - name: Check out code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - name: setup volta
-        uses: volta-cli/action@v4
-
-      - name: get node version
-        run: node --version
-
-      - name: install pnpm
-        uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v2
         with:
-          run_install: false
+          version: 8
 
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: 20
+          cache: 'pnpm'
 
-      - name: install dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: format
-        run: pnpm run format:check
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
 
-      - name: lint spellcheck
-        run: pnpm run lint:spell
+      - name: Create Neon Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
 
-      - name: lint markdown
-        run: pnpm run lint:md
+      - name: Run schema migrations
+        env:
+          DATABASE_URL: '${{ steps.create-branch.outputs.db_url }}?sslmode=require'
+        run: pnpm turbo db:migrate
 
-      - name: lint & typecheck
+      - name: Comment on Pull Request
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Neon branch :elephant: : https://console.neon.tech/app/projects/${{ secrets.NEON_PROJECT_ID }}/branches/${{ steps.create-branch.outputs.branch_id }}
+
+  format-lint-typecheck:
+    name: Format, Lint & Typecheck
+    runs-on: ubuntu-latest
+
+    env:
+      SKIP_ENV_VALIDATION: true
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Spell check
+        run: pnpm lint:spell
+
+      - name: Lint markdown
+        run: pnpm lint:md
+
+      - name: Lint & Typecheck
         run: pnpm turbo lint typecheck
+
+  build-marketing:
+    name: Build marketing website
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build marketing website
+        run: pnpm turbo build --filter=marketing
+
+  build-app:
+    name: Build web app
+    runs-on: ubuntu-latest
+    needs: create-db-branch
+
+    env:
+      # Database URL
+      DATABASE_URL: '${{ needs.create-db-branch.outputs.db_url }}?sslmode=require'
+
+      # Authentication
+      AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+      AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+      AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
+
+      # Uploadthing
+      UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
+      UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
+
+      # Unkey
+      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm turbo build --filter=web
