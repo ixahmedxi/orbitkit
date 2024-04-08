@@ -1,0 +1,42 @@
+name: Pull Request Database Branch
+on: [pull_request]
+
+env:
+  NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
+  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+  NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
+jobs:
+  create-db-branch:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: pr-${{ github.event.number }}
+
+    steps:
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+      - name: Create Neon Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
+
+      - name: Run schema migrations
+        run: |
+          touch .env
+
+          echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> .env
+
+          pnpm turbo db:migrate
+
+      - name: Comment on Pull Request
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Neon branch :elephant: : https://console.neon.tech/app/projects/${{ secrets.NEON_PROJECT_ID }}/branches/${{ steps.create-branch.outputs.branch_id }}

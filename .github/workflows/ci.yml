@@ -73,8 +73,5 @@ jobs:
       - name: lint markdown
         run: pnpm run lint:md
 
-      - name: lint code
-        run: pnpm turbo lint
-
-      - name: typecheck
-        run: pnpm turbo typecheck
+      - name: lint & typecheck
+        run: pnpm turbo lint typecheck
