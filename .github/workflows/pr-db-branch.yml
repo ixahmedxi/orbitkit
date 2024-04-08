@@ -52,7 +52,7 @@ jobs:
 
       - name: Run schema migrations
         run: |
-          touch apps/web/.env.local
+          touch ./apps/web/.env.local
 
           echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> .env
 
