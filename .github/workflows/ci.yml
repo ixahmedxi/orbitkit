@@ -11,6 +11,7 @@ env:
 
 jobs:
   create-db-branch:
+    name: Create Neon DB Branch
     runs-on: ubuntu-latest
 
     concurrency:
@@ -24,6 +25,8 @@ jobs:
       NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
       NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
       NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
+      SKIP_ENV_VALIDATION: true
 
     steps:
       - uses: actions/checkout@v4
