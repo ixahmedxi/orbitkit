@@ -51,12 +51,9 @@ jobs:
           api_key: ${{ env.NEON_API_KEY }}
 
       - name: Run schema migrations
-        run: |
-          touch ./apps/web/.env
-
-          echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> ./apps/web/.env
-
-          pnpm turbo db:migrate
+        env:
+          DATABASE_URL: '${{ steps.create-branch.outputs.db_url }}?sslmode=require'
+        run: pnpm turbo db:migrate
 
       - name: Comment on Pull Request
         uses: thollander/actions-comment-pull-request@v2
