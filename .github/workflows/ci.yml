@@ -1,75 +1,12 @@
 name: Pull Request CI
 on: [pull_request]
 
-permissions:
-  pull-requests: write
-
 env:
   # Turborepo
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
 jobs:
-  create-db-branch:
-    name: Create Neon DB Branch
-    runs-on: ubuntu-latest
-
-    concurrency:
-      group: pr-${{ github.event.number }}
-
-    outputs:
-      db_url: ${{ steps.create-branch.outputs.db_url }}
-
-    env:
-      # Neon
-      NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
-      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
-      NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
-
-      SKIP_ENV_VALIDATION: true
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Get branch name
-        id: branch_name
-        uses: tj-actions/branch-names@v8
-
-      - name: Create Neon Branch
-        id: create-branch
-        uses: neondatabase/create-branch-action@v4
-        with:
-          project_id: ${{ env.NEON_PROJECT_ID }}
-          branch_name: pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
-          username: ${{ env.NEON_DATABASE_USERNAME }}
-          api_key: ${{ env.NEON_API_KEY }}
-
-      - name: Run schema migrations
-        env:
-          DATABASE_URL: '${{ steps.create-branch.outputs.db_url }}?sslmode=require'
-        run: pnpm turbo db:migrate
-
-      - name: Comment on Pull Request
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            Neon branch :elephant: : https://console.neon.tech/app/projects/${{ secrets.NEON_PROJECT_ID }}/branches/${{ steps.create-branch.outputs.branch_id }}
-
   format-lint-typecheck:
     name: Format, Lint & Typecheck
     runs-on: ubuntu-latest
@@ -135,9 +72,16 @@ jobs:
   build-app:
     name: Build web app
     runs-on: ubuntu-latest
-    needs: create-db-branch
+
+    concurrency:
+      group: pr-${{ github.event.number }}
 
     env:
+      # Neon
+      NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
       # Database URL
       DATABASE_URL: '${{ needs.create-db-branch.outputs.db_url }}?sslmode=require'
 
@@ -173,5 +117,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+      - name: Create Neon Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
+
       - name: Build
+        env:
+          DATABASE_URL: ${{ steps.create-branch.outputs.db_url }}?sslmode=require
         run: pnpm turbo build --filter=web
