@@ -1,6 +1,9 @@
 name: Pull Request Database Branch
 on: [pull_request]
 
+permissions:
+  pull-requests: write
+
 env:
   NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
   NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
