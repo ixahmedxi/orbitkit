@@ -52,9 +52,9 @@ jobs:
 
       - name: Run schema migrations
         run: |
-          touch ./packages/db/.env
+          touch ./apps/web/.env
 
-          echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> .env
+          echo DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require >> ./apps/web/.env
 
           pnpm turbo db:migrate
 
