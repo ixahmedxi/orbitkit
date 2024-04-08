@@ -1,4 +1,4 @@
-name: Pull Request Database Branch
+name: Pull Request CI
 on: [pull_request]
 
 permissions:
