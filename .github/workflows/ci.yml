@@ -19,18 +19,32 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js 20
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Format check
         run: pnpm format:check
@@ -53,18 +67,32 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js 20
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build marketing website
         run: pnpm turbo build --filter=marketing
@@ -81,9 +109,6 @@ jobs:
       NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
       NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
       NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
-
-      # Database URL
-      DATABASE_URL: '${{ needs.create-db-branch.outputs.db_url }}?sslmode=require'
 
       # Authentication
       AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
@@ -104,18 +129,32 @@ jobs:
         with:
           fetch-depth: 2
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js 20
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Get branch name
         id: branch_name
@@ -132,5 +171,5 @@ jobs:
 
       - name: Build
         env:
-          DATABASE_URL: ${{ steps.create-branch.outputs.db_url }}?sslmode=require
+          DATABASE_URL: '${{ steps.create-branch.outputs.db_url }}?sslmode=require'
         run: pnpm turbo build --filter=web
