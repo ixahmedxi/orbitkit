@@ -4,10 +4,6 @@ on:
   pull_request:
     types: [closed]
 
-env:
-  NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
-  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
-
 jobs:
   delete-db-branch:
     runs-on: ubuntu-latest
@@ -20,5 +16,5 @@ jobs:
         uses: neondatabase/delete-branch-action@v3
         with:
           project_id: ${{ secrets.NEON_PROJECT_ID }}
-          branch_name: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
+          branch: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
           api_key: ${{ secrets.NEON_API_KEY }}
