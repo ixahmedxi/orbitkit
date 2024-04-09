@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-orbitkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "A package to share ESLint configurations in workspace",
   "license": "MIT",
