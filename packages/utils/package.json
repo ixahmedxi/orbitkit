@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "Common utilities for OrbitKit",
   "license": "MIT",
