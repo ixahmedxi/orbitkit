@@ -2,7 +2,7 @@ name: Pull Request CI
 on: [pull_request]
 
 env:
-  # Turborepo
+  # This enabled remote task cachinc using Turborepo
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      # We don't need to validate the environment variables when we are checking the format, linting and typechecking
       SKIP_ENV_VALIDATION: true
 
     steps:
@@ -19,32 +20,8 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v3
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup.yml
 
       - name: Format check
         run: pnpm format:check
@@ -56,7 +33,7 @@ jobs:
         run: pnpm lint:md
 
       - name: Lint & Typecheck
-        run: pnpm turbo lint typecheck
+        run: turbo lint typecheck
 
   build-marketing:
     name: Build marketing website
@@ -67,42 +44,15 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v3
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup.yml
 
       - name: Build marketing website
-        run: pnpm turbo build --filter=marketing
+        run: turbo build --filter=marketing
 
   build-app:
     name: Build web app
     runs-on: ubuntu-latest
-
-    concurrency:
-      group: pr-${{ github.event.number }}
 
     env:
       # Neon
@@ -129,32 +79,8 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v3
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v4
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup
+        uses: ./.github/actions/setup.yml
 
       - name: Get branch name
         id: branch_name
@@ -165,11 +91,17 @@ jobs:
         uses: neondatabase/create-branch-action@v4
         with:
           project_id: ${{ env.NEON_PROJECT_ID }}
-          branch_name: pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
           username: ${{ env.NEON_DATABASE_USERNAME }}
           api_key: ${{ env.NEON_API_KEY }}
 
+      - name: Set DATABASE_URL
+        shell: bash
+        run: |
+          echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
+
       - name: Build
         env:
-          DATABASE_URL: '${{ steps.create-branch.outputs.db_url }}?sslmode=require'
-        run: pnpm turbo build --filter=web
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+        # The build command will also apply schema migrations on the created database branch
+        run: turbo build --filter=web
