@@ -1,0 +1,89 @@
+name: Main CI
+on:
+  push:
+    branches:
+      - main
+
+env:
+  # This enabled remote task caching using Turborepo
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+jobs:
+  format-lint-typecheck:
+    name: Format, Lint & Typecheck
+    runs-on: ubuntu-latest
+
+    env:
+      # We don't need to validate the environment variables when we are checking the format, linting and typechecking
+      SKIP_ENV_VALIDATION: true
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Spell check
+        run: pnpm lint:spell
+
+      - name: Lint markdown
+        run: pnpm lint:md
+
+      - name: Lint & Typecheck
+        run: turbo lint typecheck
+
+  build-marketing:
+    name: Build marketing website
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Build marketing website
+        run: turbo build --filter=marketing
+
+  build-app:
+    name: Build web app
+    runs-on: ubuntu-latest
+
+    environment: Production
+
+    env:
+      # Database URL
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      # Authentication
+      AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+      AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+      AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
+
+      # Uploadthing
+      UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
+      UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
+
+      # Unkey
+      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Build
+        run: turbo build --filter=web

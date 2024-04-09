@@ -6,6 +6,10 @@ ignorePaths:
   - .tsbuildinfo
   - .gitignore
   - dist
+  - storybook-static
+  - .next
+  - .astro
+  - drizzle
 words:
   - acst
   - aest
@@ -64,3 +68,9 @@ words:
   - WITA
   - ixahmedxi
   - degit
+  - tada
+  - branchname
+  - codespaces
+  - codespace
+  - sslmode
+  - thollander
