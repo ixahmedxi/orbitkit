@@ -1,0 +1,53 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "OrbitKit",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#202020",
+    "light": "#EEEEEE",
+    "dark": "#202020",
+    "background": {
+      "dark": "#111111",
+      "light": "#FCFCFC"
+    },
+    "anchors": {
+      "from": "#222222",
+      "to": "#3A3A3A"
+    }
+  },
+  "topbarLinks": [],
+  "tabs": [],
+  "anchors": [
+    {
+      "name": "Github",
+      "icon": "github",
+      "url": "https://github.com/ixahmedxi/orbitkit"
+    },
+    {
+      "name": "X / Twitter",
+      "icon": "x-twitter",
+      "url": "https://x.com/ixahmedxii"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "installation",
+        "tech-stack",
+        "make-it-yours",
+        "development",
+        "deployment"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/ixahmedxii",
+    "github": "https://github.com/ixahmedxi/orbitkit"
+  }
+}

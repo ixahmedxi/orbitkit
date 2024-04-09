@@ -1,0 +1,18 @@
+{
+  "name": "@orbitkit/docs",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Documentation website for OrbitKit using Mintlify",
+  "license": "MIT",
+  "author": "OrbitKit",
+  "type": "module",
+  "scripts": {
+    "dev": "mintlify dev --port=3002"
+  },
+  "devDependencies": {
+    "mintlify": "^4.0.142"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
