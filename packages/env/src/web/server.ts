@@ -16,12 +16,12 @@ export const env = createEnv({
     UNKEY_ROOT_KEY: z.string().optional(),
     UNKEY_NAMESPACE: z.string().optional(),
 
-    AUTH_GITHUB_ID: z.string(),
-    AUTH_GITHUB_SECRET: z.string(),
+    AUTH_GITHUB_ID: z.string().optional(),
+    AUTH_GITHUB_SECRET: z.string().optional(),
 
-    AUTH_GOOGLE_ID: z.string(),
-    AUTH_GOOGLE_SECRET: z.string(),
-    AUTH_GOOGLE_CODE_VERIFIER: z.string(),
+    AUTH_GOOGLE_ID: z.string().optional(),
+    AUTH_GOOGLE_SECRET: z.string().optional(),
+    AUTH_GOOGLE_CODE_VERIFIER: z.string().optional(),
   },
   runtimeEnv: {
     NODE_ENV: process.env['NODE_ENV'],
