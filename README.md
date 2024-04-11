@@ -38,6 +38,8 @@ OrbitKit is not in final form yet, there are many things in the plans for it but
 
 ## Getting Started
 
+You can check out our [new documentation](https://orbitkit.mintlify.app) for more detailed information about installing & using OrbitKit.
+
 ### Installation
 
 ```bash
