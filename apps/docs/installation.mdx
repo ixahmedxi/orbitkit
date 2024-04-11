@@ -1,5 +1,108 @@
 ---
 title: Installation
 icon: 'bars-progress'
-description: '🚀 OrbitKit is an enterprise ready monorepo StarterKit ready to be the foundation you build your next startup or big idea upon.'
+description: 'A guide on how to install and run OrbitKit.'
 ---
+
+## Introduction
+
+OrbitKit is setup as a monorepo, which comes with three applications and many packages, here is the codebase structure:
+
+```bash
+apps
+├── docs # Documentation website with Mintlify
+├── marketing # Marketing website with Astro
+└── web # Web application with Next.js
+packages
+  ├── assets # Shared assets library for example, images, fonts, etc.
+  ├── auth # Auth package to handle authentication.
+  └── config # Config directory hosts tools config packages.
+    ├── eslint # ESLint config package.
+    ├── storybook # Storybook config package.
+    ├── tailwind # Tailwind preset package.
+    ├── tsconfig # TSConfig presets library to configure TypeScript.
+    └── vite # Shared vite config.
+  ├── core # Empty package for business logic.
+  ├── db # Database handling package with Drizzle ORM.
+  ├── env # Environment variables validation using t3-env.
+  ├── ui # Shadcn UI library with Storybook.
+  └── utils # misc utilities.
+```
+
+We will go more in detail about every aspect of orbitkit later on, but this should give you a good idea of what to expect.
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- You have `Node v20` and `Pnpm v8` installed on your machine. We recommend you using [Volta](https://volta.sh) to manage your Node versions and you can use it as well for `pnpm` experimentally.
+
+That is actually pretty much all you need!
+
+## Installation
+
+With all that being said, we are ready to start using Orbitkit! We firstly need to clone it down to your machine and then we can install dependencies, configure environment variables and run it!
+
+<AccordionGroup>
+  <Accordion title="1. Clone the repository" icon="github">
+    There are three ways to get OrbitKit onto your machine, it all comes down to your choice.
+
+    1. You can use degit to download the code directly and remove the git history.
+    ```bash
+    pnpm dlx degit ixahmedxi/orbitkit
+    ```
+
+    2. You can [fork](https://github.com/ixahmedxi/orbitkit/fork) OrbitKit and then clone down your version of it.
+    ```bash
+    # After forking the repository
+    git clone --depth 1 https://github.com/<your-username>/orbitkit.git <your-project-name>
+    ```
+
+    3. You can clone the repository directly.
+    ```bash
+    # Clone the repository
+    git clone --depth 1 https://github.com/ixahmedxi/orbitkit.git <your-project-name>
+    ```
+
+  </Accordion>
+
+  <Accordion title="2. Install dependencies" icon="cube">
+    The next step is to install all of the required dependencies for OrbitKit, we use `pnpm` as the package manager.
+
+    ```bash
+    # Navigate to the project directory
+    cd <your-project-name>
+
+    # Install dependencies
+    pnpm install
+    ```
+
+  </Accordion>
+
+  <Accordion title="3. Configure environment variables" icon="cassette-vhs">
+    You will need to set-up some environment variables in a `.env.local` file in the `apps/web` directory. We provide an example file in `apps/web/.env.example` that you can copy over and input the values.
+
+    ```bash
+    # Copy the .env.example file into a .env.local file.
+    cp ./apps/web/.env.example ./apps/web/.env.local
+    ```
+
+    Here is how you can obtain each of the required values:
+    <AccordionGroup>
+      <Accordion title="Database">
+        The database that OrbitKit uses is [Neon](https://neon.tech) PostgreSQL. You should create a free account and input the database url given to you on the dashboard to be the value of the `DATABASE_URL` environment variable.
+      </Accordion>
+      <Accordion title="Uploadthing">
+        [Uploadthing](https://uploadthing.com) is the service of choice in OrbitKit for file uploads, you should create an account and input the api keys into the `.env.local` File.
+      </Accordion>
+      <Accordion title="Unkey (optional)">
+        [Unkey](https://unkey.dev) is the service of choice in OrbitKit for rate limiting, it is however optional as that if the `UNKEY_ROOT_KEY` is not supplied, no rate limiting is applied.
+
+        To obtain this key, head over to your unkey dashboard and create a new ratelimit namespace, then in your settings, create a new root key, that will be the value of your environment variable.
+
+        As for the namespace that you have created, you will need to edit `apps/web/src/middleware.ts` file to the namespace you created in the ratelimit initialization block.
+      </Accordion>
+    </AccordionGroup>
+
+  </Accordion>
+</AccordionGroup>
