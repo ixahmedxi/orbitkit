@@ -8,7 +8,7 @@ import { Ratelimit } from '@unkey/ratelimit';
 import { env } from '@orbitkit/env/web/server';
 
 const unkey =
-  env.UNKEY_ROOT_KEY !== undefined && env.UNKEY_NAMESPACE !== undefined
+  env.UNKEY_ROOT_KEY && env.UNKEY_NAMESPACE
     ? new Ratelimit({
         rootKey: env.UNKEY_ROOT_KEY,
         namespace: env.UNKEY_NAMESPACE,

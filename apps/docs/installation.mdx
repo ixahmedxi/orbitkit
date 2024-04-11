@@ -78,31 +78,107 @@ With all that being said, we are ready to start using Orbitkit! We firstly need 
     ```
 
   </Accordion>
+</AccordionGroup>
 
-  <Accordion title="3. Configure environment variables" icon="cassette-vhs">
-    You will need to set-up some environment variables in a `.env.local` file in the `apps/web` directory. We provide an example file in `apps/web/.env.example` that you can copy over and input the values.
+### Configuring environment variables
 
-    ```bash
-    # Copy the .env.example file into a .env.local file.
-    cp ./apps/web/.env.example ./apps/web/.env.local
-    ```
+You will need to set-up some environment variables in a `.env.local` file in the `apps/web` directory. We provide an example file in `apps/web/.env.example` that you can copy over and input the values.
 
-    Here is how you can obtain each of the required values:
-    <AccordionGroup>
-      <Accordion title="Database">
-        The database that OrbitKit uses is [Neon](https://neon.tech) PostgreSQL. You should create a free account and input the database url given to you on the dashboard to be the value of the `DATABASE_URL` environment variable.
-      </Accordion>
-      <Accordion title="Uploadthing">
-        [Uploadthing](https://uploadthing.com) is the service of choice in OrbitKit for file uploads, you should create an account and input the api keys into the `.env.local` File.
-      </Accordion>
-      <Accordion title="Unkey (optional)">
-        [Unkey](https://unkey.dev) is the service of choice in OrbitKit for rate limiting, it is however optional as that if the `UNKEY_ROOT_KEY` is not supplied, no rate limiting is applied.
+```bash
+# Copy the .env.example file into a .env.local file.
+cp ./apps/web/.env.example ./apps/web/.env.local
+```
 
-        To obtain this key, head over to your unkey dashboard and create a new ratelimit namespace, then in your settings, create a new root key, that will be the value of your environment variable.
+Here is how you can obtain each of the required values:
 
-        As for the namespace that you have created, you will need to edit `apps/web/src/middleware.ts` file to the namespace you created in the ratelimit initialization block.
-      </Accordion>
-    </AccordionGroup>
+#### Database
 
+The database that OrbitKit uses is [Neon](https://neon.tech) PostgreSQL. You should create a free account and input the database url given to you on the dashboard to be the value of the `DATABASE_URL` environment variable.
+
+Make sure that the `DATABASE_URL` ends with `?sslmode=require`.
+
+#### Uploadthing
+
+[Uploadthing](https://uploadthing.com) is the service of choice in OrbitKit for file uploads, you should create an account and input the api keys into the `.env.local` File.
+
+#### Unkey (optional)
+
+[Unkey](https://unkey.dev) is the service of choice in OrbitKit for rate limiting, it is however optional as that if the `UNKEY_ROOT_KEY` or `UNKEY_NAMESPACE` variables are not supplied, no rate limiting is applied.
+
+To obtain this key, head over to your unkey dashboard and create a new ratelimit namespace, then in your settings, create a new root key, that will be the value of your environment variable.
+
+As for the namespace that you have created, you will need to put that as the value of the `UNKEY_NAMESPACE` environment variable.
+
+#### OAuth
+
+OrbitKit currently ships with two authentication providers, Google and Github. You will need to create an OAuth application on the respective platforms and input the values into the `.env.local` file.
+
+<Note>
+  Based on the environment variables set, authentication will be provided. For
+  example, setting `AUTH_GITHUB_ID` and `AUTH_GITHUB_SECRET` will make it so
+  that Github OAuth is then activated on the web application. The same is true
+  for Google OAuth.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="Configuring Github OAuth" icon="github">
+    <ol>
+      <li>Go to your Github Settings.</li>
+      <li>Go to Developer Settings.</li>
+      <li>Go to OAuth Apps.</li>
+      <li>Click on New OAuth App.</li>
+      <li>
+        Fill in the details, the homepage url should be `http://localhost:3000`
+        and the authorization callback url should be
+        `http://localhost:3000/login/github/callback`.
+      </li>
+      <li>Click on Register Application.</li>
+      <li>
+        Copy the Client ID into the `AUTH_GITHUB_ID` environment variable.
+      </li>
+      <li>
+        Click on Generate a new client secret button and copy the client secret
+        into the `AUTH_GITHUB_SECRET` environment variable.
+      </li>
+    </ol>
+  </Accordion>
+  <Accordion title="Configuring Google OAuth" icon="google">
+    <ol>
+      <li>Go to the Google Cloud Console.</li>
+      <li>Create a new project.</li>
+      <li>Configure consent screen.</li>
+      <li>Create OAuth client ID.</li>
+      <li>
+        Fill in the details, add `http://localhost:3000` in the list of
+        Authorized JavaScript origins and
+        `http://localhost:3000/login/google/callback` in the list of Authorized
+        redirect URIs.
+      </li>
+      <li>
+        Copy the Client ID into the `AUTH_GOOGLE_ID` environment variable.
+      </li>
+      <li>
+        Copy the Client Secret into the `AUTH_GOOGLE_SECRET` environment
+        variable.
+      </li>
+      <li>
+        For the `AUTH_GOOGLE_CODE_VERIFIER` environment variable, you can put
+        any random string.
+      </li>
+    </ol>
   </Accordion>
 </AccordionGroup>
+
+### Running the project
+
+Now that you have set up the environment variables, you can run the project!
+
+```bash
+pnpm turbo dev
+```
+
+This command will apply the necessary database migrations and start the development tasks on all of the apps & packages.
+
+You should be able to access the web app on `http://localhost:3000`, the marketing website on `http://localhost:4321` and the documentation website on `http://localhost:3002`.
+
+For more info about the commands available to you, you can check out the [Commands](/commands) page.

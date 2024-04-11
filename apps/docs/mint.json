@@ -36,14 +36,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "installation",
-        "tech-stack",
-        "make-it-yours",
-        "development",
-        "deployment"
-      ]
+      "pages": ["introduction", "installation", "commands"]
     }
   ],
   "footerSocials": {

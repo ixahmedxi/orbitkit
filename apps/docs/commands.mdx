@@ -1,0 +1,95 @@
+---
+title: Commands
+icon: 'code'
+description: 'A guide on the available commands in the project, what they do and how to use them.'
+---
+
+<Note>
+  OrbitKit uses Turborepo to run commands across apps & packages in the
+  monorepo, you can also use `pnpm --filter` commands to do the same without
+  dependant tasks running or caching.
+</Note>
+
+## `dev`
+
+```bash
+pnpm turbo dev
+```
+
+The `dev` command starts up all of the apps in the monorepo in development mode and also starts up the watch mode on the packages that need bundling.
+
+The `dev` command also applies Drizzle ORM schema migrations to the database, it will generate any missing migrations and apply them to the database.
+
+You can start up for example only the web application by using `pnpm turbo dev --filter=web`.
+
+## `build`
+
+```bash
+pnpm turbo build
+```
+
+The `build` command builds all of the apps in the monorepo and also builds the packages that need bundling.
+
+You can build for example only the web application by using `pnpm turbo build --filter=web`.
+
+## `start`
+
+```bash
+pnpm turbo start
+```
+
+The `start` command starts up all of the apps in the monorepo in production mode. This is done after building all of the apps & packages automatically via turborepo dependant tasks, so you don't need to build before you run the start command.
+
+## `lint`
+
+```bash
+pnpm turbo lint
+```
+
+The `lint` command runs ESLint on all of the apps & packages in the monorepo.
+
+## `typecheck`
+
+```bash
+pnpm turbo typecheck
+```
+
+The `typecheck` command runs TypeScript type checking on all of the apps & packages in the monorepo.
+
+## `storybook`
+
+```bash
+pnpm turbo storybook
+```
+
+The `storybook` command starts up the `ui` package storybook instance in dev mode.
+
+## `build-storybook`
+
+```bash
+pnpm turbo build-storybook
+```
+
+The `build-storybook` command builds the `ui` package storybook application, you will find the output in a `storybook-static` in the `packages/ui` directory.
+
+## `db:generate`
+
+```bash
+pnpm turbo db:generate
+```
+
+The `db:generate` command will generate new schema migration files when necessary (based on the typescript schema files in `packages/db/src/schema` directory).
+
+## `db:migrate`
+
+```bash
+pnpm turbo db:migrate
+```
+
+The `db:migrate` command will apply all of the schema migrations to the database.
+
+## Database Commands
+
+OrbitKit supports all of [DrizzleKit's commands](https://orm.drizzle.team/kit-docs/commands) which are all configured for you in the `packages/db/package.json` file.
+
+You can invoke these commands using `pnpm`, for example to check for collisions and inconsistencies between your database and the schema, you can run `pnpm --filter db db:check`.
