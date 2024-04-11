@@ -14,13 +14,14 @@ export const env = createEnv({
     UPLOADTHING_APP_ID: z.string(),
 
     UNKEY_ROOT_KEY: z.string().optional(),
+    UNKEY_NAMESPACE: z.string().optional(),
 
-    AUTH_GITHUB_ID: z.string(),
-    AUTH_GITHUB_SECRET: z.string(),
+    AUTH_GITHUB_ID: z.string().optional(),
+    AUTH_GITHUB_SECRET: z.string().optional(),
 
-    AUTH_GOOGLE_ID: z.string(),
-    AUTH_GOOGLE_SECRET: z.string(),
-    AUTH_GOOGLE_CODE_VERIFIER: z.string(),
+    AUTH_GOOGLE_ID: z.string().optional(),
+    AUTH_GOOGLE_SECRET: z.string().optional(),
+    AUTH_GOOGLE_CODE_VERIFIER: z.string().optional(),
   },
   runtimeEnv: {
     NODE_ENV: process.env['NODE_ENV'],
@@ -32,6 +33,7 @@ export const env = createEnv({
     UPLOADTHING_APP_ID: process.env['UPLOADTHING_APP_ID'],
 
     UNKEY_ROOT_KEY: process.env['UNKEY_ROOT_KEY'],
+    UNKEY_NAMESPACE: process.env['UNKEY_NAMESPACE'],
 
     AUTH_GITHUB_ID: process.env['AUTH_GITHUB_ID'],
     AUTH_GITHUB_SECRET: process.env['AUTH_GITHUB_SECRET'],

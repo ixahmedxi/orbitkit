@@ -10,6 +10,7 @@ ignorePaths:
   - .next
   - .astro
   - drizzle
+  - '**/*.svg'
 words:
   - acst
   - aest
@@ -21,24 +22,32 @@ words:
   - awst
   - Beamer
   - Binni
+  - branchname
   - bvaughn
   - Byrom
+  - starterkit
+  - starterkits
   - clsx
   - cmdk
+  - codespace
+  - codespaces
   - Colm
   - commitlint
   - consts
   - crossorigin
   - datetime
+  - degit
   - Duarte
   - Embla
   - esbenp
   - hookform
   - ianvs
+  - ixahmedxi
   - jiti
   - lockb
   - lucide
   - Malyavko
+  - Mintlify
   - neonctl
   - neondatabase
   - nextjs
@@ -48,11 +57,16 @@ words:
   - packagejson
   - pacocoursey
   - peduarte
+  - quickstart
   - Ratelimit
   - shadcn
+  - sslmode
   - stylesheet
+  - tada
   - tailwindcss
+  - thollander
   - todos
+  - topbar
   - tsbuildinfo
   - tsconfigs
   - tsup
@@ -66,11 +80,3 @@ words:
   - vaul
   - viewports
   - WITA
-  - ixahmedxi
-  - degit
-  - tada
-  - branchname
-  - codespaces
-  - codespace
-  - sslmode
-  - thollander

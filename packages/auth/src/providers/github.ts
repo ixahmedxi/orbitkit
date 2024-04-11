@@ -9,9 +9,19 @@ import { env } from '@orbitkit/env/web/server';
 
 import { lucia } from '../lucia';
 
-const github = new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET);
+const github =
+  env.AUTH_GITHUB_ID !== undefined && env.AUTH_GITHUB_SECRET !== undefined
+    ? new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET)
+    : undefined;
 
 export async function createGithubAuthorizationURL(): Promise<Response> {
+  if (!github) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
+
   const state = generateState();
   const url = await github.createAuthorizationURL(state);
 
@@ -36,6 +46,13 @@ interface GitHubUser {
 export async function validateGithubCallback(
   request: Request,
 ): Promise<Response> {
+  if (!github) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
+
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');

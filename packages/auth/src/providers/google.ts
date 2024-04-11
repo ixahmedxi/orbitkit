@@ -13,21 +13,36 @@ import { lucia } from '../lucia';
 
 const baseUrl = getBaseUrl();
 
-const google = new Google(
-  env.AUTH_GOOGLE_ID,
-  env.AUTH_GOOGLE_SECRET,
-  `${baseUrl}/login/google/callback`,
-);
+const google =
+  env.AUTH_GOOGLE_ID !== undefined &&
+  env.AUTH_GOOGLE_SECRET !== undefined &&
+  new Google(
+    env.AUTH_GOOGLE_ID,
+    env.AUTH_GOOGLE_SECRET,
+    `${baseUrl}/login/google/callback`,
+  );
 
 export async function createGoogleAuthorizationURL(): Promise<Response> {
+  if (!google) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
+
   const state = generateState();
-  const url = await google.createAuthorizationURL(
-    state,
-    env.AUTH_GOOGLE_CODE_VERIFIER,
-    {
+  const url =
+    env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
+    (await google.createAuthorizationURL(state, env.AUTH_GOOGLE_CODE_VERIFIER, {
       scopes: ['profile', 'email'],
-    },
-  );
+    }));
+
+  if (!url) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
 
   cookies().set('google_oauth_state', state, {
     path: '/',
@@ -50,6 +65,12 @@ const googleUser = z.object({
 export async function validateGoogleCallback(
   request: Request,
 ): Promise<Response> {
+  if (!google) {
+    return new Response(null, {
+      status: 404,
+      statusText: 'Not Found',
+    });
+  }
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
@@ -61,10 +82,20 @@ export async function validateGoogleCallback(
   }
 
   try {
-    const tokens = await google.validateAuthorizationCode(
-      code,
-      env.AUTH_GOOGLE_CODE_VERIFIER,
-    );
+    const tokens =
+      env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
+      (await google.validateAuthorizationCode(
+        code,
+        env.AUTH_GOOGLE_CODE_VERIFIER,
+      ));
+
+    if (!tokens) {
+      return new Response(null, {
+        status: 404,
+        statusText: 'Not Found',
+      });
+    }
+
     const googleUserResponse = await fetch(
       'https://openidconnect.googleapis.com/v1/userinfo',
       {
