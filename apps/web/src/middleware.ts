@@ -8,10 +8,10 @@ import { Ratelimit } from '@unkey/ratelimit';
 import { env } from '@orbitkit/env/web/server';
 
 const unkey =
-  env.UNKEY_ROOT_KEY !== undefined
+  env.UNKEY_ROOT_KEY !== undefined && env.UNKEY_NAMESPACE !== undefined
     ? new Ratelimit({
         rootKey: env.UNKEY_ROOT_KEY,
-        namespace: 'orbitkit-app',
+        namespace: env.UNKEY_NAMESPACE,
         limit: 10,
         duration: '20s',
         async: true,
@@ -20,7 +20,7 @@ const unkey =
 
 if (!unkey) {
   console.warn(
-    '⚠️  UNKEY_ROOT_KEY is not set. Rate limiting will be disabled.',
+    '⚠️  UNKEY_ROOT_KEY or UNKEY_NAMESPACE is not set. Rate limiting will be disabled.',
   );
 }
 
