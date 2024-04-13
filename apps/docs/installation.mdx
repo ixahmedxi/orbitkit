@@ -169,6 +169,18 @@ OrbitKit currently ships with two authentication providers, Google and Github. Y
   </Accordion>
 </AccordionGroup>
 
+### Reset changelog and versions
+
+When you first clone the repository, you should reset the changelog and versions to start fresh. You can do so by running the following commands:
+
+```bash
+# Reset changelog - this will remove all the changelog.md files in the packages
+pnpm reset:changelog
+
+# Reset package versions - this will reset the versions of all the packages to 0.1.0
+pnpm reset:versions
+```
+
 ### Running the project
 
 Now that you have set up the environment variables, you can run the project!
