@@ -25,7 +25,7 @@
     "@orbitkit/utils": "workspace:^",
     "arctic": "^1.5.0",
     "lucia": "^3.1.1",
-    "next": "14.1.4",
+    "next": "14.2.1",
     "oslo": "^1.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,8 +34,8 @@
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.7",
-    "@types/react": "^18.2.75",
-    "@types/react-dom": "^18.2.24",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
     "eslint-config-orbitkit": "workspace:^"
   },
   "volta": {
