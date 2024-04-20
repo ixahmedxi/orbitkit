@@ -18,8 +18,8 @@ To contribute to this project, follow these steps:
 ### Prerequisites
 
 ```shell
-node: "^>=20.11.0"
-pnpm: ">=8.15.5"
+node: "^>=20.12.2"
+pnpm: ">=9.0.4"
 ```
 
 We recommend using [Volta](https://volta.sh/), It's a JavaScript Tool Manager; you can learn more about it [here](https://docs.volta.sh/guide/)
