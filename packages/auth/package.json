@@ -23,13 +23,13 @@
     "@orbitkit/db": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "arctic": "^1.5.0",
-    "lucia": "^3.1.1",
-    "next": "14.2.1",
+    "arctic": "^1.6.2",
+    "lucia": "^3.2.0",
+    "next": "14.2.3",
     "oslo": "^1.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zod": "^3.22.4"
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "zod": "^3.23.4"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",

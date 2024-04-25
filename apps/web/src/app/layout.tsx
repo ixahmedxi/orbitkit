@@ -26,7 +26,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        {/* @ts-expect-error bug i think */}
         <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
         <ThemeProvider attribute="class" enableSystem>
           {children}

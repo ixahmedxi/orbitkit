@@ -20,7 +20,7 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
-    "pkg-types": "^1.0.3"
+    "pkg-types": "^1.1.0"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
