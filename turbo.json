@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": ["^build", "^db:migrate"],
+      "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!.eslintrc.cjs"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", ".astro/**"]
     },

@@ -98,6 +98,9 @@ jobs:
         run: |
           echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
 
+      - name: Run migrations
+        run: turbo db:migrate
+
       - name: Build
         env:
           DATABASE_URL: ${{ env.DATABASE_URL }}
