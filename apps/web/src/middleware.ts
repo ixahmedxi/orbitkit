@@ -1,10 +1,9 @@
 import { $path } from 'next-typesafe-url';
 import { NextResponse } from 'next/server';
 
-import type { NextRequest } from 'next/server';
-
 import { Ratelimit } from '@unkey/ratelimit';
 
+import { auth } from '@orbitkit/auth';
 import { env } from '@orbitkit/env/web/server';
 
 const unkey =
@@ -24,9 +23,7 @@ if (!unkey) {
   );
 }
 
-export default async function middleware(
-  request: NextRequest,
-): Promise<Response | undefined> {
+export default auth(async (request) => {
   const ip = request.ip ?? '127.0.0.1';
 
   if (unkey) {
@@ -40,7 +37,7 @@ export default async function middleware(
   }
 
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: '/((?!api|_next/static|_next/image|favicon.ico|blocked).*)',

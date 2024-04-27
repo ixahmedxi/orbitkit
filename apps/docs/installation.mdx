@@ -142,31 +142,6 @@ OrbitKit currently ships with two authentication providers, Google and Github. Y
       </li>
     </ol>
   </Accordion>
-  <Accordion title="Configuring Google OAuth" icon="google">
-    <ol>
-      <li>Go to the Google Cloud Console.</li>
-      <li>Create a new project.</li>
-      <li>Configure consent screen.</li>
-      <li>Create OAuth client ID.</li>
-      <li>
-        Fill in the details, add `http://localhost:3000` in the list of
-        Authorized JavaScript origins and
-        `http://localhost:3000/login/google/callback` in the list of Authorized
-        redirect URIs.
-      </li>
-      <li>
-        Copy the Client ID into the `AUTH_GOOGLE_ID` environment variable.
-      </li>
-      <li>
-        Copy the Client Secret into the `AUTH_GOOGLE_SECRET` environment
-        variable.
-      </li>
-      <li>
-        For the `AUTH_GOOGLE_CODE_VERIFIER` environment variable, you can put
-        any random string.
-      </li>
-    </ol>
-  </Accordion>
 </AccordionGroup>
 
 ### Reset changelog and versions

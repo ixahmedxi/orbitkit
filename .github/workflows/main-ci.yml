@@ -66,9 +66,6 @@ jobs:
       # Authentication
       AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
       AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
-      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
-      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
-      AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
 
       # Uploadthing
       UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}

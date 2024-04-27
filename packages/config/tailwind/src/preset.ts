@@ -14,6 +14,13 @@ export const orbitKitTailwindPreset: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx,mdx}'],
   presets: [windyTypography],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
+    },
     extend: {
       colors: {
         background: colors.alias('gray.1'),

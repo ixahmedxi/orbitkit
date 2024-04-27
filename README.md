@@ -19,7 +19,6 @@
 - [**Neon DB**](https://neon.tech): serverless database, with autoscaling, branching, and bottomless storage.
 - [**Uploadthing**](https://uploadthing.com/): for an easy, type-safe way of handling file uploads.
 - [**Unkey**](https://unkey.dev): for a fast way of rate-limiting the web app.
-- [**Lucia auth**](https://lucia-auth.com): for authentication, giving you full flexibility and control over your user system.
 - [**Tailwind CSS**](https://tailwindcss.com): for styling, with [**Radix UI Colors**](https://www.radix-ui.com/colors) for automatic light/dark mode handling.
 - [**Shadcn UI**](https://ui.shadcn.com): full implementation in a dedicated package.
 - [**Storybook**](https://storybook.js.org): to develop, test and visualize your components in isolation.

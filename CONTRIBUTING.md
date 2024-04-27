@@ -38,7 +38,7 @@ pnpm run build
 
 Checkout the `.env.example` file inside the `apps/web` directory for the environment variables you need to get the project running. You should create an UploadThing and Neon DB accounts and copy the environment variables from their dashboard to a `.env.local` file in `apps/web`.
 
-You will also need to create a GitHub Oauth token as well as for Google authentication as well.
+You will also need to create a GitHub Oauth token.
 
 ### Using GitHub Codespaces for development
 
