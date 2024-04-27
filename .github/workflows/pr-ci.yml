@@ -61,6 +61,7 @@ jobs:
       NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
 
       # Authentication
+      AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
       AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
       AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
 
