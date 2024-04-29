@@ -72,6 +72,15 @@ export async function validateGithubCallback(
     });
     const githubUser = (await githubUserResponse.json()) as GitHubUser;
 
+    if (!githubUser.email) {
+      return new Response(
+        'Email not found. Please set public email in GitHub.',
+        {
+          status: 400,
+        },
+      );
+    }
+
     const existingUser = await db.query.oauthAccountTable.findFirst({
       where: (table, { and, eq }) =>
         and(
