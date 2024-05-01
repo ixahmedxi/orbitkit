@@ -39,7 +39,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "markdownlint": "^0.34.0",
-    "markdownlint-cli": "^0.39.0",
+    "markdownlint-cli": "^0.40.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-curly": "^0.2.1",
@@ -47,7 +47,7 @@
     "prettier-plugin-packagejson": "^2.5.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "rimraf": "^5.0.5",
-    "turbo": "^1.13.2",
+    "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@9.0.4",

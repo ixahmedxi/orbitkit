@@ -10,7 +10,7 @@
     "dev": "mintlify dev --port=3002"
   },
   "devDependencies": {
-    "mintlify": "^4.0.150"
+    "mintlify": "^4.0.151"
   },
   "volta": {
     "extends": "../../package.json"
