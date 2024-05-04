@@ -18,7 +18,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.12",
+    "@tailwindcss/typography": "^0.5.13",
     "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7",
     "windy-radix-palette": "2.0.0-beta.7",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.8",
     "eslint-config-orbitkit": "workspace:^"
   },
   "volta": {

@@ -27,17 +27,17 @@
   "dependencies": {
     "@neondatabase/serverless": "^0.9.1",
     "@orbitkit/env": "workspace:^",
-    "drizzle-orm": "^0.30.9",
+    "drizzle-orm": "^0.30.10",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
-    "zod": "^3.23.4"
+    "zod": "^3.23.5"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.1",
     "drizzle-kit": "^0.20.17",
     "eslint-config-orbitkit": "workspace:*",
-    "tsx": "^4.7.3"
+    "tsx": "^4.8.2"
   },
   "volta": {
     "extends": "../../package.json"
