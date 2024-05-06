@@ -41,7 +41,7 @@ const config = {
     '^(?!.*[.]css$)[./].*$',
     '.css$',
   ],
-  importOrderTypeScriptVersion: '5.3.3',
+  importOrderTypeScriptVersion: '5.4.5',
 };
 
 export default config;
