@@ -30,14 +30,14 @@
     "drizzle-orm": "^0.30.10",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
-    "zod": "^3.23.5"
+    "zod": "^3.23.6"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.1",
-    "drizzle-kit": "^0.20.17",
+    "drizzle-kit": "^0.20.18",
     "eslint-config-orbitkit": "workspace:*",
-    "tsx": "^4.8.2"
+    "tsx": "^4.9.3"
   },
   "volta": {
     "extends": "../../package.json"

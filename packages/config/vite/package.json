@@ -21,12 +21,12 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.2.10",
+    "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.8",
+    "@types/node": "^20.12.10",
     "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   },
