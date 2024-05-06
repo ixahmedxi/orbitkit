@@ -1,4 +1,3 @@
-import { $path } from 'next-typesafe-url';
 import { NextResponse } from 'next/server';
 
 import type { NextRequest } from 'next/server';
@@ -33,9 +32,7 @@ export default async function middleware(
     const ratelimit = await unkey.limit(ip);
 
     if (!ratelimit.success) {
-      return NextResponse.redirect(
-        new URL($path({ route: '/blocked' }), request.url),
-      );
+      return NextResponse.redirect(new URL('/blocked'));
     }
   }
 

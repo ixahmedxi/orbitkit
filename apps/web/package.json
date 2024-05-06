@@ -7,8 +7,8 @@
   "author": "OrbitKit",
   "type": "module",
   "scripts": {
-    "build": "next-typesafe-url && next build",
-    "dev": "concurrently -p \"[{name}]\" -n \"TypesafeURL,Next\" -c \"bgBlue.bold,bgMagenta.bold\" \"next-typesafe-url -w\" \"next dev\"",
+    "build": "next build",
+    "dev": "next dev",
     "lint": "eslint . --cache --max-warnings 0",
     "start": "next start",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"

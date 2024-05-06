@@ -1,4 +1,3 @@
-import { $path } from 'next-typesafe-url';
 import { redirect } from 'next/navigation';
 
 import { getSession } from '@orbitkit/auth';
@@ -13,7 +12,7 @@ import { UploadExample } from './upload';
 export default async function Home() {
   const { user } = await getSession();
   if (!user) {
-    return redirect($path({ route: '/login' }));
+    return redirect('/login');
   }
 
   return (
