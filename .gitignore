@@ -143,3 +143,6 @@ storybook-static
 
 # Turborepo
 .turbo
+
+# NX
+.nx
