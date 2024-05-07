@@ -4,8 +4,10 @@ import { z } from 'zod';
 
 export const env = createEnv({
   extends: [vercel()],
-  server: {
+  shared: {
     NODE_ENV: z.enum(['development', 'test', 'production']).optional(),
+  },
+  server: {
     PORT: z.coerce.number().default(3000),
 
     DATABASE_URL: z.string().url().startsWith('postgres'),
@@ -23,7 +25,10 @@ export const env = createEnv({
     AUTH_GOOGLE_SECRET: z.string().optional(),
     AUTH_GOOGLE_CODE_VERIFIER: z.string().optional(),
   },
-  experimental__runtimeEnv: {},
+  client: {},
+  experimental__runtimeEnv: {
+    NODE_ENV: process.env['NODE_ENV'],
+  },
   emptyStringAsUndefined: true,
   skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
 });

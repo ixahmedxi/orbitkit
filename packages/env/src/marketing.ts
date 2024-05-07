@@ -1,13 +1,16 @@
 import { createEnv } from '@t3-oss/env-core';
+import { vercel } from '@t3-oss/env-core/presets';
 import { z } from 'zod';
 
 export const env = createEnv({
-  server: {
+  extends: [vercel()],
+  shared: {
     NODE_ENV: z.enum(['development', 'production', 'test']).optional(),
   },
-  clientPrefix: 'PUBLIC_',
+  server: {},
   client: {},
+  clientPrefix: 'PUBLIC_',
   runtimeEnv: import.meta.env,
-  skipValidation: import.meta.env['SKIP_ENV_VALIDATION'] === 'development',
+  skipValidation: !!import.meta.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
 });

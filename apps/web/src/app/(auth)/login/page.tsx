@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { env } from '@orbitkit/env/web/server';
+import { env } from '@orbitkit/env/web';
 
 const googleAuthIsEnabled =
   env.AUTH_GOOGLE_ID !== undefined &&

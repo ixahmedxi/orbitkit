@@ -5,7 +5,7 @@ import { generateId } from 'lucia';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
-import { env } from '@orbitkit/env/web/server';
+import { env } from '@orbitkit/env/web';
 
 import { lucia } from '../lucia';
 

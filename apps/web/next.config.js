@@ -4,7 +4,7 @@ import createJiti from 'jiti';
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
-jiti('@orbitkit/env/web/server');
+jiti('@orbitkit/env/web');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
