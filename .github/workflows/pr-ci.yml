@@ -107,7 +107,7 @@ jobs:
         run: turbo build --filter=web
 
   e2e:
-    name: Web App E2E Tests
+    name: E2E Tests
     runs-on: ubuntu-latest
 
     env:
@@ -156,17 +156,27 @@ jobs:
         run: |
           echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright Browsers for Web App
         run: cd apps/web && pnpm playwright install --with-deps
+
+      - name: Install Playwright Browsers for Marketing Website
+        run: cd apps/marketing && pnpm playwright install --with-deps
 
       - name: Run Playwright tests
         env:
           DATABASE_URL: ${{ env.DATABASE_URL }}
-        run: pnpm turbo test:e2e --filter=web
+        run: pnpm turbo test:e2e
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: web-playwright-report
           path: apps/web/playwright-report/
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: marketing-playwright-report
+          path: apps/marketing/playwright-report/
           retention-days: 30
