@@ -83,6 +83,10 @@ jobs:
 
       - name: Create Neon Branch
         uses: ./.github/actions/create-neon-branch
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
 
       - name: Build
         env:
@@ -104,6 +108,10 @@ jobs:
 
       - name: Create Neon Branch
         uses: ./.github/actions/create-neon-branch
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
 
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps

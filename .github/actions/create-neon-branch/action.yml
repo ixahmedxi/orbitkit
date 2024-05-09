@@ -1,11 +1,16 @@
 name: '🐘 Create Neon DB Branch'
 description: 'Steps to create or retrieve PR db branch from Neon'
 
-env:
-  # Neon
-  NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
-  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
-  NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+inputs:
+  project_id:
+    description: 'The Neon project ID'
+    required: true
+  username:
+    description: 'The Neon database username'
+    required: true
+  api_key:
+    description: 'The Neon API key'
+    required: true
 
 runs:
   using: composite
@@ -18,10 +23,10 @@ runs:
       id: create-branch
       uses: neondatabase/create-branch-action@v4
       with:
-        project_id: ${{ env.NEON_PROJECT_ID }}
+        project_id: ${{ inputs.project_id }}
         branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
-        username: ${{ env.NEON_DATABASE_USERNAME }}
-        api_key: ${{ env.NEON_API_KEY }}
+        username: ${{ inputs.username }}
+        api_key: ${{ inputs.api_key }}
 
     - name: Set DATABASE_URL
       shell: bash
