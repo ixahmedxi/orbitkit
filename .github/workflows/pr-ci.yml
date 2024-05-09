@@ -92,9 +92,6 @@ jobs:
         run: turbo db:migrate
 
       - name: Build
-        env:
-          DATABASE_URL: ${{ env.DATABASE_URL }}
-        # The build command will also apply schema migrations on the created database branch
         run: turbo build --filter=web
 
   e2e:
@@ -123,8 +120,6 @@ jobs:
         run: turbo db:migrate
 
       - name: Run Playwright tests
-        env:
-          DATABASE_URL: ${{ env.DATABASE_URL }}
         run: pnpm turbo test:e2e
 
       - uses: actions/upload-artifact@v4
