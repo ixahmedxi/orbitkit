@@ -26,9 +26,37 @@ env:
   UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
 
 jobs:
+  create-neon-branch:
+    name: Create Neon DB Branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+      - name: Create Neon Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
+
+      - name: Set DATABASE_URL
+        shell: bash
+        run: |
+          echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
+
   format-lint-typecheck:
     name: Format, Lint & Typecheck
     runs-on: ubuntu-latest
+    needs: create-neon-branch
 
     env:
       # We don't need to validate the environment variables when we are checking the format, linting and typechecking
@@ -57,6 +85,7 @@ jobs:
   build-marketing:
     name: Build marketing website
     runs-on: ubuntu-latest
+    needs: format-lint-typecheck
 
     steps:
       - uses: actions/checkout@v4
@@ -72,6 +101,7 @@ jobs:
   build-app:
     name: Build web app
     runs-on: ubuntu-latest
+    needs: [format-lint-typecheck, create-neon-branch]
 
     steps:
       - uses: actions/checkout@v4
@@ -87,16 +117,14 @@ jobs:
           project_id: ${{ env.NEON_PROJECT_ID }}
           username: ${{ env.NEON_DATABASE_USERNAME }}
           api_key: ${{ env.NEON_API_KEY }}
-
-      - name: Run migrations
-        run: turbo db:migrate
 
       - name: Build
         run: turbo build --filter=web
 
-  e2e:
-    name: E2E Tests
+  e2e-web:
+    name: E2E Web App
     runs-on: ubuntu-latest
+    needs: [format-lint-typecheck, create-neon-branch]
 
     steps:
       - uses: actions/checkout@v4
@@ -106,21 +134,11 @@ jobs:
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: Create Neon Branch
-        uses: ./.github/actions/create-neon-branch
-        with:
-          project_id: ${{ env.NEON_PROJECT_ID }}
-          username: ${{ env.NEON_DATABASE_USERNAME }}
-          api_key: ${{ env.NEON_API_KEY }}
-
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps
 
-      - name: Run migrations
-        run: turbo db:migrate
-
       - name: Run Playwright tests
-        run: pnpm turbo test:e2e
+        run: pnpm turbo test:e2e --filter=web
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -128,6 +146,25 @@ jobs:
           name: web-playwright-report
           path: apps/web/playwright-report/
           retention-days: 30
+
+  e2e-marketing:
+    name: E2E Marketing App
+    runs-on: ubuntu-latest
+    needs: format-lint-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm turbo test:e2e --filter=marketing
 
       - uses: actions/upload-artifact@v4
         if: always()
