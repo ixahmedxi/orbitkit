@@ -39,6 +39,9 @@ jobs:
       # We don't need to validate the environment variables when we are checking the format, linting and typechecking
       SKIP_ENV_VALIDATION: true
 
+      # Database URL
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
     steps:
       - uses: actions/checkout@v4
         with:
