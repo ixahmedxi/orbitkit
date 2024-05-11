@@ -1,5 +1,13 @@
 # @orbitkit/storybook
 
+## 0.1.3
+
+### Patch Changes
+
+- feat: sets up playwright in the monorepo
+- Updated dependencies
+  - @orbitkit/assets@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes

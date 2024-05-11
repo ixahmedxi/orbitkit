@@ -1,5 +1,16 @@
 # @orbitkit/web
 
+## 0.1.3
+
+### Patch Changes
+
+- feat: sets up playwright in the monorepo
+- Updated dependencies
+  - @orbitkit/auth@0.1.3
+  - @orbitkit/db@0.1.3
+  - @orbitkit/env@0.1.3
+  - @orbitkit/ui@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes

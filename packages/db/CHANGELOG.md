@@ -1,5 +1,13 @@
 # @orbitkit/db
 
+## 0.1.3
+
+### Patch Changes
+
+- feat: sets up playwright in the monorepo
+- Updated dependencies
+  - @orbitkit/env@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
