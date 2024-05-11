@@ -48,7 +48,7 @@ jobs:
         uses: neondatabase/create-branch-action@v4
         with:
           project_id: ${{ env.NEON_PROJECT_ID }}
-          branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          branch_name: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
           username: ${{ env.NEON_DATABASE_USERNAME }}
           api_key: ${{ env.NEON_API_KEY }}
 
@@ -107,7 +107,7 @@ jobs:
         uses: neondatabase/create-branch-action@v4
         with:
           project_id: ${{ env.NEON_PROJECT_ID }}
-          branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          branch_name: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
           username: ${{ env.NEON_DATABASE_USERNAME }}
           api_key: ${{ env.NEON_API_KEY }}
 
@@ -144,7 +144,7 @@ jobs:
         uses: neondatabase/create-branch-action@v4
         with:
           project_id: ${{ env.NEON_PROJECT_ID }}
-          branch_name: web/pr-${{ github.event.number}}-${{ steps.branch_name.outputs.current_branch }}
+          branch_name: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
           username: ${{ env.NEON_DATABASE_USERNAME }}
           api_key: ${{ env.NEON_API_KEY }}
 
