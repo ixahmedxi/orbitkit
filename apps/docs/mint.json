@@ -42,6 +42,10 @@
     {
       "group": "Get Started",
       "pages": ["introduction", "installation", "commands"]
+    },
+    {
+      "group": "Technologies",
+      "pages": ["technologies/playwright"]
     }
   ],
   "footerSocials": {

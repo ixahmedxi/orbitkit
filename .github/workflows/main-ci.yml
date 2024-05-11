@@ -9,10 +9,31 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
 
+  # Neon
+  NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
+  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+  NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
+  # Authentication
+  AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+  AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+  AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+  AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+  AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
+
+  # Uploadthing
+  UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
+  UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
+
+  # Unkey
+  UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
+
 jobs:
   format-lint-typecheck:
     name: Format, Lint & Typecheck
     runs-on: ubuntu-latest
+
+    environment: Production
 
     env:
       # We don't need to validate the environment variables when we are checking the format, linting and typechecking
@@ -41,6 +62,9 @@ jobs:
   build-marketing:
     name: Build marketing website
     runs-on: ubuntu-latest
+    needs: format-lint-typecheck
+
+    environment: Production
 
     steps:
       - uses: actions/checkout@v4
@@ -56,26 +80,13 @@ jobs:
   build-app:
     name: Build web app
     runs-on: ubuntu-latest
+    needs: format-lint-typecheck
 
     environment: Production
 
     env:
       # Database URL
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
-
-      # Authentication
-      AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
-      AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
-      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
-      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
-      AUTH_GOOGLE_CODE_VERIFIER: ${{ secrets.AUTH_GOOGLE_CODE_VERIFIER }}
-
-      # Uploadthing
-      UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
-      UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
-
-      # Unkey
-      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
 
     steps:
       - uses: actions/checkout@v4
@@ -87,3 +98,80 @@ jobs:
 
       - name: Build
         run: turbo build --filter=web
+
+  e2e-web:
+    name: E2E Web App
+    runs-on: ubuntu-latest
+    needs: format-lint-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Create Neon Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: web/e2e-main-${{ github.sha }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
+
+      - name: Set DATABASE_URL
+        shell: bash
+        run: |
+          echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
+
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm turbo test:e2e --filter=web
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-playwright-report
+          path: apps/web/playwright-report/
+          retention-days: 30
+
+  e2e-marketing:
+    name: E2E Marketing App
+    runs-on: ubuntu-latest
+    needs: format-lint-typecheck
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Install Playwright Browsers
+        run: pnpm playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm turbo test:e2e --filter=marketing
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: marketing-playwright-report
+          path: apps/marketing/playwright-report/
+          retention-days: 30
+
+  delete-e2e-db-branch:
+    runs-on: ubuntu-latest
+    needs: e2e-web
+    steps:
+      - name: Delete Neon Branch
+        uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ secrets.NEON_PROJECT_ID }}
+          branch: web/e2e-main-${{ github.sha }}
+          api_key: ${{ secrets.NEON_API_KEY }}

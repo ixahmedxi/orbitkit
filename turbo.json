@@ -12,6 +12,11 @@
     "db:generate": {
       "outputs": ["drizzle/**"]
     },
+    "test:e2e": {
+      "dependsOn": ["^build"],
+      "outputs": ["playwright-report/**", "test-results/**"],
+      "inputs": ["e2e/**", "playwright.config.ts"]
+    },
     "lint": {
       "dependsOn": ["^build"]
     },

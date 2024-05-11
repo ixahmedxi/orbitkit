@@ -19,7 +19,7 @@ To contribute to this project, follow these steps:
 
 ```shell
 node: "^>=20.12.2"
-pnpm: ">=9.0.6"
+pnpm: ">=9.1.0"
 ```
 
 We recommend using [Volta](https://volta.sh/), It's a JavaScript Tool Manager; you can learn more about it [here](https://docs.volta.sh/guide/)

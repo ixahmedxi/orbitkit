@@ -11,6 +11,7 @@
     "dev": "next dev",
     "lint": "eslint . --cache --max-warnings 0",
     "start": "next start",
+    "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
@@ -34,10 +35,12 @@
   "devDependencies": {
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
+    "@playwright/test": "^1.44.0",
     "@types/node": "^20.12.10",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
+    "dotenv": "^16.4.5",
     "eslint-config-orbitkit": "workspace:^",
     "jiti": "^1.21.0",
     "postcss": "^8.4.38",

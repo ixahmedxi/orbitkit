@@ -52,6 +52,7 @@
     "@commitlint/cz-commitlint": "^19.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@orbitkit/tsconfig": "workspace:^",
+    "@playwright/test": "^1.44.0",
     "@types/eslint": "^8.56.10",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
@@ -73,9 +74,9 @@
     "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.0",
   "volta": {
     "node": "20.12.2",
-    "pnpm": "9.0.6"
+    "pnpm": "9.1.0"
   }
 }
