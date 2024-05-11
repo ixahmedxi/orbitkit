@@ -333,8 +333,8 @@
     "react-hook-form": "^7.51.4",
     "react-resizable-panels": "^2.0.19",
     "tailwind-merge": "^2.3.0",
-    "vaul": "^0.9.0",
-    "zod": "^3.23.6"
+    "vaul": "^0.9.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@orbitkit/assets": "workspace:^",
@@ -351,12 +351,12 @@
     "@storybook/react": "^8.0.10",
     "@storybook/test": "^8.0.10",
     "@storybook/testing-library": "^0.2.2",
-    "@types/node": "^20.12.10",
-    "@types/react": "^18.3.1",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "eslint-config-orbitkit": "workspace:^",
-    "pkg-types": "^1.1.0",
+    "pkg-types": "^1.1.1",
     "playwright": "^1.44.0",
     "postcss": "^8.4.38",
     "storybook": "^8.0.10",

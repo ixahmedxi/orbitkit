@@ -20,11 +20,11 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
-    "pkg-types": "^1.1.0"
+    "pkg-types": "^1.1.1"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.10",
+    "@types/node": "^20.12.11",
     "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   },

@@ -23,18 +23,18 @@
     "@orbitkit/db": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "arctic": "^1.8.0",
+    "arctic": "^1.8.1",
     "lucia": "^3.2.0",
     "next": "14.2.3",
     "oslo": "^1.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "zod": "^3.23.6"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.10",
-    "@types/react": "^18.3.1",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "eslint-config-orbitkit": "workspace:^"
   },

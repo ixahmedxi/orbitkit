@@ -13,31 +13,30 @@
     "./env": "./src/env.js"
   },
   "scripts": {
-    "db:check": "dotenv -e ../../apps/web/.env.local drizzle-kit check:pg",
-    "db:generate": "dotenv -e ../../apps/web/.env.local drizzle-kit generate:pg",
-    "db:migrate": "dotenv -e ../../apps/web/.env.local tsx migrate.ts",
+    "db:check": "dotenv -e ../../apps/web/.env.local drizzle-kit check",
+    "db:generate": "dotenv -e ../../apps/web/.env.local drizzle-kit generate",
+    "db:migrate": "dotenv -e ../../apps/web/.env.local drizzle-kit migrate",
     "db:migrate:drop": "dotenv -e ../../apps/web/.env.local drizzle-kit drop",
-    "db:pull": "dotenv -e ../../apps/web/.env.local drizzle-kit introspect:pg",
-    "db:push": "dotenv -e ../../apps/web/.env.local drizzle-kit push:pg",
+    "db:pull": "dotenv -e ../../apps/web/.env.local drizzle-kit introspect",
+    "db:push": "dotenv -e ../../apps/web/.env.local drizzle-kit push",
     "db:studio": "dotenv -e ../../apps/web/.env.local drizzle-kit studio",
-    "db:up": "dotenv -e ../../apps/web/.env.local drizzle-kit up:pg",
+    "db:up": "dotenv -e ../../apps/web/.env.local drizzle-kit up",
     "lint": "eslint . --cache --max-warnings 0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.9.1",
+    "@neondatabase/serverless": "^0.9.3",
     "@orbitkit/env": "workspace:^",
     "drizzle-orm": "^0.30.10",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
-    "zod": "^3.23.6"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:*",
-    "dotenv-cli": "^7.4.1",
-    "drizzle-kit": "^0.20.18",
-    "eslint-config-orbitkit": "workspace:*",
-    "tsx": "^4.9.3"
+    "dotenv-cli": "^7.4.2",
+    "drizzle-kit": "^0.21.1",
+    "eslint-config-orbitkit": "workspace:*"
   },
   "volta": {
     "extends": "../../package.json"
