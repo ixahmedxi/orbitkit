@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/auth",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "description": "Auth package for OrbitKit",
   "license": "MIT",
