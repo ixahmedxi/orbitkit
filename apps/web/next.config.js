@@ -12,7 +12,12 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
-  transpilePackages: ['@orbitkit/db', '@orbitkit/auth', '@orbitkit/env'],
+  transpilePackages: [
+    '@orbitkit/db',
+    '@orbitkit/auth',
+    '@orbitkit/env',
+    '@orbitkit/api',
+  ],
 };
 
 export default nextConfig;

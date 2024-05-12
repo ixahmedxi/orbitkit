@@ -1,5 +1,19 @@
 # eslint-config-orbitkit
 
+## 0.1.4
+
+### Patch Changes
+
+- 4f0f72d: feat: creates a trpc api package
+
+  changes in this release:
+
+  - creates a new `packages/api` package that hosts a tRPC api to be used for the web application.
+  - renames the lucia auth `getSession` function to `auth` and provides a new uncached version of it.
+  - refactors the code in some places to be generally better.
+  - splits the utils package from a barrel export to multi-file export.
+  - `getBaseUrl` util now returns `window.location.origin` instead of an empty string when the `window` object is not `undefined`.
+
 ## 0.1.3
 
 ### Patch Changes

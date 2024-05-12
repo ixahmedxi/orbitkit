@@ -1,7 +1,10 @@
 import { readPackageJSON } from 'pkg-types';
 import { defineConfig } from 'tsup';
 
-import { formatAndWriteWithPrettier, listDirectories } from '@orbitkit/utils';
+import {
+  formatAndWriteWithPrettier,
+  listDirectories,
+} from '@orbitkit/utils/filesystem';
 
 const getPrimitives = async () => {
   const listOfPrimitives = (await listDirectories('./src/primitives')).map(

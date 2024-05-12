@@ -1,29 +1,32 @@
 {
-  "name": "@orbitkit/core",
+  "name": "@orbitkit/api",
   "version": "0.1.4",
   "private": true,
-  "description": "Core package for business logic",
+  "description": "A tRPC API package used in the web application",
   "license": "MIT",
   "author": "OrbitKit",
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "scripts": {
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  },
+  "dependencies": {
+    "@orbitkit/auth": "workspace:^",
+    "@orbitkit/db": "workspace:^",
+    "@orbitkit/env": "workspace:^",
+    "@orbitkit/utils": "workspace:^",
+    "@trpc/server": "next",
+    "superjson": "^2.2.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.11",
-    "eslint-config-orbitkit": "workspace:^",
-    "tsup": "^8.0.2"
+    "eslint-config-orbitkit": "workspace:^"
   },
   "volta": {
     "extends": "../../package.json"

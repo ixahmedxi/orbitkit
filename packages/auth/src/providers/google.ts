@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
 import { env } from '@orbitkit/env/web';
-import { getBaseUrl } from '@orbitkit/utils';
+import { getBaseUrl } from '@orbitkit/utils/url';
 
 import { lucia } from '../lucia';
 

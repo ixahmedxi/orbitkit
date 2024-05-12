@@ -3,14 +3,14 @@ import type { FileRouter } from 'uploadthing/next';
 import { createUploadthing } from 'uploadthing/next';
 import { UploadThingError } from 'uploadthing/server';
 
-import { getSession } from '@orbitkit/auth';
+import { auth } from '@orbitkit/auth';
 
 const f = createUploadthing();
 
 export const fileRouter = {
   imageUploader: f({ image: { maxFileSize: '4MB' } })
     .middleware(async () => {
-      const session = await getSession();
+      const session = await auth();
 
       if (!session.user)
         // eslint-disable-next-line @typescript-eslint/only-throw-error

@@ -63,11 +63,14 @@ words:
   - starterkit
   - starterkits
   - stylesheet
+  - superjson
   - tada
   - tailwindcss
+  - tanstack
   - thollander
   - todos
   - topbar
+  - trpc
   - tsbuildinfo
   - tsconfigs
   - tsup
