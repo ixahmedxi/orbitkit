@@ -7,7 +7,7 @@
   "author": "OrbitKit",
   "type": "module",
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml **/.tsbuildinfo",
+    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
     "format": "pnpm format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
