@@ -1,0 +1,15 @@
+{
+  "extends": ["@orbitkit/tsconfig/react.json"],
+  "compilerOptions": {
+    "tsBuildInfoFile": ".tsbuildinfo"
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.cjs",
+    ".eslintrc.cjs"
+  ]
+}
