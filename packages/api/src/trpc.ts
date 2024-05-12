@@ -2,11 +2,11 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import superjson from 'superjson';
 import { ZodError } from 'zod';
 
-import { uncachedAuth } from '@orbitkit/auth';
+import { auth } from '@orbitkit/auth';
 import { db } from '@orbitkit/db';
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const { session, user } = await uncachedAuth();
+  const { session, user } = await auth();
 
   return {
     db,

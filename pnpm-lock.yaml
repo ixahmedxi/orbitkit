@@ -198,6 +198,9 @@ importers:
       '@orbitkit/ui':
         specifier: workspace:^
         version: link:../../packages/ui
+      '@orbitkit/utils':
+        specifier: workspace:^
+        version: link:../../packages/utils
       '@t3-oss/env-nextjs':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.4.5)(zod@3.23.8)

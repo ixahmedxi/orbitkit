@@ -9,7 +9,7 @@ import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server';
 import superjson from 'superjson';
 
 import { type AppRouter } from '@orbitkit/api';
-import { env } from '@orbitkit/env/web';
+import { getBaseUrl } from '@orbitkit/utils/url';
 
 const createQueryClient = () => new QueryClient();
 
@@ -57,10 +57,4 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
       </api.Provider>
     </QueryClientProvider>
   );
-}
-
-function getBaseUrl() {
-  if (typeof window !== 'undefined') return window.location.origin;
-  if (env.VERCEL_URL) return `https://${env.VERCEL_URL}`;
-  return `http://localhost:${String(env.PORT)}`;
 }

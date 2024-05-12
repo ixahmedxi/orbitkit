@@ -12,9 +12,7 @@ import { UploadExample } from './upload';
 
 export default async function Home() {
   const { user } = await auth();
-  if (!user) {
-    return redirect('/login');
-  }
+  if (!user) redirect('/login');
 
   const hello = await api.hello.protected();
 

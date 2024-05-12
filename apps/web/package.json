@@ -20,6 +20,7 @@
     "@orbitkit/db": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/ui": "workspace:^",
+    "@orbitkit/utils": "workspace:^",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.35.5",
     "@total-typescript/ts-reset": "^0.5.1",

@@ -15,9 +15,7 @@ const githubAuthIsEnabled =
 export default async function Page() {
   const { user } = await auth();
 
-  if (user) {
-    redirect('/');
-  }
+  if (user) redirect('/');
 
   return (
     <main className="container mx-auto flex flex-col">
