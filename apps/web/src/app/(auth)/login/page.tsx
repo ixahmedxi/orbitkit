@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
+import { auth } from '@orbitkit/auth';
 import { env } from '@orbitkit/env/web';
 
 const googleAuthIsEnabled =
@@ -10,7 +12,11 @@ const googleAuthIsEnabled =
 const githubAuthIsEnabled =
   env.AUTH_GITHUB_SECRET !== undefined && env.AUTH_GITHUB_ID !== undefined;
 
-export default function Page() {
+export default async function Page() {
+  const { user } = await auth();
+
+  if (user) redirect('/');
+
   return (
     <main className="container mx-auto flex flex-col">
       {githubAuthIsEnabled && (

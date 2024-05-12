@@ -11,6 +11,8 @@ import { extractRouterConfig } from 'uploadthing/server';
 
 import { Toaster } from '@orbitkit/ui/toast';
 
+import { TRPCReactProvider } from '@/lib/trpc/react';
+
 import { fileRouter } from './api/uploadthing/core';
 
 export const metadata: Metadata = {
@@ -24,11 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
         <ThemeProvider attribute="class" enableSystem>
-          {children}
+          <TRPCReactProvider>{children}</TRPCReactProvider>
           <Toaster />
         </ThemeProvider>
       </body>

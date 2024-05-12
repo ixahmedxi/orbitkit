@@ -3,11 +3,11 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-import { getSession } from '../getSession';
+import { auth } from '../auth';
 import { lucia } from '../lucia';
 
 export async function logout() {
-  const { session } = await getSession();
+  const { session } = await auth();
   if (!session) {
     return {
       error: 'Unauthorized',

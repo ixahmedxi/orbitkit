@@ -1,19 +1,20 @@
 import { redirect } from 'next/navigation';
 
-import { getSession } from '@orbitkit/auth';
+import { auth } from '@orbitkit/auth';
 import { logout } from '@orbitkit/auth/actions/logout';
 import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';
 
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+import { api } from '@/lib/trpc/server';
 
 import { ShowToast } from './show-toast';
 import { UploadExample } from './upload';
 
 export default async function Home() {
-  const { user } = await getSession();
-  if (!user) {
-    return redirect('/login');
-  }
+  const { user } = await auth();
+  if (!user) redirect('/login');
+
+  const hello = await api.hello.protected();
 
   return (
     <main className="container mx-auto py-6 px-6">
@@ -35,6 +36,7 @@ export default async function Home() {
       </form>
       <ShowToast />
       <UploadExample />
+      <p>{hello.message}</p>
     </main>
   );
 }
