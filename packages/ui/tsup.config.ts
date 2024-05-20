@@ -35,8 +35,9 @@ export default defineConfig(async (opts) => ({
   splitting: true,
   sourcemap: true,
   minify: !opts.watch,
-  clean: !opts.watch,
-  dts: true,
+  experimentalDts: true,
+  // We need to use a different tsconfig for the build because we need to exclude the story files from being compiled into the .d.ts bundle file.
+  tsconfig: './tsconfig.build.json',
   outDir: 'dist',
   async onSuccess() {
     const pkg = await readPackageJSON();

@@ -13,6 +13,6 @@ export default defineConfig((opts) => ({
   sourcemap: true,
   minify: !opts.watch,
   clean: !opts.watch,
-  dts: true,
+  experimentalDts: true,
   outDir: 'dist',
 }));
