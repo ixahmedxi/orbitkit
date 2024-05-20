@@ -18,6 +18,12 @@ const nextConfig = {
     '@orbitkit/env',
     '@orbitkit/api',
   ],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

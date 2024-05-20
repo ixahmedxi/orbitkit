@@ -14,12 +14,13 @@
     }
   },
   "scripts": {
-    "build": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.43.7",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
     "eslint-config-orbitkit": "workspace:^",

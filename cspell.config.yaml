@@ -3,6 +3,7 @@ version: '0.2'
 ignorePaths:
   - node_modules
   - pnpm-lock.yaml
+  - ./branch_out
   - .tsbuildinfo
   - .gitignore
   - dist
