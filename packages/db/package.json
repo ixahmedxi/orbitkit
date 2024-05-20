@@ -35,7 +35,7 @@
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.21.1",
+    "drizzle-kit": "^0.21.2",
     "eslint-config-orbitkit": "workspace:*"
   },
   "volta": {

@@ -15,19 +15,19 @@
     "typecheck": "astro check"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.5",
+    "@astrojs/rss": "^4.0.6",
     "@orbitkit/assets": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/ui": "workspace:^",
     "@t3-oss/env-core": "^0.10.1",
     "@total-typescript/ts-reset": "^0.5.1",
-    "astro": "^4.8.2",
+    "astro": "^4.8.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.6.0",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/react": "^3.3.4",
     "@astrojs/sitemap": "^3.1.4",
@@ -35,7 +35,7 @@
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.0",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
