@@ -55,7 +55,6 @@
     "@playwright/test": "^1.44.0",
     "@types/eslint": "^8.56.10",
     "commitizen": "^4.3.0",
-    "concurrently": "^8.2.2",
     "cspell": "^8.8.1",
     "eslint": "^8.57.0",
     "eslint-config-orbitkit": "workspace:^",
