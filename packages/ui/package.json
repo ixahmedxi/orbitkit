@@ -351,7 +351,6 @@
     "@storybook/addon-themes": "^8.1.1",
     "@storybook/react": "^8.1.1",
     "@storybook/test": "^8.1.1",
-    "@storybook/testing-library": "^0.2.2",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
