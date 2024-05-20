@@ -1,5 +1,16 @@
 # @orbitkit/tsconfig
 
+## 0.1.5
+
+### Patch Changes
+
+- bf709fb: feat: enables tsup experimental dts option
+
+  - switches tsup to use the new experimental dts option.
+  - adds a `tsconfig.build.json` file to the `ui` package.
+  - removes `concurrently` and `@storybook/testing-library`
+  - adds `@storybook/test` to the `ui` package as a replacement for `@storybook/testing-library` due to deprecation.
+
 ## 0.1.4
 
 ### Patch Changes
