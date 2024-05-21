@@ -1,27 +1,66 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDotEnv": ["apps/web/.env.local"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build", "^db:migrate"],
-      "inputs": ["$TURBO_DEFAULT$", "!.eslintrc.cjs"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.eslintrc.cjs",
+        "!CHANGELOG.md",
+        "!playwright.config.ts",
+        "!e2e/**"
+      ],
+      "env": [
+        "DATABASE_URL",
+        "UPLOADTHING_SECRET",
+        "UPLOADTHING_APP_ID",
+        "UNKEY_ROOT_KEY",
+        "UNKEY_NAMESPACE",
+        "AUTH_GITHUB_ID",
+        "AUTH_GITHUB_SECRET",
+        "AUTH_GOOGLE_ID",
+        "AUTH_GOOGLE_SECRET",
+        "AUTH_GOOGLE_CODE_VERIFIER"
+      ],
       "outputs": [".next/**", "!.next/cache/**", "dist/**", ".astro/**"]
     },
     "db:migrate": {
-      "dependsOn": ["db:generate"]
+      "dependsOn": ["db:generate"],
+      "inputs": ["drizzle/**"]
     },
     "db:generate": {
-      "outputs": ["drizzle/**"]
+      "outputs": ["drizzle/**"],
+      "inputs": ["src/schema/**", "drizzle.config.ts"]
     },
     "test:e2e": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build"],
       "outputs": ["playwright-report/**", "test-results/**"],
       "inputs": ["e2e/**", "playwright.config.ts"]
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "inputs": [
+        "**/*.ts",
+        "**/*.d.ts",
+        "**/*.tsx",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.cjs",
+        "**/*.mjs"
+      ]
     },
     "typecheck": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "inputs": [
+        "**/*.ts",
+        "**/*.d.ts",
+        "**/*.tsx",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.cjs",
+        "**/*.mjs"
+      ]
     },
     "dev": {
       "dependsOn": ["^build"],
@@ -40,7 +79,14 @@
     },
     "build-storybook": {
       "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"]
+      "outputs": ["storybook-static/**"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.eslintrc.cjs",
+        "!CHANGELOG.md",
+        "!tsup.config.ts",
+        "!tsconfig.build.json"
+      ]
     }
   }
 }
