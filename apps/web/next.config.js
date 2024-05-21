@@ -9,9 +9,6 @@ jiti('@orbitkit/env/web');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    typedRoutes: true,
-  },
   transpilePackages: [
     '@orbitkit/db',
     '@orbitkit/auth',
