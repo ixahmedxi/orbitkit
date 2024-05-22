@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",
@@ -25,9 +25,9 @@
     "windy-radix-typography": "1.0.0-beta.0"
   },
   "devDependencies": {
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^"
+    "@types/node": "^20.12.12"
   },
   "volta": {
     "extends": "../../../package.json"

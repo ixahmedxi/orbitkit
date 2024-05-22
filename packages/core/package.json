@@ -17,13 +17,13 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.43.7",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   },
   "volta": {

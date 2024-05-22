@@ -19,7 +19,7 @@
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
     "reset:versions": "pnpm recursive exec -- pnpm version 0.1.0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "commitlint": {
     "extends": [
@@ -51,13 +51,13 @@
     "@commitlint/config-pnpm-scopes": "^19.1.0",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.0",
     "@types/eslint": "^8.56.10",
     "commitizen": "^4.3.0",
     "cspell": "^8.8.2",
-    "eslint": "^8.57.0",
-    "eslint-config-orbitkit": "workspace:^",
+    "eslint": "^9.3.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.4",
     "markdownlint": "^0.34.0",

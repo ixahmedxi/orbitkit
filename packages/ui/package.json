@@ -289,7 +289,7 @@
     "lint": "eslint . --cache --max-warnings 0",
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",
@@ -339,6 +339,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.43.7",
     "@orbitkit/assets": "workspace:^",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/storybook": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
@@ -355,7 +356,6 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "eslint-config-orbitkit": "workspace:^",
     "pkg-types": "^1.1.1",
     "playwright": "^1.44.0",
     "postcss": "^8.4.38",

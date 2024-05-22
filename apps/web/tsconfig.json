@@ -1,6 +1,7 @@
 {
   "extends": ["@orbitkit/tsconfig/next.json"],
   "compilerOptions": {
+    "tsBuildInfoFile": ".tsbuildinfo",
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -12,7 +13,6 @@
     ".next/types/**/*.ts",
     "**/*.js",
     "**/*.cjs",
-    ".eslintrc.cjs",
     "**/*.mjs"
   ],
   "exclude": ["node_modules", "playwright-report", "test-results"]
