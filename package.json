@@ -6,6 +6,11 @@
   "license": "MIT",
   "author": "OrbitKit",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/config/*"
+  ],
   "scripts": {
     "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
@@ -72,7 +77,6 @@
     "turbo": "^1.13.3",
     "typescript": "^5.4.5"
   },
-  "packageManager": "pnpm@9.1.0",
   "volta": {
     "node": "20.12.2",
     "pnpm": "9.1.0"
