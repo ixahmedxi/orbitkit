@@ -5,11 +5,14 @@
     "build": {
       "dependsOn": ["^build", "^db:migrate"],
       "inputs": [
-        "$TURBO_DEFAULT$",
-        "!.eslintrc.cjs",
-        "!CHANGELOG.md",
-        "!playwright.config.ts",
-        "!e2e/**"
+        "src/**",
+        "public/**",
+        "next.config.js",
+        "astro.config.ts",
+        "postcss.config.cjs",
+        "tailwind.config.ts",
+        "package.json",
+        "tsconfig.json"
       ],
       "env": [
         "DATABASE_URL",
@@ -81,11 +84,13 @@
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"],
       "inputs": [
-        "$TURBO_DEFAULT$",
-        "!.eslintrc.cjs",
-        "!CHANGELOG.md",
-        "!tsup.config.ts",
-        "!tsconfig.build.json"
+        "src/**",
+        ".storybook/**",
+        "postcss.config.cjs",
+        "tailwind.config.ts",
+        "tsconfig.json",
+        "package.json",
+        "vite.config.ts"
       ]
     }
   }
