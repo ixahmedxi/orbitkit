@@ -23,7 +23,7 @@
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
-    "reset:versions": "pnpm recursive exec -- pnpm version 0.1.0",
+    "reset:versions": "bun run ./.scripts/reset-versions",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "commitlint": {
