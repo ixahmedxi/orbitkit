@@ -12,7 +12,7 @@
     "packages/config/*"
   ],
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml **/.tsbuildinfo **/playwright-report **/test-results",
+    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
     "format": "pnpm format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
