@@ -23,6 +23,11 @@ if (!unkey) {
   );
 }
 
+/**
+ * Middleware to apply unkey rate limiting.
+ * @param request The incoming request.
+ * @returns NextResponse
+ */
 export default async function middleware(
   request: NextRequest,
 ): Promise<Response | undefined> {

@@ -16,6 +16,12 @@
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "prettier.documentSelectors": ["**/*.astro"],
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "packages/*/" },
+    { "pattern": "packages/config/*/" }
+  ],
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },

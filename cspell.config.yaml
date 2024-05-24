@@ -32,6 +32,7 @@ words:
   - codespaces
   - Colm
   - commitlint
+  - compat
   - consts
   - crossorigin
   - datetime
@@ -74,6 +75,7 @@ words:
   - trpc
   - tsbuildinfo
   - tsconfigs
+  - tseslint
   - tsup
   - Tuite
   - turborepo

@@ -17,7 +17,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <select
-      className="border-border text-sm bg-muted hover:bg-accent transition-colors rounded-md"
+      className="rounded-md border-border bg-muted text-sm transition-colors hover:bg-accent"
       value={theme}
       onChange={(e) => {
         setTheme(e.target.value);

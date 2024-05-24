@@ -26,6 +26,12 @@ export const api = createTRPCReact<AppRouter>();
 export type RouterInputs = inferRouterInputs<AppRouter>;
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
 
+/**
+ * The TRPC React Provider is a component that initializes trpc and react query integration for the client.
+ * @param props Props for the TRPC React Provider.
+ * @param props.children The children of the TRPC React Provider, which would be the entire page/layout in most cases.
+ * @returns React Provider component that initializes trpc and react query integration for the client.
+ */
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const queryClient = getQueryClient();
 

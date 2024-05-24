@@ -12,10 +12,16 @@ const googleAuthIsEnabled =
 const githubAuthIsEnabled =
   env.AUTH_GITHUB_SECRET !== undefined && env.AUTH_GITHUB_ID !== undefined;
 
+/**
+ * Auth login page
+ * @returns React RSC Component that automatically redirects to the home page if the user is already authenticated, otherwise it displays the login options.
+ */
 export default async function Page() {
   const { user } = await auth();
 
-  if (user) redirect('/');
+  if (user) {
+    redirect('/');
+  }
 
   return (
     <main className="container mx-auto flex flex-col">

@@ -12,12 +12,13 @@ export const fileRouter = {
     .middleware(async () => {
       const session = await auth();
 
-      if (!session.user)
+      if (!session.user) {
         // eslint-disable-next-line @typescript-eslint/only-throw-error
         throw new UploadThingError({
           message: 'You must be logged in to upload files',
           code: 'BAD_REQUEST',
         });
+      }
 
       return { userId: session.user.id };
     })
