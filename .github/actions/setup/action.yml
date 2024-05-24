@@ -9,29 +9,24 @@ runs:
       with:
         node-version: 20
 
-    - uses: pnpm/action-setup@v3
-      name: Install pnpm
+    - uses: oven-sh/setup-bun@v1
+      name: Install bun
       with:
         version: 8
         run_install: false
 
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
     - uses: actions/cache@v4
-      name: Setup pnpm cache
+      name: Setup bun cache
       with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        path: ~/.bun/install/cache
+        key: ${{ runner.os }}-${{ matrix.bun }}-bun-${{ hashFiles('**/bun.lockb') }}
         restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+          ${{ runner.os }}-${{ matrix.bun }}-bun-
 
     - name: Install Turborepo
       shell: bash
-      run: pnpm add -g turbo
+      run: bun add -g turbo
 
     - name: Install dependencies
       shell: bash
-      run: pnpm install
+      run: bun install

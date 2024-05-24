@@ -61,13 +61,13 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Format check
-        run: pnpm format:check
+        run: bun format:check
 
       - name: Spell check
-        run: pnpm lint:spell
+        run: bun lint:spell
 
       - name: Lint markdown
-        run: pnpm lint:md
+        run: bun lint:md
 
       - name: Lint & Typecheck
         run: turbo lint typecheck
@@ -154,10 +154,10 @@ jobs:
           echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
 
       - name: Install Playwright Browsers
-        run: pnpm playwright install --with-deps
+        run: bun playwright install --with-deps
 
       - name: Run Playwright tests
-        run: pnpm turbo test:e2e --filter=web
+        run: bun turbo test:e2e --filter=web
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -180,10 +180,10 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Install Playwright Browsers
-        run: pnpm playwright install --with-deps
+        run: bun playwright install --with-deps
 
       - name: Run Playwright tests
-        run: pnpm turbo test:e2e --filter=marketing
+        run: bun turbo test:e2e --filter=marketing
 
       - uses: actions/upload-artifact@v4
         if: always()
