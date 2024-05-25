@@ -22,8 +22,6 @@ node: "^>=20.12.2"
 bun: ">=1.1.9"
 ```
 
-We recommend using [Volta](https://volta.sh/), It's a JavaScript Tool Manager; you can learn more about it [here](https://docs.volta.sh/guide/)
-
 ### Setting up your local repo
 
 Orbitkit uses bun workspaces, so you should **always run `bun install` from the top-level project directory**. Running `bun install` in the top-level project root will install dependencies for `Orbitkit`, and every package in the repo.

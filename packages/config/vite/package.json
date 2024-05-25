@@ -30,8 +30,5 @@
     "@types/node": "^20.12.12",
     "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }

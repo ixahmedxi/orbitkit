@@ -7,8 +7,5 @@
   "author": "OrbitKit",
   "files": [
     "**/*"
-  ],
-  "volta": {
-    "extends": "../../package.json"
-  }
+  ]
 }

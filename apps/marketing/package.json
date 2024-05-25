@@ -43,8 +43,5 @@
     "eslint-config-orbitkit": "workspace:^",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }

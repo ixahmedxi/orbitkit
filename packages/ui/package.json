@@ -363,8 +363,5 @@
     "tailwindcss": "^3.4.3",
     "tsup": "^8.0.2",
     "vite": "^5.2.11"
-  },
-  "volta": {
-    "extends": "../../package.json"
   }
 }

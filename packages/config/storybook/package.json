@@ -62,8 +62,5 @@
     "@types/react-dom": "^18.3.0",
     "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
-  },
-  "volta": {
-    "extends": "../../../package.json"
   }
 }
