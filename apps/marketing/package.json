@@ -9,7 +9,7 @@
   "scripts": {
     "build": "astro check && astro build",
     "dev": "astro dev",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "start": "astro preview",
     "test:e2e": "playwright test",
     "typecheck": "astro check"
