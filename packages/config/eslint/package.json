@@ -1,11 +1,11 @@
 {
   "name": "@orbitkit/eslint",
   "version": "0.2.0",
-  "type": "module",
   "private": true,
   "description": "A package to share ESLint configurations in workspace",
   "license": "MIT",
   "author": "OrbitKit",
+  "type": "module",
   "exports": {
     ".": {
       "default": "./src/index.js",
@@ -15,12 +15,6 @@
   "scripts": {
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
-  },
-  "devDependencies": {
-    "@orbitkit/tsconfig": "workspace:^",
-    "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^20.12.12",
-    "@typescript-eslint/utils": "^7.10.0"
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
@@ -37,6 +31,13 @@
     "eslint-plugin-security": "^3.0.0",
     "eslint-plugin-tailwindcss": "^3.17.0",
     "globals": "^15.3.0",
-    "typescript-eslint": "^7.10.0"
+    "typescript-eslint": "^8.0.0-alpha.18"
+  },
+  "devDependencies": {
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/utils": "^8.0.0-alpha.18",
+    "eslint-plugin-storybook": "^0.8.0"
   }
 }

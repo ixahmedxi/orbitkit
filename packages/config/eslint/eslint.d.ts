@@ -36,6 +36,10 @@ declare module '@eslint/eslintrc' {
     extends(extendsValue: string): Linter.FlatConfig & {
       [Symbol.iterator]: () => IterableIterator<Linter.FlatConfig>;
     };
+
+    config(config: Linter.Config): Linter.FlatConfig & {
+      [Symbol.iterator]: () => IterableIterator<Linter.FlatConfig>;
+    };
   }
 }
 

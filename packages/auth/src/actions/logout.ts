@@ -6,6 +6,10 @@ import { redirect } from 'next/navigation';
 import { auth } from '../auth';
 import { lucia } from '../lucia';
 
+/**
+ * This function logs out the user.
+ * @returns The response.
+ */
 export async function logout() {
   const { session } = await auth();
   if (!session) {

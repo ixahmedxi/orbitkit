@@ -3,5 +3,5 @@
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["**/*.ts", "**/*.mjs", "**/*.js", "**/*.cjs"]
+  "include": ["**/*.ts", "**/*.js"]
 }

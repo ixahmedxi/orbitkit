@@ -43,13 +43,23 @@ export const base = defineConfig(
       sourceType: 'commonjs',
       globals: {
         ...globals.node,
-      }
-    }
+      },
+    },
   },
 
   {
     linterOptions: {
       reportUnusedDisableDirectives: true,
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+    settings: {
+      tailwindcss: {
+        callees: ['classnames', 'clsx', 'ctl', 'cn', 'cva'],
+      },
     },
     rules: {
       '@typescript-eslint/no-unused-vars': [

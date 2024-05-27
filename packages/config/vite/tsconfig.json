@@ -7,6 +7,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.cjs", "**/*.mjs"],
+  "include": ["**/*.ts", "**/*.js"],
   "exclude": ["dist", "node_modules"]
 }
