@@ -3,5 +3,5 @@
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["**/*.ts", ".eslintrc.cjs"]
+  "include": ["**/*.ts"]
 }

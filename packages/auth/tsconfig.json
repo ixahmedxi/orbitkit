@@ -4,5 +4,5 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "lib": ["DOM", "DOM.Iterable", "ESNext"]
   },
-  "include": ["**/*.ts", "**/*.mjs", "**/*.js", "**/*.cjs", ".eslintrc.cjs"]
+  "include": ["**/*.ts", "**/*.mjs", "**/*.js", "**/*.cjs"]
 }
