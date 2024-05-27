@@ -20,7 +20,7 @@
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.43.7",
+    "@microsoft/api-extractor": "^7.44.1",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
     "eslint-config-orbitkit": "workspace:^",
