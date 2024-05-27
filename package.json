@@ -12,18 +12,18 @@
     "packages/config/*"
   ],
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
+    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
     "format": "bun format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --ignore node_modules",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
-    "reset:versions": "bun run ./.scripts/reset-versions",
+    "reset:versions": "bun run ./scripts/reset-versions",
     "typecheck": "tsc"
   },
   "lint-staged": {

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbo",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "start": "next start",
     "test:e2e": "playwright test",
     "typecheck": "tsc"

@@ -1,15 +1,39 @@
 {
   "name": "@orbitkit/eslint",
   "version": "0.2.0",
+  "type": "module",
   "private": true,
   "description": "A package to share ESLint configurations in workspace",
   "license": "MIT",
   "author": "OrbitKit",
+  "exports": {
+    ".": {
+      "default": "./src/index.js",
+      "types": "./src/index.d.ts"
+    }
+  },
   "scripts": {
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@orbitkit/tsconfig": "workspace:^"
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/utils": "^7.10.0"
+  },
+  "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
+    "@eslint/compat": "^1.0.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.3.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsdoc": "^48.2.6",
+    "eslint-plugin-playwright": "^1.6.2",
+    "eslint-plugin-regexp": "^2.6.0",
+    "eslint-plugin-security": "^3.0.0",
+    "eslint-plugin-tailwindcss": "^3.17.0",
+    "globals": "^15.3.0",
+    "typescript-eslint": "^7.10.0"
   }
 }

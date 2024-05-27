@@ -286,7 +286,7 @@
     "build": "tsup",
     "build-storybook": "storybook build",
     "dev": "tsup --watch",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
     "typecheck": "tsc"

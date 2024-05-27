@@ -3,5 +3,6 @@
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": ["*.js"]
+  "include": ["**/*.ts", "**/*.js"],
+  "exclude": ["node_modules", "dist"]
 }

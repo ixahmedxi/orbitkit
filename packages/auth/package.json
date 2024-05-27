@@ -15,7 +15,7 @@
     "./actions/logout": "./src/actions/logout.ts"
   },
   "scripts": {
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
