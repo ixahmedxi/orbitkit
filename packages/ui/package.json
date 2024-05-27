@@ -339,6 +339,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.44.1",
     "@orbitkit/assets": "workspace:^",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/storybook": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
@@ -355,7 +356,6 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "eslint-config-orbitkit": "workspace:^",
     "pkg-types": "^1.1.1",
     "playwright": "^1.44.1",
     "postcss": "^8.4.38",

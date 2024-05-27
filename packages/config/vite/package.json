@@ -26,9 +26,9 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.44.1",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   }
 }
