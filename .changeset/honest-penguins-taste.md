@@ -17,4 +17,4 @@
 '@orbitkit/web': patch
 ---
 
-Removing Volta configuration
+chore: removing volta configuration

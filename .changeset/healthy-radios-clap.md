@@ -2,4 +2,4 @@
 '@orbitkit/marketing': patch
 ---
 
-Updating playwright configuration
+feat: updating playwright configuration from `pnpm` to `bun`

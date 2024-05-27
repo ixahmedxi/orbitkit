@@ -17,4 +17,12 @@
 '@orbitkit/web': patch
 ---
 
-Moving from pnpm to bun
+feat: moving from `pnpm` to `bun`
+
+- removed Volta configuration
+- updated `pnpm` to `bun` in all packages
+- updated `pnpm` to `bun` in all `Husky` files
+- updated `pnpm` to `bun` in all CI/CD workflows
+- updated `pnpm` to `bun` in all documentation
+- added custom `.commitlintrc` configuration to handle `scope-enum` rule
+- added custom `.scripts/reset-versions` script to reset all package versions

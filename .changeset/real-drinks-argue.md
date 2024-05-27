@@ -2,4 +2,4 @@
 '@orbitkit/docs': patch
 ---
 
-Updating documentation from pnpm to bun
+docs: updating documentation from `pnpm` to `bun`
