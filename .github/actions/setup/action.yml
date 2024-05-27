@@ -6,9 +6,6 @@ runs:
   steps:
     - uses: oven-sh/setup-bun@v1
       name: Install bun
-      with:
-        bun-version: 8
-        run_install: false
 
     - uses: actions/cache@v4
       name: Setup bun cache
