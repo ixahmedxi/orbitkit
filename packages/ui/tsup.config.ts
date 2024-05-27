@@ -17,6 +17,10 @@ const getPrimitives = async () => {
   }));
 };
 
+/**
+ * This function generates a list of entries for the build.
+ * @returns List of entries for tsup.
+ */
 async function getEntries() {
   const primitives = await getPrimitives();
 

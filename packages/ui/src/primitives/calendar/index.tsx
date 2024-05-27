@@ -10,6 +10,14 @@ import { cn } from '@/utils/cn';
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
+/**
+ * A calendar component that uses the `react-day-picker` library.
+ * @param props The calendar props.
+ * @param props.className The className to apply to the calendar.
+ * @param props.classNames The class names to apply to the calendar elements.
+ * @param props.showOutsideDays Whether to show outside days.
+ * @returns The calendar component.
+ */
 function Calendar({
   className,
   classNames,
@@ -61,8 +69,8 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: () => <ChevronLeftIcon className="h-4 w-4" />,
-        IconRight: () => <ChevronRightIcon className="h-4 w-4" />,
+        IconLeft: () => <ChevronLeftIcon className="size-4" />,
+        IconRight: () => <ChevronRightIcon className="size-4" />,
       }}
       {...props}
     />

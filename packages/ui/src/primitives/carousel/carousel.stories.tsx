@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import { useEffect, useState } from 'react';
 
 import type { CarouselApi } from '.';
@@ -32,7 +33,7 @@ export const Default: Story = {
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent className="flex aspect-[1_/_1] items-center justify-center p-6">
                     <span className="text-4xl font-semibold">{index + 1}</span>
                   </CardContent>
                 </Card>
@@ -62,7 +63,7 @@ export const Sizes: Story = {
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent className="flex aspect-[1_/_1] items-center justify-center p-6">
                     <span className="text-3xl font-semibold">{index + 1}</span>
                   </CardContent>
                 </Card>
@@ -89,7 +90,7 @@ export const Spacing: Story = {
             >
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent className="flex aspect-[1_/_1] items-center justify-center p-6">
                     <span className="text-2xl font-semibold">{index + 1}</span>
                   </CardContent>
                 </Card>
@@ -106,7 +107,7 @@ export const Spacing: Story = {
 
 export const Orientation: Story = {
   render: (args) => (
-    <div className="pt-12 flex justify-center">
+    <div className="flex justify-center pt-12">
       <Carousel
         {...args}
         opts={{
@@ -135,52 +136,52 @@ export const Orientation: Story = {
   ),
 };
 
-export const WithSlideNumber: Story = {
-  render: (args) => {
-    const [api, setApi] = useState<CarouselApi>();
-    const [current, setCurrent] = useState(0);
-    const [count, setCount] = useState(0);
+const WithSlideNumberExample = (props: ComponentProps<typeof Carousel>) => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
-    useEffect(() => {
-      if (!api) {
-        return;
-      }
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
 
-      setCount(api.scrollSnapList().length);
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on('select', () => {
       setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
 
-      api.on('select', () => {
-        setCurrent(api.selectedScrollSnap() + 1);
-      });
-    }, [api]);
-
-    return (
-      <div>
-        <div className="flex justify-center">
-          <Carousel {...args} setApi={setApi} className="w-full max-w-xs">
-            <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem key={index}>
-                  <Card>
-                    <CardContent className="flex aspect-square items-center justify-center p-6">
-                      <span className="text-4xl font-semibold">
-                        {index + 1}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-        <div className="py-2 text-center text-sm text-muted-foreground">
-          Slide {current} of {count}
-        </div>
+  return (
+    <div>
+      <div className="flex justify-center">
+        <Carousel {...props} setApi={setApi} className="w-full max-w-xs">
+          <CarouselContent>
+            {Array.from({ length: 5 }).map((_, index) => (
+              <CarouselItem key={index}>
+                <Card>
+                  <CardContent className="flex aspect-[1_/_1] items-center justify-center p-6">
+                    <span className="text-4xl font-semibold">{index + 1}</span>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
-    );
-  },
+      <div className="py-2 text-center text-sm text-muted-foreground">
+        Slide {current} of {count}
+      </div>
+    </div>
+  );
+};
+
+export const WithSlideNumber: Story = {
+  render: (args) => <WithSlideNumberExample {...args} />,
 };
 
 export const Autoplay: Story = {
@@ -196,7 +197,7 @@ export const Autoplay: Story = {
             <CarouselItem key={index}>
               <div className="p-1">
                 <Card>
-                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <CardContent className="flex aspect-[1_/_1] items-center justify-center p-6">
                     <span className="text-4xl font-semibold">{index + 1}</span>
                   </CardContent>
                 </Card>
