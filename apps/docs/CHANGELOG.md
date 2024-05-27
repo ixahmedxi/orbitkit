@@ -1,5 +1,24 @@
 # @orbitkit/docs
 
+## 0.2.0
+
+### Minor Changes
+
+- 3ae31ea: chore: removing volta configuration
+- 3ae31ea: feat: moving from `pnpm` to `bun`
+
+  - removed Volta configuration
+  - updated `pnpm` to `bun` in all packages
+  - updated `pnpm` to `bun` in all `Husky` files
+  - updated `pnpm` to `bun` in all CI/CD workflows
+  - updated `pnpm` to `bun` in all documentation
+  - added custom `.commitlintrc` configuration to handle `scope-enum` rule
+  - added custom `.scripts/reset-versions` script to reset all package versions
+
+### Patch Changes
+
+- 3ae31ea: docs: updating documentation from `pnpm` to `bun`
+
 ## 0.1.5
 
 ### Patch Changes
