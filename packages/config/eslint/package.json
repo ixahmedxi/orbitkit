@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@orbitkit/tsconfig": "workspace:^",

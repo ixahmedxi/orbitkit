@@ -17,7 +17,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.44.1",

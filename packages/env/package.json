@@ -13,7 +13,7 @@
   },
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.10.1",

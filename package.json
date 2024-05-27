@@ -24,7 +24,7 @@
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
     "reset:versions": "bun run ./.scripts/reset-versions",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "lint-staged": {
     "*": [

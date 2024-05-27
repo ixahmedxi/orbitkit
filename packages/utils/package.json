@@ -21,7 +21,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "pkg-types": "^1.1.1"

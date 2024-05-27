@@ -289,7 +289,7 @@
     "lint": "eslint . --cache --max-warnings 0",
     "storybook": "storybook dev -p 6006 --no-open",
     "test-storybook": "test-storybook",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.4.2",

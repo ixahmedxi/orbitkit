@@ -16,7 +16,7 @@
   },
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.0.7",

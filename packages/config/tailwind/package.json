@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@radix-ui/colors": "^3.0.0",

@@ -22,7 +22,7 @@
     "db:studio": "dotenv -e ../../apps/web/.env.local drizzle-kit studio",
     "db:up": "dotenv -e ../../apps/web/.env.local drizzle-kit up",
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.3",

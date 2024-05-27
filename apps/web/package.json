@@ -12,7 +12,7 @@
     "lint": "eslint . --cache --max-warnings 0",
     "start": "next start",
     "test:e2e": "playwright test",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@orbitkit/api": "workspace:^",

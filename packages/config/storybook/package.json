@@ -33,7 +33,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@orbitkit/assets": "workspace:^",
