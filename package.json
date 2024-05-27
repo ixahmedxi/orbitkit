@@ -1,15 +1,20 @@
 {
   "name": "orbitkit",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "private": true,
   "description": "A comprehensive, opinionated company monorepo boilerplate",
   "license": "MIT",
   "author": "OrbitKit",
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "packages/config/*"
+  ],
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static pnpm-lock.yaml **/.tsbuildinfo **/playwright-report **/test-results",
+    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
-    "format": "pnpm format:write",
+    "format": "bun format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
     "lint": "eslint . --cache --max-warnings 0",
@@ -18,14 +23,8 @@
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
-    "reset:versions": "pnpm recursive exec -- pnpm version 0.1.0",
+    "reset:versions": "bun run ./.scripts/reset-versions",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional",
-      "@commitlint/config-pnpm-scopes"
-    ]
   },
   "lint-staged": {
     "*": [
@@ -48,7 +47,6 @@
     "@changesets/cli": "^2.27.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@commitlint/config-pnpm-scopes": "^19.1.0",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@orbitkit/tsconfig": "workspace:^",
@@ -71,10 +69,5 @@
     "rimraf": "^5.0.7",
     "turbo": "^1.13.3",
     "typescript": "^5.4.5"
-  },
-  "packageManager": "pnpm@9.1.0",
-  "volta": {
-    "node": "20.12.2",
-    "pnpm": "9.1.0"
   }
 }

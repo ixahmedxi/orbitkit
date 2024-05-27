@@ -3,6 +3,7 @@ version: '0.2'
 ignorePaths:
   - node_modules
   - pnpm-lock.yaml
+  - bun.lockb
   - ./branch_out
   - .tsbuildinfo
   - .gitignore
@@ -24,6 +25,7 @@ words:
   - Beamer
   - Binni
   - branchname
+  - bunx
   - bvaughn
   - Byrom
   - clsx
@@ -32,6 +34,7 @@ words:
   - codespaces
   - Colm
   - commitlint
+  - commitlintrc
   - consts
   - crossorigin
   - datetime

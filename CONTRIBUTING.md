@@ -18,20 +18,17 @@ To contribute to this project, follow these steps:
 ### Prerequisites
 
 ```shell
-node: "^>=20.12.2"
-pnpm: ">=9.1.0"
+bun: ">=1.1.9"
 ```
-
-We recommend using [Volta](https://volta.sh/), It's a JavaScript Tool Manager; you can learn more about it [here](https://docs.volta.sh/guide/)
 
 ### Setting up your local repo
 
-Orbitkit uses pnpm workspaces, so you should **always run `pnpm install` from the top-level project directory**. Running `pnpm install` in the top-level project root will install dependencies for `Orbitkit`, and every package in the repo.
+Orbitkit uses bun workspaces, so you should **always run `bun install` from the top-level project directory**. Running `bun install` in the top-level project root will install dependencies for `Orbitkit`, and every package in the repo.
 
 ```shell
 git clone && cd ...
-pnpm install
-pnpm run build
+bun install
+bun turbo build
 ```
 
 ### Setting up environment variables
@@ -52,36 +49,36 @@ Your new codespace will open in a web-based version of Visual Studio Code. All d
 
 ```shell
 # Dev
-pnpm turbo dev
+bun turbo dev
 
 # Build
-pnpm turbo build
+bun turbo build
 
 # Typecheck
-pnpm turbo typecheck
+bun turbo typecheck
 
 # Lint
-pnpm turbo lint
+bun turbo lint
 
 # Storybook
-pnpm turbo storybook
+bun turbo storybook
 
 # Start apps in production mode
-pnpm turbo start
+bun turbo start
 ```
 
-If you're familiar with turborepo / pnpm workspaces, running stuff around this repo will be easy to figure out.
+If you're familiar with turborepo / bun workspaces, running stuff around this repo will be easy to figure out.
 
 ### Other useful commands
 
 ```shell
 # auto-format the entire project
-pnpm run format
+bun run format
 ```
 
 ```shell
 # lint the project
-pnpm run lint
+bun run lint
 ```
 
 ## Code Style Guidelines

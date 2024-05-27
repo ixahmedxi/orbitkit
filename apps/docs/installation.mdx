@@ -35,7 +35,7 @@ We will go more in detail about every aspect of orbitkit later on, but this shou
 
 Before you begin, ensure you have met the following requirements:
 
-- You have `Node v20` and `Pnpm v8` installed on your machine. We recommend you using [Volta](https://volta.sh) to manage your Node versions and you can use it as well for `pnpm` experimentally.
+- You have `Node v20` and `Bun v1.1.9` installed on your machine.
 
 That is actually pretty much all you need!
 
@@ -49,7 +49,7 @@ With all that being said, we are ready to start using Orbitkit! We firstly need 
 
     1. You can use degit to download the code directly and remove the git history.
     ```bash
-    pnpm dlx degit ixahmedxi/orbitkit
+    bunx degit ixahmedxi/orbitkit
     ```
 
     2. You can [fork](https://github.com/ixahmedxi/orbitkit/fork) OrbitKit and then clone down your version of it.
@@ -67,14 +67,14 @@ With all that being said, we are ready to start using Orbitkit! We firstly need 
   </Accordion>
 
   <Accordion title="2. Install dependencies" icon="cube">
-    The next step is to install all of the required dependencies for OrbitKit, we use `pnpm` as the package manager.
+    The next step is to install all of the required dependencies for OrbitKit, we use `bun` as the package manager.
 
     ```bash
     # Navigate to the project directory
     cd <your-project-name>
 
     # Install dependencies
-    pnpm install
+    bun install
     ```
 
   </Accordion>
@@ -175,10 +175,10 @@ When you first clone the repository, you should reset the changelog and versions
 
 ```bash
 # Reset changelog - this will remove all the changelog.md files in the packages
-pnpm reset:changelog
+bun reset:changelog
 
 # Reset package versions - this will reset the versions of all the packages to 0.1.0
-pnpm reset:versions
+bun reset:versions
 ```
 
 ### Running the project
@@ -186,7 +186,7 @@ pnpm reset:versions
 Now that you have set up the environment variables, you can run the project!
 
 ```bash
-pnpm turbo dev
+bun turbo dev
 ```
 
 This command will apply the necessary database migrations and start the development tasks on all of the apps & packages.
