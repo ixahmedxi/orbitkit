@@ -1,20 +1,20 @@
 ---
-'@orbitkit/storybook': patch
-'@orbitkit/tailwind': patch
-'@orbitkit/tsconfig': patch
-'eslint-config-orbitkit': patch
-'@orbitkit/vite': patch
-'@orbitkit/assets': patch
-'@orbitkit/marketing': patch
-'@orbitkit/utils': patch
-'@orbitkit/auth': patch
-'@orbitkit/core': patch
-'@orbitkit/api': patch
-'@orbitkit/env': patch
-'@orbitkit/db': patch
-'@orbitkit/ui': patch
-'@orbitkit/docs': patch
-'@orbitkit/web': patch
+'@orbitkit/storybook': minor
+'@orbitkit/tailwind': minor
+'@orbitkit/tsconfig': minor
+'eslint-config-orbitkit': minor
+'@orbitkit/vite': minor
+'@orbitkit/assets': minor
+'@orbitkit/marketing': minor
+'@orbitkit/utils': minor
+'@orbitkit/auth': minor
+'@orbitkit/core': minor
+'@orbitkit/api': minor
+'@orbitkit/env': minor
+'@orbitkit/db': minor
+'@orbitkit/ui': minor
+'@orbitkit/docs': minor
+'@orbitkit/web': minor
 ---
 
 feat: moving from `pnpm` to `bun`
