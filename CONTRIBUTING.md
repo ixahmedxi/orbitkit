@@ -18,7 +18,6 @@ To contribute to this project, follow these steps:
 ### Prerequisites
 
 ```shell
-node: "^>=20.12.2"
 bun: ">=1.1.9"
 ```
 
