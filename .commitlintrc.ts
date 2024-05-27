@@ -1,6 +1,23 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+// ------------------------------------------------------------------
+
+// -- CUSTOM COMMITLINT CONFIGURATION --
+// This configuration is used to enforce the scope-enum rule.
+// The scope-enum rule requires that the scope of a commit message
+// must be one of the defined values.
+// The defined values are the package names of the workspace.
+// The package names are extracted from the package.json files.
+//
+// This was previously achieved using @commitlint/config-pnpm-scopes
+// which provides a custom commitlint configuration.
+//
+// As Orbitkit has moved away from pnpm workspaces, we need to
+// implement a custom commitlint configuration to achieve the same.
+
+// ------------------------------------------------------------------
+
 interface PackageJson {
   name: string;
   workspaces?: string[];
@@ -9,6 +26,8 @@ interface PackageJson {
 interface Context {
   cwd?: string;
 }
+
+// ------------------------------------------------------------------
 
 // Function to read and parse the root package.json
 function getRootPackageJson(cwd: string): PackageJson {
@@ -80,7 +99,7 @@ function getProjects(context?: Context): string[] {
     .sort();
 }
 
-// Execute the function and log the result
+// We are exporting a custom commitlint configuration
 export default {
   extends: ['@commitlint/config-conventional'],
   utils: { getProjects },
