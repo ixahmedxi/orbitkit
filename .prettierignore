@@ -6,6 +6,8 @@ drizzle/
 
 .changeset/
 
+.commitlintrc.ts
+
 packages/ui/src/primitives/form/form.mdx
 packages/ui/src/primitives/toast/toast.mdx
 packages/ui/src/primitives/carousel/carousel.mdx

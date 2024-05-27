@@ -34,6 +34,7 @@ words:
   - codespaces
   - Colm
   - commitlint
+  - commitlintrc
   - consts
   - crossorigin
   - datetime
