@@ -9,4 +9,5 @@ export declare const compat: FlatCompat;
 export declare const configs: {
   base: FlatConfig.ConfigArray;
   playwright: FlatConfig.ConfigArray;
+  react: FlatConfig.ConfigArray;
 };

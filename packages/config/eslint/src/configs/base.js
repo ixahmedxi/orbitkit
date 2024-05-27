@@ -12,7 +12,7 @@ import { compat, defineConfig } from '../utils.js';
 
 export const base = defineConfig(
   {
-    ignores: ['.next', '.astro', 'dist', 'storybook-static'],
+    ignores: ['.next', '.astro', 'dist', 'storybook-static', '.tsup'],
   },
 
   // Base JS/TS configs
@@ -34,6 +34,9 @@ export const base = defineConfig(
     extends: [jsdoc.configs['flat/recommended-typescript-error']],
   },
 
+  // Prettier config to disable conflicting rules
+  prettierConfig,
+
   {
     files: ['**/*.cjs'],
     languageOptions: {
@@ -43,9 +46,6 @@ export const base = defineConfig(
       }
     }
   },
-
-  // Prettier config to disable conflicting rules
-  prettierConfig,
 
   {
     linterOptions: {

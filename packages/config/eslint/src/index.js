@@ -1,5 +1,6 @@
 import { base } from './configs/base.js';
 import { playwright } from './configs/playwright.js';
+import { react } from './configs/react.js';
 
 export { defineConfig } from './utils.js';
 
@@ -9,5 +10,6 @@ export { defineConfig } from './utils.js';
  */
 export const configs = {
   base,
-  playwright
+  playwright,
+  react,
 };
