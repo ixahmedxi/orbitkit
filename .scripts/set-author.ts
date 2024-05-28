@@ -18,7 +18,7 @@ const newAuthor = argv.author;
 
 // ------------------------------------------------------------------
 
-// Function to recursively find package.json files and update the version
+// Function to update the author in package.json files
 function updateAuthor(packageJson: any): void {
   packageJson.author = newAuthor;
   return packageJson;

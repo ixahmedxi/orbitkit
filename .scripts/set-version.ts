@@ -18,7 +18,7 @@ const newVersion = argv.ver ?? '0.1.0';
 
 // ------------------------------------------------------------------
 
-// Function to recursively find package.json files and update the version
+// Function to update the version in package.json files
 function updateVersion(packageJson: any): void {
   packageJson.version = newVersion;
   return packageJson;

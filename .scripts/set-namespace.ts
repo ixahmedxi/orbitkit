@@ -18,7 +18,7 @@ const newNamespace = argv.namespace;
 
 // ------------------------------------------------------------------
 
-// Function to recursively find package.json files and update the name
+// Function to update the name in package.json files
 function updatePackageName(packageJson: any, fullPath: string): any {
   if (packageJson.name) {
     const parts = packageJson.name.split('/');
