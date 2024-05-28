@@ -1,4 +1,4 @@
-import type { ComponentProps} from 'react';
+import type { ComponentProps } from 'react';
 import { useState } from 'react';
 
 import { CalendarIcon } from '@radix-ui/react-icons';
@@ -39,7 +39,7 @@ const DefaultCalendarExample = (props: ComponentProps<typeof Calendar>) => {
       className="rounded-md border shadow"
     />
   );
-}
+};
 
 const DatePickerExample = (props: ComponentProps<typeof Calendar>) => {
   const [date, setDate] = useState<Date>();
@@ -69,7 +69,7 @@ const DatePickerExample = (props: ComponentProps<typeof Calendar>) => {
       </PopoverContent>
     </Popover>
   );
-}
+};
 
 const DateRangePickerExample = (props: ComponentProps<typeof Calendar>) => {
   const [date, setDate] = useState<DateRange | undefined>({
@@ -118,7 +118,7 @@ const DateRangePickerExample = (props: ComponentProps<typeof Calendar>) => {
       </Popover>
     </div>
   );
-}
+};
 
 const WithPresetsExample = (props: ComponentProps<typeof Calendar>) => {
   const [date, setDate] = useState<Date>();
@@ -167,18 +167,18 @@ const WithPresetsExample = (props: ComponentProps<typeof Calendar>) => {
       </PopoverContent>
     </Popover>
   );
-}
+};
 
 export const Default: Story = {
-  render: (args) =>  <DefaultCalendarExample {...args} />
+  render: (args) => <DefaultCalendarExample {...args} />,
 };
 
 export const DatePicker: Story = {
-  render: (args) => <DatePickerExample {...args} />
+  render: (args) => <DatePickerExample {...args} />,
 };
 
 export const DateRangePicker: Story = {
-  render: (args) => <DateRangePickerExample {...args} />
+  render: (args) => <DateRangePickerExample {...args} />,
 };
 
 export const WithPresets: Story = {

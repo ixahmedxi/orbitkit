@@ -1,5 +1,5 @@
 $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
-version: "0.2"
+version: '0.2'
 ignorePaths:
   - node_modules
   - bun.lockb
@@ -11,7 +11,7 @@ ignorePaths:
   - .next
   - .astro
   - drizzle
-  - "**/*.svg"
+  - '**/*.svg'
 words:
   - acst
   - aest

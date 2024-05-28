@@ -21,7 +21,9 @@ function updateVersion(dir: string): void {
         updateVersion(fullPath);
       }
     } else if (file === 'package.json') {
-      const packageJson = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as { version: string };
+      const packageJson = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as {
+        version: string;
+      };
       packageJson.version = newVersion;
       fs.writeFileSync(fullPath, JSON.stringify(packageJson, null, 2) + '\n');
       console.log(`Updated version in ${fullPath}`);
