@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/storybook",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A package to share Storybook configuration preset for the workspace",
   "license": "MIT",

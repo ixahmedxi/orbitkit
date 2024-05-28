@@ -1,5 +1,18 @@
 # @orbitkit/web
 
+## 0.2.1
+
+### Patch Changes
+
+- 870e09f: feat: eslint v9
+- Updated dependencies [870e09f]
+  - @orbitkit/utils@0.2.1
+  - @orbitkit/auth@0.2.1
+  - @orbitkit/api@0.2.1
+  - @orbitkit/env@0.2.1
+  - @orbitkit/db@0.2.1
+  - @orbitkit/ui@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
