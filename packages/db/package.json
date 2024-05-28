@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/db",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A database package utilizing drizzle orm.",
   "license": "MIT",
