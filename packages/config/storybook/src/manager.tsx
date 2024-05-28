@@ -27,7 +27,7 @@ export const registerAddons = () => {
     addons.add('docs-theme-addon', {
       title: 'Addon to change docs story theme',
       type: types.TOOL,
-      match: ({ viewMode }) => !!viewMode?.match(/^(story|docs)$/),
+      match: ({ viewMode }) => !!viewMode?.match(/^(?:story|docs)$/),
       render: ExampleToolbar,
     });
   });

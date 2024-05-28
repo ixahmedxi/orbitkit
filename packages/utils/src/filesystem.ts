@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import { type Dirent } from 'fs';
 import { readdir, writeFile } from 'fs/promises';
 
@@ -6,7 +7,6 @@ import prettier from 'prettier';
 
 /**
  * This function lists all directories in a given path.
- *
  * @param path The path to the parent directory
  * @returns A list of directory names in the parent directory
  */
@@ -18,7 +18,6 @@ export async function listDirectories(path: string): Promise<Dirent[]> {
 
 /**
  * This function lists all files in a given path.
- *
  * @param path The path to the parent directory
  * @returns A list of file names in the parent directory
  */
@@ -46,7 +45,6 @@ type FormatAndWriteWithPrettierConfig = {
 /**
  * This function formats the given content with Prettier and writes it to the
  * output file.
- *
  * @param args The arguments for the function.
  * @returns The formatted content.
  */
@@ -60,6 +58,10 @@ export async function formatAndWriteWithPrettier(
     throw new Error('Prettier config not found');
   }
 
+  /**
+   * This function generates the Prettier config.
+   * @returns The Prettier config.
+   */
   function genConfig(): prettier.Config {
     if (args.parser) {
       return {
@@ -76,6 +78,10 @@ export async function formatAndWriteWithPrettier(
 
   const formatted = await prettier.format(args.content, genConfig());
 
+  /**
+   * This function generates the output file path.
+   * @returns The output file path.
+   */
   function genOutputFilePath(): string {
     if (args.outputFilePath) {
       return args.outputFilePath;
@@ -92,3 +98,4 @@ export async function formatAndWriteWithPrettier(
 
   return formatted;
 }
+/* eslint-enable security/detect-non-literal-fs-filename */

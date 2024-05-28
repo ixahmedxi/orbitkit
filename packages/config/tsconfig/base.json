@@ -3,6 +3,7 @@
   "display": "Strictest",
   "compilerOptions": {
     "strict": true,
+    "strictNullChecks": true,
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
     "exactOptionalPropertyTypes": true,

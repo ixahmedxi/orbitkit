@@ -22,6 +22,10 @@ const google =
     `${baseUrl}/login/google/callback`,
   );
 
+/**
+ * This function creates a Google authorization URL.
+ * @returns The response.
+ */
 export async function createGoogleAuthorizationURL(): Promise<Response> {
   if (!google) {
     return new Response(null, {
@@ -62,6 +66,11 @@ const googleUser = z.object({
   name: z.string(),
 });
 
+/**
+ * This function validates the Google callback.
+ * @param request The request.
+ * @returns The response.
+ */
 export async function validateGoogleCallback(
   request: Request,
 ): Promise<Response> {

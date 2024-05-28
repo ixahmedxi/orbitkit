@@ -21,7 +21,7 @@
     "db:push": "dotenv -e ../../apps/web/.env.local drizzle-kit push",
     "db:studio": "dotenv -e ../../apps/web/.env.local drizzle-kit studio",
     "db:up": "dotenv -e ../../apps/web/.env.local drizzle-kit up",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -33,9 +33,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@orbitkit/eslint": "workspace:*",
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.21.4",
-    "eslint-config-orbitkit": "workspace:*"
+    "drizzle-kit": "^0.21.4"
   }
 }

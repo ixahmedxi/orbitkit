@@ -3,6 +3,6 @@
   "compilerOptions": {
     "tsBuildInfoFile": ".tsbuildinfo"
   },
-  "include": [".eslintrc.cjs", "*.js", "*.ts", "*.cjs", "*.mjs"],
+  "include": ["**/*.js", "**/*.ts", ".commitlintrc.ts"],
   "exclude": ["apps", "packages", "node_modules"]
 }

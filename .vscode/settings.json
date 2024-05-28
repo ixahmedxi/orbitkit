@@ -1,7 +1,14 @@
 {
+  // Editor
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ESLint
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
@@ -11,25 +18,11 @@
       "severity": "warn"
     }
   ],
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.quickSuggestions": {
-    "strings": "on"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    "twc\\.[^`]+`([^`]*)`",
-    "twc\\(.*?\\).*?`([^`]*)",
-    ["twc\\.[^`]+\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
-    ["twc\\(.*?\\).*?\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*/" },
+    { "pattern": "packages/*/" },
+    { "pattern": "packages/config/*/" }
   ],
   "eslint.validate": [
     "javascript",
@@ -37,5 +30,17 @@
     "astro",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+
+  // Tailwind
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+
+  // TypeScript
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

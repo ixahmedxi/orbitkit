@@ -10,6 +10,10 @@ import {
 } from './toast';
 import { useToast } from './use-toast';
 
+/**
+ * A toast provider that renders toasts.
+ * @returns The rendered toasts.
+ */
 export function Toaster() {
   const { toasts } = useToast();
 

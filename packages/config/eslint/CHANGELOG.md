@@ -1,4 +1,4 @@
-# eslint-config-orbitkit
+# @orbitkit/eslint
 
 ## 0.2.0
 

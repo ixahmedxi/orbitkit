@@ -7,12 +7,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".eslintrc.cjs",
-    ".storybook/**/*",
-    "**/*.cjs"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", ".storybook/**/*", "**/*.cjs", "**/*.js"],
   "exclude": ["dist", "node_modules", "storybook-static"]
 }

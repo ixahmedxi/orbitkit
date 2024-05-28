@@ -27,6 +27,8 @@ words:
   - bunx
   - bvaughn
   - Byrom
+  - callees
+  - classname
   - clsx
   - cmdk
   - codespace
@@ -34,6 +36,7 @@ words:
   - Colm
   - commitlint
   - commitlintrc
+  - compat
   - consts
   - crossorigin
   - datetime
@@ -76,6 +79,7 @@ words:
   - trpc
   - tsbuildinfo
   - tsconfigs
+  - tseslint
   - tsup
   - Tuite
   - turborepo

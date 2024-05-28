@@ -12,10 +12,16 @@ const googleAuthIsEnabled =
 const githubAuthIsEnabled =
   env.AUTH_GITHUB_SECRET !== undefined && env.AUTH_GITHUB_ID !== undefined;
 
+/**
+ * The login page of the application, if the user is already logged in they will be redirected to the home page.
+ * @returns Next.js RSC page.
+ */
 export default async function Page() {
   const { user } = await auth();
 
-  if (user) redirect('/');
+  if (user) {
+    redirect('/');
+  }
 
   return (
     <main className="container mx-auto flex flex-col">

@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.44.1",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   }
 }
