@@ -34,6 +34,7 @@
     "typescript-eslint": "^8.0.0-alpha.18"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.3",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^20.12.12",
