@@ -22,6 +22,7 @@
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
+    "rename:packages": "bun run ./.scripts/rename-packages --",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
     "reset:versions": "bun run ./.scripts/reset-versions",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
@@ -68,6 +69,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "rimraf": "^5.0.7",
     "turbo": "^1.13.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "yargs": "^17.7.2"
   }
 }
