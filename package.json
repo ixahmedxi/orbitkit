@@ -22,7 +22,7 @@
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
-    "rename:packages": "bun run ./.scripts/rename-packages --",
+    "rename:packages": "bun run ./.scripts/rename-packages",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
     "reset:versions": "bun run ./.scripts/reset-versions",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
