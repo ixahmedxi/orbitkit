@@ -19,7 +19,7 @@ const argv = yargs(hideBin(process.argv))
     demandOption: false,
     description: 'Exclude packages from the update',
   })
-  .option('includeRoot', {
+  .option('include-root', {
     alias: 'ir',
     type: 'boolean',
     demandOption: false,
@@ -31,7 +31,7 @@ const newVersion = argv.ver ?? '0.1.0';
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const excludePackages = argv.exclude ?? [];
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
-const includeRoot = argv.includeRoot ?? false;
+const includeRoot = argv['include-root'] ?? false;
 
 // ------------------------------------------------------------------
 
