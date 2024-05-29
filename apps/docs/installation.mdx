@@ -171,14 +171,32 @@ OrbitKit currently ships with two authentication providers, Google and Github. Y
 
 ### Reset changelog and versions
 
-When you first clone the repository, you should reset the changelog and versions to start fresh. You can do so by running the following commands:
+When you first clone the repository, you should reset the changelog and project metadata to start fresh. You can do so by running the following commands:
 
 ```bash
 # Reset changelog - this will remove all the changelog.md files in the packages
 bun reset:changelog
 
 # Reset package versions - this will reset the versions of all the packages to 0.1.0
-bun reset:versions
+bun set:version --ir
+# Use the --ver or -v flag to set a specific version e.g. --ver 1.0.0
+
+# Change the package namespace for all the packages to "@myapp"
+bun set:namespace -n "@myapp" --ir
+# When including the root package, the root package will be renamed to "myapp"
+
+# Set the author for all the packages
+bun set:author -a "Your Name <[email protected]> - https://yourwebsite.com" --ir
+
+# Set the license for all the packages to MIT
+bun set:license -l "MIT" --ir
+```
+
+Each of these commands has a few options that you can use:
+
+```bash
+--ir, --include-root # Include the root package
+-e, --exclude # Exclude packages e.g. --exclude @myapp/core @myapp/db
 ```
 
 ### Running the project
