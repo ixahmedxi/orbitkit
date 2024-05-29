@@ -1,3 +1,5 @@
+import type { PackageJson } from 'type-fest';
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -24,31 +26,35 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     demandOption: false,
     description: 'Include the root package.json',
-  }).argv;
+  })
+  .parseSync();
 
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const newNamespace = argv.namespace;
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const excludePackages = argv.exclude ?? [];
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
-const includeRoot = argv['include-root'] ?? false;
+const includeRoot = argv['include-root'];
 
 // ------------------------------------------------------------------
 
 // Function to update the name in package.json files
-function updatePackageName(packageJson: any, fullPath: string): any {
-  // Skip updating excluded packages
-  if (excludePackages.includes(packageJson.name)) {
-    return packageJson;
-  }
-
+function updatePackageName(
+  packageJson: PackageJson,
+  fullPath: string,
+): PackageJson {
   if (packageJson.name) {
+    // Skip updating excluded packages
+    if (excludePackages.includes(packageJson.name)) {
+      return packageJson;
+    }
+
+    // Update the name
     const parts = packageJson.name.split('/');
+
     if (parts.length === 2) {
       parts[0] = newNamespace;
       packageJson.name = parts.join('/');
       console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
     } else if (fullPath === process.cwd()) {
+      // Update the root package.json name
       packageJson.name = newNamespace.replace('@', '');
       console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
     }

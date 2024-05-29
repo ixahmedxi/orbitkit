@@ -1,3 +1,5 @@
+import type { PackageJson } from 'type-fest';
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -24,21 +26,19 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     demandOption: false,
     description: 'Include the root package.json',
-  }).argv;
+  })
+  .parseSync();
 
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const newLicense = argv.license ?? 'MIT';
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const excludePackages = argv.exclude ?? [];
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const includeRoot = argv['include-root'] ?? false;
 
 // ------------------------------------------------------------------
 
 // Function to update the version in package.json files
-function updateLicense(packageJson: any): void {
+function updateLicense(packageJson: PackageJson): PackageJson {
   // Skip updating excluded packages
-  if (excludePackages.includes(packageJson.name)) {
+  if (packageJson.name && excludePackages.includes(packageJson.name)) {
     return packageJson;
   }
 

@@ -23,10 +23,10 @@
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
-    "set:author": "bun run ./.scripts/set-author",
-    "set:license": "bun run ./.scripts/set-license",
-    "set:namespace": "bun run ./.scripts/set-namespace",
-    "set:version": "bun run ./.scripts/set-version",
+    "set:author": "bun run ./scripts/set-author",
+    "set:license": "bun run ./scripts/set-license",
+    "set:namespace": "bun run ./scripts/set-namespace",
+    "set:version": "bun run ./scripts/set-version",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
   },
   "lint-staged": {
@@ -55,6 +55,7 @@
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
     "@types/eslint": "^8.56.10",
+    "@types/yargs": "^17.0.32",
     "commitizen": "^4.3.0",
     "cspell": "^8.8.3",
     "eslint": "^8.57.0",
@@ -71,6 +72,7 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "rimraf": "^5.0.7",
     "turbo": "^1.13.3",
+    "type-fest": "^4.18.3",
     "typescript": "^5.4.5",
     "yargs": "^17.7.2"
   }

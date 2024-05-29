@@ -1,4 +1,4 @@
-import { getWorkspacePackageNames } from './.scripts/utils';
+import { getWorkspacePackageNames } from './scripts/utils';
 
 // ------------------------------------------------------------------
 

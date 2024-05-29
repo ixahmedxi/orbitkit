@@ -1,12 +1,7 @@
+import type { PackageJson } from 'type-fest';
+
 import * as fs from 'fs';
 import * as path from 'path';
-
-// ------------------------------------------------------------------
-
-export interface PackageJson {
-  name: string;
-  workspaces?: string[];
-}
 
 // ------------------------------------------------------------------
 
@@ -42,13 +37,15 @@ export function getWorkspacePackagePaths(workspaces: string[]): string[] {
 
 // Function to get package names from package.json files
 export function getPackageNamesFromPaths(packagePaths: string[]): string[] {
-  const packageNames = packagePaths.map((pkgPath) => {
-    const packageJsonPath = path.join(pkgPath, 'package.json');
-    const packageJson = JSON.parse(
-      fs.readFileSync(packageJsonPath, 'utf-8'),
-    ) as PackageJson;
-    return packageJson.name;
-  });
+  const packageNames = packagePaths
+    .map((pkgPath) => {
+      const packageJsonPath = path.join(pkgPath, 'package.json');
+      const packageJson = JSON.parse(
+        fs.readFileSync(packageJsonPath, 'utf-8'),
+      ) as PackageJson;
+      return packageJson.name;
+    })
+    .filter((name): name is string => !!name); // Filter out undefined names
 
   return packageNames;
 }
@@ -63,11 +60,14 @@ export function getWorkspacePackageNames(cwd: string): string[] {
   }
 
   const workspacePackagePaths = getWorkspacePackagePaths(
-    rootPackageJson.workspaces,
+    rootPackageJson.workspaces as string[],
   );
   const packageNames = getPackageNamesFromPaths(workspacePackagePaths);
 
-  return [...packageNames, rootPackageJson.name];
+  return [
+    ...packageNames,
+    ...(rootPackageJson.name ? [rootPackageJson.name] : []),
+  ];
 }
 
 // ------------------------------------------------------------------
@@ -75,8 +75,8 @@ export function getWorkspacePackageNames(cwd: string): string[] {
 // Function to update all package.json files in the workspace
 export function updateWorkspacePackages(
   cwd: string,
-  update: (parsedPackageJson: any, fullPath: string) => any,
-  includeRoot: boolean = false,
+  update: (parsedPackageJson: PackageJson, fullPath: string) => PackageJson,
+  includeRoot = false,
 ): void {
   const rootPackageJson = getRootPackageJson(cwd);
 
@@ -85,7 +85,7 @@ export function updateWorkspacePackages(
   }
 
   const workspacePackagePaths = getWorkspacePackagePaths(
-    rootPackageJson.workspaces,
+    rootPackageJson.workspaces as string[],
   );
 
   if (includeRoot) {
@@ -94,7 +94,9 @@ export function updateWorkspacePackages(
 
   workspacePackagePaths.forEach((pkgPath) => {
     const packageJsonPath = path.join(pkgPath, 'package.json');
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+    const packageJson = JSON.parse(
+      fs.readFileSync(packageJsonPath, 'utf-8'),
+    ) as PackageJson;
     const updatedPackageJson = update(packageJson, pkgPath);
     fs.writeFileSync(
       packageJsonPath,

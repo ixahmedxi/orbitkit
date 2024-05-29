@@ -1,3 +1,5 @@
+import type { PackageJson } from 'type-fest';
+
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -7,10 +9,10 @@ import { updateWorkspacePackages } from './utils';
 
 // Parse command line arguments
 const argv = yargs(hideBin(process.argv))
-  .option('ver', {
-    alias: 'v',
+  .option('author', {
+    alias: 'a',
     type: 'string',
-    demandOption: false,
+    demandOption: true,
     description: 'The new version for the packages',
   })
   .option('exclude', {
@@ -24,28 +26,26 @@ const argv = yargs(hideBin(process.argv))
     type: 'boolean',
     demandOption: false,
     description: 'Include the root package.json',
-  }).argv;
+  })
+  .parseSync();
 
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
-const newVersion = argv.ver ?? '0.1.0';
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
+const newAuthor = argv.author;
 const excludePackages = argv.exclude ?? [];
-// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
-const includeRoot = argv['include-root'] ?? false;
+const includeRoot = argv['include-root'];
 
 // ------------------------------------------------------------------
 
-// Function to update the version in package.json files
-function updateVersion(packageJson: any): void {
+// Function to update the author in package.json files
+function updateAuthor(packageJson: PackageJson): PackageJson {
   // Skip updating excluded packages
-  if (excludePackages.includes(packageJson.name)) {
+  if (packageJson.name && excludePackages.includes(packageJson.name)) {
     return packageJson;
   }
 
-  packageJson.version = newVersion;
-  console.log(`Updated version of ${packageJson.name}`);
+  packageJson.author = newAuthor;
+  console.log(`Updated author of ${packageJson.name}`);
   return packageJson;
 }
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updateVersion, includeRoot);
+updateWorkspacePackages(process.cwd(), updateAuthor, includeRoot);
