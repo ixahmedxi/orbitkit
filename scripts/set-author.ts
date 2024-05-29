@@ -13,7 +13,7 @@ const argv = yargs(hideBin(process.argv))
     alias: 'a',
     type: 'string',
     demandOption: true,
-    description: 'The new version for the packages',
+    description: 'The new author of the packages',
   })
   .option('exclude', {
     alias: 'e',
