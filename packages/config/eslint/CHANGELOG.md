@@ -1,4 +1,10 @@
-# eslint-config-orbitkit
+# @orbitkit/eslint
+
+## 0.2.1
+
+### Patch Changes
+
+- 870e09f: feat: eslint v9
 
 ## 0.2.0
 

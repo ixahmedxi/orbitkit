@@ -1,6 +1,6 @@
 {
   "name": "orbitkit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A comprehensive, opinionated company monorepo boilerplate",
   "license": "MIT",
@@ -12,12 +12,12 @@
     "packages/config/*"
   ],
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/.eslintcache **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
+    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
     "format": "bun format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "lint:md": "markdownlint \"**/*.md\" \".github/**/*.md\" --ignore node_modules",
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
@@ -27,7 +27,7 @@
     "set:license": "bun run ./scripts/set-license",
     "set:namespace": "bun run ./scripts/set-namespace",
     "set:version": "bun run ./scripts/set-version",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "typecheck": "tsc"
   },
   "lint-staged": {
     "*": [
@@ -52,14 +52,14 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@commitlint/cz-commitlint": "^19.2.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
     "@types/eslint": "^8.56.10",
     "@types/yargs": "^17.0.32",
     "commitizen": "^4.3.0",
     "cspell": "^8.8.3",
-    "eslint": "^8.57.0",
-    "eslint-config-orbitkit": "workspace:^",
+    "eslint": "^9.3.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "markdownlint": "^0.34.0",
@@ -67,9 +67,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-curly": "^0.2.1",
-    "prettier-plugin-jsdoc": "^1.3.0",
     "prettier-plugin-packagejson": "^2.5.0",
-    "prettier-plugin-tailwindcss": "^0.5.14",
     "rimraf": "^5.0.7",
     "turbo": "^1.13.3",
     "type-fest": "^4.18.3",

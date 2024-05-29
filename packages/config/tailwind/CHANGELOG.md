@@ -1,5 +1,11 @@
 # @orbitkit/tailwind
 
+## 0.2.1
+
+### Patch Changes
+
+- 870e09f: feat: eslint v9
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,34 +1,44 @@
 {
-  "name": "eslint-config-orbitkit",
-  "version": "0.2.0",
+  "name": "@orbitkit/eslint",
+  "version": "0.2.1",
   "private": true,
   "description": "A package to share ESLint configurations in workspace",
   "license": "MIT",
   "author": "OrbitKit",
-  "files": [
-    "./base.js",
-    "./next.js",
-    "./react.js",
-    "./storybook.js",
-    "./astro.js"
-  ],
-  "scripts": {
-    "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.js",
+      "types": "./src/index.d.ts"
+    }
   },
-  "devDependencies": {
-    "@orbitkit/tsconfig": "workspace:^",
-    "@typescript-eslint/eslint-plugin": "^7.10.0",
-    "@typescript-eslint/parser": "^7.10.0",
-    "astro-eslint-parser": "^1.0.2",
-    "eslint-config-next": "^14.2.3",
+  "scripts": {
+    "lint": "eslint .  --max-warnings 0",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.3.0",
+    "@eslint/compat": "^1.0.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^1.2.0",
-    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-jsdoc": "^48.2.6",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-regexp": "^2.6.0",
+    "eslint-plugin-security": "^3.0.0",
+    "eslint-plugin-tailwindcss": "^3.17.0",
+    "globals": "^15.3.0",
+    "typescript-eslint": "^8.0.0-alpha.18"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.3",
+    "@orbitkit/tsconfig": "workspace:^",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/utils": "^8.0.0-alpha.18",
     "eslint-plugin-storybook": "^0.8.0"
   }
 }

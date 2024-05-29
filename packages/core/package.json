@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Core package for business logic",
   "license": "MIT",
@@ -16,14 +16,14 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "lint": "eslint .  --max-warnings 0",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.44.1",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^",
     "tsup": "^8.0.2"
   }
 }

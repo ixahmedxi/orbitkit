@@ -7,7 +7,7 @@ const meta: Meta<typeof Toggle> = {
   component: Toggle,
   args: {
     'aria-label': 'Toggle bold',
-    children: <FontBoldIcon className="h-4 w-4" />,
+    children: <FontBoldIcon className="size-4" />,
     size: 'default',
     variant: 'default',
   },
@@ -35,7 +35,7 @@ export const WithText: Story = {
   args: {
     children: (
       <>
-        <FontItalicIcon className="h-4 w-4 mr-2" />
+        <FontItalicIcon className="mr-2 size-4" />
         Italic
       </>
     ),

@@ -11,17 +11,17 @@ const items = [
   {
     value: 'bold',
     'aria-label': 'Toggle bold',
-    children: <FontBoldIcon className="h-4 w-4" />,
+    children: <FontBoldIcon className="size-4" />,
   },
   {
     value: 'italic',
     'aria-label': 'Toggle italic',
-    children: <FontItalicIcon className="h-4 w-4" />,
+    children: <FontItalicIcon className="size-4" />,
   },
   {
     value: 'strikethrough',
     'aria-label': 'Toggle strikethrough',
-    children: <UnderlineIcon className="h-4 w-4" />,
+    children: <UnderlineIcon className="size-4" />,
   },
 ];
 

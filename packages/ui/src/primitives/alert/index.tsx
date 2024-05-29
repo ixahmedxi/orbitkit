@@ -7,13 +7,13 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const alertVariants = cva(
-  'relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground',
+  'relative w-full rounded-lg border p-4 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground [&>svg~*]:pl-7',
   {
     variants: {
       variant: {
         default: 'bg-gray-2 text-foreground',
         destructive:
-          'bg-red-2 border-red-6 text-destructive [&>svg]:text-destructive',
+          'border-red-6 bg-red-2 text-destructive [&>svg]:text-destructive',
       },
     },
     defaultVariants: {

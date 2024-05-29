@@ -26,6 +26,12 @@ export const api = createTRPCReact<AppRouter>();
 export type RouterInputs = inferRouterInputs<AppRouter>;
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
 
+/**
+ * This component is used to initialize the trpc & react-query pairing on the client side.
+ * @param props The props to the component.
+ * @param props.children The children to render.
+ * @returns react-query and trpc providers wrapper around the children.
+ */
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const queryClient = getQueryClient();
 

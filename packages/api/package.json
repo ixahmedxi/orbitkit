@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A tRPC API package used in the web application",
   "license": "MIT",
@@ -11,8 +11,8 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "lint": "eslint .  --max-warnings 0",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@orbitkit/auth": "workspace:^",
@@ -24,8 +24,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.12",
-    "eslint-config-orbitkit": "workspace:^"
+    "@types/node": "^20.12.12"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/marketing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Marketing website for OrbitKit",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "astro check && astro build",
     "dev": "astro dev",
-    "lint": "eslint . --cache --max-warnings 0",
+    "lint": "eslint .  --max-warnings 0",
     "start": "astro preview",
     "test:e2e": "playwright test",
     "typecheck": "astro check"
@@ -32,6 +32,7 @@
     "@astrojs/react": "^3.4.0",
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/tailwind": "^5.1.0",
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
@@ -40,7 +41,6 @@
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "dotenv": "^16.4.5",
-    "eslint-config-orbitkit": "workspace:^",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3"
   }

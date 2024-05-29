@@ -23,6 +23,11 @@ interface Context {
 
 // ------------------------------------------------------------------
 
+/**
+ * Function to get all projects in the workspace
+ * @param context The context object
+ * @returns An array of all projects in the workspace
+ */
 function getProjects(context?: Context): string[] {
   const ctx = context ?? {};
   const cwd = ctx.cwd ?? process.cwd();

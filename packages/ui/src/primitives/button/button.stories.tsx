@@ -54,7 +54,7 @@ export const Icon: Story = {
     size: 'icon',
     children: (
       <>
-        <ChevronRightIcon className="h-4 w-4" />
+        <ChevronRightIcon className="size-4" />
       </>
     ),
   },
@@ -67,7 +67,7 @@ export const WithIcon: Story = {
   args: {
     children: (
       <>
-        <EnvelopeOpenIcon className="h-4 w-4 mr-2" /> Login with Email
+        <EnvelopeOpenIcon className="mr-2 size-4" /> Login with Email
       </>
     ),
   },
@@ -82,7 +82,7 @@ export const Loading: Story = {
     disabled: true,
     children: (
       <>
-        <ReloadIcon className="h-4 w-4 mr-2 animate-spin" />
+        <ReloadIcon className="mr-2 size-4 animate-spin" />
         Please wait
       </>
     ),

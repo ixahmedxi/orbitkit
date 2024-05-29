@@ -14,6 +14,10 @@ const github =
     ? new GitHub(env.AUTH_GITHUB_ID, env.AUTH_GITHUB_SECRET)
     : undefined;
 
+/**
+ * This function creates a GitHub authorization URL.
+ * @returns The response.
+ */
 export async function createGithubAuthorizationURL(): Promise<Response> {
   if (!github) {
     return new Response(null, {
@@ -43,6 +47,11 @@ interface GitHubUser {
   name: string;
 }
 
+/**
+ * This function validates the GitHub callback.
+ * @param request The request.
+ * @returns The response.
+ */
 export async function validateGithubCallback(
   request: Request,
 ): Promise<Response> {

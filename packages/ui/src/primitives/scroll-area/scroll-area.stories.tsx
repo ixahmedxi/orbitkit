@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof ScrollArea>;
 
 const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`,
+  (_, i, a) => `v1.2.0-beta.${String(a.length - i)}`,
 );
 
 export const Default: Story = {
@@ -37,10 +37,10 @@ export const Default: Story = {
   ),
 };
 
-type Artwork = {
+interface Artwork {
   artist: string;
   art: string;
-};
+}
 
 const works: Artwork[] = [
   {
@@ -67,12 +67,12 @@ export const HorizontalScrolling: Story = {
               <img
                 src={artwork.art}
                 alt={`By ${artwork.artist}`}
-                className="aspect-[3/4] h-fit w-fit object-cover"
+                className="aspect-[3/4] size-fit object-cover"
                 width={300}
                 height={400}
               />
             </div>
-            <figcaption className="pt-2 text-xs text-muted-foreground">
+            <figcaption className="pt-2 text-xs text-gray-11">
               Photo by{' '}
               <span className="font-semibold text-foreground">
                 {artwork.artist}

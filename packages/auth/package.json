@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/auth",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Auth package for OrbitKit",
   "license": "MIT",
@@ -15,8 +15,8 @@
     "./actions/logout": "./src/actions/logout.ts"
   },
   "scripts": {
-    "lint": "eslint . --cache --max-warnings 0",
-    "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
+    "lint": "eslint .  --max-warnings 0",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@lucia-auth/adapter-drizzle": "^1.0.7",
@@ -32,10 +32,10 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/node": "^20.12.12",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "eslint-config-orbitkit": "workspace:^"
+    "@types/react-dom": "^18.3.0"
   }
 }
