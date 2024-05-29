@@ -18,12 +18,20 @@ const argv = yargs(hideBin(process.argv))
     type: 'array',
     demandOption: false,
     description: 'Exclude packages from the update',
+  })
+  .option('includeRoot', {
+    alias: 'ir',
+    type: 'boolean',
+    demandOption: false,
+    description: 'Include the root package.json',
   }).argv;
 
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const newAuthor = argv.author;
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const excludePackages = argv.exclude ?? [];
+// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
+const includeRoot = argv.includeRoot ?? false;
 
 // ------------------------------------------------------------------
 
@@ -35,8 +43,9 @@ function updateAuthor(packageJson: any): void {
   }
 
   packageJson.author = newAuthor;
+  console.log(`Updated author of ${packageJson.name}`);
   return packageJson;
 }
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updateAuthor);
+updateWorkspacePackages(process.cwd(), updateAuthor, includeRoot);

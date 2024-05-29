@@ -18,12 +18,20 @@ const argv = yargs(hideBin(process.argv))
     type: 'array',
     demandOption: false,
     description: 'Exclude packages from the update',
+  })
+  .option('includeRoot', {
+    alias: 'ir',
+    type: 'boolean',
+    demandOption: false,
+    description: 'Include the root package.json',
   }).argv;
 
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const newNamespace = argv.namespace;
 // @ts-ignore - argv is typed to maybe return a promise, but it doesn't
 const excludePackages = argv.exclude ?? [];
+// @ts-ignore - argv is typed to maybe return a promise, but it doesn't
+const includeRoot = argv.includeRoot ?? false;
 
 // ------------------------------------------------------------------
 
@@ -40,9 +48,12 @@ function updatePackageName(packageJson: any, fullPath: string): any {
       parts[0] = newNamespace;
       packageJson.name = parts.join('/');
       console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
+    } else if (fullPath === process.cwd()) {
+      packageJson.name = newNamespace.replace('@', '');
+      console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
     }
   }
   return packageJson;
 }
 
-updateWorkspacePackages(process.cwd(), updatePackageName, false);
+updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot);
