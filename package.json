@@ -24,6 +24,7 @@
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
     "reset:changelog": "rimraf --glob **/CHANGELOG.md",
     "set:author": "bun run ./.scripts/set-author",
+    "set:license": "bun run ./.scripts/set-license",
     "set:namespace": "bun run ./.scripts/set-namespace",
     "set:version": "bun run ./.scripts/set-version",
     "typecheck": "tsc --noEmit --tsBuildInfoFile .tsbuildinfo"
