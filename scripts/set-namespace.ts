@@ -3,7 +3,12 @@ import type { PackageJson } from 'type-fest';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
-import { updateWorkspacePackages } from './utils';
+import {
+  replaceInFile,
+  traverseDirectory,
+  updateNamespaceInPrettierConfig,
+  updateWorkspacePackages,
+} from './utils';
 
 // ------------------------------------------------------------------
 
@@ -36,6 +41,16 @@ const includeRoot = argv['include-root'];
 // Record to store updated package names
 const updatedPackages: Record<string, string> = {};
 
+const ignoredFolders = [
+  'node_modules',
+  '.next',
+  '.turbo',
+  'dist',
+  'build',
+  '.git',
+];
+const ignoredFiles = ['package.json', 'bun.lockb'];
+
 // ------------------------------------------------------------------
 
 /**
@@ -58,6 +73,7 @@ function updatePackageName(
     const parts = packageJson.name.split('/');
 
     if (parts.length === 2) {
+      // Update the name
       parts[0] = newNamespace;
       const newPackageName = parts.join('/');
       updatedPackages[packageJson.name] = newPackageName;
@@ -78,32 +94,75 @@ function updatePackageName(
 /**
  * Update the dependencies in all package.json files
  * @param packageJson the parsed package.json
- * @param fullPath the full path to the package.json file
  * @returns updated package.json
  */
-function updateDependencies(
-  packageJson: PackageJson,
-  fullPath: string,
-): PackageJson {
-  if (packageJson.dependencies) {
-    /* eslint-disable security/detect-object-injection */
-    for (const [name, version] of Object.entries(packageJson.dependencies)) {
-      const dependency = updatedPackages[name];
-      if (dependency && dependency !== name) {
-        packageJson.dependencies[dependency] = version;
-        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-        delete packageJson.dependencies[name];
-        console.log(
-          `Updated dependency in ${fullPath} from ${name} to ${dependency}`,
-        );
-      }
-    }
-    /* eslint-enable security/detect-object-injection */
-  }
+function updateDependencies(packageJson: PackageJson): PackageJson {
+  packageJson.dependencies = renameDependencies(packageJson.dependencies);
+  packageJson.devDependencies = renameDependencies(packageJson.devDependencies);
+
   return packageJson;
 }
 
+// ------------------------------------------------------------------
+
+/**
+ * Function to rename dependencies in a package.json
+ * @param dependencies the dependencies to update
+ * @returns updated dependencies
+ */
+function renameDependencies(
+  dependencies: PackageJson.Dependency | undefined,
+): PackageJson.Dependency {
+  if (!dependencies) {
+    return {};
+  }
+
+  /* eslint-disable security/detect-object-injection */
+  for (const [name, version] of Object.entries(dependencies)) {
+    const dependency = updatedPackages[name];
+    if (dependency && dependency !== name) {
+      dependencies[dependency] = version;
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+      delete dependencies[name];
+      console.log(`Updated dependency from ${name} to ${dependency}`);
+    }
+  }
+  /* eslint-enable security/detect-object-injection */
+
+  return dependencies;
+}
+
+// ------------------------------------------------------------------
+
+/**
+ * Function to find and replace package names in all files
+ */
+function findAndReplacePackageNames() {
+  console.log('🗂️ Finding and replacing package names in all files...');
+  traverseDirectory(
+    process.cwd(),
+    (fullPath) => {
+      // for each updated package, make sure the file is updated where they are referenced
+      replaceInFile(fullPath, updatedPackages, ignoredFiles);
+    },
+    ignoredFolders,
+  );
+
+  updateNamespaceInPrettierConfig(process.cwd(), newNamespace);
+}
+
+// ------------------------------------------------------------------
+
 // Start updating from the current directory
 updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot, () => {
-  updateWorkspacePackages(process.cwd(), updateDependencies);
+  updateWorkspacePackages(
+    process.cwd(),
+    updateDependencies,
+    includeRoot,
+    findAndReplacePackageNames,
+  );
 });
+
+console.log(
+  '🎉 Successfully updated package names! Make sure to run `bun install` to update dependencies in the lock file.',
+);
