@@ -35,7 +35,12 @@ const includeRoot = argv['include-root'];
 
 // ------------------------------------------------------------------
 
-// Function to update the name in package.json files
+/**
+ * Function to update the name in package.json files
+ * @param packageJson the parsed package.json
+ * @param fullPath the full path to the package.json file
+ * @returns updated package.json
+ */
 function updatePackageName(
   packageJson: PackageJson,
   fullPath: string,

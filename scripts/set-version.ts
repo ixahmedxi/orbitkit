@@ -35,7 +35,11 @@ const includeRoot = argv['include-root'];
 
 // ------------------------------------------------------------------
 
-// Function to update the version in package.json files
+/**
+ * Function to update the version in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
 function updateVersion(packageJson: PackageJson): PackageJson {
   // Skip updating excluded packages
   if (packageJson.name && excludePackages.includes(packageJson.name)) {
@@ -43,7 +47,7 @@ function updateVersion(packageJson: PackageJson): PackageJson {
   }
 
   packageJson.version = newVersion;
-  console.log(`Updated version of ${packageJson.name}`);
+  console.log(`Updated version of ${String(packageJson.name)}`);
   return packageJson;
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import type { PackageJson } from 'type-fest';
 
 import * as fs from 'fs';
@@ -5,7 +6,11 @@ import * as path from 'path';
 
 // ------------------------------------------------------------------
 
-// Function to read and parse the root package.json
+/**
+ * Function to read and parse the root package.json
+ * @param cwd the current working directory
+ * @returns the root package.json in the workspace.
+ */
 export function getRootPackageJson(cwd: string): PackageJson {
   const rootPackageJsonPath = path.resolve(cwd, 'package.json');
   const rootPackageJson = JSON.parse(
@@ -16,7 +21,11 @@ export function getRootPackageJson(cwd: string): PackageJson {
 
 // ------------------------------------------------------------------
 
-// Function to get all workspace package paths
+/**
+ * Function to get all workspace package paths.
+ * @param workspaces the workspaces defined in the root package.json.
+ * @returns an array of all workspace package paths.
+ */
 export function getWorkspacePackagePaths(workspaces: string[]): string[] {
   const workspacePackagePaths: string[] = [];
 
@@ -35,7 +44,11 @@ export function getWorkspacePackagePaths(workspaces: string[]): string[] {
 
 // ------------------------------------------------------------------
 
-// Function to get package names from package.json files
+/**
+ * Function to get package names from package.json files
+ * @param packagePaths an array of package paths
+ * @returns an array of package names
+ */
 export function getPackageNamesFromPaths(packagePaths: string[]): string[] {
   const packageNames = packagePaths
     .map((pkgPath) => {
@@ -52,7 +65,11 @@ export function getPackageNamesFromPaths(packagePaths: string[]): string[] {
 
 // ------------------------------------------------------------------
 
-// Main function to get all package names from the workspace
+/**
+ * Function to get all workspace package names
+ * @param cwd the current working directory
+ * @returns an array of all workspace package names
+ */
 export function getWorkspacePackageNames(cwd: string): string[] {
   const rootPackageJson = getRootPackageJson(cwd);
   if (!rootPackageJson.workspaces) {
@@ -72,7 +89,12 @@ export function getWorkspacePackageNames(cwd: string): string[] {
 
 // ------------------------------------------------------------------
 
-// Function to update all package.json files in the workspace
+/**
+ * Function to update all package.json files in the workspace
+ * @param cwd the current working directory
+ * @param update the function to update the package.json
+ * @param includeRoot whether to include the root package.json
+ */
 export function updateWorkspacePackages(
   cwd: string,
   update: (parsedPackageJson: PackageJson, fullPath: string) => PackageJson,
@@ -104,3 +126,4 @@ export function updateWorkspacePackages(
     );
   });
 }
+/* eslint-enable security/detect-non-literal-fs-filename */

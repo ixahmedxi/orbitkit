@@ -35,7 +35,11 @@ const includeRoot = argv['include-root'] ?? false;
 
 // ------------------------------------------------------------------
 
-// Function to update the version in package.json files
+/**
+ * Function to update the license in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
 function updateLicense(packageJson: PackageJson): PackageJson {
   // Skip updating excluded packages
   if (packageJson.name && excludePackages.includes(packageJson.name)) {
@@ -43,7 +47,7 @@ function updateLicense(packageJson: PackageJson): PackageJson {
   }
 
   packageJson.license = newLicense;
-  console.log(`Updated license for ${packageJson.name}`);
+  console.log(`Updated license for ${String(packageJson.name)}`);
   return packageJson;
 }
 

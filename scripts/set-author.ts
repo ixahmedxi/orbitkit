@@ -35,7 +35,11 @@ const includeRoot = argv['include-root'];
 
 // ------------------------------------------------------------------
 
-// Function to update the author in package.json files
+/**
+ * Function to update the author in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
 function updateAuthor(packageJson: PackageJson): PackageJson {
   // Skip updating excluded packages
   if (packageJson.name && excludePackages.includes(packageJson.name)) {
@@ -43,7 +47,7 @@ function updateAuthor(packageJson: PackageJson): PackageJson {
   }
 
   packageJson.author = newAuthor;
-  console.log(`Updated author of ${packageJson.name}`);
+  console.log(`Updated author of ${String(packageJson.name)}`);
   return packageJson;
 }
 
