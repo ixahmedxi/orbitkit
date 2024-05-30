@@ -94,11 +94,13 @@ export function getWorkspacePackageNames(cwd: string): string[] {
  * @param cwd the current working directory
  * @param update the function to update the package.json
  * @param includeRoot whether to include the root package.json
+ * @param callback a function to call after updating all packages
  */
 export function updateWorkspacePackages(
   cwd: string,
   update: (parsedPackageJson: PackageJson, fullPath: string) => PackageJson,
   includeRoot = false,
+  callback?: () => void,
 ): void {
   const rootPackageJson = getRootPackageJson(cwd);
 
@@ -125,5 +127,7 @@ export function updateWorkspacePackages(
       JSON.stringify(updatedPackageJson, null, 2) + '\n',
     );
   });
+
+  callback?.();
 }
 /* eslint-enable security/detect-non-literal-fs-filename */

@@ -33,6 +33,9 @@ const newNamespace = argv.namespace;
 const excludePackages = argv.exclude ?? [];
 const includeRoot = argv['include-root'];
 
+// Record to store updated package names
+const updatedPackages: Record<string, string> = {};
+
 // ------------------------------------------------------------------
 
 /**
@@ -56,7 +59,10 @@ function updatePackageName(
 
     if (parts.length === 2) {
       parts[0] = newNamespace;
-      packageJson.name = parts.join('/');
+      const newPackageName = parts.join('/');
+      updatedPackages[packageJson.name] = newPackageName;
+      packageJson.name = newPackageName;
+
       console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
     } else if (fullPath === process.cwd()) {
       // Update the root package.json name
@@ -67,4 +73,37 @@ function updatePackageName(
   return packageJson;
 }
 
-updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot);
+// ------------------------------------------------------------------
+
+/**
+ * Update the dependencies in all package.json files
+ * @param packageJson the parsed package.json
+ * @param fullPath the full path to the package.json file
+ * @returns updated package.json
+ */
+function updateDependencies(
+  packageJson: PackageJson,
+  fullPath: string,
+): PackageJson {
+  if (packageJson.dependencies) {
+    /* eslint-disable security/detect-object-injection */
+    for (const [name, version] of Object.entries(packageJson.dependencies)) {
+      const dependency = updatedPackages[name];
+      if (dependency && dependency !== name) {
+        packageJson.dependencies[dependency] = version;
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete packageJson.dependencies[name];
+        console.log(
+          `Updated dependency in ${fullPath} from ${name} to ${dependency}`,
+        );
+      }
+    }
+    /* eslint-enable security/detect-object-injection */
+  }
+  return packageJson;
+}
+
+// Start updating from the current directory
+updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot, () => {
+  updateWorkspacePackages(process.cwd(), updateDependencies);
+});
