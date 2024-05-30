@@ -11,9 +11,6 @@ import { getWorkspacePackageNames } from './scripts/utils';
 //
 // This was previously achieved using @commitlint/config-pnpm-scopes
 // which provides a custom commitlint configuration.
-//
-// As Orbitkit has moved away from pnpm workspaces, we need to
-// implement a custom commitlint configuration to achieve the same.
 
 // ------------------------------------------------------------------
 
