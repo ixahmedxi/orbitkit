@@ -52,4 +52,5 @@ function updateAuthor(packageJson: PackageJson): PackageJson {
 }
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updateAuthor, includeRoot);
+console.log(`✍️ Updating all packages to author ${newAuthor}`);
+await updateWorkspacePackages(process.cwd(), updateAuthor, includeRoot);

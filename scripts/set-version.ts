@@ -52,4 +52,5 @@ function updateVersion(packageJson: PackageJson): PackageJson {
 }
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updateVersion, includeRoot);
+console.log(`🔼 Updating all packages to version ${newVersion}`);
+await updateWorkspacePackages(process.cwd(), updateVersion, includeRoot);

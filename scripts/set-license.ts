@@ -52,4 +52,5 @@ function updateLicense(packageJson: PackageJson): PackageJson {
 }
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updateLicense, includeRoot);
+console.log(`📃 Updating all packages to license ${newLicense}`);
+await updateWorkspacePackages(process.cwd(), updateLicense, includeRoot);

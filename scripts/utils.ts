@@ -2,6 +2,7 @@
 import type { PackageJson } from 'type-fest';
 
 import * as fs from 'fs';
+import * as fsPromise from 'fs/promises';
 import * as path from 'path';
 
 // ------------------------------------------------------------------
@@ -94,14 +95,15 @@ export function getWorkspacePackageNames(cwd: string): string[] {
  * @param cwd the current working directory
  * @param update the function to update the package.json
  * @param includeRoot whether to include the root package.json
- * @param callback a function to call after updating all packages
  */
-export function updateWorkspacePackages(
+export async function updateWorkspacePackages(
   cwd: string,
-  update: (parsedPackageJson: PackageJson, fullPath: string) => PackageJson,
+  update: (
+    parsedPackageJson: PackageJson,
+    fullPath: string,
+  ) => PackageJson | Promise<PackageJson>,
   includeRoot = false,
-  callback?: () => void,
-): void {
+): Promise<void> {
   const rootPackageJson = getRootPackageJson(cwd);
 
   if (!rootPackageJson.workspaces) {
@@ -116,19 +118,21 @@ export function updateWorkspacePackages(
     workspacePackagePaths.push(cwd);
   }
 
-  workspacePackagePaths.forEach((pkgPath) => {
-    const packageJsonPath = path.join(pkgPath, 'package.json');
-    const packageJson = JSON.parse(
-      fs.readFileSync(packageJsonPath, 'utf-8'),
-    ) as PackageJson;
-    const updatedPackageJson = update(packageJson, pkgPath);
-    fs.writeFileSync(
-      packageJsonPath,
-      JSON.stringify(updatedPackageJson, null, 2) + '\n',
-    );
-  });
-
-  callback?.();
+  await Promise.all(
+    workspacePackagePaths.map(async (pkgPath) => {
+      const packageJsonPath = path.join(pkgPath, 'package.json');
+      const packageJsonContent = await fsPromise.readFile(
+        packageJsonPath,
+        'utf-8',
+      );
+      const packageJson = JSON.parse(packageJsonContent) as PackageJson;
+      const updatedPackageJson = await update(packageJson, pkgPath);
+      await fsPromise.writeFile(
+        packageJsonPath,
+        JSON.stringify(updatedPackageJson, null, 2) + '\n',
+      );
+    }),
+  );
 }
 
 // ------------------------------------------------------------------
@@ -139,20 +143,17 @@ export function updateWorkspacePackages(
  * @param searchReplace an object with search and replace strings
  * @param ignoredFiles an array of file names to ignore
  */
-export function replaceInFile(
+export async function replaceInFile(
   filePath: string,
   searchReplace: Record<string, string>,
   ignoredFiles: string[] = [],
-): void {
+): Promise<void> {
   if (ignoredFiles.includes(path.basename(filePath))) {
     return;
   }
 
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(`Error reading file ${filePath}:`, err);
-      return;
-    }
+  try {
+    let data = await fsPromise.readFile(filePath, 'utf8');
 
     for (const [search, replace] of Object.entries(searchReplace)) {
       // eslint-disable-next-line security/detect-non-literal-regexp
@@ -160,14 +161,11 @@ export function replaceInFile(
       data = data.replace(regex, replace);
     }
 
-    fs.writeFile(filePath, data, 'utf8', (err) => {
-      if (err) {
-        console.error(`Error writing file ${filePath}:`, err);
-      } else {
-        console.log(`Successfully updated ${filePath}`);
-      }
-    });
-  });
+    await fsPromise.writeFile(filePath, data, 'utf8');
+    console.log(`Successfully updated ${filePath}`);
+  } catch (err) {
+    console.error(`Error processing file ${filePath}:`, err);
+  }
 }
 
 // ------------------------------------------------------------------
@@ -178,35 +176,29 @@ export function replaceInFile(
  * @param callback a function to call on each file
  * @param ignoredFolders an array of folder names to ignore
  */
-export function traverseDirectory(
+export async function traverseDirectory(
   directory: string,
-  callback: (fullPath: string) => void,
+  callback: (fullPath: string) => Promise<void>,
   ignoredFolders: string[] = [],
-): void {
-  fs.readdir(directory, (err, files) => {
-    if (err) {
-      console.error(`Error reading directory ${directory}:`, err);
-      return;
-    }
+): Promise<void> {
+  try {
+    const files = await fsPromise.readdir(directory);
 
-    files.forEach((file) => {
+    for (const file of files) {
       const fullPath = path.join(directory, file);
-      fs.stat(fullPath, (err, stats) => {
-        if (err) {
-          console.error(`Error stating file ${fullPath}:`, err);
-          return;
-        }
+      const stats = await fsPromise.stat(fullPath);
 
-        if (stats.isDirectory()) {
-          if (!ignoredFolders.includes(file)) {
-            traverseDirectory(fullPath, callback, ignoredFolders);
-          }
-        } else if (stats.isFile()) {
-          callback(fullPath);
+      if (stats.isDirectory()) {
+        if (!ignoredFolders.includes(file)) {
+          await traverseDirectory(fullPath, callback, ignoredFolders);
         }
-      });
-    });
-  });
+      } else if (stats.isFile()) {
+        await callback(fullPath);
+      }
+    }
+  } catch (err) {
+    console.error(`Error processing directory ${directory}:`, err);
+  }
 }
 
 // ------------------------------------------------------------------
@@ -216,16 +208,14 @@ export function traverseDirectory(
  * @param cwd the current working directory
  * @param newNamespace the new namespace to replace
  */
-export function updateNamespaceInPrettierConfig(
+export async function updateNamespaceInPrettierConfig(
   cwd: string,
   newNamespace: string,
-): void {
+): Promise<void> {
   const filePath = path.join(cwd, 'prettier.config.js');
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      console.error(`Error reading file ${filePath}:`, err);
-      return;
-    }
+
+  try {
+    const data = await fsPromise.readFile(filePath, 'utf8');
 
     // Extract importOrder array content
     const importOrderStart = data.indexOf('importOrder: [');
@@ -256,14 +246,11 @@ export function updateNamespaceInPrettierConfig(
     const updatedData =
       beforeImportOrder + updatedImportOrderContent + afterImportOrder;
 
-    fs.writeFile(filePath, updatedData, 'utf8', (err) => {
-      if (err) {
-        console.error(`Error writing file ${filePath}:`, err);
-      } else {
-        console.log(`Replaced in file: ${filePath}`);
-      }
-    });
-  });
+    await fsPromise.writeFile(filePath, updatedData, 'utf8');
+    console.log(`Successfully updated ${filePath}`);
+  } catch (err) {
+    console.error(`Error processing file ${filePath}:`, err);
+  }
 }
 
 /* eslint-enable security/detect-non-literal-fs-filename */

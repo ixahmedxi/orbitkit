@@ -137,32 +137,34 @@ function renameDependencies(
 /**
  * Function to find and replace package names in all files
  */
-function findAndReplacePackageNames() {
+async function findAndReplacePackageNames() {
   console.log('🗂️ Finding and replacing package names in all files...');
-  traverseDirectory(
+  await traverseDirectory(
     process.cwd(),
-    (fullPath) => {
+    async (fullPath) => {
       // for each updated package, make sure the file is updated where they are referenced
-      replaceInFile(fullPath, updatedPackages, ignoredFiles);
+      await replaceInFile(fullPath, updatedPackages, ignoredFiles);
     },
     ignoredFolders,
   );
 
-  updateNamespaceInPrettierConfig(process.cwd(), newNamespace);
+  await updateNamespaceInPrettierConfig(process.cwd(), newNamespace);
 }
 
 // ------------------------------------------------------------------
 
 // Start updating from the current directory
-updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot, () => {
-  updateWorkspacePackages(
-    process.cwd(),
-    updateDependencies,
-    includeRoot,
-    findAndReplacePackageNames,
-  );
-});
+console.log(`🚀 Updating package names to ${newNamespace}...`);
+await updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot);
 
+// Update dependencies
+console.log('🔄 Updating dependencies...');
+await updateWorkspacePackages(process.cwd(), updateDependencies, includeRoot);
+
+// Find and replace package names in all files
+await findAndReplacePackageNames();
+
+// Done
 console.log(
   '🎉 Successfully updated package names! Make sure to run `bun install` to update dependencies in the lock file.',
 );
