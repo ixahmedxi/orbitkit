@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "ajv": "^8.14.0",
-    "mintlify": "^4.0.160"
+    "mintlify": "^4.0.162"
   },
   "volta": {
     "extends": "../../package.json"

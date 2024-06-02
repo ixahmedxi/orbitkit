@@ -27,7 +27,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^0.9.3",
     "@orbitkit/env": "workspace:^",
-    "drizzle-orm": "^0.30.10",
+    "drizzle-orm": "^0.31.0",
     "pg": "^8.11.5",
     "postgres": "^3.4.4",
     "zod": "^3.23.8"
@@ -36,6 +36,6 @@
     "@orbitkit/eslint": "workspace:*",
     "@orbitkit/tsconfig": "workspace:*",
     "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.21.4"
+    "drizzle-kit": "^0.22.1"
   }
 }
