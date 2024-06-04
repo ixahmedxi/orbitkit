@@ -1,7 +1,7 @@
 {
   "extends": ["@orbitkit/tsconfig/base.json"],
   "compilerOptions": {
-    "tsBuildInfoFile": ".tsbuildinfo",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

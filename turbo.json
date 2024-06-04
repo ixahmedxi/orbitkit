@@ -63,7 +63,8 @@
         "**/*.jsx",
         "**/*.cjs",
         "**/*.mjs"
-      ]
+      ],
+      "outputs": ["*.tsbuildinfo"]
     },
     "dev": {
       "dependsOn": ["^build"],
