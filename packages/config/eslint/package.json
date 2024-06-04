@@ -37,7 +37,7 @@
     "@next/eslint-plugin-next": "^14.2.3",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^20.14.0",
+    "@types/node": "^20.14.1",
     "@typescript-eslint/utils": "^8.0.0-alpha.18",
     "eslint-plugin-storybook": "^0.8.0"
   }
