@@ -16,6 +16,7 @@
     "DavidAnson.vscode-markdownlint",
     "unifiedjs.vscode-mdx",
     "christian-kohler.path-intellisense",
-    "YoavBls.pretty-ts-errors"
+    "YoavBls.pretty-ts-errors",
+    "nrwl.angular-console"
   ]
 }
