@@ -25,9 +25,14 @@ export const env = createEnv({
     AUTH_GOOGLE_SECRET: z.string().optional(),
     AUTH_GOOGLE_CODE_VERIFIER: z.string().optional(),
   },
-  client: {},
+  client: {
+    NEXT_PUBLIC_POSTHOG_KEY: z.string().optional(),
+    NEXT_PUBLIC_POSTHOG_HOST: z.string().optional(),
+  },
   experimental__runtimeEnv: {
     NODE_ENV: process.env['NODE_ENV'],
+    NEXT_PUBLIC_POSTHOG_KEY: process.env['NEXT_PUBLIC_POSTHOG_KEY'],
+    NEXT_PUBLIC_POSTHOG_HOST: process.env['NEXT_PUBLIC_POSTHOG_HOST'],
   },
   emptyStringAsUndefined: true,
   skipValidation: !!process.env['SKIP_ENV_VALIDATION'],

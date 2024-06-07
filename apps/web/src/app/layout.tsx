@@ -3,6 +3,7 @@ import './globals.css';
 import { ThemeProvider } from 'next-themes';
 
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
 import { NextSSRPlugin } from '@uploadthing/react/next-ssr-plugin';
 import { GeistMono } from 'geist/font/mono';
@@ -14,6 +15,12 @@ import { Toaster } from '@orbitkit/ui/toast';
 import { TRPCReactProvider } from '@/lib/trpc/react';
 
 import { fileRouter } from './api/uploadthing/core';
+
+import { PostHogReactProvider } from '@/lib/posthog/react';
+
+const PostHogPageView = dynamic(() => import('@/lib/posthog/view'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -33,13 +40,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
-        <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
-        <ThemeProvider attribute="class" enableSystem disableTransitionOnChange>
-          <TRPCReactProvider>{children}</TRPCReactProvider>
-          <Toaster />
-        </ThemeProvider>
-      </body>
+      <PostHogReactProvider>
+        <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+          <PostHogPageView />
+          <NextSSRPlugin routerConfig={extractRouterConfig(fileRouter)} />
+          <ThemeProvider
+            attribute="class"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TRPCReactProvider>{children}</TRPCReactProvider>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </PostHogReactProvider>
     </html>
   );
 }
