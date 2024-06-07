@@ -20,10 +20,10 @@
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.44.1",
+    "@microsoft/api-extractor": "^7.47.0",
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.12.12",
-    "tsup": "^8.0.2"
+    "@types/node": "^20.14.1",
+    "tsup": "^8.1.0"
   }
 }
