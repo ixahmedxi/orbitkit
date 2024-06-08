@@ -1,5 +1,13 @@
 # @orbitkit/db
 
+## 0.2.2
+
+### Patch Changes
+
+- 5b69876: feat: added new scripts for setting project metadata
+- Updated dependencies [5b69876]
+  - @orbitkit/env@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @orbitkit/docs
 
+## 0.2.2
+
+### Patch Changes
+
+- 5b69876: docs: updated installation documentation
+
+  - introduced new commands setting project metadata
+
 ## 0.2.1
 
 ### Patch Changes
