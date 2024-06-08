@@ -55,6 +55,7 @@
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
+    "@types/bun": "latest",
     "@types/eslint": "^8.56.10",
     "@types/yargs": "^17.0.32",
     "commitizen": "^4.3.0",
