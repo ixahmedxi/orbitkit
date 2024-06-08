@@ -1,5 +1,5 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
-import type { PackageJson } from 'type-fest';
+import type { PackageJson } from 'pkg-types';
 
 import * as fs from 'fs';
 import * as fsPromise from 'fs/promises';
@@ -78,7 +78,7 @@ export function getWorkspacePackageNames(cwd: string): string[] {
   }
 
   const workspacePackagePaths = getWorkspacePackagePaths(
-    rootPackageJson.workspaces as string[],
+    rootPackageJson.workspaces,
   );
   const packageNames = getPackageNamesFromPaths(workspacePackagePaths);
 
@@ -111,7 +111,7 @@ export async function updateWorkspacePackages(
   }
 
   const workspacePackagePaths = getWorkspacePackagePaths(
-    rootPackageJson.workspaces as string[],
+    rootPackageJson.workspaces,
   );
 
   if (includeRoot) {

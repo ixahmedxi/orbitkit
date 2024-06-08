@@ -71,7 +71,6 @@
     "prettier-plugin-packagejson": "^2.5.0",
     "rimraf": "^5.0.7",
     "turbo": "^1.13.3",
-    "type-fest": "^4.18.3",
     "typescript": "^5.4.5",
     "yargs": "^17.7.2"
   }

@@ -1,4 +1,4 @@
-import type { PackageJson } from 'type-fest';
+import type { PackageJson } from 'pkg-types';
 
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
@@ -111,8 +111,8 @@ function updateDependencies(packageJson: PackageJson): PackageJson {
  * @returns updated dependencies
  */
 function renameDependencies(
-  dependencies: PackageJson.Dependency | undefined,
-): PackageJson.Dependency {
+  dependencies: Record<string, string> | undefined,
+): Record<string, string> {
   if (!dependencies) {
     return {};
   }
