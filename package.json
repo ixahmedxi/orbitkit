@@ -67,8 +67,9 @@
     "prettier-plugin-curly": "^0.2.1",
     "prettier-plugin-packagejson": "^2.5.0",
     "rimraf": "^5.0.7",
-    "turbo": "^1.13.3",
+    "turbo": "^2.0.3",
     "typescript": "^5.4.5",
     "yargs": "^17.7.2"
-  }
+  },
+  "packageManager": "bun@1.1.12"
 }

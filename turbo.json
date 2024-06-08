@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDotEnv": ["apps/web/.env.local"],
-  "pipeline": {
+  "globalDependencies": ["apps/web/.env.local"],
+  "tasks": {
     "build": {
       "dependsOn": ["^build", "^db:migrate"],
       "inputs": [
