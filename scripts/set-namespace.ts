@@ -1,3 +1,4 @@
+import { $ } from 'bun';
 import type { PackageJson } from 'pkg-types';
 
 import yargs from 'yargs';
@@ -165,6 +166,8 @@ await updateWorkspacePackages(process.cwd(), updateDependencies, includeRoot);
 await findAndReplacePackageNames();
 
 // Done
+await $`bun format && bun clean && bun install`;
+
 console.log(
-  '🎉 Successfully updated package names! Make sure to run `bun install` to update dependencies in the lock file.',
+  '🎉 Done! Workspace namespaces have successfully been updated. You may wish to reload your IDE, to remove any errors.',
 );
