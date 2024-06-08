@@ -177,30 +177,22 @@ When you first clone the repository, you should reset the changelog and project 
 # Reset changelog - this will remove all the changelog.md files in the packages
 bun reset:changelog
 
-# Reset package versions - this will reset the versions of all the packages to 0.1.0
-bun set:version --ver 0.1.0 --ir
-# Use the --ver or -v flag to set a specific version e.g. --ver 1.0.0
-
-# Change the package namespace for all the packages to "@myapp"
-bun set:namespace --namespace "@myapp" --ir
-# Use the --namespace or -n flag to set a specific namespace e.g. --namespace "@orbitkit"
-# When including the root package, the root package will be renamed to namespace without the "@" symbol
-
-# Set the author for all the packages
-bun set:author --author "Your Name <[email protected]> - https://yourwebsite.com" --ir
-# Use the --author or -a flag to set a specific author e.g. --author "OrbitKit"
-
-# Set the license for all the packages to MIT
-bun set:license --license "MIT" --ir
-# Use the --license or -l flag to set a specific license e.g. --license "Apache-2.0"
+# Update workspace - this will update the workspace with the new metadata
+bun update:workspace --namespace "@myapp" --ir
 ```
 
-Each of these commands has a few options that you can use:
+The `update:workspace` command has the following options:
 
 ```bash
---ir, --include-root # Include the root package
--e, --exclude # Exclude packages e.g. --exclude @myapp/core @myapp/db
+-n, --namespace # The namespace of the project (e.g. -n "@myapp")
+-v, --ver # The version of the project (e.g. -v 1.0.0)
+-a, --author # The author of the project (e.g. -a "Ahmed OrbitKit")
+-l, --license # The license of the project (e.g. -l "MIT")
+--ir, --include-root # Include the root package (e.g. --ir) - boolean flag - no value needs to be passed
+-e, --exclude # Exclude packages (e.g. -e @myapp/core @myapp/db)
 ```
+
+> Note: If you want to pass special characters in the author flag, you should wrap the value in two sets of quotes `'""'` e.g. `'"Ahmed <ahmed@orbitkit.dev> - https://orbitkit.dev"'`.
 
 ### Running the project
 

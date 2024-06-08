@@ -18,8 +18,26 @@ const argv = yargs(hideBin(process.argv))
   .option('namespace', {
     alias: 'n',
     type: 'string',
-    demandOption: true,
+    demandOption: false,
     description: 'The new namespace for the packages',
+  })
+  .option('ver', {
+    alias: 'v',
+    type: 'string',
+    demandOption: false,
+    description: 'The new version for the packages',
+  })
+  .option('author', {
+    alias: 'a',
+    type: 'string',
+    demandOption: false,
+    description: 'The new author of the packages',
+  })
+  .option('license', {
+    alias: 'l',
+    type: 'string',
+    demandOption: false,
+    description: 'The new license for the packages',
   })
   .option('exclude', {
     alias: 'e',
@@ -35,6 +53,9 @@ const argv = yargs(hideBin(process.argv))
   })
   .parseSync();
 
+const newLicense = argv.license;
+const newAuthor = argv.author;
+const newVersion = argv.ver;
 const newNamespace = argv.namespace;
 const excludePackages = argv.exclude ?? [];
 const includeRoot = argv['include-root'];
@@ -55,6 +76,27 @@ const ignoredFiles = ['package.json', 'bun.lockb'];
 // ------------------------------------------------------------------
 
 /**
+ * Function to update the version in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
+function updateVersion(packageJson: PackageJson): PackageJson {
+  // Skip updating excluded packages
+  if (
+    !newVersion ||
+    (packageJson.name && excludePackages.includes(packageJson.name))
+  ) {
+    return packageJson;
+  }
+
+  packageJson.version = newVersion;
+  console.log(`Updated version of ${String(packageJson.name)}`);
+  return packageJson;
+}
+
+// ------------------------------------------------------------------
+
+/**
  * Function to update the name in package.json files
  * @param packageJson the parsed package.json
  * @param fullPath the full path to the package.json file
@@ -64,6 +106,10 @@ function updatePackageName(
   packageJson: PackageJson,
   fullPath: string,
 ): PackageJson {
+  if (!newNamespace) {
+    return packageJson;
+  }
+
   if (packageJson.name) {
     // Skip updating excluded packages
     if (excludePackages.includes(packageJson.name)) {
@@ -87,6 +133,69 @@ function updatePackageName(
       console.log(`Updated name in ${fullPath} to ${packageJson.name}`);
     }
   }
+  return packageJson;
+}
+
+// ------------------------------------------------------------------
+
+/**
+ * Function to update the author in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
+function updateAuthor(packageJson: PackageJson): PackageJson {
+  if (!newAuthor) {
+    return packageJson;
+  }
+  // Skip updating excluded packages
+  if (packageJson.name && excludePackages.includes(packageJson.name)) {
+    return packageJson;
+  }
+
+  packageJson.author = newAuthor;
+  console.log(`Updated author of ${String(packageJson.name)}`);
+  return packageJson;
+}
+
+// ------------------------------------------------------------------
+
+/**
+ * Function to update the license in package.json files
+ * @param packageJson the parsed package.json
+ * @returns updated package.json
+ */
+function updateLicense(packageJson: PackageJson): PackageJson {
+  if (!newLicense) {
+    return packageJson;
+  }
+
+  // Skip updating excluded packages
+  if (packageJson.name && excludePackages.includes(packageJson.name)) {
+    return packageJson;
+  }
+
+  packageJson.license = newLicense;
+  console.log(`Updated license for ${String(packageJson.name)}`);
+  return packageJson;
+}
+
+// ------------------------------------------------------------------
+
+/**
+ * Function to update the package.json details
+ * @param packageJson the parsed package.json
+ * @param fullPath the full path to the package.json file
+ * @returns updated package.json
+ */
+function updatePackageJsonDetails(
+  packageJson: PackageJson,
+  fullPath: string,
+): PackageJson {
+  packageJson = updatePackageName(packageJson, fullPath);
+  packageJson = updateVersion(packageJson);
+  packageJson = updateAuthor(packageJson);
+  packageJson = updateLicense(packageJson);
+
   return packageJson;
 }
 
@@ -139,6 +248,10 @@ function renameDependencies(
  * Function to find and replace package names in all files
  */
 async function findAndReplacePackageNames() {
+  if (!newNamespace) {
+    return;
+  }
+
   console.log('🗂️ Finding and replacing package names in all files...');
   await traverseDirectory(
     process.cwd(),
@@ -155,19 +268,24 @@ async function findAndReplacePackageNames() {
 // ------------------------------------------------------------------
 
 // Start updating from the current directory
-console.log(`🚀 Updating package names to ${newNamespace}...`);
-await updateWorkspacePackages(process.cwd(), updatePackageName, includeRoot);
-
-// Update dependencies
-console.log('🔄 Updating dependencies...');
-await updateWorkspacePackages(process.cwd(), updateDependencies, includeRoot);
-
-// Find and replace package names in all files
-await findAndReplacePackageNames();
-
-// Done
-await $`bun format && bun clean && bun install`;
-
-console.log(
-  '🎉 Done! Workspace namespaces have successfully been updated. You may wish to reload your IDE, to remove any errors.',
+await updateWorkspacePackages(
+  process.cwd(),
+  updatePackageJsonDetails,
+  includeRoot,
 );
+
+if (newNamespace) {
+  // Update dependencies
+  console.log('🔄 Updating dependencies...');
+  await updateWorkspacePackages(process.cwd(), updateDependencies, includeRoot);
+
+  // Find and replace package names in all files
+  await findAndReplacePackageNames();
+
+  // Done
+  await $`bun format && bun clean && bun install`;
+
+  console.log(
+    '🎉 Done! Workspace namespaces have successfully been updated. You may wish to reload your IDE, to remove any errors.',
+  );
+}
