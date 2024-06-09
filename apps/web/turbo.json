@@ -6,6 +6,7 @@
       "dependsOn": ["^build", "^db:migrate"],
       "outputs": [".next/**", "!.next/cache/**"],
       "passThroughEnv": [
+        "ANALYZE",
         "DATABASE_URL",
         "UPLOADTHING_SECRET",
         "UPLOADTHING_APP_ID",

@@ -41,9 +41,6 @@ export const base = defineConfig(
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
-      globals: {
-        ...globals.node,
-      },
     },
   },
 
@@ -54,6 +51,10 @@ export const base = defineConfig(
     languageOptions: {
       parserOptions: {
         projectService: true,
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
     },
     settings: {
