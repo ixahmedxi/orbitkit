@@ -18,18 +18,8 @@
       ],
       "outputs": ["dist/**"]
     },
-    "db:migrate": {
-      "dependsOn": ["db:generate"],
-      "inputs": ["drizzle/**"],
-      "passThroughEnv": ["DATABASE_URL"]
-    },
-    "db:generate": {
-      "outputs": ["drizzle/**"],
-      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"],
-      "passThroughEnv": ["DATABASE_URL"]
-    },
     "test:e2e": {
-      "dependsOn": ["^build", "build"],
+      "dependsOn": ["^build"],
       "outputs": ["playwright-report/**", "test-results/**"],
       "inputs": [
         "$TURBO_DEFAULT$",
@@ -66,7 +56,14 @@
     "start": {
       "dependsOn": ["^build", "build"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ]
     }
   }
 }
