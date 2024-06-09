@@ -2,11 +2,9 @@
   "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
   "tasks": {
-    "lint": {
-      "dependsOn": ["^build", "build"]
-    },
     "build": {
-      "outputs": [".astro/**"]
+      "dependsOn": ["^build", "^db:migrate"],
+      "outputs": [".next/**", "!.next/cache/**"]
     }
   }
 }
