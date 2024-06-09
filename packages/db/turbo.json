@@ -5,20 +5,23 @@
     "db:migrate": {
       "dependsOn": ["db:generate"],
       "inputs": ["drizzle/**"],
-      "passThroughEnv": ["DATABASE_URL"]
+      "passThroughEnv": ["DATABASE_URL"],
+      "interactive": true
     },
     "db:generate": {
       "outputs": ["drizzle/**"],
-      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"]
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"],
+      "passThroughEnv": ["DATABASE_URL"],
+      "interactive": true
     },
     "db:studio": {
       "cache": false,
       "persistent": true
     },
     "db:check": { "cache": false },
-    "db:migrate:drop": { "cache": false },
+    "db:migrate:drop": { "cache": false, "interactive": true },
     "db:pull": { "cache": false },
-    "db:push": { "cache": false },
+    "db:push": { "cache": false, "interactive": true },
     "db:up": { "cache": false }
   }
 }
