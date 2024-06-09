@@ -8,8 +8,9 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./web": "./src/web.ts",
-    "./marketing": "./src/marketing.ts"
+    "./web": "./src/web/index.ts",
+    "./web/db": "./src/web/db.ts",
+    "./marketing": "./src/marketing/index.ts"
   },
   "scripts": {
     "lint": "eslint .  --max-warnings 0",
