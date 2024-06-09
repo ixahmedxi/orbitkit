@@ -29,9 +29,14 @@
     "target": "es2022",
     "moduleResolution": "bundler",
     "moduleDetection": "force",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "incremental": true
+    "incremental": true,
+
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "pretty": true,
+    "preserveWatchOutput": true
   }
 }
