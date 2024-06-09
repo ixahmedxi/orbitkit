@@ -1,5 +1,19 @@
 # @orbitkit/api
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: update workspace script & revised turbo config
+
+### Patch Changes
+
+- Updated dependencies
+  - @orbitkit/auth@0.3.0
+  - @orbitkit/db@0.3.0
+  - @orbitkit/env@0.3.0
+  - @orbitkit/utils@0.3.0
+
 ## 0.2.2
 
 ### Patch Changes

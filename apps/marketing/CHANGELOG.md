@@ -1,5 +1,18 @@
 # @orbitkit/marketing
 
+## 0.3.0
+
+### Minor Changes
+
+- feat: update workspace script & revised turbo config
+
+### Patch Changes
+
+- Updated dependencies
+  - @orbitkit/assets@0.3.0
+  - @orbitkit/env@0.3.0
+  - @orbitkit/ui@0.3.0
+
 ## 0.2.2
 
 ### Patch Changes
