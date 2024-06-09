@@ -87,6 +87,9 @@ You will need to set-up some environment variables in a `.env.local` file in the
 ```bash
 # Copy the .env.example file into a .env.local file.
 cp ./apps/web/.env.example ./apps/web/.env.local
+
+# You will also need to symlink that file into the packages/db directory as a `.env` file.
+cd packages/db && ln -s ../../apps/web/.env.local .env
 ```
 
 Here is how you can obtain each of the required values:
