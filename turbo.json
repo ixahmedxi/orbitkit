@@ -63,6 +63,15 @@
         ".env.production",
         ".env"
       ]
+    },
+    "db:migrate": {
+      "dependsOn": ["db:generate"],
+      "inputs": ["drizzle/**"],
+      "passThroughEnv": ["DATABASE_URL"]
+    },
+    "db:generate": {
+      "outputs": ["drizzle/**"],
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"]
     }
   }
 }
