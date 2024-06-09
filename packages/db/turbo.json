@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "db:migrate": {
+      "dependsOn": ["db:generate"],
+      "inputs": ["drizzle/**"],
+      "passThroughEnv": ["DATABASE_URL"]
+    },
+    "db:generate": {
+      "outputs": ["drizzle/**"],
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"]
+    },
+    "db:studio": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:check": { "cache": false },
+    "db:migrate:drop": { "cache": false },
+    "db:pull": { "cache": false },
+    "db:push": { "cache": false },
+    "db:up": { "cache": false }
+  }
+}
