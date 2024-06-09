@@ -60,7 +60,7 @@ jobs:
         run: bun lint:md
 
       - name: Lint & Typecheck
-        run: turbo lint typecheck
+        run: bun turbo lint typecheck
 
   build-marketing:
     name: Build marketing website
@@ -78,7 +78,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build marketing website
-        run: turbo build --filter=@orbitkit/marketing
+        run: bun turbo build --filter=@orbitkit/marketing
 
   build-app:
     name: Build web app
@@ -100,7 +100,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build
-        run: turbo build --filter=@orbitkit/web
+        run: bun turbo build --filter=@orbitkit/web
 
   e2e-web:
     name: E2E Web App
