@@ -16,13 +16,20 @@
         "AUTH_GITHUB_SECRET",
         "AUTH_GOOGLE_ID",
         "AUTH_GOOGLE_SECRET"
-      ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env.production.local",
-        ".env.local",
-        ".env.production",
-        ".env"
+      ]
+    },
+    "test:e2e": {
+      "passThroughEnv": [
+        "DATABASE_URL",
+        "UPLOADTHING_SECRET",
+        "UPLOADTHING_APP_ID",
+        "UNKEY_ROOT_KEY",
+        "UNKEY_NAMESPACE",
+        "AUTH_SECRET",
+        "AUTH_GITHUB_ID",
+        "AUTH_GITHUB_SECRET",
+        "AUTH_GOOGLE_ID",
+        "AUTH_GOOGLE_SECRET"
       ]
     }
   }

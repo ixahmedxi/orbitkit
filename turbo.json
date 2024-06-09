@@ -10,7 +10,11 @@
         "!eslint.config.js",
         "!playwright.config.ts",
         "!e2e/**",
-        "!.env.example"
+        "!.env.example",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
       ],
       "outputs": ["dist/**"]
     },
@@ -27,7 +31,16 @@
     "test:e2e": {
       "dependsOn": ["^build", "build"],
       "outputs": ["playwright-report/**", "test-results/**"],
-      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!CHANGELOG.md",
+        "!eslint.config.js",
+        "!.env.example",
+        ".env.test.local",
+        ".env.local",
+        ".env.test",
+        ".env"
+      ]
     },
     "lint": {
       "dependsOn": ["^build"],
