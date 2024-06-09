@@ -23,7 +23,7 @@
     "@orbitkit/db": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "arctic": "^1.9.0",
+    "arctic": "^1.9.1",
     "lucia": "^3.2.0",
     "next": "14.2.3",
     "oslo": "^1.2.0",
@@ -34,7 +34,7 @@
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1",
+    "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0"
   }
