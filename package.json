@@ -54,6 +54,7 @@
     "@playwright/test": "^1.44.1",
     "@types/bun": "latest",
     "@types/eslint": "^8.56.10",
+    "@types/node": "^20.14.2",
     "@types/yargs": "^17.0.32",
     "commitizen": "^4.3.0",
     "cspell": "^8.8.4",

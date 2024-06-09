@@ -26,7 +26,6 @@
   },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
-    "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.2"
+    "@orbitkit/tsconfig": "workspace:^"
   }
 }
