@@ -1,6 +1,6 @@
 import { type StorybookConfig } from '@storybook/react-vite';
 
-import { getAbsolutePath } from '@/utils/getAbsolutePath';
+import { getAbsolutePath } from '@orbitkit/utils/filesystem';
 
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
