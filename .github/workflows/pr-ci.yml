@@ -5,7 +5,6 @@ env:
   # This enabled remote task caching using Turborepo
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ vars.TURBO_TEAM }}
-  TURBO_EXPERIMENTAL_UI: true
 
   # Neon
   NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
