@@ -27,7 +27,7 @@ export const env = createEnv({
   },
   client: {},
   experimental__runtimeEnv: {
-    NODE_ENV: process.env['NODE_ENV'],
+    NODE_ENV: process.env.NODE_ENV,
   },
   emptyStringAsUndefined: true,
   skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
