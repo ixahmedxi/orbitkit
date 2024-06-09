@@ -65,24 +65,23 @@
       ]
     },
     "db:migrate": {
-      "cache": false,
-      "interactive": true,
       "dependsOn": ["db:generate"],
-      "passThroughEnv": ["DATABASE_URL"]
+      "passThroughEnv": ["DATABASE_URL"],
+      "inputs": ["drizzle/**"]
     },
     "db:generate": {
-      "cache": false,
-      "interactive": true,
-      "passThroughEnv": ["DATABASE_URL"]
+      "passThroughEnv": ["DATABASE_URL"],
+      "inputs": ["src/schema/**", "drizzle.config.ts"],
+      "outputs": ["drizzle/**"]
     },
     "db:studio": {
       "cache": false,
       "persistent": true
     },
     "db:check": { "cache": false },
-    "db:migrate:drop": { "cache": false, "interactive": true },
+    "db:migrate:drop": { "cache": false },
     "db:pull": { "cache": false },
-    "db:push": { "cache": false, "interactive": true },
+    "db:push": { "cache": false },
     "db:up": { "cache": false }
   }
 }
