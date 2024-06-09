@@ -78,7 +78,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build marketing website
-        run: turbo build --filter=marketing
+        run: turbo build --filter=@orbitkit/marketing
 
   build-app:
     name: Build web app
@@ -100,7 +100,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: Build
-        run: turbo build --filter=web
+        run: turbo build --filter=@orbitkit/web
 
   e2e-web:
     name: E2E Web App
@@ -133,7 +133,7 @@ jobs:
         run: bun playwright install --with-deps
 
       - name: Run Playwright tests
-        run: bun turbo test:e2e --filter=web
+        run: bun turbo test:e2e --filter=@orbitkit/web
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -159,7 +159,7 @@ jobs:
         run: bun playwright install --with-deps
 
       - name: Run Playwright tests
-        run: bun turbo test:e2e --filter=marketing
+        run: bun turbo test:e2e --filter=@orbitkit/marketing
 
       - uses: actions/upload-artifact@v4
         if: always()

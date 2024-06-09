@@ -16,8 +16,8 @@ In short terms:
 - The `@playwright/test` dependency is also installed in each of the applications.
 - Tests are written in an `e2e` directory in each application.
 - The `playwright.config.ts` inside each of the applications is used to configure the tests.
-- To run the tests, you use turborepo and the `turbo test:e2e` command. Filtering to a single application is done using the `--filter` flag followed by the application name such as `turbo test:e2e --filter=web`.
-- To provide more flags to playwright while running it, you can do so by adding `-- --` followed by the flags. For example, `turbo test:e2e --filter=web -- --headed` will run the tests in the web application in headed mode.
+- To run the tests, you use turborepo and the `turbo test:e2e` command. Filtering to a single application is done using the `--filter` flag followed by the application name such as `turbo test:e2e --filter=@orbitkit/web`.
+- To provide more flags to playwright while running it, you can do so by adding `-- --` followed by the flags. For example, `turbo test:e2e --filter=@orbitkit/web -- --headed` will run the tests in the web application in headed mode.
 - There is also a playwright specific eslint configuration in `packages/config/eslint/playwright.js` that is used to lint the tests and is added onto the eslint configuration of each app that uses playwright using `orbitkit/playwright` in the extends array.
 
 ## Writing tests
