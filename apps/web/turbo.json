@@ -11,11 +11,11 @@
         "UPLOADTHING_APP_ID",
         "UNKEY_ROOT_KEY",
         "UNKEY_NAMESPACE",
-        "AUTH_SECRET",
         "AUTH_GITHUB_ID",
         "AUTH_GITHUB_SECRET",
         "AUTH_GOOGLE_ID",
-        "AUTH_GOOGLE_SECRET"
+        "AUTH_GOOGLE_SECRET",
+        "AUTH_GOOGLE_CODE_VERIFIER"
       ]
     },
     "test:e2e": {
@@ -25,11 +25,11 @@
         "UPLOADTHING_APP_ID",
         "UNKEY_ROOT_KEY",
         "UNKEY_NAMESPACE",
-        "AUTH_SECRET",
         "AUTH_GITHUB_ID",
         "AUTH_GITHUB_SECRET",
         "AUTH_GOOGLE_ID",
-        "AUTH_GOOGLE_SECRET"
+        "AUTH_GOOGLE_SECRET",
+        "AUTH_GOOGLE_CODE_VERIFIER"
       ]
     }
   }
