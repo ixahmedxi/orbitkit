@@ -3,12 +3,14 @@
   "extends": ["//"],
   "tasks": {
     "db:migrate": {
+      "cache": false,
       "dependsOn": ["db:generate"],
       "inputs": ["drizzle/**"],
       "passThroughEnv": ["DATABASE_URL"],
       "interactive": true
     },
     "db:generate": {
+      "cache": false,
       "outputs": ["drizzle/**"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"],
       "passThroughEnv": ["DATABASE_URL"],
