@@ -9,7 +9,8 @@
         "!CHANGELOG.md",
         "!eslint.config.js",
         "!playwright.config.ts",
-        "!e2e/**"
+        "!e2e/**",
+        "!.env.example"
       ],
       "outputs": ["dist/**"]
     },
