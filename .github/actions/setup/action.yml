@@ -19,6 +19,10 @@ runs:
       shell: bash
       run: bun add -g turbo
 
+    - name: Output turbo version
+      shell: bash
+      run: turbo --version
+
     - name: Install dependencies
       shell: bash
       run: bun install
