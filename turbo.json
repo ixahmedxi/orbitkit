@@ -15,11 +15,13 @@
     },
     "db:migrate": {
       "dependsOn": ["db:generate"],
-      "inputs": ["drizzle/**"]
+      "inputs": ["drizzle/**"],
+      "passThroughEnv": ["DATABASE_URL"]
     },
     "db:generate": {
       "outputs": ["drizzle/**"],
-      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"]
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md", "!eslint.config.js"],
+      "passThroughEnv": ["DATABASE_URL"]
     },
     "test:e2e": {
       "dependsOn": ["^build", "build"],
@@ -38,7 +40,14 @@
     "dev": {
       "dependsOn": ["^build"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ]
     },
     "start": {
       "dependsOn": ["^build", "build"],
