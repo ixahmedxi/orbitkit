@@ -20,7 +20,7 @@ The `dev` command starts up all of the apps in the monorepo in development mode 
 
 The `dev` command also applies Drizzle ORM schema migrations to the database, it will generate any missing migrations and apply them to the database.
 
-You can start up for example only the web application by using `bun turbo dev --filter=web`.
+You can start up for example only the web application by using `bun turbo dev --filter=@orbitkit/web`.
 
 ## `build`
 
@@ -30,7 +30,7 @@ bun turbo build
 
 The `build` command builds all of the apps in the monorepo and also builds the packages that need bundling.
 
-You can build for example only the web application by using `bun turbo build --filter=web`.
+You can build for example only the web application by using `bun turbo build --filter=@orbitkit/web`.
 
 ## `start`
 

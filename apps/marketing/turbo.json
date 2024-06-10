@@ -1,18 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "lint": {
-      "dependsOn": ["^build", "build"],
-      "inputs": [
-        "**/*.ts",
-        "**/*.d.ts",
-        "**/*.tsx",
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.cjs",
-        "**/*.mjs"
-      ]
+      "dependsOn": ["^build", "build"]
+    },
+    "build": {
+      "outputs": [".astro/**", "dist/**"]
     }
   }
 }

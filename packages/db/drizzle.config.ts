@@ -1,6 +1,6 @@
 import type { Config } from 'drizzle-kit';
 
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/db';
 
 export default {
   dialect: 'postgresql',

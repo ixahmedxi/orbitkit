@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/eslint",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "A package to share ESLint configurations in workspace",
   "license": "MIT",
@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "clean": "bun run rm -rf *.tsbuildinfo",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
@@ -22,23 +23,23 @@
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jsdoc": "^48.2.7",
+    "eslint-plugin-jsdoc": "^48.2.9",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-security": "^3.0.0",
-    "eslint-plugin-tailwindcss": "^3.17.0",
-    "globals": "^15.3.0",
-    "typescript-eslint": "^8.0.0-alpha.18"
+    "eslint-plugin-tailwindcss": "^3.17.3",
+    "eslint-plugin-turbo": "^2.0.3",
+    "globals": "^15.4.0",
+    "typescript-eslint": "^8.0.0-alpha.30"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^20.14.1",
-    "@typescript-eslint/utils": "^8.0.0-alpha.18",
+    "@typescript-eslint/utils": "^8.0.0-alpha.30",
     "eslint-plugin-storybook": "^0.8.0"
   }
 }

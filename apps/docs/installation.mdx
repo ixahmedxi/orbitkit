@@ -87,6 +87,9 @@ You will need to set-up some environment variables in a `.env.local` file in the
 ```bash
 # Copy the .env.example file into a .env.local file.
 cp ./apps/web/.env.example ./apps/web/.env.local
+
+# You will also need to symlink that file into the packages/db directory as a `.env` file.
+cd packages/db && ln -s ../../apps/web/.env.local .env
 ```
 
 Here is how you can obtain each of the required values:
@@ -171,15 +174,28 @@ OrbitKit currently ships with two authentication providers, Google and Github. Y
 
 ### Reset changelog and versions
 
-When you first clone the repository, you should reset the changelog and versions to start fresh. You can do so by running the following commands:
+When you first clone the repository, you should reset the changelog and project metadata to start fresh. You can do so by running the following commands:
 
 ```bash
 # Reset changelog - this will remove all the changelog.md files in the packages
 bun reset:changelog
 
-# Reset package versions - this will reset the versions of all the packages to 0.1.0
-bun reset:versions
+# Update workspace - this will update the workspace with the new metadata
+bun update:workspace --namespace "@myapp" --ir
 ```
+
+The `update:workspace` command has the following options:
+
+```bash
+-n, --namespace # The namespace of the project (e.g. -n "@myapp")
+-v, --ver # The version of the project (e.g. -v 1.0.0)
+-a, --author # The author of the project (e.g. -a "Ahmed OrbitKit")
+-l, --license # The license of the project (e.g. -l "MIT")
+--ir, --include-root # Include the root package (e.g. --ir) - boolean flag - no value needs to be passed
+-e, --exclude # Exclude packages (e.g. -e @myapp/core @myapp/db)
+```
+
+> Note: If you want to pass special characters or spaces in the author flag, you should wrap the value in two sets of quotes `'""'` e.g. `'"Ahmed Elsakaan - https://orbitkit.dev"'`.
 
 ### Running the project
 

@@ -1,98 +1,95 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDotEnv": ["apps/web/.env.local"],
-  "pipeline": {
+  "globalPassThroughEnv": [
+    "VERCEL_URL",
+    "NODE_ENV",
+    "CI",
+    "SKIP_ENV_VALIDATION",
+    "PORT"
+  ],
+  "tasks": {
     "build": {
-      "dependsOn": ["^build", "^db:migrate"],
+      "dependsOn": ["^build"],
       "inputs": [
-        "src/**",
-        "public/**",
-        "next.config.js",
-        "astro.config.ts",
-        "postcss.config.cjs",
-        "tailwind.config.ts",
-        "package.json",
-        "tsconfig.json"
+        "$TURBO_DEFAULT$",
+        "!CHANGELOG.md",
+        "!eslint.config.js",
+        "!playwright.config.ts",
+        "!e2e/**",
+        "!.env.example",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
       ],
-      "env": [
-        "DATABASE_URL",
-        "UPLOADTHING_SECRET",
-        "UPLOADTHING_APP_ID",
-        "UNKEY_ROOT_KEY",
-        "UNKEY_NAMESPACE",
-        "AUTH_GITHUB_ID",
-        "AUTH_GITHUB_SECRET",
-        "AUTH_GOOGLE_ID",
-        "AUTH_GOOGLE_SECRET",
-        "AUTH_GOOGLE_CODE_VERIFIER"
-      ],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**", ".astro/**"]
-    },
-    "db:migrate": {
-      "dependsOn": ["db:generate"],
-      "inputs": ["drizzle/**"]
-    },
-    "db:generate": {
-      "outputs": ["drizzle/**"],
-      "inputs": ["src/schema/**", "drizzle.config.ts"]
+      "outputs": ["dist/**"]
     },
     "test:e2e": {
-      "dependsOn": ["^build", "build"],
+      "dependsOn": ["^build"],
       "outputs": ["playwright-report/**", "test-results/**"],
-      "inputs": ["e2e/**", "playwright.config.ts"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!CHANGELOG.md",
+        "!eslint.config.js",
+        "!.env.example",
+        ".env.test.local",
+        ".env.local",
+        ".env.test",
+        ".env"
+      ]
     },
     "lint": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "**/*.ts",
-        "**/*.d.ts",
-        "**/*.tsx",
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.cjs",
-        "**/*.mjs"
-      ]
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"]
     },
     "typecheck": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "**/*.ts",
-        "**/*.d.ts",
-        "**/*.tsx",
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.cjs",
-        "**/*.mjs"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],
       "outputs": ["*.tsbuildinfo"]
     },
     "dev": {
       "dependsOn": ["^build"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ]
     },
     "start": {
       "dependsOn": ["^build", "build"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ]
     },
-    "storybook": {
-      "dependsOn": ["^build"],
+    "db:migrate": {
+      "dependsOn": ["db:generate"],
+      "passThroughEnv": ["DATABASE_URL"],
+      "inputs": ["drizzle/**"]
+    },
+    "db:generate": {
+      "passThroughEnv": ["DATABASE_URL"],
+      "inputs": ["src/schema/**", "drizzle.config.ts"],
+      "outputs": ["drizzle/**"]
+    },
+    "db:studio": {
       "cache": false,
       "persistent": true
     },
-    "build-storybook": {
-      "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"],
-      "inputs": [
-        "src/**",
-        ".storybook/**",
-        "postcss.config.cjs",
-        "tailwind.config.ts",
-        "tsconfig.json",
-        "package.json",
-        "vite.config.ts"
-      ]
-    }
+    "db:check": { "cache": false },
+    "db:migrate:drop": { "cache": false },
+    "db:pull": { "cache": false },
+    "db:push": { "cache": false },
+    "db:up": { "cache": false },
+    "clean": { "cache": false }
   }
 }

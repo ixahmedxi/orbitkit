@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/env",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "A package to define environment variables for apps in the workspace using t3 env",
   "license": "MIT",
@@ -8,10 +8,12 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./web": "./src/web.ts",
-    "./marketing": "./src/marketing.ts"
+    "./web": "./src/web/index.ts",
+    "./web/db": "./src/web/db.ts",
+    "./marketing": "./src/marketing/index.ts"
   },
   "scripts": {
+    "clean": "bun run rm -rf *.tsbuildinfo",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
@@ -22,7 +24,6 @@
   },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
-    "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1"
+    "@orbitkit/tsconfig": "workspace:^"
   }
 }

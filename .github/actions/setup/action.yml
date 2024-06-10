@@ -15,10 +15,6 @@ runs:
         restore-keys: |
           ${{ runner.os }}-${{ matrix.bun }}-bun-
 
-    - name: Install Turborepo
-      shell: bash
-      run: bun add -g turbo
-
     - name: Install dependencies
       shell: bash
       run: bun install

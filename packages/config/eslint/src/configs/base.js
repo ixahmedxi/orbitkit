@@ -7,6 +7,7 @@ import * as regexpPlugin from 'eslint-plugin-regexp';
 import pluginSecurity from 'eslint-plugin-security';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
+import turboPlugin from 'eslint-plugin-turbo';
 
 import { compat, defineConfig } from '../utils.js';
 
@@ -24,6 +25,11 @@ export const base = defineConfig(
   comments.recommended,
   regexpPlugin.configs['flat/recommended'],
   pluginSecurity.configs.recommended,
+  {
+    plugins: {
+      turbo: turboPlugin,
+    },
+  },
 
   // Tailwind plugin
   ...fixupConfigRules(compat.extends('plugin:tailwindcss/recommended')),
@@ -41,9 +47,6 @@ export const base = defineConfig(
     files: ['**/*.cjs'],
     languageOptions: {
       sourceType: 'commonjs',
-      globals: {
-        ...globals.node,
-      },
     },
   },
 
@@ -55,6 +58,10 @@ export const base = defineConfig(
       parserOptions: {
         projectService: true,
       },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     settings: {
       tailwindcss: {
@@ -62,6 +69,7 @@ export const base = defineConfig(
       },
     },
     rules: {
+      ...turboPlugin.configs.recommended.rules,
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
