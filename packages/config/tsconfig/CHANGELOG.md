@@ -1,5 +1,11 @@
 # @orbitkit/tsconfig
 
+## 0.3.1
+
+### Patch Changes
+
+- 50e9dd2: refactor: moves almost all packages to being built
+
 ## 0.3.0
 
 ### Minor Changes
