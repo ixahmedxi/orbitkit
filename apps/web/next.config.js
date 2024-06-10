@@ -14,17 +14,15 @@ const withBundleAnalyzer = bundleAnalyzerPlugin({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: [
-    '@orbitkit/db',
-    '@orbitkit/auth',
-    '@orbitkit/env',
-    '@orbitkit/api',
-  ],
+  transpilePackages: ['@orbitkit/env'],
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  experimental: {
+    typedRoutes: true,
   },
 };
 

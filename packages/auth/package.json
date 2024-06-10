@@ -8,13 +8,26 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./env": "./src/env.js",
-    "./providers/github": "./src/providers/github.ts",
-    "./providers/google": "./src/providers/google.ts",
-    "./actions/logout": "./src/actions/logout.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./providers/github": {
+      "types": "./dist/providers/github.d.ts",
+      "default": "./dist/providers/github.js"
+    },
+    "./providers/google": {
+      "types": "./dist/providers/google.d.ts",
+      "default": "./dist/providers/google.js"
+    },
+    "./actions/logout": {
+      "types": "./dist/actions/logout.d.ts",
+      "default": "./dist/actions/logout.js"
+    }
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
