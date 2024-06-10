@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "astro check && astro build",
+    "clean": "bun run rm -rf .astro dist *.tsbuildinfo playwright-report test-results",
     "dev": "astro dev",
     "lint": "eslint .  --max-warnings 0",
     "start": "astro preview",

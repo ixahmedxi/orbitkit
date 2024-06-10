@@ -285,6 +285,7 @@
   "scripts": {
     "build": "tsup",
     "build-storybook": "storybook build",
+    "clean": "bun run rm -rf dist .tsup storybook-static *.tsbuildinfo",
     "dev": "tsup --watch",
     "lint": "eslint .  --max-warnings 0",
     "storybook": "storybook dev -p 6006 --no-open",

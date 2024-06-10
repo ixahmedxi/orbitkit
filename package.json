@@ -1,6 +1,5 @@
 {
   "name": "orbitkit",
-  "version": "0.3.0",
   "private": true,
   "description": "A comprehensive, opinionated company monorepo boilerplate",
   "license": "MIT",
@@ -12,7 +11,6 @@
     "packages/config/*"
   ],
   "scripts": {
-    "clean": "rimraf --glob **/node_modules **/dist **/.turbo **/.next **/.astro **/storybook-static bun.lockb **/.tsbuildinfo **/playwright-report **/test-results",
     "commit": "git-cz",
     "format": "bun format:write",
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
@@ -22,7 +20,7 @@
     "lint:spell": "cspell \"**\"",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
-    "reset:changelog": "rimraf --glob **/CHANGELOG.md",
+    "reset:changelog": "bun run rm -rf **/CHANGELOG.md",
     "typecheck": "tsc",
     "update:workspace": "bun run ./scripts/update-workspace"
   },
@@ -67,7 +65,6 @@
     "prettier-plugin-astro": "^0.14.0",
     "prettier-plugin-curly": "^0.2.1",
     "prettier-plugin-packagejson": "^2.5.0",
-    "rimraf": "^5.0.7",
     "turbo": "^2.0.3",
     "typescript": "^5.4.5",
     "yargs": "^17.7.2"

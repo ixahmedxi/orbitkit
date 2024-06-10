@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -42,6 +43,6 @@
   "devDependencies": {
     "@orbitkit/eslint": "workspace:*",
     "@orbitkit/tsconfig": "workspace:*",
-    "drizzle-kit": "^0.22.6"
+    "drizzle-kit": "^0.22.7"
   }
 }

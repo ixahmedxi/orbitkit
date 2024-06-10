@@ -89,6 +89,7 @@
     "db:migrate:drop": { "cache": false },
     "db:pull": { "cache": false },
     "db:push": { "cache": false },
-    "db:up": { "cache": false }
+    "db:up": { "cache": false },
+    "clean": { "cache": false }
   }
 }

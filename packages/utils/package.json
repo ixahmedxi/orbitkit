@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
     "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"

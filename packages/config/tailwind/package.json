@@ -10,6 +10,7 @@
     ".": "./src/preset.ts"
   },
   "scripts": {
+    "clean": "bun run rm -rf *.tsbuildinfo",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },

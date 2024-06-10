@@ -79,3 +79,12 @@ declare module 'eslint-plugin-security' {
     };
   };
 }
+
+declare module 'eslint-plugin-turbo' {
+  import type { Linter, Rule } from 'eslint';
+
+  export const configs: {
+    recommended: { rules: Linter.RulesRecord };
+  };
+  export const rules: Record<string, Rule.RuleModule>;
+}

@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "clean": "bun run rm -rf *.tsbuildinfo",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
@@ -30,14 +31,15 @@
     "eslint-plugin-regexp": "^2.6.0",
     "eslint-plugin-security": "^3.0.0",
     "eslint-plugin-tailwindcss": "^3.17.3",
+    "eslint-plugin-turbo": "^2.0.3",
     "globals": "^15.4.0",
-    "typescript-eslint": "^8.0.0-alpha.18"
+    "typescript-eslint": "^8.0.0-alpha.30"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@typescript-eslint/utils": "^8.0.0-alpha.18",
+    "@typescript-eslint/utils": "^8.0.0-alpha.30",
     "eslint-plugin-storybook": "^0.8.0"
   }
 }

@@ -15,12 +15,13 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
     "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.2.13",
     "vite-tsconfig-paths": "^4.3.2"
   },

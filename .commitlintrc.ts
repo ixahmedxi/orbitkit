@@ -30,10 +30,15 @@ function getProjects(context?: Context): string[] {
   const cwd = ctx.cwd ?? process.cwd();
 
   return getWorkspacePackageNames(cwd)
-    .reduce((projects, name) => {
-      if (name) {
-        // @ts-expect-error - ignore TS error for name.split
-        projects.push(name.startsWith('@') ? name.split('/')[1] : name);
+    .reduce((projects: string[], name) => {
+      if (name.startsWith('@')) {
+        const project = name.split('/')[1];
+
+        if (typeof project === 'string') {
+          projects.push(project);
+        }
+
+        projects.push(name);
       }
 
       return projects;
