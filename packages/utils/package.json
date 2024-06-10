@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/utils",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "Common utilities for OrbitKit",
   "license": "MIT",
@@ -18,8 +18,9 @@
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
@@ -27,10 +28,7 @@
     "pkg-types": "^1.1.1"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.47.0",
     "@orbitkit/eslint": "workspace:^",
-    "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1",
-    "tsup": "^8.1.0"
+    "@orbitkit/tsconfig": "workspace:^"
   }
 }

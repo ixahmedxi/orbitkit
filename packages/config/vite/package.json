@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/vite",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "Vite presets for the workspace",
   "license": "MIT",
@@ -14,21 +14,19 @@
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.3.0",
-    "vite": "^5.2.12",
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.2.13",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.47.0",
     "@orbitkit/eslint": "workspace:^",
-    "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1",
-    "tsup": "^8.1.0"
+    "@orbitkit/tsconfig": "workspace:^"
   }
 }

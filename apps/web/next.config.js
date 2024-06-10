@@ -1,4 +1,5 @@
 import { fileURLToPath } from 'node:url';
+import bundleAnalyzerPlugin from '@next/bundle-analyzer';
 
 import createJiti from 'jiti';
 
@@ -6,21 +7,23 @@ const jiti = createJiti(fileURLToPath(import.meta.url));
 
 jiti('@orbitkit/env/web');
 
+const withBundleAnalyzer = bundleAnalyzerPlugin({
+  enabled: process.env['ANALYZE'] === 'true',
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: [
-    '@orbitkit/db',
-    '@orbitkit/auth',
-    '@orbitkit/env',
-    '@orbitkit/api',
-  ],
+  transpilePackages: ['@orbitkit/env'],
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
   },
+  experimental: {
+    typedRoutes: true,
+  },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

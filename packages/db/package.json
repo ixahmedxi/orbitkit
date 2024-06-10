@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/db",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "A database package utilizing drizzle orm.",
   "license": "MIT",
@@ -8,34 +8,41 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./schema": "./src/schema/index.ts",
-    "./env": "./src/env.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schema": {
+      "types": "./dist/schema/index.d.ts",
+      "default": "./dist/schema/index.js"
+    }
   },
   "scripts": {
-    "db:check": "dotenv -e ../../apps/web/.env.local drizzle-kit check",
-    "db:generate": "dotenv -e ../../apps/web/.env.local drizzle-kit generate",
-    "db:migrate": "dotenv -e ../../apps/web/.env.local drizzle-kit migrate",
-    "db:migrate:drop": "dotenv -e ../../apps/web/.env.local drizzle-kit drop",
-    "db:pull": "dotenv -e ../../apps/web/.env.local drizzle-kit introspect",
-    "db:push": "dotenv -e ../../apps/web/.env.local drizzle-kit push",
-    "db:studio": "dotenv -e ../../apps/web/.env.local drizzle-kit studio",
-    "db:up": "dotenv -e ../../apps/web/.env.local drizzle-kit up",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "db:check": "drizzle-kit check",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:migrate:drop": "drizzle-kit drop",
+    "db:pull": "drizzle-kit introspect",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:up": "drizzle-kit up",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.9.3",
     "@orbitkit/env": "workspace:^",
-    "drizzle-orm": "^0.31.0",
-    "pg": "^8.11.5",
+    "drizzle-orm": "^0.31.2",
+    "pg": "^8.12.0",
     "postgres": "^3.4.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:*",
     "@orbitkit/tsconfig": "workspace:*",
-    "dotenv-cli": "^7.4.2",
-    "drizzle-kit": "^0.22.1"
+    "drizzle-kit": "^0.22.7"
   }
 }

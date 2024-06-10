@@ -1,12 +1,8 @@
 import { createEnv } from '@t3-oss/env-core';
-import { vercel } from '@t3-oss/env-core/presets';
-import { z } from 'zod';
+import { sharedEnv } from '../shared';
 
 export const env = createEnv({
-  extends: [vercel()],
-  shared: {
-    NODE_ENV: z.enum(['development', 'production', 'test']).optional(),
-  },
+  extends: [sharedEnv],
   server: {},
   client: {
     PUBLIC_POSTHOG_KEY: z.string().optional(),

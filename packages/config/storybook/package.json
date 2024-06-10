@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/storybook",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "A package to share Storybook configuration preset for the workspace",
   "license": "MIT",
@@ -23,44 +23,39 @@
     "./preview": {
       "types": "./dist/preview.d.ts",
       "default": "./dist/preview.js"
-    },
-    "./utils/getAbsolutePath": {
-      "types": "./dist/utils/getAbsolutePath.d.ts",
-      "default": "./dist/utils/getAbsolutePath.js"
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
   "dependencies": {
     "@orbitkit/assets": "workspace:^",
+    "@orbitkit/utils": "workspace:^",
     "@radix-ui/colors": "^3.0.0",
-    "@storybook/addon-a11y": "^8.1.5",
-    "@storybook/addon-essentials": "^8.1.5",
-    "@storybook/addon-interactions": "^8.1.5",
-    "@storybook/addon-links": "^8.1.5",
-    "@storybook/addon-onboarding": "^8.1.5",
-    "@storybook/addon-themes": "^8.1.5",
-    "@storybook/addon-viewport": "^8.1.5",
-    "@storybook/manager-api": "^8.1.5",
-    "@storybook/react": "^8.1.5",
-    "@storybook/react-vite": "^8.1.5",
-    "@storybook/theming": "^8.1.5",
-    "@storybook/types": "^8.1.5",
+    "@storybook/addon-a11y": "^8.1.6",
+    "@storybook/addon-essentials": "^8.1.6",
+    "@storybook/addon-interactions": "^8.1.6",
+    "@storybook/addon-links": "^8.1.6",
+    "@storybook/addon-onboarding": "^8.1.6",
+    "@storybook/addon-themes": "^8.1.6",
+    "@storybook/addon-viewport": "^8.1.6",
+    "@storybook/manager-api": "^8.1.6",
+    "@storybook/react": "^8.1.6",
+    "@storybook/react-vite": "^8.1.6",
+    "@storybook/theming": "^8.1.6",
+    "@storybook/types": "^8.1.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "storybook": "^8.1.5"
+    "storybook": "^8.1.6"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.47.0",
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1",
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "tsup": "^8.1.0"
+    "@types/react-dom": "^18.3.0"
   }
 }

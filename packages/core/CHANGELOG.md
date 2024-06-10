@@ -1,5 +1,23 @@
 # @orbitkit/core
 
+## 0.3.1
+
+### Patch Changes
+
+- 50e9dd2: refactor: moves almost all packages to being built
+
+## 0.3.0
+
+### Minor Changes
+
+- feat: update workspace script & revised turbo config
+
+## 0.2.2
+
+### Patch Changes
+
+- 5b69876: feat: added new scripts for setting project metadata
+
 ## 0.2.1
 
 ### Patch Changes

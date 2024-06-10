@@ -1,5 +1,32 @@
 # @orbitkit/db
 
+## 0.3.1
+
+### Patch Changes
+
+- 50e9dd2: refactor: moves almost all packages to being built
+- Updated dependencies [50e9dd2]
+  - @orbitkit/env@0.3.1
+
+## 0.3.0
+
+### Minor Changes
+
+- feat: update workspace script & revised turbo config
+
+### Patch Changes
+
+- Updated dependencies
+  - @orbitkit/env@0.3.0
+
+## 0.2.2
+
+### Patch Changes
+
+- 5b69876: feat: added new scripts for setting project metadata
+- Updated dependencies [5b69876]
+  - @orbitkit/env@0.2.2
+
 ## 0.2.1
 
 ### Patch Changes

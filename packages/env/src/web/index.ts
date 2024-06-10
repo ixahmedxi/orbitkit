@@ -1,9 +1,10 @@
 import { createEnv } from '@t3-oss/env-nextjs';
-import { vercel } from '@t3-oss/env-nextjs/presets';
 import { z } from 'zod';
+import { env as dbEnv } from './db';
+import { sharedEnv } from '../shared';
 
 export const env = createEnv({
-  extends: [vercel()],
+  extends: [sharedEnv, dbEnv],
   shared: {
     NODE_ENV: z.enum(['development', 'test', 'production']).optional(),
   },
@@ -30,7 +31,7 @@ export const env = createEnv({
     NEXT_PUBLIC_POSTHOG_HOST: z.string().optional(),
   },
   experimental__runtimeEnv: {
-    NODE_ENV: process.env['NODE_ENV'],
+    NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_POSTHOG_KEY: process.env['NEXT_PUBLIC_POSTHOG_KEY'],
     NEXT_PUBLIC_POSTHOG_HOST: process.env['NEXT_PUBLIC_POSTHOG_HOST'],
   },

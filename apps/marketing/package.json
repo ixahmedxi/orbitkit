@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/marketing",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "Marketing website for OrbitKit",
   "license": "MIT",
@@ -8,6 +8,7 @@
   "type": "module",
   "scripts": {
     "build": "astro check && astro build",
+    "clean": "bun run rm -rf .astro dist *.tsbuildinfo playwright-report test-results",
     "dev": "astro dev",
     "lint": "eslint .  --max-warnings 0",
     "start": "astro preview",
@@ -21,27 +22,26 @@
     "@orbitkit/ui": "workspace:^",
     "@t3-oss/env-core": "^0.10.1",
     "@total-typescript/ts-reset": "^0.5.1",
-    "astro": "^4.9.2",
+    "astro": "^4.10.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@astrojs/check": "^0.7.0",
-    "@astrojs/mdx": "^3.0.1",
-    "@astrojs/react": "^3.4.0",
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/react": "^3.5.0",
     "@astrojs/sitemap": "^3.1.5",
     "@astrojs/tailwind": "^5.1.0",
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
-    "@types/node": "^20.14.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "dotenv": "^16.4.5",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.4"
   }
 }

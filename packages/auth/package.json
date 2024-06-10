@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/auth",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "private": true,
   "description": "Auth package for OrbitKit",
   "license": "MIT",
@@ -8,13 +8,27 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./env": "./src/env.js",
-    "./providers/github": "./src/providers/github.ts",
-    "./providers/google": "./src/providers/google.ts",
-    "./actions/logout": "./src/actions/logout.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./providers/github": {
+      "types": "./dist/providers/github.d.ts",
+      "default": "./dist/providers/github.js"
+    },
+    "./providers/google": {
+      "types": "./dist/providers/google.d.ts",
+      "default": "./dist/providers/google.js"
+    },
+    "./actions/logout": {
+      "types": "./dist/actions/logout.d.ts",
+      "default": "./dist/actions/logout.js"
+    }
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "bun run rm -rf dist *.tsbuildinfo",
+    "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
@@ -23,7 +37,7 @@
     "@orbitkit/db": "workspace:^",
     "@orbitkit/env": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "arctic": "^1.9.0",
+    "arctic": "^1.9.1",
     "lucia": "^3.2.0",
     "next": "14.2.3",
     "oslo": "^1.2.0",
@@ -34,7 +48,6 @@
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@types/node": "^20.14.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0"
   }
