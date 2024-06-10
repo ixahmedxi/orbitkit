@@ -1,5 +1,13 @@
 # @orbitkit/db
 
+## 0.3.1
+
+### Patch Changes
+
+- 50e9dd2: refactor: moves almost all packages to being built
+- Updated dependencies [50e9dd2]
+  - @orbitkit/env@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes

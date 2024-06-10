@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/docs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Documentation website for OrbitKit using Mintlify",
   "license": "MIT",
