@@ -32,9 +32,7 @@ export const env = createEnv({
   },
   experimental__runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    // eslint-disable-next-line turbo/no-undeclared-env-vars
     NEXT_PUBLIC_POSTHOG_KEY: process.env['NEXT_PUBLIC_POSTHOG_KEY'],
-    // eslint-disable-next-line turbo/no-undeclared-env-vars
     NEXT_PUBLIC_POSTHOG_HOST: process.env['NEXT_PUBLIC_POSTHOG_HOST'],
   },
   emptyStringAsUndefined: true,
