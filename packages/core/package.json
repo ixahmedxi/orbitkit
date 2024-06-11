@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/core",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "Core package for business logic",
   "license": "MIT",
