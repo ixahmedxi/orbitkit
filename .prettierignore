@@ -2,6 +2,7 @@ bun.lockb
 drizzle/
 .prettierignore
 .gitignore
+*.env.example
 
 .changeset/
 

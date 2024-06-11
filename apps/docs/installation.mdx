@@ -112,6 +112,14 @@ To obtain this key, head over to your unkey dashboard and create a new ratelimit
 
 As for the namespace that you have created, you will need to put that as the value of the `UNKEY_NAMESPACE` environment variable.
 
+#### Posthog (optional)
+
+[Posthog](https://posthog.com) is the service of choice in OrbitKit for analysis, it is however optional as that if the `NEXT_PUBLIC_POSTHOG_HOST` or `NEXT_PUBLIC_POSTHOG_KEY` variables are not supplied for the web app or `PUBLIC_POSTHOG_KEY` and `PUBLIC_POSTHOG_HOST` for the marketing app, no analysis is applied.
+
+To obtain this key, head over to your posthog dashboard, then in your settings, find `Project API Key`, that will be the value of the key environment variable.
+
+As for the host use `app.posthog.com` or `eu.posthog.com` depending on your region.
+
 #### OAuth
 
 OrbitKit currently ships with two authentication providers, Google and Github. You will need to create an OAuth application on the respective platforms and input the values into the `.env.local` file.

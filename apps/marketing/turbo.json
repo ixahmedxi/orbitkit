@@ -6,7 +6,8 @@
       "dependsOn": ["^build", "build"]
     },
     "build": {
-      "outputs": [".astro/**", "dist/**"]
+      "outputs": [".astro/**", "dist/**"],
+      "passThroughEnv": ["PUBLIC_POSTHOG_KEY", "PUBLIC_POSTHOG_HOST"]
     }
   }
 }
