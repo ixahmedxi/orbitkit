@@ -1,0 +1,106 @@
+---
+title: Built packages
+icon: 'toolbox'
+description: 'If you noticed, all the packages in the monorepo (except the env one) are built using tsc or tsup. Here is why.'
+---
+
+## Types of Monorepo Packages
+
+In a typical TS monorepo, there are three ways of consuming the packages that you created:
+
+1. Shipping out the TS source code directly in the `exports` field of the `package.json` file or using `tsconfig` paths.
+2. Transpiling the TS code to JS using `tsc` and shipping the JS code in the `exports` field of the package alongside the `.d.ts` files.
+3. Bundling the TS code using something like `tsup` or `rollup` and shipping the bundled JS code in the `exports` field of the package alongside the `.d.ts` files.
+
+## Comparing the approaches
+
+Let's compare the three approaches to see which one is the best for our use case and why we chose the approach that we did.
+
+### Shipping out the TS source code directly
+
+Typically, a package using this approach would be called an "Internal package".
+
+#### Advantages
+
+- **Easy to maintain**: You don't have to worry about any build step, you just ship out the source code and let the consumer (like Next.js) handle the transpilation through `transpilePackages` option. [Read docs here](https://nextjs.org/docs/app/api-reference/next-config-js/transpilePackages)
+- **Easy to use**: You just edit the code. The types & code are immediately reflected on the consumer side, this is called "Live types".
+
+#### Disadvantages
+
+- **Slow TS LSP**: Let's imagine you have an `api` package that uses TS heavy libraries like `tRPC`, `drizzle-orm` add a bit of `zod` here and there. As your API grows more complex, the TS LSP (Language Server Protocol) will start taking hits. This is because TypeScript is so much faster at evaluating the `.js` and `.d.ts` combination than pure source `.ts` files.
+
+<Note>
+  If your package is being used in any way by a consumer that references the TS
+  source files, for example even using the `paths` option in the `tsconfig.json`
+  file, you will be taking an LSP hit.
+</Note>
+
+### Transpiling the TS code to JS
+
+Typically, a package using this approach would be called a "Compiled Package".
+
+#### Advantages
+
+- **Fast TS LSP**: As mentioned above, TypeScript is so much faster at evaluating the `.js` and `.d.ts` combination than pure source `.ts` files.
+- **Better for consumers**: The consumer doesn't have to worry about the transpilation step, it's already done for them.
+- **No loss of features**: You are still able to get go to definition and other features in your editor through `tsc` outputting source & declaration map files.
+
+#### Disadvantages
+
+- **Build step**: For the consumer to get any code updates that we did in the package, we have to run `tsc` on it.
+
+### Bundling the TS code
+
+Typically, a package using this approach would be called a "Publishable Package".
+
+#### Advantages
+
+- **Fast TS LSP**: As mentioned above, TypeScript is so much faster at evaluating the `.js` and `.d.ts` combination than pure source `.ts` files.
+- **Smaller bundle size**: You can use tree-shaking and other optimizations to make the bundle size smaller.
+- **Output to multiple formats**: You can output to multiple formats like ESM and CJS, making it easily used in different environments.
+
+#### Disadvantages
+
+- **Slower build step**: Because bundling not only transpiles your code from TS to JS, but it also does many optimisations like tree-shaking, minification, etc. This makes the build step slower than just transpiling the code, even with `tsup` which is very fast we have seen pure `tsc` being much faster just because it avoids that bundling step.
+- **Hard to get go to definition**: It's notoriously more difficult to get go to definition and other features in your editor with bundled code.
+
+## The OrbitKit Approach
+
+- `ui package` is bundled with `tsup`.
+- `env package` is shipped out as source code.
+- All other packages are compiled with `tsc`.
+
+This is because:
+
+- We intend to let the `ui` package be easily published to NPM, without putting any assumptions over the consumer and that it might be, this is why a bundling step was beneficial here.
+- The `env` package is only used internally to validate environment variables using `t3-env`, the TS LSP footprint is not a concern here and hence, we can ship out the source code directly.
+- All other packages are compiled with `tsc` because they are used internally and we want to keep the TS LSP footprint low, we can use a combination of the awesome turborepo filtering to minimise the `dev` watch processes running while development.
+
+In short, `tsc` was the best of both worlds, we get the security of knowing that we will have a fast TS LSP even with a growing codebase, and we get all of the benefits of internal packages like go to definition, etc.
+
+To minimise the amount of processes running during dev we can do something like:
+
+1. Evaluate the scope of the changes that we are making.
+2. Filter to packages that we will be working on in the `dev` script, or reverse by ignoring the packages that we won't be working on.
+
+This looks something like this, if we were to be making api changes for example:
+
+```bash
+bun turbo dev --filter=!./packages/config/* --filter=!@orbitkit/docs --filter=!@orbitkit/marketing --filter=!@orbitkit/ui --only
+```
+
+It is true that this is a really long command, but we can make it shorter by adding it to the root `package.json` scripts like so:
+
+```json
+{
+  "scripts": {
+    "dev:web:api": "bun turbo dev --filter=!./packages/config/* --filter=!@orbitkit/docs --filter=!@orbitkit/marketing --filter=!@orbitkit/ui --file --only"
+  }
+}
+```
+
+Or something along those lines, these are just examples, and it's preferred for you to make these scripts according to your needs.
+
+## Conclusion
+
+This is why we have all the packages in the monorepo built in different ways. If you have any questions or feedback about this approach, feel free to open an issue on the repository or reach out to me on X/Twitter. Happy Monorepoing! 🚀

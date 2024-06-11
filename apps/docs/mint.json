@@ -44,6 +44,10 @@
       "pages": ["introduction", "installation", "commands"]
     },
     {
+      "group": "Decision Reasoning",
+      "pages": ["decision-reasoning/why-all-built"]
+    },
+    {
       "group": "Technologies",
       "pages": ["technologies/playwright"]
     }
