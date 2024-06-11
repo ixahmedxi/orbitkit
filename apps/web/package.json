@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/web",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "private": true,
   "description": "The web application of OrbitKit",
   "license": "MIT",

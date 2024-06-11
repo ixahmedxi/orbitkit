@@ -1,5 +1,13 @@
 # @orbitkit/db
 
+## 0.3.2
+
+### Patch Changes
+
+- 1ee28cb: feat: posthog & all built packages
+- Updated dependencies [1ee28cb]
+  - @orbitkit/env@0.3.2
+
 ## 0.3.1
 
 ### Patch Changes
