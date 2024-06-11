@@ -2,7 +2,7 @@
 
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { usePostHog } from 'posthog-js/react';
+import { type PostHog, usePostHog } from 'posthog-js/react';
 
 /**
  * This component is used to capture page views in PostHog.
@@ -11,7 +11,7 @@ import { usePostHog } from 'posthog-js/react';
 export default function PostHogPageView(): null {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const posthog = usePostHog();
+  const posthog = usePostHog() as PostHog | undefined;
 
   useEffect(() => {
     if (pathname && posthog) {
