@@ -29,11 +29,14 @@ Typically, a package using this approach would be called an "Internal package".
 
 - **Slow TS LSP**: Let's imagine you have an `api` package that uses TS heavy libraries like `tRPC`, `drizzle-orm` add a bit of `zod` here and there. As your API grows more complex, the TS LSP (Language Server Protocol) will start taking hits. This is because TypeScript is so much faster at evaluating the `.js` and `.d.ts` combination than pure source `.ts` files.
 
-<Note>
-  If your package is being used in any way by a consumer that references the TS
-  source files, for example even using the `paths` option in the `tsconfig.json`
-  file, you will be taking an LSP hit.
-</Note>
+<Warning>
+  It is not uncommon to see the TS LSP taking 1.5-3 seconds for every
+  autocompletion suggestion to come up, the same goes for error reporting. This
+  absolutely kills your productivity, and switching to building those packages
+  immediately fixes it.
+</Warning>
+
+**In essence, if your consumer is referring to your package's TS source files, there will be a ceiling to hit where the TS LSP will start slowing down.**
 
 ### Transpiling the TS code to JS
 
@@ -86,7 +89,7 @@ To minimise the amount of processes running during dev we can do something like:
 This looks something like this, if we were to be making api changes for example:
 
 ```bash
-bun turbo dev --filter=!./packages/config/* --filter=!@orbitkit/docs --filter=!@orbitkit/marketing --filter=!@orbitkit/ui --only
+bun turbo dev --filter=@orbitkit/web... --filter=!./packages/config/* --filter=!@orbitkit/ui --only
 ```
 
 It is true that this is a really long command, but we can make it shorter by adding it to the root `package.json` scripts like so:
@@ -94,7 +97,7 @@ It is true that this is a really long command, but we can make it shorter by add
 ```json
 {
   "scripts": {
-    "dev:web:api": "bun turbo dev --filter=!./packages/config/* --filter=!@orbitkit/docs --filter=!@orbitkit/marketing --filter=!@orbitkit/ui --file --only"
+    "dev:web:api": "bun turbo dev --filter=@orbitkit/web... --filter=!./packages/config/* --filter=!@orbitkit/ui --only"
   }
 }
 ```
