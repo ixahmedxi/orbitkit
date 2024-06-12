@@ -8,274 +8,24 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./accordion": {
+    "./*": {
       "import": {
-        "types": "./dist/primitives/accordion/index.d.ts",
-        "default": "./dist/primitives/accordion/index.js"
-      }
-    },
-    "./alert": {
-      "import": {
-        "types": "./dist/primitives/alert/index.d.ts",
-        "default": "./dist/primitives/alert/index.js"
-      }
-    },
-    "./alert-dialog": {
-      "import": {
-        "types": "./dist/primitives/alert-dialog/index.d.ts",
-        "default": "./dist/primitives/alert-dialog/index.js"
-      }
-    },
-    "./aspect-ratio": {
-      "import": {
-        "types": "./dist/primitives/aspect-ratio/index.d.ts",
-        "default": "./dist/primitives/aspect-ratio/index.js"
-      }
-    },
-    "./avatar": {
-      "import": {
-        "types": "./dist/primitives/avatar/index.d.ts",
-        "default": "./dist/primitives/avatar/index.js"
-      }
-    },
-    "./badge": {
-      "import": {
-        "types": "./dist/primitives/badge/index.d.ts",
-        "default": "./dist/primitives/badge/index.js"
-      }
-    },
-    "./breadcrumb": {
-      "import": {
-        "types": "./dist/primitives/breadcrumb/index.d.ts",
-        "default": "./dist/primitives/breadcrumb/index.js"
-      }
-    },
-    "./button": {
-      "import": {
-        "types": "./dist/primitives/button/index.d.ts",
-        "default": "./dist/primitives/button/index.js"
-      }
-    },
-    "./calendar": {
-      "import": {
-        "types": "./dist/primitives/calendar/index.d.ts",
-        "default": "./dist/primitives/calendar/index.js"
-      }
-    },
-    "./card": {
-      "import": {
-        "types": "./dist/primitives/card/index.d.ts",
-        "default": "./dist/primitives/card/index.js"
-      }
-    },
-    "./carousel": {
-      "import": {
-        "types": "./dist/primitives/carousel/index.d.ts",
-        "default": "./dist/primitives/carousel/index.js"
-      }
-    },
-    "./checkbox": {
-      "import": {
-        "types": "./dist/primitives/checkbox/index.d.ts",
-        "default": "./dist/primitives/checkbox/index.js"
-      }
-    },
-    "./collapsible": {
-      "import": {
-        "types": "./dist/primitives/collapsible/index.d.ts",
-        "default": "./dist/primitives/collapsible/index.js"
-      }
-    },
-    "./command": {
-      "import": {
-        "types": "./dist/primitives/command/index.d.ts",
-        "default": "./dist/primitives/command/index.js"
-      }
-    },
-    "./context-menu": {
-      "import": {
-        "types": "./dist/primitives/context-menu/index.d.ts",
-        "default": "./dist/primitives/context-menu/index.js"
-      }
-    },
-    "./dialog": {
-      "import": {
-        "types": "./dist/primitives/dialog/index.d.ts",
-        "default": "./dist/primitives/dialog/index.js"
-      }
-    },
-    "./drawer": {
-      "import": {
-        "types": "./dist/primitives/drawer/index.d.ts",
-        "default": "./dist/primitives/drawer/index.js"
-      }
-    },
-    "./dropdown-menu": {
-      "import": {
-        "types": "./dist/primitives/dropdown-menu/index.d.ts",
-        "default": "./dist/primitives/dropdown-menu/index.js"
-      }
-    },
-    "./form": {
-      "import": {
-        "types": "./dist/primitives/form/index.d.ts",
-        "default": "./dist/primitives/form/index.js"
-      }
-    },
-    "./hover-card": {
-      "import": {
-        "types": "./dist/primitives/hover-card/index.d.ts",
-        "default": "./dist/primitives/hover-card/index.js"
-      }
-    },
-    "./input": {
-      "import": {
-        "types": "./dist/primitives/input/index.d.ts",
-        "default": "./dist/primitives/input/index.js"
-      }
-    },
-    "./input-otp": {
-      "import": {
-        "types": "./dist/primitives/input-otp/index.d.ts",
-        "default": "./dist/primitives/input-otp/index.js"
-      }
-    },
-    "./label": {
-      "import": {
-        "types": "./dist/primitives/label/index.d.ts",
-        "default": "./dist/primitives/label/index.js"
-      }
-    },
-    "./menubar": {
-      "import": {
-        "types": "./dist/primitives/menubar/index.d.ts",
-        "default": "./dist/primitives/menubar/index.js"
-      }
-    },
-    "./navigation-menu": {
-      "import": {
-        "types": "./dist/primitives/navigation-menu/index.d.ts",
-        "default": "./dist/primitives/navigation-menu/index.js"
-      }
-    },
-    "./pagination": {
-      "import": {
-        "types": "./dist/primitives/pagination/index.d.ts",
-        "default": "./dist/primitives/pagination/index.js"
-      }
-    },
-    "./popover": {
-      "import": {
-        "types": "./dist/primitives/popover/index.d.ts",
-        "default": "./dist/primitives/popover/index.js"
-      }
-    },
-    "./progress": {
-      "import": {
-        "types": "./dist/primitives/progress/index.d.ts",
-        "default": "./dist/primitives/progress/index.js"
-      }
-    },
-    "./radio-group": {
-      "import": {
-        "types": "./dist/primitives/radio-group/index.d.ts",
-        "default": "./dist/primitives/radio-group/index.js"
-      }
-    },
-    "./resizable": {
-      "import": {
-        "types": "./dist/primitives/resizable/index.d.ts",
-        "default": "./dist/primitives/resizable/index.js"
-      }
-    },
-    "./scroll-area": {
-      "import": {
-        "types": "./dist/primitives/scroll-area/index.d.ts",
-        "default": "./dist/primitives/scroll-area/index.js"
-      }
-    },
-    "./select": {
-      "import": {
-        "types": "./dist/primitives/select/index.d.ts",
-        "default": "./dist/primitives/select/index.js"
-      }
-    },
-    "./separator": {
-      "import": {
-        "types": "./dist/primitives/separator/index.d.ts",
-        "default": "./dist/primitives/separator/index.js"
-      }
-    },
-    "./sheet": {
-      "import": {
-        "types": "./dist/primitives/sheet/index.d.ts",
-        "default": "./dist/primitives/sheet/index.js"
-      }
-    },
-    "./skeleton": {
-      "import": {
-        "types": "./dist/primitives/skeleton/index.d.ts",
-        "default": "./dist/primitives/skeleton/index.js"
-      }
-    },
-    "./slider": {
-      "import": {
-        "types": "./dist/primitives/slider/index.d.ts",
-        "default": "./dist/primitives/slider/index.js"
-      }
-    },
-    "./switch": {
-      "import": {
-        "types": "./dist/primitives/switch/index.d.ts",
-        "default": "./dist/primitives/switch/index.js"
-      }
-    },
-    "./table": {
-      "import": {
-        "types": "./dist/primitives/table/index.d.ts",
-        "default": "./dist/primitives/table/index.js"
-      }
-    },
-    "./textarea": {
-      "import": {
-        "types": "./dist/primitives/textarea/index.d.ts",
-        "default": "./dist/primitives/textarea/index.js"
-      }
-    },
-    "./toast": {
-      "import": {
-        "types": "./dist/primitives/toast/index.d.ts",
-        "default": "./dist/primitives/toast/index.js"
-      }
-    },
-    "./toggle": {
-      "import": {
-        "types": "./dist/primitives/toggle/index.d.ts",
-        "default": "./dist/primitives/toggle/index.js"
-      }
-    },
-    "./toggle-group": {
-      "import": {
-        "types": "./dist/primitives/toggle-group/index.d.ts",
-        "default": "./dist/primitives/toggle-group/index.js"
-      }
-    },
-    "./tooltip": {
-      "import": {
-        "types": "./dist/primitives/tooltip/index.d.ts",
-        "default": "./dist/primitives/tooltip/index.js"
-      }
-    },
-    "./typography": {
-      "import": {
-        "types": "./dist/primitives/typography/index.d.ts",
-        "default": "./dist/primitives/typography/index.js"
+        "types": "./dist/primitives/*/index.d.ts",
+        "default": "./dist/primitives/*/index.js"
+      },
+      "require": {
+        "types": "./dist/primitives/*/index.d.cts",
+        "default": "./dist/primitives/*/index.cjs"
       }
     },
     "./cn": {
       "import": {
         "types": "./dist/utils/cn.d.ts",
         "default": "./dist/utils/cn.js"
+      },
+      "require": {
+        "types": "./dist/utils/cn.d.cts",
+        "default": "./dist/utils/cn.cjs"
       }
     }
   },
@@ -356,7 +106,6 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "pkg-types": "^1.1.1",
     "playwright": "^1.44.1",
     "postcss": "^8.4.38",
     "storybook": "^8.1.6",
