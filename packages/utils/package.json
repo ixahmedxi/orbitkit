@@ -24,9 +24,6 @@
     "lint": "eslint .  --max-warnings 0",
     "typecheck": "tsc"
   },
-  "dependencies": {
-    "pkg-types": "^1.1.1"
-  },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^"
