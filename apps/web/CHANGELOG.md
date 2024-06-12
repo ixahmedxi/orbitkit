@@ -1,5 +1,18 @@
 # @orbitkit/web
 
+## 0.3.3
+
+### Patch Changes
+
+- 0bc1e1b: refactor(ui): simplifies the tsup config
+- Updated dependencies [0bc1e1b]
+  - @orbitkit/utils@0.3.3
+  - @orbitkit/ui@0.3.3
+  - @orbitkit/api@0.3.3
+  - @orbitkit/auth@0.3.3
+  - @orbitkit/db@0.3.3
+  - @orbitkit/env@0.3.3
+
 ## 0.3.2
 
 ### Patch Changes
