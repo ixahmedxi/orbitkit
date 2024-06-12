@@ -283,7 +283,7 @@ if (newNamespace) {
   await findAndReplacePackageNames();
 
   // Done
-  await $`bun format && bun clean && bun install`;
+  await $`bun format && bun turbo clean && bun install`;
 
   console.log(
     '🎉 Done! Workspace namespaces have successfully been updated. You may wish to reload your IDE, to remove any errors.',
