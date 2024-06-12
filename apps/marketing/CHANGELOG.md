@@ -1,5 +1,15 @@
 # @orbitkit/marketing
 
+## 0.3.3
+
+### Patch Changes
+
+- 0bc1e1b: refactor(ui): simplifies the tsup config
+- Updated dependencies [0bc1e1b]
+  - @orbitkit/ui@0.3.3
+  - @orbitkit/assets@0.3.3
+  - @orbitkit/env@0.3.3
+
 ## 0.3.2
 
 ### Patch Changes
