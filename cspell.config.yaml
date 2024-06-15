@@ -31,6 +31,7 @@ words:
   - callees
   - classname
   - clsx
+  - tsup
   - cmdk
   - codespace
   - codespaces
@@ -53,11 +54,15 @@ words:
   - lockb
   - lucide
   - Malyavko
+  - minimise
   - Mintlify
+  - monorepoing
   - neonctl
   - neondatabase
   - nextjs
   - nzst
+  - onwarn
+  - optimisations
   - orbitkit
   - Ornella
   - packagejson
@@ -79,11 +84,12 @@ words:
   - thollander
   - todos
   - topbar
+  - transpiles
+  - treeshake
   - trpc
   - tsbuildinfo
   - tsconfigs
   - tseslint
-  - tsup
   - Tuite
   - turborepo
   - typecheck
@@ -94,7 +100,3 @@ words:
   - vaul
   - viewports
   - WITA
-  - transpiles
-  - optimisations
-  - minimise
-  - monorepoing

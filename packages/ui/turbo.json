@@ -14,8 +14,7 @@
         "$TURBO_DEFAULT$",
         "!CHANGELOG.md",
         "!eslint.config.js",
-        "!tsconfig.build.json",
-        "!tsup.config.ts"
+        "!tsconfig.build.json"
       ]
     }
   }

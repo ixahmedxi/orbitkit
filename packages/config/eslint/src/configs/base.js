@@ -13,7 +13,7 @@ import { compat, defineConfig } from '../utils.js';
 
 export const base = defineConfig(
   {
-    ignores: ['.next', '.astro', 'dist', 'storybook-static', '.tsup'],
+    ignores: ['.next', '.astro', 'dist', 'storybook-static'],
   },
 
   // Base JS/TS configs

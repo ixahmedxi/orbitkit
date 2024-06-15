@@ -8,9 +8,9 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./react": {
-      "types": "./dist/react.d.ts",
-      "default": "./dist/react.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
@@ -27,6 +27,10 @@
   },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
-    "@orbitkit/tsconfig": "workspace:^"
+    "@orbitkit/tsconfig": "workspace:^",
+    "globby": "^14.0.1",
+    "rollup-plugin-preserve-directives": "^0.4.0",
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-external": "^4.3.1"
   }
 }

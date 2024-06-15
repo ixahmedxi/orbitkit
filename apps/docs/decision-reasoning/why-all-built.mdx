@@ -1,7 +1,7 @@
 ---
 title: Built packages
 icon: 'toolbox'
-description: 'If you noticed, all the packages in the monorepo (except the env one) are built using tsc or tsup. Here is why.'
+description: 'If you noticed, all the packages in the monorepo (except the env one) are built using tsc or vite. Here is why.'
 ---
 
 ## Types of Monorepo Packages
@@ -10,7 +10,7 @@ In a typical TS monorepo, there are three ways of consuming the packages that yo
 
 1. Shipping out the TS source code directly in the `exports` field of the `package.json` file or using `tsconfig` paths.
 2. Transpiling the TS code to JS using `tsc` and shipping the JS code in the `exports` field of the package alongside the `.d.ts` files.
-3. Bundling the TS code using something like `tsup` or `rollup` and shipping the bundled JS code in the `exports` field of the package alongside the `.d.ts` files.
+3. Bundling the TS code using something like `vite`, `tsup` or `rollup` and shipping the bundled JS code in the `exports` field of the package alongside the `.d.ts` files.
 
 ## Comparing the approaches
 
@@ -69,7 +69,7 @@ Typically, a package using this approach would be called a "Publishable Package"
 
 ## The OrbitKit Approach
 
-- `ui package` is bundled with `tsup`.
+- `ui package` is bundled with `vite`.
 - `env package` is shipped out as source code.
 - All other packages are compiled with `tsc`.
 
