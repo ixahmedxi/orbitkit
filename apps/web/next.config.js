@@ -5,7 +5,8 @@ import createJiti from 'jiti';
 
 const jiti = createJiti(fileURLToPath(import.meta.url));
 
-jiti('@orbitkit/env/web');
+jiti('@orbitkit/env/web/server');
+jiti('@orbitkit/env/web/client');
 
 const withBundleAnalyzer = bundleAnalyzerPlugin({
   enabled: process.env['ANALYZE'] === 'true',

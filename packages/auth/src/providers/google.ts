@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/server';
 import { getBaseUrl } from '@orbitkit/utils/url';
 
 import { lucia } from '../lucia';
@@ -36,8 +36,8 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
 
   const state = generateState();
   const url =
-    env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
-    (await google.createAuthorizationURL(state, env.AUTH_GOOGLE_CODE_VERIFIER, {
+    env.AUTH_SECRET !== undefined &&
+    (await google.createAuthorizationURL(state, env.AUTH_SECRET, {
       scopes: ['profile', 'email'],
     }));
 
@@ -92,11 +92,8 @@ export async function validateGoogleCallback(
 
   try {
     const tokens =
-      env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
-      (await google.validateAuthorizationCode(
-        code,
-        env.AUTH_GOOGLE_CODE_VERIFIER,
-      ));
+      env.AUTH_SECRET !== undefined &&
+      (await google.validateAuthorizationCode(code, env.AUTH_SECRET));
 
     if (!tokens) {
       return new Response(null, {

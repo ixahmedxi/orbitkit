@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 
 import { Ratelimit } from '@unkey/ratelimit';
 
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/server';
 
 const unkey =
   env.UNKEY_ROOT_KEY && env.UNKEY_NAMESPACE

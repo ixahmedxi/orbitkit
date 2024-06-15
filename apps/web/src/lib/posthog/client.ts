@@ -1,4 +1,4 @@
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/client';
 import { PostHog } from 'posthog-node';
 
 /**

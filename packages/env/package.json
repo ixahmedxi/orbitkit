@@ -8,7 +8,8 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./web": "./src/web/index.ts",
+    "./web/server": "./src/web/server.ts",
+    "./web/client": "./src/web/client.ts",
     "./web/db": "./src/web/db.ts",
     "./marketing": "./src/marketing/index.ts"
   },
