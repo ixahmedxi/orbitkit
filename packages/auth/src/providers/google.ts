@@ -35,18 +35,9 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
   }
 
   const state = generateState();
-  const url =
-    env.AUTH_SECRET !== undefined &&
-    (await google.createAuthorizationURL(state, env.AUTH_SECRET, {
-      scopes: ['profile', 'email'],
-    }));
-
-  if (!url) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Not Found',
-    });
-  }
+  const url = await google.createAuthorizationURL(state, env.AUTH_SECRET, {
+    scopes: ['profile', 'email'],
+  });
 
   cookies().set('google_oauth_state', state, {
     path: '/',
@@ -91,16 +82,10 @@ export async function validateGoogleCallback(
   }
 
   try {
-    const tokens =
-      env.AUTH_SECRET !== undefined &&
-      (await google.validateAuthorizationCode(code, env.AUTH_SECRET));
-
-    if (!tokens) {
-      return new Response(null, {
-        status: 404,
-        statusText: 'Not Found',
-      });
-    }
+    const tokens = await google.validateAuthorizationCode(
+      code,
+      env.AUTH_SECRET,
+    );
 
     const googleUserResponse = await fetch(
       'https://openidconnect.googleapis.com/v1/userinfo',

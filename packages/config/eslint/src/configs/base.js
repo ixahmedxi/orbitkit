@@ -34,14 +34,14 @@ export const base = defineConfig(
   // Tailwind plugin
   ...fixupConfigRules(compat.extends('plugin:tailwindcss/recommended')),
 
+  // Prettier config to disable conflicting rules
+  prettierConfig,
+
   // JSDoc plugin only for TypeScript files
   {
     files: ['**/*.{ts,tsx}'],
     extends: [jsdoc.configs['flat/recommended-typescript-error']],
   },
-
-  // Prettier config to disable conflicting rules
-  prettierConfig,
 
   {
     files: ['**/*.cjs'],

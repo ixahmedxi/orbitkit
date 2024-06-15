@@ -5,9 +5,7 @@ import { auth } from '@orbitkit/auth';
 import { env } from '@orbitkit/env/web/server';
 
 const googleAuthIsEnabled =
-  env.AUTH_GOOGLE_ID !== undefined &&
-  env.AUTH_GOOGLE_SECRET !== undefined &&
-  env.AUTH_SECRET !== undefined;
+  env.AUTH_GOOGLE_ID !== undefined && env.AUTH_GOOGLE_SECRET !== undefined;
 
 const githubAuthIsEnabled =
   env.AUTH_GITHUB_SECRET !== undefined && env.AUTH_GITHUB_ID !== undefined;

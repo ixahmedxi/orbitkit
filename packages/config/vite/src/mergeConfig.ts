@@ -1,4 +1,4 @@
-import { UserConfig } from 'vite';
+import type { UserConfig } from 'vite';
 import { mergeConfig as viteMergeConfig } from 'vite';
 
 export const mergeConfig = (
