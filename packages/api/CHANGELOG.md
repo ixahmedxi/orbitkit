@@ -1,5 +1,16 @@
 # @orbitkit/api
 
+## 0.3.4
+
+### Patch Changes
+
+- e0c4bfd: refactor: switches from `tsup` to `vite` for bundling.
+- Updated dependencies [e0c4bfd]
+  - @orbitkit/utils@0.3.4
+  - @orbitkit/auth@0.3.4
+  - @orbitkit/env@0.3.4
+  - @orbitkit/db@0.3.4
+
 ## 0.3.3
 
 ### Patch Changes
