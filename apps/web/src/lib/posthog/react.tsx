@@ -1,5 +1,5 @@
 'use client';
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/client';
 import posthog from 'posthog-js';
 import { PostHogProvider } from 'posthog-js/react';
 

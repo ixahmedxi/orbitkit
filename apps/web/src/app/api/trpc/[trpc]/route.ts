@@ -3,7 +3,7 @@ import { type NextRequest } from 'next/server';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 
 import { appRouter, createTRPCContext } from '@orbitkit/api';
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/server';
 
 const createContext = async (req: NextRequest) => {
   return createTRPCContext({

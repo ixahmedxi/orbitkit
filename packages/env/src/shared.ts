@@ -7,9 +7,7 @@ export const sharedEnv = createEnv({
   shared: {
     NODE_ENV: z.enum(['development', 'test', 'production']).optional(),
   },
-  experimental__runtimeEnv: {
+  runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
   },
-  emptyStringAsUndefined: true,
-  skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
 });

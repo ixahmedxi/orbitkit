@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { db } from '@orbitkit/db';
 import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
-import { env } from '@orbitkit/env/web';
+import { env } from '@orbitkit/env/web/server';
 import { getBaseUrl } from '@orbitkit/utils/url';
 
 import { lucia } from '../lucia';
@@ -35,18 +35,9 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
   }
 
   const state = generateState();
-  const url =
-    env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
-    (await google.createAuthorizationURL(state, env.AUTH_GOOGLE_CODE_VERIFIER, {
-      scopes: ['profile', 'email'],
-    }));
-
-  if (!url) {
-    return new Response(null, {
-      status: 404,
-      statusText: 'Not Found',
-    });
-  }
+  const url = await google.createAuthorizationURL(state, env.AUTH_SECRET, {
+    scopes: ['profile', 'email'],
+  });
 
   cookies().set('google_oauth_state', state, {
     path: '/',
@@ -91,19 +82,10 @@ export async function validateGoogleCallback(
   }
 
   try {
-    const tokens =
-      env.AUTH_GOOGLE_CODE_VERIFIER !== undefined &&
-      (await google.validateAuthorizationCode(
-        code,
-        env.AUTH_GOOGLE_CODE_VERIFIER,
-      ));
-
-    if (!tokens) {
-      return new Response(null, {
-        status: 404,
-        statusText: 'Not Found',
-      });
-    }
+    const tokens = await google.validateAuthorizationCode(
+      code,
+      env.AUTH_SECRET,
+    );
 
     const googleUserResponse = await fetch(
       'https://openidconnect.googleapis.com/v1/userinfo',

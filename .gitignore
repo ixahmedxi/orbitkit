@@ -136,9 +136,6 @@ storybook-static
 # Astro
 .astro
 
-# Tsup
-.tsup
-
 # DS_Store files
 .DS_Store
 

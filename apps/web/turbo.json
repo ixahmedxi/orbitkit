@@ -16,7 +16,7 @@
         "AUTH_GITHUB_SECRET",
         "AUTH_GOOGLE_ID",
         "AUTH_GOOGLE_SECRET",
-        "AUTH_GOOGLE_CODE_VERIFIER",
+        "AUTH_SECRET",
         "NEXT_PUBLIC_POSTHOG_HOST",
         "NEXT_PUBLIC_POSTHOG_KEY"
       ]
@@ -32,7 +32,7 @@
         "AUTH_GITHUB_SECRET",
         "AUTH_GOOGLE_ID",
         "AUTH_GOOGLE_SECRET",
-        "AUTH_GOOGLE_CODE_VERIFIER",
+        "AUTH_SECRET",
         "NEXT_PUBLIC_POSTHOG_HOST",
         "NEXT_PUBLIC_POSTHOG_KEY"
       ]
