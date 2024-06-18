@@ -1,13 +1,13 @@
-import { FontBoldIcon, FontItalicIcon } from '@radix-ui/react-icons';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { FontBoldIcon, FontItalicIcon } from '@radix-ui/react-icons'
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import { Toggle } from '.';
+import { Toggle } from '.'
 
 const meta: Meta<typeof Toggle> = {
   component: Toggle,
   args: {
     'aria-label': 'Toggle bold',
-    children: <FontBoldIcon className="size-4" />,
+    children: <FontBoldIcon className='size-4' />,
     size: 'default',
     variant: 'default',
   },
@@ -23,24 +23,24 @@ const meta: Meta<typeof Toggle> = {
       control: { type: 'select' },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Toggle>;
+type Story = StoryObj<typeof Toggle>
 
-export const Default: Story = {};
-export const Outline: Story = { args: { variant: 'outline' } };
+export const Default: Story = {}
+export const Outline: Story = { args: { variant: 'outline' } }
 export const WithText: Story = {
   args: {
     children: (
       <>
-        <FontItalicIcon className="mr-2 size-4" />
+        <FontItalicIcon className='mr-2 size-4' />
         Italic
       </>
     ),
   },
-};
-export const Small: Story = { args: { size: 'sm' } };
-export const Large: Story = { args: { size: 'lg' } };
-export const Disabled: Story = { args: { disabled: true } };
+}
+export const Small: Story = { args: { size: 'sm' } }
+export const Large: Story = { args: { size: 'lg' } }
+export const Disabled: Story = { args: { disabled: true } }

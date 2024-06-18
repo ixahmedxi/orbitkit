@@ -1,15 +1,15 @@
-import { type NextRequest } from 'next/server';
+import { type NextRequest } from 'next/server'
 
-import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
+import { fetchRequestHandler } from '@trpc/server/adapters/fetch'
 
-import { appRouter, createTRPCContext } from '@orbitkit/api';
-import { env } from '@orbitkit/env/web/server';
+import { appRouter, createTRPCContext } from '@orbitkit/api'
+import { env } from '@orbitkit/env/web/server'
 
 const createContext = async (req: NextRequest) => {
   return createTRPCContext({
     headers: req.headers,
-  });
-};
+  })
+}
 
 const handler = (req: NextRequest) =>
   fetchRequestHandler({
@@ -21,9 +21,9 @@ const handler = (req: NextRequest) =>
       if (env.NODE_ENV === 'development') {
         console.error(
           `❌ tRPC failed on ${path ?? '<no-path>'}: ${error.message}`,
-        );
+        )
       }
     },
-  });
+  })
 
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST }

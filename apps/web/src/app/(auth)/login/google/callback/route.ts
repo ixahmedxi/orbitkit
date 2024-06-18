@@ -1,3 +1,3 @@
-import { validateGoogleCallback } from '@orbitkit/auth/providers/google';
+import { validateGoogleCallback } from '@orbitkit/auth/providers/google'
 
-export { validateGoogleCallback as GET };
+export { validateGoogleCallback as GET }

@@ -1,7 +1,9 @@
-'use client';
-import { env } from '@orbitkit/env/web/client';
-import posthog from 'posthog-js';
-import { PostHogProvider } from 'posthog-js/react';
+'use client'
+
+import posthog from 'posthog-js'
+import { PostHogProvider } from 'posthog-js/react'
+
+import { env } from '@orbitkit/env/web/client'
 
 if (
   typeof window !== 'undefined' &&
@@ -11,7 +13,7 @@ if (
   posthog.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: env.NEXT_PUBLIC_POSTHOG_HOST,
     capture_pageview: false, // Disable automatic pageview capture, as we capture manually
-  });
+  })
 }
 
 /**
@@ -23,7 +25,7 @@ if (
 export function PostHogReactProvider({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  return <PostHogProvider client={posthog}>{children}</PostHogProvider>;
+  return <PostHogProvider client={posthog}>{children}</PostHogProvider>
 }

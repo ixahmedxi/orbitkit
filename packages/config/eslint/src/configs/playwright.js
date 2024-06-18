@@ -1,6 +1,6 @@
-import playwrightPlugin from 'eslint-plugin-playwright';
+import playwrightPlugin from 'eslint-plugin-playwright'
 
-import { defineConfig } from '../utils.js';
+import { defineConfig } from '../utils.js'
 
 export const playwright = defineConfig(
   {
@@ -12,4 +12,4 @@ export const playwright = defineConfig(
       // You can override the recommended rules here
     },
   },
-);
+)

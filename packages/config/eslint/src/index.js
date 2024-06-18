@@ -1,10 +1,10 @@
-import { base } from './configs/base.js';
-import { next } from './configs/next.js';
-import { playwright } from './configs/playwright.js';
-import { react } from './configs/react.js';
-import { storybook } from './configs/storybook.js';
+import { base } from './configs/base.js'
+import { next } from './configs/next.js'
+import { playwright } from './configs/playwright.js'
+import { react } from './configs/react.js'
+import { storybook } from './configs/storybook.js'
 
-export { defineConfig } from './utils.js';
+export { defineConfig } from './utils.js'
 
 /**
  * Note: You MUST import files using the .js extension in this entire package
@@ -16,4 +16,4 @@ export const configs = {
   react,
   next,
   storybook,
-};
+}

@@ -1,7 +1,7 @@
-import { BellIcon, CheckIcon } from '@radix-ui/react-icons';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { BellIcon, CheckIcon } from '@radix-ui/react-icons'
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import { Button } from '@/primitives/button';
+import { Button } from '@/primitives/button'
 import {
   Card,
   CardContent,
@@ -9,17 +9,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/primitives/card';
-import { Switch } from '@/primitives/switch';
-import { cn } from '@/utils/cn';
+} from '@/primitives/card'
+import { Switch } from '@/primitives/switch'
+import { cn } from '@/utils/cn'
 
 const meta: Meta<typeof Card> = {
   component: Card,
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Card>;
+type Story = StoryObj<typeof Card>
 
 const notifications = [
   {
@@ -34,7 +34,7 @@ const notifications = [
     title: 'Your subscription is expiring soon!',
     description: '2 hours ago',
   },
-];
+]
 
 export const Default: Story = {
   render: (args) => (
@@ -43,14 +43,14 @@ export const Default: Story = {
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className=" flex items-center space-x-4 rounded-md border p-4">
+      <CardContent className='grid gap-4'>
+        <div className=' flex items-center space-x-4 rounded-md border p-4'>
           <BellIcon />
-          <div className="flex-1 space-y-1">
-            <p className="text-sm font-medium leading-none">
+          <div className='flex-1 space-y-1'>
+            <p className='text-sm font-medium leading-none'>
               Push Notifications
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className='text-sm text-muted-foreground'>
               Send notifications to device.
             </p>
           </div>
@@ -60,14 +60,14 @@ export const Default: Story = {
           {notifications.map((notification, index) => (
             <div
               key={index}
-              className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
+              className='mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0'
             >
-              <span className="flex size-2 translate-y-1 rounded-full bg-sky-500" />
-              <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">
+              <span className='flex size-2 translate-y-1 rounded-full bg-sky-500' />
+              <div className='space-y-1'>
+                <p className='text-sm font-medium leading-none'>
                   {notification.title}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className='text-sm text-muted-foreground'>
                   {notification.description}
                 </p>
               </div>
@@ -76,10 +76,10 @@ export const Default: Story = {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">
-          <CheckIcon className="mr-2 size-4" /> Mark all as read
+        <Button className='w-full'>
+          <CheckIcon className='mr-2 size-4' /> Mark all as read
         </Button>
       </CardFooter>
     </Card>
   ),
-};
+}

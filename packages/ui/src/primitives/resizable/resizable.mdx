@@ -1,13 +1,13 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as ResizableStories from './resizable.stories';
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as ResizableStories from './resizable.stories'
 
 <Meta of={ResizableStories} />
 
 <PrimitiveDocsButton
-  docsUrl="https://github.com/bvaughn/react-resizable-panels"
-  apiReferenceUrl="https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels"
+  docsUrl='https://github.com/bvaughn/react-resizable-panels'
+  apiReferenceUrl='https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels'
 />
 
 # Resizable
@@ -28,16 +28,16 @@ export const importCode = `import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "@orbitkit/ui/resizable";`;
+} from "@orbitkit/ui/resizable";`
 
 export const usageCode = `<ResizablePanelGroup direction="horizontal">
   <ResizablePanel>One</ResizablePanel>
   <ResizableHandle />
   <ResizablePanel>Two</ResizablePanel>
-</ResizablePanelGroup>`;
+</ResizablePanelGroup>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 
@@ -64,7 +64,7 @@ export default function Example() {
 }
 `;
 
-<Source code={verticalCode} language="tsx" dark />
+<Source code={verticalCode} language='tsx' dark />
 
 ### Handle
 
@@ -88,4 +88,4 @@ export default function Example() {
   );
 }`
 
-<Source code={withHandleCode} language="tsx" dark />
+<Source code={withHandleCode} language='tsx' dark />

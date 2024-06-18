@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import * as React from 'react';
+import * as React from 'react'
 
-import type { VariantProps } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority'
 
-import { Cross2Icon } from '@radix-ui/react-icons';
-import * as ToastPrimitives from '@radix-ui/react-toast';
-import { cva } from 'class-variance-authority';
+import { Cross2Icon } from '@radix-ui/react-icons'
+import * as ToastPrimitives from '@radix-ui/react-toast'
+import { cva } from 'class-variance-authority'
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/cn'
 
-const ToastProvider = ToastPrimitives.Provider;
+const ToastProvider = ToastPrimitives.Provider
 
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
@@ -24,8 +24,8 @@ const ToastViewport = React.forwardRef<
     )}
     {...props}
   />
-));
-ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+))
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName
 
 // eslint-disable-next-line tailwindcss/no-custom-classname
 const toastVariants = cva(
@@ -42,7 +42,7 @@ const toastVariants = cva(
       variant: 'default',
     },
   },
-);
+)
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Root>,
@@ -55,9 +55,9 @@ const Toast = React.forwardRef<
       className={cn(toastVariants({ variant }), className)}
       {...props}
     />
-  );
-});
-Toast.displayName = ToastPrimitives.Root.displayName;
+  )
+})
+Toast.displayName = ToastPrimitives.Root.displayName
 
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
@@ -71,8 +71,8 @@ const ToastAction = React.forwardRef<
     )}
     {...props}
   />
-));
-ToastAction.displayName = ToastPrimitives.Action.displayName;
+))
+ToastAction.displayName = ToastPrimitives.Action.displayName
 
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
@@ -84,13 +84,13 @@ const ToastClose = React.forwardRef<
       'absolute right-1 top-1 rounded-md p-1 text-gray-6 opacity-0 transition-colors hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100 group-[.destructive]:text-destructive-6 group-[.destructive]:hover:text-destructive-12 group-[.destructive]:focus:ring-destructive-12 group-[.destructive]:focus:ring-offset-destructive-10',
       className,
     )}
-    toast-close=""
+    toast-close=''
     {...props}
   >
-    <Cross2Icon className="size-4" />
+    <Cross2Icon className='size-4' />
   </ToastPrimitives.Close>
-));
-ToastClose.displayName = ToastPrimitives.Close.displayName;
+))
+ToastClose.displayName = ToastPrimitives.Close.displayName
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,
@@ -101,8 +101,8 @@ const ToastTitle = React.forwardRef<
     className={cn('text-sm font-semibold [&+div]:text-xs', className)}
     {...props}
   />
-));
-ToastTitle.displayName = ToastPrimitives.Title.displayName;
+))
+ToastTitle.displayName = ToastPrimitives.Title.displayName
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Description>,
@@ -116,12 +116,12 @@ const ToastDescription = React.forwardRef<
     )}
     {...props}
   />
-));
-ToastDescription.displayName = ToastPrimitives.Description.displayName;
+))
+ToastDescription.displayName = ToastPrimitives.Description.displayName
 
-type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
 
-type ToastActionElement = React.ReactElement<typeof ToastAction>;
+type ToastActionElement = React.ReactElement<typeof ToastAction>
 
 export {
   type ToastProps,
@@ -133,4 +133,4 @@ export {
   ToastDescription,
   ToastClose,
   ToastAction,
-};
+}

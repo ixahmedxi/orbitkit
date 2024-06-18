@@ -1,11 +1,11 @@
-import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
-import { Lucia } from 'lucia';
+import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle'
+import { Lucia } from 'lucia'
 
-import { db } from '@orbitkit/db';
-import { sessionTable, userTable } from '@orbitkit/db/schema';
-import { env } from '@orbitkit/env/web/server';
+import { db } from '@orbitkit/db'
+import { sessionTable, userTable } from '@orbitkit/db/schema'
+import { env } from '@orbitkit/env/web/server'
 
-const adapter = new DrizzlePostgreSQLAdapter(db, sessionTable, userTable);
+const adapter = new DrizzlePostgreSQLAdapter(db, sessionTable, userTable)
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
@@ -18,17 +18,17 @@ export const lucia = new Lucia(adapter, {
       name: attributes.name,
       email: attributes.email,
       avatarUrl: attributes.avatarUrl,
-    };
+    }
   },
-});
+})
 
 declare module 'lucia' {
   interface Register {
-    Lucia: typeof lucia;
+    Lucia: typeof lucia
     DatabaseUserAttributes: {
-      name?: string;
-      email: string;
-      avatarUrl?: string;
-    };
+      name?: string
+      email: string
+      avatarUrl?: string
+    }
   }
 }

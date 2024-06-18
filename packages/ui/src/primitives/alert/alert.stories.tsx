@@ -1,7 +1,7 @@
-import { ExclamationTriangleIcon, RocketIcon } from '@radix-ui/react-icons';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { ExclamationTriangleIcon, RocketIcon } from '@radix-ui/react-icons'
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import { Alert, AlertDescription, AlertTitle } from './';
+import { Alert, AlertDescription, AlertTitle } from './'
 
 const meta: Meta<typeof Alert> = {
   component: Alert,
@@ -16,23 +16,23 @@ const meta: Meta<typeof Alert> = {
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Alert>;
+type Story = StoryObj<typeof Alert>
 
 export const Default: Story = {
   render: (args) => (
     <Alert {...args}>
-      <RocketIcon className="size-4" />
+      <RocketIcon className='size-4' />
       <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription>
         You can add components to your app using the cli.
       </AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const Destructive: Story = {
   args: {
@@ -40,11 +40,11 @@ export const Destructive: Story = {
   },
   render: (args) => (
     <Alert {...args}>
-      <ExclamationTriangleIcon className="size-4" />
+      <ExclamationTriangleIcon className='size-4' />
       <AlertTitle>Error</AlertTitle>
       <AlertDescription>
         Your session has expired. Please log in again.
       </AlertDescription>
     </Alert>
   ),
-};
+}

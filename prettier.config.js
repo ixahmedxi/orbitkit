@@ -1,13 +1,14 @@
 /** @type {import('@ianvs/prettier-plugin-sort-imports').PrettierConfig} */
 const config = {
-  semi: true,
+  semi: false,
   singleQuote: true,
   trailingComma: 'all',
+  arrowParens: 'always',
+  jsxSingleQuote: true,
   printWidth: 80,
   plugins: [
     '@ianvs/prettier-plugin-sort-imports',
     'prettier-plugin-packagejson',
-    'prettier-plugin-curly',
     'prettier-plugin-astro',
   ],
   overrides: [
@@ -21,7 +22,7 @@ const config = {
   importOrder: [
     '',
     '^react$',
-    '^next(-[^/]+)?(/.*)?$',
+    '^next(/.*)?$',
     '',
     '<TYPES>',
     '<TYPES>^[.]',
@@ -40,6 +41,6 @@ const config = {
     '.css$',
   ],
   importOrderTypeScriptVersion: '5.4.5',
-};
+}
 
-export default config;
+export default config

@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as CommandStories from './command.stories';
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as CommandStories from './command.stories'
 
 <Meta of={CommandStories} />
 
-<PrimitiveDocsButton docsUrl="https://cmdk.paco.me/" />
+<PrimitiveDocsButton docsUrl='https://cmdk.paco.me/' />
 
 # Command
 
@@ -31,7 +31,7 @@ export const importCode = `import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@orbitkit/ui/command";`;
+} from "@orbitkit/ui/command";`
 
 export const usageCode = `<Command>
   <CommandInput placeholder="Type a command or search..." />
@@ -49,10 +49,10 @@ export const usageCode = `<Command>
       <CommandItem>Settings</CommandItem>
     </CommandGroup>
   </CommandList>
-</Command>`;
+</Command>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 

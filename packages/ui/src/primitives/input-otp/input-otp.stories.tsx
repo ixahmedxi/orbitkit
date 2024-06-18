@@ -1,7 +1,7 @@
-import { type Meta, type StoryObj } from '@storybook/react';
-import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
+import { type Meta, type StoryObj } from '@storybook/react'
+import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp'
 
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '.';
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '.'
 
 const meta: Meta<typeof InputOTP> = {
   component: InputOTP,
@@ -23,16 +23,16 @@ const meta: Meta<typeof InputOTP> = {
       </>
     ),
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof InputOTP>;
+type Story = StoryObj<typeof InputOTP>
 
-export const Default: Story = {};
+export const Default: Story = {}
 
 export const Pattern: Story = {
   args: {
     pattern: REGEXP_ONLY_DIGITS_AND_CHARS,
   },
-};
+}

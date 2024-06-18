@@ -1,11 +1,11 @@
-import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as AlertDialogStories from './alert-dialog.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as AlertDialogStories from './alert-dialog.stories'
 
 <Meta of={AlertDialogStories} />
 
-<RadixPrimitiveDocsButton name="alert-dialog" />
+<RadixPrimitiveDocsButton name='alert-dialog' />
 
 # Alert Dialog
 
@@ -27,7 +27,7 @@ export const importCode = `import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "@orbitkit/ui/alert-dialog";`;
+} from "@orbitkit/ui/alert-dialog";`
 
 export const usageCode = `<AlertDialog>
   <AlertDialogTrigger>Open</AlertDialogTrigger>
@@ -44,7 +44,7 @@ export const usageCode = `<AlertDialog>
       <AlertDialogAction>Continue</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>
-</AlertDialog>`;
+</AlertDialog>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

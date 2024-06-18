@@ -1,6 +1,6 @@
-import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
 
-import * as AlertStories from './alert.stories';
+import * as AlertStories from './alert.stories'
 
 <Meta of={AlertStories} />
 
@@ -16,7 +16,7 @@ Displays a callout for user attention.
 
 ## Usage
 
-export const importCode = `import { Alert, AlertDescription, AlertTitle } from "@orbitkit/ui/alert";`;
+export const importCode = `import { Alert, AlertDescription, AlertTitle } from "@orbitkit/ui/alert";`
 
 export const exampleCode = `<Alert>
   <Terminal className="h-4 w-4" />
@@ -25,10 +25,10 @@ export const exampleCode = `<Alert>
     You can add components and dependencies to your app using the cli.
   </AlertDescription>
 </Alert>
-`;
+`
 
-<Source code={importCode} language="ts" dark />
-<Source code={exampleCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={exampleCode} language='tsx' dark />
 
 ## Examples
 

@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as DrawerStories from './drawer.stories';
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as DrawerStories from './drawer.stories'
 
 <Meta of={DrawerStories} />
 
-<PrimitiveDocsButton docsUrl="https://github.com/emilkowalski/vaul" />
+<PrimitiveDocsButton docsUrl='https://github.com/emilkowalski/vaul' />
 
 # Drawer
 
@@ -26,7 +26,7 @@ export const importCode = `import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@orbitkit/ui/drawer";`;
+} from "@orbitkit/ui/drawer";`
 
 export const usageCode = `<Drawer>
   <DrawerTrigger>Open</DrawerTrigger>
@@ -42,7 +42,7 @@ export const usageCode = `<Drawer>
       </DrawerClose>
     </DrawerFooter>
   </DrawerContent>
-</Drawer>`;
+</Drawer>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

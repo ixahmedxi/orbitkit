@@ -1,7 +1,8 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
-import { sharedEnv } from '../shared';
-import { env as dbEnv } from './db';
+import { createEnv } from '@t3-oss/env-nextjs'
+import { z } from 'zod'
+
+import { sharedEnv } from '../shared'
+import { env as dbEnv } from './db'
 
 export const env = createEnv({
   extends: [sharedEnv, dbEnv],
@@ -28,4 +29,4 @@ export const env = createEnv({
   },
   emptyStringAsUndefined: true,
   skipValidation: !!process.env['SKIP_ENV_VALIDATION'],
-});
+})

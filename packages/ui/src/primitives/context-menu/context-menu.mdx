@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as ContextMenuStories from './context-menu.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as ContextMenuStories from './context-menu.stories'
 
 <Meta of={ContextMenuStories} />
 
-<RadixPrimitiveDocsButton name="context-menu" />
+<RadixPrimitiveDocsButton name='context-menu' />
 
 # Context Menu
 
@@ -22,7 +22,7 @@ export const importCode = `import {
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuTrigger,
-} from "@orbitkit/ui/context-menu";`;
+} from "@orbitkit/ui/context-menu";`
 
 export const usageCode = `<ContextMenu>
   <ContextMenuTrigger>Right click</ContextMenuTrigger>
@@ -32,7 +32,7 @@ export const usageCode = `<ContextMenu>
     <ContextMenuItem>Team</ContextMenuItem>
     <ContextMenuItem>Subscription</ContextMenuItem>
   </ContextMenuContent>
-</ContextMenu>`;
+</ContextMenu>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

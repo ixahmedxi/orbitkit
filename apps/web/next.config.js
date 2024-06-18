@@ -1,16 +1,16 @@
-import { fileURLToPath } from 'node:url';
-import bundleAnalyzerPlugin from '@next/bundle-analyzer';
+import { fileURLToPath } from 'node:url'
 
-import createJiti from 'jiti';
+import bundleAnalyzerPlugin from '@next/bundle-analyzer'
+import createJiti from 'jiti'
 
-const jiti = createJiti(fileURLToPath(import.meta.url));
+const jiti = createJiti(fileURLToPath(import.meta.url))
 
-jiti('@orbitkit/env/web/server');
-jiti('@orbitkit/env/web/client');
+jiti('@orbitkit/env/web/server')
+jiti('@orbitkit/env/web/client')
 
 const withBundleAnalyzer = bundleAnalyzerPlugin({
   enabled: process.env['ANALYZE'] === 'true',
-});
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -25,6 +25,6 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
-};
+}
 
-export default withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(nextConfig)

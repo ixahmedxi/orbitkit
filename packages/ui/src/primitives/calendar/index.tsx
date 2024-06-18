@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import * as React from 'react';
+import * as React from 'react'
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
-import { DayPicker } from 'react-day-picker';
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
+import { DayPicker } from 'react-day-picker'
 
-import { buttonVariants } from '@/primitives/button';
-import { cn } from '@/utils/cn';
+import { buttonVariants } from '@/primitives/button'
+import { cn } from '@/utils/cn'
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 /**
  * A calendar component that uses the `react-day-picker` library.
@@ -69,13 +69,13 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: () => <ChevronLeftIcon className="size-4" />,
-        IconRight: () => <ChevronRightIcon className="size-4" />,
+        IconLeft: () => <ChevronLeftIcon className='size-4' />,
+        IconRight: () => <ChevronRightIcon className='size-4' />,
       }}
       {...props}
     />
-  );
+  )
 }
-Calendar.displayName = 'Calendar';
+Calendar.displayName = 'Calendar'
 
-export { Calendar };
+export { Calendar }

@@ -1,6 +1,6 @@
-import { pgTable, primaryKey, text } from 'drizzle-orm/pg-core';
+import { pgTable, primaryKey, text } from 'drizzle-orm/pg-core'
 
-import { userTable } from '.';
+import { userTable } from '.'
 
 export const oauthAccountTable = pgTable(
   'oauth_account',
@@ -14,4 +14,4 @@ export const oauthAccountTable = pgTable(
   (table) => ({
     pk: primaryKey({ columns: [table.providerId, table.providerUserId] }),
   }),
-);
+)

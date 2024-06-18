@@ -1,12 +1,12 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/react'
 
-import type {} from '@storybook/types';
+import type {} from '@storybook/types'
 
-import { withThemeByClassName } from '@storybook/addon-themes';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { type ReactRenderer } from '@storybook/react';
+import { withThemeByClassName } from '@storybook/addon-themes'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { type ReactRenderer } from '@storybook/react'
 
-import theme from './theme';
+import theme from './theme'
 
 const customViewports = {
   '720p': {
@@ -44,7 +44,7 @@ const customViewports = {
       height: '1080px',
     },
   },
-};
+}
 
 const preview = {
   parameters: {
@@ -74,6 +74,6 @@ const preview = {
       defaultTheme: 'dark',
     }),
   ],
-} satisfies Preview;
+} satisfies Preview
 
-export default preview;
+export default preview

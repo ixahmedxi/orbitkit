@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as InputOTPStories from './input-otp.stories';
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as InputOTPStories from './input-otp.stories'
 
 <Meta of={InputOTPStories} />
 
-<PrimitiveDocsButton docsUrl="https://input-otp.rodz.dev/" />
+<PrimitiveDocsButton docsUrl='https://input-otp.rodz.dev/' />
 
 # Input OTP
 
@@ -22,7 +22,7 @@ export const importCode = `import {
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-} from "@orbitkit/ui/input-otp";`;
+} from "@orbitkit/ui/input-otp";`
 
 export const usageCode = `<InputOTP
   maxLength={6}
@@ -41,10 +41,10 @@ export const usageCode = `<InputOTP
       </InputOTPGroup>
     </>
   )}
-/>`;
+/>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 

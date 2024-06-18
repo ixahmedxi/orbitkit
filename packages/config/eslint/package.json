@@ -32,14 +32,14 @@
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-tailwindcss": "^3.17.3",
     "eslint-plugin-turbo": "^2.0.4",
-    "globals": "^15.5.0",
-    "typescript-eslint": "^7.13.0"
+    "globals": "^15.6.0",
+    "typescript-eslint": "^7.13.1"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.4",
     "@orbitkit/tsconfig": "workspace:^",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@typescript-eslint/utils": "^7.13.0",
+    "@typescript-eslint/utils": "^7.13.1",
     "eslint-plugin-storybook": "^0.8.0"
   }
 }

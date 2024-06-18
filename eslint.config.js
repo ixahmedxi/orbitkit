@@ -1,4 +1,4 @@
-import { configs, defineConfig } from '@orbitkit/eslint';
+import { configs, defineConfig } from '@orbitkit/eslint'
 
 export default defineConfig(
   {
@@ -15,4 +15,4 @@ export default defineConfig(
       },
     },
   },
-);
+)

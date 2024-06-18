@@ -1,12 +1,12 @@
-import { ChevronDownIcon, SlashIcon } from '@radix-ui/react-icons';
-import { type Meta, type StoryObj } from '@storybook/react';
+import { ChevronDownIcon, SlashIcon } from '@radix-ui/react-icons'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/primitives/dropdown-menu';
+} from '@/primitives/dropdown-menu'
 
 import {
   Breadcrumb,
@@ -16,7 +16,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '.';
+} from '.'
 
 const items = [
   {
@@ -27,7 +27,7 @@ const items = [
     label: 'Components',
     href: '/components',
   },
-];
+]
 
 const meta: Meta<typeof Breadcrumb> = {
   component: Breadcrumb,
@@ -48,13 +48,13 @@ const meta: Meta<typeof Breadcrumb> = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Breadcrumb>;
+type Story = StoryObj<typeof Breadcrumb>
 
-export const Default: Story = {};
+export const Default: Story = {}
 
 export const CustomSeparator: Story = {
   render: (args) => (
@@ -76,25 +76,25 @@ export const CustomSeparator: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-};
+}
 
 export const Dropdown: Story = {
   render: (args) => (
     <Breadcrumb {...args}>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          <BreadcrumbLink href='/'>Home</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1">
+            <DropdownMenuTrigger className='flex items-center gap-1'>
               Components
               <ChevronDownIcon />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
+            <DropdownMenuContent align='start'>
               <DropdownMenuItem>Documentation</DropdownMenuItem>
               <DropdownMenuItem>Themes</DropdownMenuItem>
               <DropdownMenuItem>GitHub</DropdownMenuItem>
@@ -110,7 +110,7 @@ export const Dropdown: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-};
+}
 
 export const Collapsed: Story = {
   render: (args) => (
@@ -134,4 +134,4 @@ export const Collapsed: Story = {
       </BreadcrumbList>
     </Breadcrumb>
   ),
-};
+}

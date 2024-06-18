@@ -1,7 +1,7 @@
-import { defineConfig, devices } from '@playwright/test';
-import * as dotenv from 'dotenv';
+import { defineConfig, devices } from '@playwright/test'
+import * as dotenv from 'dotenv'
 
-dotenv.config({ path: './env.local' });
+dotenv.config({ path: './env.local' })
 
 export default defineConfig({
   testDir: './e2e',
@@ -33,4 +33,4 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env['CI'],
   },
-});
+})

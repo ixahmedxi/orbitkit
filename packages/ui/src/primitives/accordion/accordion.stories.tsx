@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from './';
+} from './'
 
 const meta: Meta<typeof Accordion> = {
   component: Accordion,
@@ -31,11 +31,11 @@ const meta: Meta<typeof Accordion> = {
       ))}
     </Accordion>
   ),
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Accordion>;
+type Story = StoryObj<typeof Accordion>
 
 const items = [
   {
@@ -55,12 +55,12 @@ const items = [
       "Yes. It's animated by default, but you can disable it if you prefer.",
     value: 'item-3',
   },
-];
+]
 
-export const Single: Story = {};
+export const Single: Story = {}
 
 export const Multiple: Story = {
   args: {
     type: 'multiple',
   },
-};
+}

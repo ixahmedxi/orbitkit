@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as MenubarStories from './menubar.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as MenubarStories from './menubar.stories'
 
 <Meta of={MenubarStories} />
 
-<RadixPrimitiveDocsButton name="menubar" />
+<RadixPrimitiveDocsButton name='menubar' />
 
 # Menubar
 
@@ -25,7 +25,7 @@ export const importCode = `import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from "@orbitkit/ui/menubar";`;
+} from "@orbitkit/ui/menubar";`
 
 export const usageCode = `<Menubar>
   <MenubarMenu>
@@ -41,7 +41,7 @@ export const usageCode = `<Menubar>
       <MenubarItem>Print</MenubarItem>
     </MenubarContent>
   </MenubarMenu>
-</Menubar>`;
+</Menubar>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

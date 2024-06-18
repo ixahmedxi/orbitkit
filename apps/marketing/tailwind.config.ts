@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from 'tailwindcss'
 
-import { orbitKitTailwindPreset } from '@orbitkit/tailwind';
+import { orbitKitTailwindPreset } from '@orbitkit/tailwind'
 
 const config: Config = {
   content: [
@@ -9,6 +9,6 @@ const config: Config = {
   ],
   darkMode: 'class',
   presets: [orbitKitTailwindPreset],
-};
+}
 
-export default config;
+export default config

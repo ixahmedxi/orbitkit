@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
   Menubar,
@@ -8,7 +8,7 @@ import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from '.';
+} from '.'
 
 const meta: Meta<typeof Menubar> = {
   component: Menubar,
@@ -29,10 +29,10 @@ const meta: Meta<typeof Menubar> = {
       </MenubarMenu>
     </Menubar>
   ),
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Menubar>;
+type Story = StoryObj<typeof Menubar>
 
-export const Default: Story = {};
+export const Default: Story = {}

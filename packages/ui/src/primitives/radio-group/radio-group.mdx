@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as RadioGroupStories from './radio-group.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as RadioGroupStories from './radio-group.stories'
 
 <Meta of={RadioGroupStories} />
 
-<RadixPrimitiveDocsButton name="radio-group" />
+<RadixPrimitiveDocsButton name='radio-group' />
 
 # Radio Group
 
@@ -18,7 +18,7 @@ A set of checkable buttons—known as radio buttons—where no more than one of 
 ## Usage
 
 export const importCode = `import { RadioGroup, RadioGroupItem } from "@orbitkit/ui/radio-group";
-import { Label } from "@orbitkit/ui/label";`;
+import { Label } from "@orbitkit/ui/label";`
 
 export const usageCode = `<RadioGroup defaultValue="option-one">
   <div className="flex items-center space-x-2">
@@ -29,7 +29,7 @@ export const usageCode = `<RadioGroup defaultValue="option-one">
     <RadioGroupItem value="option-two" id="option-two" />
     <Label htmlFor="option-two">Option Two</Label>
   </div>
-</RadioGroup>`;
+</RadioGroup>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

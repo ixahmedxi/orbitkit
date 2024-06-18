@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/cn'
 
 /**
  * A primitive component that renders a skeleton.
@@ -15,7 +15,7 @@ function Skeleton({
       className={cn('animate-pulse rounded-md bg-accent', className)}
       {...props}
     />
-  );
+  )
 }
 
-export { Skeleton };
+export { Skeleton }

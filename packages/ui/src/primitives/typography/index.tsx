@@ -1,9 +1,9 @@
-import type { VariantProps } from 'class-variance-authority';
-import type { FC, PropsWithChildren } from 'react';
+import type { VariantProps } from 'class-variance-authority'
+import type { FC, PropsWithChildren } from 'react'
 
-import { cva } from 'class-variance-authority';
+import { cva } from 'class-variance-authority'
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/cn'
 
 const typographyStyles = cva([], {
   variants: {
@@ -26,12 +26,12 @@ const typographyStyles = cva([], {
   defaultVariants: {
     variant: 'p',
   },
-});
+})
 
 type TypographyProps = VariantProps<typeof typographyStyles> & {
-  as?: keyof JSX.IntrinsicElements;
-  className?: string;
-};
+  as?: keyof JSX.IntrinsicElements
+  className?: string
+}
 
 export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
   as,
@@ -40,12 +40,12 @@ export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
   children,
 }) => {
   if (as) {
-    const Component = as;
+    const Component = as
     return (
       <Component className={cn(typographyStyles({ variant }), className)}>
         {children}
       </Component>
-    );
+    )
   }
 
   const Component =
@@ -53,11 +53,11 @@ export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
       ? 'div'
       : variant === 'lead' || variant === 'muted'
         ? 'p'
-        : variant ?? 'p';
+        : variant ?? 'p'
 
   return (
     <Component className={cn(typographyStyles({ variant }), className)}>
       {children}
     </Component>
-  );
-};
+  )
+}

@@ -1,3 +1,3 @@
-import { createGithubAuthorizationURL } from '@orbitkit/auth/providers/github';
+import { createGithubAuthorizationURL } from '@orbitkit/auth/providers/github'
 
-export { createGithubAuthorizationURL as GET };
+export { createGithubAuthorizationURL as GET }

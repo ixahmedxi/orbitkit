@@ -1,7 +1,7 @@
-import { ExternalLinkIcon } from '@radix-ui/react-icons';
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { ExternalLinkIcon } from '@radix-ui/react-icons'
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import * as CardStories from './card.stories';
+import * as CardStories from './card.stories'
 
 <Meta of={CardStories} />
 
@@ -22,7 +22,7 @@ export const importCode = `import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@orbitkit/ui/card"`;
+} from "@orbitkit/ui/card"`
 
 export const usageCode = `<Card>
   <CardHeader>
@@ -36,10 +36,10 @@ export const usageCode = `<Card>
     <p>Card Footer</p>
   </CardFooter>
 </Card>
-`;
+`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 

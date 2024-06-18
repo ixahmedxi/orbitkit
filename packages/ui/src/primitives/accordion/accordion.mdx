@@ -1,11 +1,11 @@
-import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as AccordionStories from './accordion.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as AccordionStories from './accordion.stories'
 
 <Meta of={AccordionStories} />
 
-<RadixPrimitiveDocsButton name="accordion" />
+<RadixPrimitiveDocsButton name='accordion' />
 
 # Accordion
 
@@ -24,7 +24,7 @@ export const importCode = `import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@orbitkit/ui/accordion";`;
+} from "@orbitkit/ui/accordion";`
 
 export const usageCode = `<Accordion type="single" collapsible>
   <AccordionItem value="item-1">
@@ -33,7 +33,7 @@ export const usageCode = `<Accordion type="single" collapsible>
       Yes. It adheres to the WAI-ARIA design pattern.
     </AccordionContent>
   </AccordionItem>
-</Accordion>`;
+</Accordion>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

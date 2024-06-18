@@ -1,14 +1,14 @@
-import aspectRatio from '@tailwindcss/aspect-ratio';
-import containerQueries from '@tailwindcss/container-queries';
-import forms from '@tailwindcss/forms';
-import typography from '@tailwindcss/typography';
-import animate from 'tailwindcss-animate';
-import { createPlugin } from 'windy-radix-palette';
-import windyTypography from 'windy-radix-typography';
+import aspectRatio from '@tailwindcss/aspect-ratio'
+import containerQueries from '@tailwindcss/container-queries'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import animate from 'tailwindcss-animate'
+import { createPlugin } from 'windy-radix-palette'
+import windyTypography from 'windy-radix-typography'
 
-import { type Config } from 'tailwindcss';
+import { type Config } from 'tailwindcss'
 
-const colors = createPlugin();
+const colors = createPlugin()
 
 export const orbitKitTailwindPreset: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx,mdx}'],
@@ -137,4 +137,4 @@ export const orbitKitTailwindPreset: Config = {
       handler: containerQueries.handler,
     },
   ],
-};
+}

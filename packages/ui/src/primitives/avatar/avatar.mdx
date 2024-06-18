@@ -1,11 +1,11 @@
-import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as AvatarStories from './avatar.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as AvatarStories from './avatar.stories'
 
 <Meta of={AvatarStories} />
 
-<RadixPrimitiveDocsButton name="avatar" />
+<RadixPrimitiveDocsButton name='avatar' />
 
 # Avatar
 
@@ -25,16 +25,16 @@ An image element with a fallback for representing the user.
 
 ## Usage
 
-export const importCode = `import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';`;
+export const importCode = `import { Avatar, AvatarFallback, AvatarImage } from '@orbitkit/ui/avatar';`
 
-<Source code={importCode} language="ts" dark />
+<Source code={importCode} language='ts' dark />
 
 export const usageCode = `<Avatar>
   <AvatarImage src="https://github.com/shadcn.png" />
   <AvatarFallback>CN</AvatarFallback>
-</Avatar>`;
+</Avatar>`
 
-<Source code={usageCode} language="tsx" dark />
+<Source code={usageCode} language='tsx' dark />
 
 <Canvas of={AvatarStories.Default} />
 <Canvas of={AvatarStories.Fallback} />

@@ -1,17 +1,17 @@
 ---
-import { MyAvatar } from '@/components/avatar';
-import BaseHead from '@/components/BaseHead.astro';
-import PostHog from '@/components/posthog/PostHog.astro';
+import { MyAvatar } from '@/components/avatar'
+import BaseHead from '@/components/BaseHead.astro'
+import PostHog from '@/components/posthog/PostHog.astro'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
     <BaseHead />
     <PostHog />
   </head>
   <body>
-    <main class="container mx-auto py-6 px-6">
+    <main class='container mx-auto py-6 px-6'>
       <h1>Astro website</h1>
       <MyAvatar client:load />
     </main>

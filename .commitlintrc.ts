@@ -1,4 +1,4 @@
-import { getWorkspacePackageNames } from './scripts/utils';
+import { getWorkspacePackageNames } from './scripts/utils'
 
 // ------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ import { getWorkspacePackageNames } from './scripts/utils';
 // ------------------------------------------------------------------
 
 interface Context {
-  cwd?: string;
+  cwd?: string
 }
 
 // ------------------------------------------------------------------
@@ -26,24 +26,24 @@ interface Context {
  * @returns An array of all projects in the workspace
  */
 function getProjects(context?: Context): string[] {
-  const ctx = context ?? {};
-  const cwd = ctx.cwd ?? process.cwd();
+  const ctx = context ?? {}
+  const cwd = ctx.cwd ?? process.cwd()
 
   return getWorkspacePackageNames(cwd)
     .reduce((projects: string[], name) => {
       if (name.startsWith('@')) {
-        const project = name.split('/')[1];
+        const project = name.split('/')[1]
 
         if (typeof project === 'string') {
-          projects.push(project);
+          projects.push(project)
         }
 
-        projects.push(name);
+        projects.push(name)
       }
 
-      return projects;
+      return projects
     }, [])
-    .sort();
+    .sort()
 }
 
 // We are exporting a custom commitlint configuration
@@ -53,4 +53,4 @@ export default {
   rules: {
     'scope-enum': (ctx: Context) => [2, 'always', getProjects(ctx)],
   },
-};
+}

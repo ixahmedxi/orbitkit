@@ -1,6 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import { Slider } from '.';
+import { Slider } from '.'
 
 const meta: Meta<typeof Slider> = {
   component: Slider,
@@ -9,10 +9,10 @@ const meta: Meta<typeof Slider> = {
     max: 100,
     step: 1,
   },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Slider>;
+type Story = StoryObj<typeof Slider>
 
-export const Default: Story = {};
+export const Default: Story = {}

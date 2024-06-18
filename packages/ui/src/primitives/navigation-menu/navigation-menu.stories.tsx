@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { type Meta, type StoryObj } from '@storybook/react';
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils/cn'
 
 import {
   NavigationMenu,
@@ -12,7 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '.';
+} from '.'
 
 const ListItem = React.forwardRef<
   React.ElementRef<'a'>,
@@ -29,16 +29,16 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className='text-sm font-medium leading-none'>{title}</div>
+          <p className='line-clamp-2 text-sm leading-snug text-muted-foreground'>
             {children}
           </p>
         </a>
       </NavigationMenuLink>
     </li>
-  );
-});
-ListItem.displayName = 'ListItem';
+  )
+})
+ListItem.displayName = 'ListItem'
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -76,41 +76,41 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
   },
-];
+]
 
 const meta: Meta<typeof NavigationMenu> = {
   component: NavigationMenu,
   render: (args) => (
-    <div className="container mx-auto flex justify-center">
+    <div className='container mx-auto flex justify-center'>
       <NavigationMenu {...args}>
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li className="row-span-3">
+              <ul className='grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]'>
+                <li className='row-span-3'>
                   <NavigationMenuLink asChild>
                     <a
-                      className="flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-gray-2 to-gray-4 p-6 no-underline outline-none focus:shadow-md"
-                      href="/"
+                      className='flex size-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-gray-2 to-gray-4 p-6 no-underline outline-none focus:shadow-md'
+                      href='/'
                     >
-                      <div className="mb-2 mt-4 text-lg font-medium">
+                      <div className='mb-2 mt-4 text-lg font-medium'>
                         shadcn/ui
                       </div>
-                      <p className="text-sm leading-tight text-muted-foreground">
+                      <p className='text-sm leading-tight text-muted-foreground'>
                         Beautifully designed components built with Radix UI and
                         Tailwind CSS.
                       </p>
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="Introduction">
+                <ListItem href='/docs' title='Introduction'>
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
+                <ListItem href='/docs/installation' title='Installation'>
                   How to install dependencies and structure your app.
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
+                <ListItem href='/docs/primitives/typography' title='Typography'>
                   Styles for headings, paragraphs, lists...etc
                 </ListItem>
               </ul>
@@ -119,7 +119,7 @@ const meta: Meta<typeof NavigationMenu> = {
           <NavigationMenuItem>
             <NavigationMenuTrigger>Components</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] '>
                 {components.map((component) => (
                   <ListItem
                     key={component.title}
@@ -133,7 +133,7 @@ const meta: Meta<typeof NavigationMenu> = {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <a href="/docs">
+            <a href='/docs'>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Documentation
               </NavigationMenuLink>
@@ -143,10 +143,10 @@ const meta: Meta<typeof NavigationMenu> = {
       </NavigationMenu>
     </div>
   ),
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof NavigationMenu>;
+type Story = StoryObj<typeof NavigationMenu>
 
-export const Default: Story = {};
+export const Default: Story = {}

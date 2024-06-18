@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as CalendarStories from './calendar.stories';
+import { PrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as CalendarStories from './calendar.stories'
 
 <Meta of={CalendarStories} />
 
-<PrimitiveDocsButton docsUrl="https://react-day-picker.js.org" />
+<PrimitiveDocsButton docsUrl='https://react-day-picker.js.org' />
 
 # Calendar
 
@@ -17,20 +17,20 @@ A date field component that allows users to enter and edit date.
 
 ## Usage
 
-export const importCode = `import { Calendar } from "@orbitkit/ui/calendar";`;
+export const importCode = `import { Calendar } from "@orbitkit/ui/calendar";`
 
 export const usageCode = `const [date, setDate] = React.useState<Date | undefined>(new Date())
 
 <Calendar
-  mode="single"
+  mode='single'
   selected={date}
   onSelect={setDate}
-  className="rounded-md border"
+  className='rounded-md border'
 />
 `;
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 See the [React DayPicker](https://react-day-picker.js.org/) documentation for more information.
 

@@ -27,13 +27,13 @@ To write tests, you can create a new file in the `e2e` directory of the applicat
 Here is an example of a test file:
 
 ```typescript
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/test'
 
 test('has title', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/')
 
-  await expect(page.getByText(/astro website/i)).toBeVisible();
-});
+  await expect(page.getByText(/astro website/i)).toBeVisible()
+})
 ```
 
 ## CI setup

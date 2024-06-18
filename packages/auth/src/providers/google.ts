@@ -1,17 +1,17 @@
-import { cookies } from 'next/headers';
+import { cookies } from 'next/headers'
 
-import { generateState, Google, OAuth2RequestError } from 'arctic';
-import { generateId } from 'lucia';
-import { z } from 'zod';
+import { generateState, Google, OAuth2RequestError } from 'arctic'
+import { generateId } from 'lucia'
+import { z } from 'zod'
 
-import { db } from '@orbitkit/db';
-import { oauthAccountTable, userTable } from '@orbitkit/db/schema';
-import { env } from '@orbitkit/env/web/server';
-import { getBaseUrl } from '@orbitkit/utils/url';
+import { db } from '@orbitkit/db'
+import { oauthAccountTable, userTable } from '@orbitkit/db/schema'
+import { env } from '@orbitkit/env/web/server'
+import { getBaseUrl } from '@orbitkit/utils/url'
 
-import { lucia } from '../lucia';
+import { lucia } from '../lucia'
 
-const baseUrl = getBaseUrl();
+const baseUrl = getBaseUrl()
 
 const google =
   env.AUTH_GOOGLE_ID !== undefined &&
@@ -20,7 +20,7 @@ const google =
     env.AUTH_GOOGLE_ID,
     env.AUTH_GOOGLE_SECRET,
     `${baseUrl}/login/google/callback`,
-  );
+  )
 
 /**
  * This function creates a Google authorization URL.
@@ -31,13 +31,13 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
     return new Response(null, {
       status: 404,
       statusText: 'Not Found',
-    });
+    })
   }
 
-  const state = generateState();
+  const state = generateState()
   const url = await google.createAuthorizationURL(state, env.AUTH_SECRET, {
     scopes: ['profile', 'email'],
-  });
+  })
 
   cookies().set('google_oauth_state', state, {
     path: '/',
@@ -45,9 +45,9 @@ export async function createGoogleAuthorizationURL(): Promise<Response> {
     httpOnly: true,
     maxAge: 60 * 10,
     sameSite: 'lax',
-  });
+  })
 
-  return Response.redirect(url);
+  return Response.redirect(url)
 }
 
 const googleUser = z.object({
@@ -55,7 +55,7 @@ const googleUser = z.object({
   email: z.string(),
   picture: z.string(),
   name: z.string(),
-});
+})
 
 /**
  * This function validates the Google callback.
@@ -69,23 +69,20 @@ export async function validateGoogleCallback(
     return new Response(null, {
       status: 404,
       statusText: 'Not Found',
-    });
+    })
   }
-  const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
-  const storedState = cookies().get('google_oauth_state')?.value ?? null;
+  const url = new URL(request.url)
+  const code = url.searchParams.get('code')
+  const state = url.searchParams.get('state')
+  const storedState = cookies().get('google_oauth_state')?.value ?? null
   if (!code || !state || !storedState || state !== storedState) {
     return new Response(null, {
       status: 400,
-    });
+    })
   }
 
   try {
-    const tokens = await google.validateAuthorizationCode(
-      code,
-      env.AUTH_SECRET,
-    );
+    const tokens = await google.validateAuthorizationCode(code, env.AUTH_SECRET)
 
     const googleUserResponse = await fetch(
       'https://openidconnect.googleapis.com/v1/userinfo',
@@ -94,75 +91,75 @@ export async function validateGoogleCallback(
           Authorization: `Bearer ${tokens.accessToken}`,
         },
       },
-    );
-    const parsedRes = googleUser.safeParse(await googleUserResponse.json());
+    )
+    const parsedRes = googleUser.safeParse(await googleUserResponse.json())
 
     if (!parsedRes.success) {
       return new Response(null, {
         status: 400,
-      });
+      })
     }
 
-    const { sub, email, picture, name } = parsedRes.data;
+    const { sub, email, picture, name } = parsedRes.data
 
     const existingUser = await db.query.oauthAccountTable.findFirst({
       where: (table, { and, eq }) =>
         and(eq(table.providerId, 'google'), eq(table.providerUserId, sub)),
-    });
+    })
 
     if (existingUser) {
-      const session = await lucia.createSession(existingUser.userId, {});
-      const sessionCookie = lucia.createSessionCookie(session.id);
+      const session = await lucia.createSession(existingUser.userId, {})
+      const sessionCookie = lucia.createSessionCookie(session.id)
       cookies().set(
         sessionCookie.name,
         sessionCookie.value,
         sessionCookie.attributes,
-      );
+      )
       return new Response(null, {
         status: 302,
         headers: {
           Location: '/',
         },
-      });
+      })
     }
 
-    const userId = generateId(15);
+    const userId = generateId(15)
     await db.insert(userTable).values({
       id: userId,
       email,
       avatarUrl: picture,
       name,
-    });
+    })
     await db.insert(oauthAccountTable).values({
       providerId: 'google',
       providerUserId: sub,
       userId,
-    });
+    })
 
-    const session = await lucia.createSession(userId, {});
-    const sessionCookie = lucia.createSessionCookie(session.id);
+    const session = await lucia.createSession(userId, {})
+    const sessionCookie = lucia.createSessionCookie(session.id)
 
     cookies().set(
       sessionCookie.name,
       sessionCookie.value,
       sessionCookie.attributes,
-    );
+    )
 
     return new Response(null, {
       status: 302,
       headers: {
         Location: '/',
       },
-    });
+    })
   } catch (e) {
     if (e instanceof OAuth2RequestError) {
       return new Response(null, {
         status: 400,
-      });
+      })
     }
 
     return new Response(null, {
       status: 500,
-    });
+    })
   }
 }

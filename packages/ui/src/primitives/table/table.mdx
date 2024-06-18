@@ -1,6 +1,6 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import * as TableStories from './table.stories';
+import * as TableStories from './table.stories'
 
 <Meta of={TableStories} />
 
@@ -22,7 +22,7 @@ export const importCode = `import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@orbitkit/ui/table";`;
+} from "@orbitkit/ui/table";`
 
 export const usageCode = `<Table>
   <TableCaption>A list of your recent invoices.</TableCaption>
@@ -43,7 +43,7 @@ export const usageCode = `<Table>
     </TableRow>
   </TableBody>
 </Table>
-`;
+`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

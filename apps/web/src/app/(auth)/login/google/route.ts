@@ -1,3 +1,3 @@
-import { createGoogleAuthorizationURL } from '@orbitkit/auth/providers/google';
+import { createGoogleAuthorizationURL } from '@orbitkit/auth/providers/google'
 
-export { createGoogleAuthorizationURL as GET };
+export { createGoogleAuthorizationURL as GET }

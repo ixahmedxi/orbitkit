@@ -1,6 +1,6 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { vercel } from '@t3-oss/env-nextjs/presets';
-import { z } from 'zod';
+import { createEnv } from '@t3-oss/env-nextjs'
+import { vercel } from '@t3-oss/env-nextjs/presets'
+import { z } from 'zod'
 
 export const sharedEnv = createEnv({
   extends: [vercel()],
@@ -10,4 +10,4 @@ export const sharedEnv = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
   },
-});
+})

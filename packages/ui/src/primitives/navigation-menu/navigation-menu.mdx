@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as NavigationMenuStories from './navigation-menu.stories.tsx';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as NavigationMenuStories from './navigation-menu.stories.tsx'
 
 <Meta of={NavigationMenuStories} />
 
-<RadixPrimitiveDocsButton name="navigation-menu" />
+<RadixPrimitiveDocsButton name='navigation-menu' />
 
 # Navigation Menu
 
@@ -26,7 +26,7 @@ export const importCode = `import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-} from "@orbitkit/ui/navigation-menu";`;
+} from "@orbitkit/ui/navigation-menu";`
 
 export const usageCode = `<NavigationMenu>
   <NavigationMenuList>
@@ -37,7 +37,7 @@ export const usageCode = `<NavigationMenu>
       </NavigationMenuContent>
     </NavigationMenuItem>
   </NavigationMenuList>
-</NavigationMenu>`;
+</NavigationMenu>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />

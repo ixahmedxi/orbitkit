@@ -1,11 +1,11 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as DropdownMenuStories from './dropdown-menu.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as DropdownMenuStories from './dropdown-menu.stories'
 
 <Meta of={DropdownMenuStories} />
 
-<RadixPrimitiveDocsButton name="dropdown-menu" />
+<RadixPrimitiveDocsButton name='dropdown-menu' />
 
 # Dropdown Menu
 
@@ -24,7 +24,7 @@ export const importCode = `import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@orbitkit/ui/dropdown-menu";`;
+} from "@orbitkit/ui/dropdown-menu";`
 
 export const usageCode = `<DropdownMenu>
   <DropdownMenuTrigger>Open</DropdownMenuTrigger>
@@ -36,10 +36,10 @@ export const usageCode = `<DropdownMenu>
     <DropdownMenuItem>Team</DropdownMenuItem>
     <DropdownMenuItem>Subscription</DropdownMenuItem>
   </DropdownMenuContent>
-</DropdownMenu>`;
+</DropdownMenu>`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 

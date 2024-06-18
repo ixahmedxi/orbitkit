@@ -1,6 +1,7 @@
-import { createEnv } from '@t3-oss/env-core';
-import { z } from 'zod';
-import { sharedEnv } from '../shared';
+import { createEnv } from '@t3-oss/env-core'
+import { z } from 'zod'
+
+import { sharedEnv } from '../shared'
 
 export const env = createEnv({
   extends: [sharedEnv],
@@ -13,4 +14,4 @@ export const env = createEnv({
   runtimeEnv: import.meta.env,
   skipValidation: !!import.meta.env.SKIP_ENV_VALIDATION,
   emptyStringAsUndefined: true,
-});
+})

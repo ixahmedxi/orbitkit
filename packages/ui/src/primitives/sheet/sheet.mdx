@@ -1,11 +1,11 @@
-import { Canvas, Controls, Meta, Source } from '@storybook/blocks';
+import { Canvas, Controls, Meta, Source } from '@storybook/blocks'
 
-import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button';
-import * as SheetStories from './sheet.stories';
+import { RadixPrimitiveDocsButton } from '../../storybook-utils/primitive-docs-button'
+import * as SheetStories from './sheet.stories'
 
 <Meta of={SheetStories} />
 
-<RadixPrimitiveDocsButton name="dialog" />
+<RadixPrimitiveDocsButton name='dialog' />
 
 # Sheet
 
@@ -24,7 +24,7 @@ export const importCode = `import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@orbitkit/ui/sheet";`;
+} from "@orbitkit/ui/sheet";`
 
 export const usageCode = `<Sheet>
   <SheetTrigger>Open</SheetTrigger>
@@ -38,10 +38,10 @@ export const usageCode = `<Sheet>
     </SheetHeader>
   </SheetContent>
 </Sheet>
-`;
+`
 
-<Source code={importCode} language="ts" dark />
-<Source code={usageCode} language="tsx" dark />
+<Source code={importCode} language='ts' dark />
+<Source code={usageCode} language='tsx' dark />
 
 ## Examples
 

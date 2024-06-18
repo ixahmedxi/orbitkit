@@ -1,15 +1,15 @@
-import type { NeonQueryFunction } from '@neondatabase/serverless';
+import type { NeonQueryFunction } from '@neondatabase/serverless'
 
-import { neon } from '@neondatabase/serverless';
-import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless'
+import { drizzle } from 'drizzle-orm/neon-http'
 
-import { env } from '@orbitkit/env/web/db';
+import { env } from '@orbitkit/env/web/db'
 
-import * as schema from './schema';
+import * as schema from './schema'
 
-const sql: NeonQueryFunction<boolean, boolean> = neon(env.DATABASE_URL);
+const sql: NeonQueryFunction<boolean, boolean> = neon(env.DATABASE_URL)
 
 export const db = drizzle(sql, {
   schema,
   logger: env.NODE_ENV === 'development',
-});
+})

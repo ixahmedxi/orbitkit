@@ -1,5 +1,5 @@
-import { blueDark, grayDark } from '@radix-ui/colors';
-import { create } from '@storybook/theming/create';
+import { blueDark, grayDark } from '@radix-ui/colors'
+import { create } from '@storybook/theming/create'
 
 export default create({
   base: 'dark',
@@ -25,4 +25,4 @@ export default create({
   inputTextColor: grayDark.gray11,
   textMutedColor: grayDark.gray10,
   textInverseColor: grayDark.gray1,
-});
+})
