@@ -42,6 +42,9 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"]
     },
+    "//#lint": {
+      "inputs": [".commitlintrc.ts", "*.ts", "*.js", "tsconfig.json"]
+    },
     "typecheck": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "!CHANGELOG.md"],
@@ -90,6 +93,12 @@
     "db:pull": { "cache": false },
     "db:push": { "cache": false },
     "db:up": { "cache": false },
-    "clean": { "cache": false }
+    "clean": { "cache": false },
+    "//#lint:spell": {
+      "outputs": [".cspellcache"]
+    },
+    "//#lint:md": {
+      "inputs": ["**/*.md"]
+    }
   }
 }
