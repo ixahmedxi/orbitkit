@@ -18,7 +18,12 @@
         "AUTH_GOOGLE_SECRET",
         "AUTH_SECRET",
         "NEXT_PUBLIC_POSTHOG_HOST",
-        "NEXT_PUBLIC_POSTHOG_KEY"
+        "NEXT_PUBLIC_POSTHOG_KEY",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN",
+        "NEXT_RUNTIME"
       ]
     },
     "test:e2e": {
@@ -34,7 +39,12 @@
         "AUTH_GOOGLE_SECRET",
         "AUTH_SECRET",
         "NEXT_PUBLIC_POSTHOG_HOST",
-        "NEXT_PUBLIC_POSTHOG_KEY"
+        "NEXT_PUBLIC_POSTHOG_KEY",
+        "NEXT_PUBLIC_SENTRY_DSN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN",
+        "NEXT_RUNTIME"
       ]
     }
   }

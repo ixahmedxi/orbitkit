@@ -25,6 +25,12 @@ env:
   # Unkey
   UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
 
+  # Sentry
+  NEXT_PUBLIC_SENTRY_DSN: ${{ vars.NEXT_PUBLIC_SENTRY_DSN }}
+  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
 jobs:
   format-lint-typecheck:
     name: Format, Lint & Typecheck
