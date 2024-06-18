@@ -59,14 +59,8 @@ jobs:
       - name: Format check
         run: bun format:check
 
-      - name: Spell check
-        run: bun lint:spell
-
-      - name: Lint markdown
-        run: bun lint:md
-
       - name: Lint & Typecheck
-        run: bun turbo lint typecheck
+        run: bun turbo lint:spell lint:md lint typecheck
 
   build-marketing:
     name: Build marketing website
