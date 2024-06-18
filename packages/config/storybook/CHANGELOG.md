@@ -1,5 +1,14 @@
 # @orbitkit/storybook
 
+## 0.3.5
+
+### Patch Changes
+
+- fix: prettier imports sorting not working properly
+- Updated dependencies
+  - @orbitkit/assets@0.3.5
+  - @orbitkit/utils@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes

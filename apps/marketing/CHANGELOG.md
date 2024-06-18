@@ -1,5 +1,15 @@
 # @orbitkit/marketing
 
+## 0.3.5
+
+### Patch Changes
+
+- fix: prettier imports sorting not working properly
+- Updated dependencies
+  - @orbitkit/assets@0.3.5
+  - @orbitkit/env@0.3.5
+  - @orbitkit/ui@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes

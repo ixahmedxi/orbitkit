@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/tsconfig",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "description": "A package to share tsconfig presets around the workspace",
   "license": "MIT",

@@ -1,5 +1,18 @@
 # @orbitkit/web
 
+## 0.3.5
+
+### Patch Changes
+
+- fix: prettier imports sorting not working properly
+- Updated dependencies
+  - @orbitkit/api@0.3.5
+  - @orbitkit/auth@0.3.5
+  - @orbitkit/db@0.3.5
+  - @orbitkit/env@0.3.5
+  - @orbitkit/ui@0.3.5
+  - @orbitkit/utils@0.3.5
+
 ## 0.3.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @orbitkit/eslint
 
+## 0.3.5
+
+### Patch Changes
+
+- fix: prettier imports sorting not working properly
+
 ## 0.3.4
 
 ### Patch Changes
