@@ -11,7 +11,7 @@ export default defineConfig({
   workers: process.env['CI'] ? 1 : 3,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://localhost:4200',
     trace: 'on-first-retry',
   },
   projects: [
