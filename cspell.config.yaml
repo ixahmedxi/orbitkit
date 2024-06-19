@@ -4,6 +4,7 @@ ignorePaths:
   - .git
   - bun.lockb
   - ./branch_out
+  - .changeset
   - drizzle
   - '**/*.svg'
 words:

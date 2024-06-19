@@ -16,7 +16,7 @@
     "format:check": "prettier \"**/*\" --ignore-unknown --list-different",
     "format:write": "prettier \"**/*\" --ignore-unknown --list-different --write",
     "lint": "eslint .  --max-warnings 0",
-    "lint:md": "markdownlint \"**/*.md\" --dot --ignore node_modules",
+    "lint:md": "markdownlint \"**/*.md\" --dot --ignore node_modules --ignore .changeset",
     "lint:spell": "cspell \"**\" --gitignore --dot --no-progress --cache --unique ",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
