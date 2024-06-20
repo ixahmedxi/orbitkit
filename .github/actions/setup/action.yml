@@ -18,3 +18,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: bun install
+
+    - name: Install Playwright Browsers
+      shell: bash
+      run: bun playwright install --with-deps

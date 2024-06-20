@@ -11,7 +11,7 @@ export default defineConfig({
   workers: process.env['CI'] ? 1 : 3,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:4321',
+    baseURL: 'http://localhost:4200',
     trace: 'on-first-retry',
   },
   projects: [
@@ -29,8 +29,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'bun dev',
-    url: 'http://localhost:4321',
+    command: 'bun dev --port 4200',
+    url: 'http://localhost:4200',
     reuseExistingServer: !process.env['CI'],
   },
 })

@@ -150,3 +150,6 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+
+# Cspell cache
+.cspellcache

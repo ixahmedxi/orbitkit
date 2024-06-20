@@ -1,16 +1,10 @@
 $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
 version: '0.2'
 ignorePaths:
-  - node_modules
+  - .git
   - bun.lockb
   - ./branch_out
-  - .tsbuildinfo
-  - '*.tsbuildinfo'
-  - .gitignore
-  - dist
-  - storybook-static
-  - .next
-  - .astro
+  - .changeset
   - drizzle
   - '**/*.svg'
 words:
@@ -100,3 +94,22 @@ words:
   - vaul
   - viewports
   - WITA
+  - dbaeumer
+  - mikestead
+  - dsznajder
+  - tamasfe
+  - Anson
+  - unifiedjs
+  - kohler
+  - yoav
+  - pids
+  - jscoverage
+  - wscript
+  - jspm
+  - eslintcache
+  - stylelint
+  - stylelintcache
+  - microbundle
+  - dotenv
+  - nuxt
+  - vuepress

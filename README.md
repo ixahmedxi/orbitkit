@@ -13,6 +13,8 @@
 - [**TypeScript**](https://www.typescriptlang.org/): type-safety is a core principle of OrbitKit.
 - [**Astrojs**](https://astro.build): for a clean slate to build your marketing website on top.
 - [**Next.js**](https://nextjs.org): Web application is included, giving you a solid foundation for your product.
+- [**Posthog**](https://posthog.com): for analytics and event tracking.
+- [**Sentry**](https://sentry.io): for error tracking and monitoring.
 - [**tRPC**](https://trpc.io) for a fully type-safe api.
 - [**Mintlify**](https://mintlify.com): for a clean, fast, and easy to use platform to document your project.
 - [**Turborepo**](https://turbo.build/repo): caching builds so you never have to run the same command twice.

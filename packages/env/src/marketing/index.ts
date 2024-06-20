@@ -5,8 +5,13 @@ import { sharedEnv } from '../shared'
 
 export const env = createEnv({
   extends: [sharedEnv],
-  server: {},
+  server: {
+    SENTRY_AUTH_TOKEN: z.string(),
+    SENTRY_ORG: z.string(),
+    SENTRY_PROJECT: z.string(),
+  },
   client: {
+    PUBLIC_SENTRY_DSN: z.string(),
     PUBLIC_POSTHOG_KEY: z.string().optional(),
     PUBLIC_POSTHOG_HOST: z.string().optional(),
   },

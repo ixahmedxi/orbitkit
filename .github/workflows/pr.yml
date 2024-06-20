@@ -1,0 +1,128 @@
+name: Pull Request CI
+
+on: [pull_request]
+
+env:
+  # This enables turborepo's remote task caching
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+
+jobs:
+  spell-and-md-lint:
+    name: Spellcheck and Markdown Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Checks
+        run: bun turbo lint:md lint:spell
+
+  web:
+    name: Web CI
+    runs-on: ubuntu-latest
+
+    env:
+      # We need these to create the Neon DB branch for this PR
+      NEON_DATABASE_USERNAME: ${{ secrets.NEON_DATABASE_USERNAME }}
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      NEON_PROJECT_ID: ${{ secrets.NEON_PROJECT_ID }}
+
+      # Auth Secret
+      AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+
+      # Github OAuth
+      AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+      AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+
+      # Google OAuth
+      AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+      AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
+
+      # Uploadthing
+      UPLOADTHING_SECRET: ${{ secrets.UPLOADTHING_SECRET }}
+      UPLOADTHING_APP_ID: ${{ secrets.UPLOADTHING_APP_ID }}
+
+      # Unkey
+      UNKEY_ROOT_KEY: ${{ secrets.UNKEY_ROOT_KEY }}
+      UNKEY_NAMESPACE: ${{ secrets.UNKEY_NAMESPACE }}
+
+      # Sentry
+      NEXT_PUBLIC_SENTRY_DSN: ${{ vars.PUBLIC_SENTRY_DSN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: web
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
+      # Posthog
+      NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
+      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Create Neon DB Branch
+        id: create-branch
+        uses: neondatabase/create-branch-action@v4
+        with:
+          project_id: ${{ env.NEON_PROJECT_ID }}
+          branch_name: web/pr-${{ github.event.number }}-${{ steps.branch_name.outputs.current_branch }}
+          username: ${{ env.NEON_DATABASE_USERNAME }}
+          api_key: ${{ env.NEON_API_KEY }}
+
+      - name: Set DATABASE_URL
+        shell: bash
+        run: |
+          echo "DATABASE_URL=${{ steps.create-branch.outputs.db_url }}?sslmode=require" >> $GITHUB_ENV
+
+      - name: Checks
+        run: bun turbo lint typecheck build test:e2e --filter=@orbitkit/web
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: web-playwright-report
+          path: apps/web/playwright-report/
+          retention-days: 30
+
+  marketing:
+    name: Marketing CI
+    runs-on: ubuntu-latest
+
+    env:
+      # Sentry
+      PUBLIC_SENTRY_DSN: ${{ vars.PUBLIC_SENTRY_DSN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: marketing
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+
+      # Posthog
+      NEXT_PUBLIC_POSTHOG_HOST: ${{ vars.PUBLIC_POSTHOG_HOST }}
+      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.PUBLIC_POSTHOG_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Checks
+        run: bun turbo lint typecheck build test:e2e --filter=@orbitkit/marketing
