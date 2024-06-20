@@ -1,5 +1,21 @@
 # @orbitkit/web
 
+## 0.4.0
+
+### Minor Changes
+
+- a111c0e: feat: sentry integration for apps
+
+### Patch Changes
+
+- Updated dependencies [a111c0e]
+  - @orbitkit/env@0.4.0
+  - @orbitkit/api@0.4.0
+  - @orbitkit/auth@0.4.0
+  - @orbitkit/db@0.4.0
+  - @orbitkit/ui@0.4.0
+  - @orbitkit/utils@0.4.0
+
 ## 0.3.5
 
 ### Patch Changes
