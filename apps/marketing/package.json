@@ -23,7 +23,7 @@
     "@t3-oss/env-core": "^0.10.1",
     "@total-typescript/ts-reset": "^0.5.1",
     "astro": "^4.10.3",
-    "posthog-js": "^1.139.2",
+    "posthog-js": "^1.139.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.23.8"
@@ -38,7 +38,7 @@
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "@playwright/test": "^1.44.1",
-    "@sentry/astro": "^8.9.2",
+    "@sentry/astro": "^8.10.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
