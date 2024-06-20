@@ -1,5 +1,17 @@
 # @orbitkit/storybook
 
+## 0.4.0
+
+### Minor Changes
+
+- a111c0e: feat: sentry integration for apps
+
+### Patch Changes
+
+- Updated dependencies [a111c0e]
+  - @orbitkit/assets@0.4.0
+  - @orbitkit/utils@0.4.0
+
 ## 0.3.5
 
 ### Patch Changes
