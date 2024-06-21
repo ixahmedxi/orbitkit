@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".storybook/**/*", "**/*.cjs", "**/*.js"],
-  "exclude": ["dist", "node_modules", "storybook-static"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["node_modules", "dist", "storybook-static"]
 }

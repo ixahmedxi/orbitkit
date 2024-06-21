@@ -11,6 +11,7 @@ words:
   - acst
   - aest
   - akst
+  - Anson
   - astro
   - astrojs
   - autodocs
@@ -23,9 +24,9 @@ words:
   - bvaughn
   - Byrom
   - callees
+  - cjsx
   - classname
   - clsx
-  - tsup
   - cmdk
   - codespace
   - codespaces
@@ -35,25 +36,38 @@ words:
   - compat
   - consts
   - crossorigin
+  - ctsx
   - datetime
+  - dbaeumer
   - degit
+  - dotenv
+  - dsznajder
   - Duarte
   - Elsakaan
   - Embla
   - esbenp
+  - eslintcache
   - hookform
   - ianvs
   - ixahmedxi
   - jiti
+  - jscoverage
+  - jspm
+  - kohler
   - lockb
   - lucide
   - Malyavko
+  - microbundle
+  - mikestead
   - minimise
   - Mintlify
+  - mjsx
   - monorepoing
+  - mtsx
   - neonctl
   - neondatabase
   - nextjs
+  - nuxt
   - nzst
   - onwarn
   - optimisations
@@ -63,6 +77,7 @@ words:
   - pacocoursey
   - pageview
   - peduarte
+  - pids
   - posthog
   - quickstart
   - Ratelimit
@@ -70,10 +85,13 @@ words:
   - sslmode
   - starterkit
   - starterkits
+  - stylelint
+  - stylelintcache
   - stylesheet
   - superjson
   - tada
   - tailwindcss
+  - tamasfe
   - tanstack
   - thollander
   - todos
@@ -84,32 +102,18 @@ words:
   - tsbuildinfo
   - tsconfigs
   - tseslint
+  - tsup
   - Tuite
   - turborepo
   - typecheck
   - typeof
   - typesafe
+  - unifiedjs
   - unkey
   - uploadthing
   - vaul
   - viewports
-  - WITA
-  - dbaeumer
-  - mikestead
-  - dsznajder
-  - tamasfe
-  - Anson
-  - unifiedjs
-  - kohler
-  - yoav
-  - pids
-  - jscoverage
-  - wscript
-  - jspm
-  - eslintcache
-  - stylelint
-  - stylelintcache
-  - microbundle
-  - dotenv
-  - nuxt
   - vuepress
+  - WITA
+  - wscript
+  - yoav

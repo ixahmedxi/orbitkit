@@ -1,5 +1,3 @@
 {
-  "extends": ["@orbitkit/tsconfig/base.json"],
-  "include": ["**/*.ts", "**/*.js"],
-  "exclude": ["node_modules", "dist"]
+  "extends": ["@orbitkit/tsconfig/base.json"]
 }
