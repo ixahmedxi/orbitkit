@@ -1,7 +1,6 @@
 {
   "extends": ["@orbitkit/tsconfig/react.json"],
   "compilerOptions": {
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

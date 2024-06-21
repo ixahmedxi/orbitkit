@@ -1,9 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Next.js",
-  "extends": "./base.json",
+  "extends": "./dom.json",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
     "plugins": [
       {

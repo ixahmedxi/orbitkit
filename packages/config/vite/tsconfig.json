@@ -1,8 +1,5 @@
 {
   "extends": ["@orbitkit/tsconfig/base.json"],
-  "compilerOptions": {
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
-  },
   "include": ["**/*.ts", "**/*.js"],
   "exclude": ["dist", "node_modules"]
 }

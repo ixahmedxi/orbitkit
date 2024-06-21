@@ -9,6 +9,8 @@
   "files": [
     "./base.json",
     "./next.json",
-    "./react.json"
+    "./react.json",
+    "./build.json",
+    "./dom.json"
   ]
 }

@@ -1,11 +1,5 @@
 {
   "extends": ["@orbitkit/tsconfig/next.json"],
-  "compilerOptions": {
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

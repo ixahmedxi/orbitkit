@@ -1,10 +1,4 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "tsBuildInfoFile": "tsconfig.build.tsbuildinfo",
-    "outDir": "dist",
-    "rootDir": "src",
-    "noEmit": false
-  },
+  "extends": ["./tsconfig.json", "@orbitkit/tsconfig/build.json"],
   "include": ["src/**/*.ts"]
 }

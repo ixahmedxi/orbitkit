@@ -37,6 +37,12 @@
     "declarationMap": true,
     "sourceMap": true,
     "pretty": true,
-    "preserveWatchOutput": true
+    "preserveWatchOutput": true,
+
+    "tsBuildInfoFile": "${configDir}/tsconfig.tsbuildinfo",
+    "baseUrl": "${configDir}",
+    "paths": {
+      "@/*": ["${configDir}/src/*"]
+    }
   }
 }
