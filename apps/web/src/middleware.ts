@@ -12,7 +12,7 @@ const unkey =
         rootKey: env.UNKEY_ROOT_KEY,
         namespace: env.UNKEY_NAMESPACE,
         limit: 10,
-        duration: '20s',
+        duration: '5s',
         async: true,
       })
     : undefined
@@ -37,7 +37,7 @@ export default async function middleware(
     const ratelimit = await unkey.limit(ip)
 
     if (!ratelimit.success) {
-      return NextResponse.redirect(new URL('/blocked'))
+      return NextResponse.redirect(new URL('/blocked', request.url))
     }
   }
 
