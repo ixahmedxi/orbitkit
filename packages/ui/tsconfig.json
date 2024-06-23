@@ -6,6 +6,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", ".storybook/**/*"],
   "exclude": ["node_modules", "dist", "storybook-static"]
 }
