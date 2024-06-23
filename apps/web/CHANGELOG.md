@@ -1,5 +1,18 @@
 # @orbitkit/web
 
+## 0.4.1
+
+### Patch Changes
+
+- 51c0130: feat: upgrades to TypeScript 5.5
+- Updated dependencies [51c0130]
+  - @orbitkit/utils@0.4.1
+  - @orbitkit/auth@0.4.1
+  - @orbitkit/api@0.4.1
+  - @orbitkit/env@0.4.1
+  - @orbitkit/db@0.4.1
+  - @orbitkit/ui@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes

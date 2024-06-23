@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/api",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "description": "A tRPC API package used in the web application",
   "license": "MIT",
