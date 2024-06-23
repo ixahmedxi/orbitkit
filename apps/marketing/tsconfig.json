@@ -1,20 +1,9 @@
 {
-  "extends": ["astro/tsconfigs/strictest", "@orbitkit/tsconfig/base.json"],
+  "extends": ["astro/tsconfigs/strictest", "@orbitkit/tsconfig/react.json"],
   "compilerOptions": {
-    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
-  },
-  "include": [
-    "**/*.astro",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.mjs",
-    "**/*.cjs"
-  ],
-  "exclude": ["node_modules", "dist", "playwright-report", "test-results"]
+  }
 }

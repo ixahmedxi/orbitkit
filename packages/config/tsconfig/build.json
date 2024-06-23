@@ -1,18 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
-  "extends": "./dom.json",
+  "display": "Build",
   "compilerOptions": {
-    "jsx": "preserve",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "tsBuildInfoFile": "${configDir}/tsconfig.build.tsbuildinfo",
+    "outDir": "${configDir}/dist",
+    "rootDir": "${configDir}/src",
+    "noEmit": false
   },
   "include": [
-    "${configDir}/next-env.d.ts",
-    "${configDir}/.next/types/**/*.ts",
     "${configDir}/src/**/*.ts",
     "${configDir}/src/**/*.tsx",
     "${configDir}/src/**/*.cts",

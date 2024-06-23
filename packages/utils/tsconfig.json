@@ -1,9 +1,3 @@
 {
-  "extends": ["@orbitkit/tsconfig/base.json"],
-  "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
-  },
-  "include": ["**/*.ts", "**/*.mjs", "**/*.js", "**/*.cjs"],
-  "exclude": ["node_modules", "dist"]
+  "extends": ["@orbitkit/tsconfig/dom.json"]
 }

@@ -1,19 +1,30 @@
 {
   "extends": ["@orbitkit/tsconfig/next.json"],
   "compilerOptions": {
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": [
     "next-env.d.ts",
+    ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
+    "**/*.cts",
+    "**/*.ctsx",
+    "**/*.mts",
+    "**/*.mtsx",
     "**/*.js",
+    "**/*.jsx",
     "**/*.cjs",
-    "**/*.mjs"
-  ],
-  "exclude": ["node_modules", "playwright-report", "test-results"]
+    "**/*.cjsx",
+    "**/*.mjs",
+    "**/*.mjsx"
+  ]
 }

@@ -37,6 +37,36 @@
     "declarationMap": true,
     "sourceMap": true,
     "pretty": true,
-    "preserveWatchOutput": true
-  }
+    "preserveWatchOutput": true,
+
+    "tsBuildInfoFile": "${configDir}/tsconfig.tsbuildinfo",
+    "baseUrl": "${configDir}",
+    "paths": {
+      "@/*": ["${configDir}/src/*"]
+    }
+  },
+  "include": [
+    "${configDir}/.commitlintrc.ts",
+    "${configDir}/.storybook/**/*",
+    "${configDir}/**/*.astro",
+    "${configDir}/**/*.ts",
+    "${configDir}/**/*.tsx",
+    "${configDir}/**/*.cts",
+    "${configDir}/**/*.ctsx",
+    "${configDir}/**/*.mts",
+    "${configDir}/**/*.mtsx",
+    "${configDir}/**/*.js",
+    "${configDir}/**/*.jsx",
+    "${configDir}/**/*.cjs",
+    "${configDir}/**/*.cjsx",
+    "${configDir}/**/*.mjs",
+    "${configDir}/**/*.mjsx"
+  ],
+  "exclude": [
+    "${configDir}/node_modules",
+    "${configDir}/dist",
+    "${configDir}/storybook-static",
+    "${configDir}/playwright-report",
+    "${configDir}/test-results"
+  ]
 }
