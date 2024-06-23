@@ -23,10 +23,6 @@ export const env = createEnv({
 
     AUTH_GOOGLE_ID: z.string().optional(),
     AUTH_GOOGLE_SECRET: z.string().optional(),
-
-    SENTRY_ORG: z.string(),
-    SENTRY_PROJECT: z.string(),
-    SENTRY_AUTH_TOKEN: z.string(),
   },
   experimental__runtimeEnv: {
     PORT: process.env['PORT'],
