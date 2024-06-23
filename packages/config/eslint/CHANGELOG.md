@@ -1,5 +1,11 @@
 # @orbitkit/eslint
 
+## 0.4.1
+
+### Patch Changes
+
+- 51c0130: feat: upgrades to TypeScript 5.5
+
 ## 0.4.0
 
 ### Minor Changes

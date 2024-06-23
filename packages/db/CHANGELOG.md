@@ -1,5 +1,13 @@
 # @orbitkit/db
 
+## 0.4.1
+
+### Patch Changes
+
+- 51c0130: feat: upgrades to TypeScript 5.5
+- Updated dependencies [51c0130]
+  - @orbitkit/env@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes
