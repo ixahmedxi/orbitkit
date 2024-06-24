@@ -22,7 +22,7 @@
       ]
     },
     "test:e2e": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build", "build"],
       "passThroughEnv": [
         "DATABASE_URL",
         "UPLOADTHING_SECRET",
