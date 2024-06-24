@@ -1,7 +1,7 @@
-import { defineConfig, devices } from '@playwright/test'
-import * as dotenv from 'dotenv'
+import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
 
-dotenv.config({ path: './env.local' })
+dotenv.config({ path: './env.local' });
 
 export default defineConfig({
   testDir: './e2e',
@@ -29,8 +29,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'bun dev --port 4201',
+    command: 'bun start --port 4201',
     url: 'http://localhost:4201',
     reuseExistingServer: !process.env['CI'],
   },
-})
+});
