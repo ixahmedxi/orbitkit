@@ -20,7 +20,7 @@
     "lint:spell": "cspell \"**\" --gitignore --dot --no-progress --cache --unique ",
     "prepare": "husky",
     "release": "turbo run build lint typecheck && changeset version && changeset publish",
-    "reset:changelog": "bun run rm -rf **/CHANGELOG.md",
+    "reset:changelog": "bun run rm -rf */**/CHANGELOG.md",
     "typecheck": "tsc",
     "update:workspace": "bun run ./scripts/update-workspace"
   },
