@@ -1,5 +1,15 @@
 # @orbitkit/auth
 
+## 0.4.2
+
+### Patch Changes
+
+- 6e07137: Fix: fixed issue with reset:changelog script
+- Updated dependencies [6e07137]
+  - @orbitkit/db@0.4.2
+  - @orbitkit/env@0.4.2
+  - @orbitkit/utils@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

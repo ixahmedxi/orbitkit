@@ -1,6 +1,6 @@
 {
   "name": "@orbitkit/env",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "description": "A package to define environment variables for apps in the workspace using t3 env",
   "license": "MIT",
