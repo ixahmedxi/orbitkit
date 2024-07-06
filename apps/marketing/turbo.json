@@ -3,10 +3,20 @@
   "extends": ["//"],
   "tasks": {
     "lint": {
-      "dependsOn": ["^build", "build"]
+      "dependsOn": ["^build", "sync"]
     },
     "build": {
       "outputs": [".astro/**", "dist/**"],
+      "passThroughEnv": [
+        "PUBLIC_POSTHOG_KEY",
+        "PUBLIC_POSTHOG_HOST",
+        "PUBLIC_SENTRY_DSN",
+        "SENTRY_ORG",
+        "SENTRY_PROJECT",
+        "SENTRY_AUTH_TOKEN"
+      ]
+    },
+    "test:e2e": {
       "passThroughEnv": [
         "PUBLIC_POSTHOG_KEY",
         "PUBLIC_POSTHOG_HOST",

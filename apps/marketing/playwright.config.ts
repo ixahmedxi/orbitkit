@@ -29,7 +29,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'bun dev --port 4200',
+    command: 'bun start --port 4200',
     url: 'http://localhost:4200',
     reuseExistingServer: !process.env['CI'],
   },

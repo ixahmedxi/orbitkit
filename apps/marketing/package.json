@@ -12,6 +12,7 @@
     "dev": "astro dev",
     "lint": "eslint .  --max-warnings 0",
     "start": "astro preview",
+    "sync": "astro sync",
     "test:e2e": "playwright test",
     "typecheck": "astro check"
   },
