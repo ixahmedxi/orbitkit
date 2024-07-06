@@ -33,7 +33,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@neondatabase/serverless": "^0.9.3",
+    "@neondatabase/serverless": "^0.9.4",
     "@orbitkit/env": "workspace:^",
     "drizzle-orm": "^0.31.2",
     "pg": "^8.12.0",
@@ -43,6 +43,6 @@
   "devDependencies": {
     "@orbitkit/eslint": "workspace:*",
     "@orbitkit/tsconfig": "workspace:*",
-    "drizzle-kit": "^0.22.7"
+    "drizzle-kit": "^0.22.8"
   }
 }
