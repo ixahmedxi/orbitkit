@@ -1,5 +1,15 @@
 # @orbitkit/marketing
 
+## 0.4.2
+
+### Patch Changes
+
+- 6e07137: Fix: fixed issue with reset:changelog script
+- Updated dependencies [6e07137]
+  - @orbitkit/assets@0.4.2
+  - @orbitkit/env@0.4.2
+  - @orbitkit/ui@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes

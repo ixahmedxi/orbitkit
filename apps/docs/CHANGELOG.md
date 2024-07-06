@@ -1,5 +1,11 @@
 # @orbitkit/docs
 
+## 0.4.2
+
+### Patch Changes
+
+- 6e07137: Fix: fixed issue with reset:changelog script
+
 ## 0.4.1
 
 ### Patch Changes
