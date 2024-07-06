@@ -1,4 +1,4 @@
-/// <reference types="../eslint.d.ts" />
+/// <reference types="../eslint-types.d.ts" />
 
 import type { FlatCompat } from '@eslint/eslintrc'
 import type { FlatConfig } from '@typescript-eslint/utils/ts-eslint'

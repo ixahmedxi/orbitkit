@@ -25,7 +25,7 @@
       "outputs": ["dist/**"]
     },
     "test:e2e": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build"],
       "outputs": ["playwright-report/**", "test-results/**"],
       "inputs": [
         "$TURBO_DEFAULT$",
@@ -99,6 +99,7 @@
     },
     "//#lint:md": {
       "inputs": ["**/*.md"]
-    }
+    },
+    "sync": { "cache": false }
   }
 }
