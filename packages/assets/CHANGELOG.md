@@ -1,5 +1,11 @@
 # @orbitkit/assets
 
+## 0.4.3
+
+### Patch Changes
+
+- 9ff85db: fix: flaky e2e test & ci
+
 ## 0.4.2
 
 ### Patch Changes
