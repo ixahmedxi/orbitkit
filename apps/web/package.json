@@ -22,9 +22,9 @@
     "@orbitkit/env": "workspace:^",
     "@orbitkit/ui": "workspace:^",
     "@orbitkit/utils": "workspace:^",
-    "@sentry/nextjs": "^8.17.0",
+    "@sentry/nextjs": "^8.18.0",
     "@t3-oss/env-nextjs": "^0.10.1",
-    "@tanstack/react-query": "^5.51.1",
+    "@tanstack/react-query": "^5.51.4",
     "@total-typescript/ts-reset": "^0.5.1",
     "@trpc/client": "next",
     "@trpc/react-query": "next",
@@ -34,7 +34,7 @@
     "geist": "^1.3.1",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
-    "posthog-js": "^1.147.0",
+    "posthog-js": "^1.148.0",
     "posthog-node": "^4.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -48,13 +48,13 @@
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tailwind": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
-    "@playwright/test": "^1.45.1",
+    "@playwright/test": "^1.45.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "dotenv": "^16.4.5",
     "jiti": "^1.21.6",
     "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.6"
   }
 }
