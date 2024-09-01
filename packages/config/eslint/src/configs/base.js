@@ -55,6 +55,9 @@ export const base = defineConfig(
       reportUnusedDisableDirectives: true,
     },
     languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
       globals: {
         ...globals.browser,
         ...globals.node,

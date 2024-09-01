@@ -33,12 +33,12 @@ declare module '@eslint/eslintrc' {
       resolvePluginsRelativeTo: string
     })
 
-    extends(extendsValue: string): Linter.FlatConfig & {
-      [Symbol.iterator]: () => IterableIterator<Linter.FlatConfig>
+    extends(extendsValue: string): Linter.Config & {
+      [Symbol.iterator]: () => IterableIterator<Linter.Config>
     }
 
-    config(config: Linter.Config): Linter.FlatConfig & {
-      [Symbol.iterator]: () => IterableIterator<Linter.FlatConfig>
+    config(config: Linter.Config): Linter.Config & {
+      [Symbol.iterator]: () => IterableIterator<Linter.Config>
     }
   }
 }
@@ -48,7 +48,7 @@ declare module '@eslint/compat' {
   import type { ConfigWithExtends } from 'typescript-eslint'
 
   export const fixupConfigRules: (
-    config: string | Linter.FlatConfig,
+    config: string | Linter.Config,
   ) => ConfigWithExtends[]
 }
 

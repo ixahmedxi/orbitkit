@@ -2,7 +2,11 @@
 
 import * as React from 'react'
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@radix-ui/react-icons'
 import { DayPicker } from 'react-day-picker'
 
 import { buttonVariants } from '@/primitives/button'
@@ -69,8 +73,21 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        IconLeft: () => <ChevronLeftIcon className='size-4' />,
-        IconRight: () => <ChevronRightIcon className='size-4' />,
+        Chevron(props) {
+          if (props.orientation === 'down') {
+            return <ChevronDownIcon className='size-4' />
+          }
+
+          if (props.orientation === 'up') {
+            return <ChevronRightIcon className='size-4' />
+          }
+
+          if (props.orientation === 'right') {
+            return <ChevronRightIcon className='size-4' />
+          }
+
+          return <ChevronLeftIcon className='size-4' />
+        },
       }}
       {...props}
     />

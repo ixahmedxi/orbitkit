@@ -29,7 +29,7 @@ const typographyStyles = cva([], {
 })
 
 type TypographyProps = VariantProps<typeof typographyStyles> & {
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   className?: string
 }
 
@@ -53,7 +53,7 @@ export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
       ? 'div'
       : variant === 'lead' || variant === 'muted'
         ? 'p'
-        : variant ?? 'p'
+        : (variant ?? 'p')
 
   return (
     <Component className={cn(typographyStyles({ variant }), className)}>

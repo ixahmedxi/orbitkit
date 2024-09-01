@@ -22,15 +22,15 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.3.4",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite": "^5.4.2",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
     "@orbitkit/eslint": "workspace:^",
     "@orbitkit/tsconfig": "workspace:^",
     "globby": "^14.0.2",
     "rollup-plugin-preserve-directives": "^0.4.0",
-    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-dts": "^4.1.0",
     "vite-plugin-external": "^4.3.1"
   }
 }

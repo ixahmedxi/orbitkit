@@ -43,7 +43,7 @@ const DefaultCalendarExample = (props: ComponentProps<typeof Calendar>) => {
 }
 
 const DatePickerExample = (props: ComponentProps<typeof Calendar>) => {
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date | undefined>(new Date())
 
   return (
     <Popover>
@@ -60,13 +60,7 @@ const DatePickerExample = (props: ComponentProps<typeof Calendar>) => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className='w-auto p-0' align='start'>
-        <Calendar
-          {...props}
-          mode='single'
-          selected={date}
-          onSelect={setDate}
-          initialFocus
-        />
+        <Calendar {...props} mode='single' selected={date} onSelect={setDate} />
       </PopoverContent>
     </Popover>
   )
@@ -108,7 +102,6 @@ const DateRangePickerExample = (props: ComponentProps<typeof Calendar>) => {
         <PopoverContent className='w-auto p-0' align='start'>
           <Calendar
             {...props}
-            initialFocus
             mode='range'
             defaultMonth={date?.from ?? new Date()}
             selected={date}

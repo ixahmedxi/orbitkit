@@ -18,7 +18,7 @@ To contribute to this project, follow these steps:
 ### Prerequisites
 
 ```shell
-bun: ">=1.1.12"
+bun: ">=1.1.26"
 ```
 
 ### Setting up your local repo
