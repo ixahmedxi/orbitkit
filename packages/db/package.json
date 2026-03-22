@@ -15,6 +15,10 @@
     "./schema": {
       "types": "./dist/schema/index.d.ts",
       "default": "./dist/schema/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.ts",
+      "default": "./dist/validation/index.js"
     }
   },
   "scripts": {
@@ -36,6 +40,7 @@
     "@neondatabase/serverless": "^0.9.4",
     "@orbitkit/env": "workspace:^",
     "drizzle-orm": "^0.33.0",
+    "drizzle-zod": "^0.5.1",
     "pg": "^8.12.0",
     "postgres": "^3.4.4",
     "zod": "^3.23.8"
